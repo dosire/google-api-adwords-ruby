@@ -1,3 +1,6 @@
+﻿0.7
+- added support for API v6
+- uncommented clientEmail in sample property file
 0.6
 - added support for API v5
 - added support for alternateUrl header, in order to work with sandbox

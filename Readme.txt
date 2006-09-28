@@ -12,6 +12,11 @@ adwords4r is a ruby gem.  See http://docs.rubygems.org/read/book/1
 Install it using the gem install command.
 > gem install --remote adwords4r
 
+Requirements are:
+    s.requirements << 'soap4r v 1.5.4 or greater'
+    s.requirements << 'http-access2 v 2.0.5 or greater'
+(see gem file for details)
+
 It's pretty easy to use.
 See http://docs.rubygems.org/read/chapter/3#page70 for how to set the rubygem environment.
 export RUBYOPT=rubygems

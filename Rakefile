@@ -20,7 +20,7 @@ end
 
 CLOBBER.include('pkg')
 
-CURRENT_VERSION = '0.6'
+CURRENT_VERSION = '0.7'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 SRC_RB = FileList['lib/**/*.rb']
@@ -175,6 +175,7 @@ Currently the following AdWords API versions are supported:\
 \
 * V4\
 * V5\
+* V6\
 }
 
     s.files = PKG_FILES.to_a

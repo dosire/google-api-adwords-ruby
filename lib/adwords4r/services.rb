@@ -4,7 +4,8 @@ module AdWords
         
         @@services = {
           4 => ['Creative', 'Keyword', 'Criterion', 'AdGroup', 'Campaign', 'TrafficEstimator', 'Report', 'Info', 'Account', 'KeywordTool'],
-          5 => ['Creative', 'Criterion', 'AdGroup', 'Campaign', 'TrafficEstimator', 'Report', 'Info', 'Account', 'KeywordTool']
+          5 => ['Creative', 'Criterion', 'AdGroup', 'Campaign', 'TrafficEstimator', 'Report', 'Info', 'Account', 'KeywordTool'],
+          6 => ['Creative', 'Criterion', 'AdGroup', 'Campaign', 'TrafficEstimator', 'Report', 'Info', 'Account', 'KeywordTool']
         }
         
         def Service.getVersions
@@ -34,4 +35,3 @@ module AdWords
     end
     
 end
-
