@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# Use adwords4r in parent dir
+$LOAD_PATH.unshift '../lib/'
+
 require 'adwords4r'
 
 def printkw(kw, gname)
@@ -7,8 +10,8 @@ def printkw(kw, gname)
 end
 
 begin
-    if (ARGV.length < 1) then
-        puts "usage keyword_tool_demo.rb url" 
+    if (ARGV.length < 1)
+        puts "Usage: #$0 <url>" 
         exit
     end
     adwords = AdWords::API.new

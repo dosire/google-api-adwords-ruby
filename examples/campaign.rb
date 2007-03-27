@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
+# Use adwords4r in parent dir
+$LOAD_PATH.unshift '../lib/'
+
 require 'adwords4r'
-require 'pp'
 
 SEP = "---"
 
@@ -20,14 +22,14 @@ end
 begin
     adwords = AdWords::API.new
     
-    res = adwords.getAllAdWordsCampaigns(123)
+    res = adwords.getAllAdWordsCampaigns(123).getAllAdWordsCampaignsReturn
     res.each {|c| puts dumpObj(c)}
-    #adwords.getAllAdWordsCampaigns(123).each {|c| puts dumpObj(c)}
+
     c = AdWords::Campaign.new
     c.dailyBudget = 10000
     c.status = 'Paused'
-    c.name = "Test P@ #{rand(10000)}"
-    c.endDay = SOAP::SOAPDate.new("2011-01-01+01:00")
+    c.name = "Test Campaign #{rand(10000)}"
+    c.endDay = SOAP::SOAPDate.new("2010-01-01")
     puts dumpObj(adwords.addCampaign(c).addCampaignReturn)
 
 rescue AdWords::Error::UnknownAPICall => e

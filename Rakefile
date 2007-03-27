@@ -20,7 +20,7 @@ end
 
 CLOBBER.include('pkg')
 
-CURRENT_VERSION = '0.7'
+CURRENT_VERSION = '0.8'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 SRC_RB = FileList['lib/**/*.rb']
@@ -173,9 +173,9 @@ else
 Adwords4r provides an easy to use way to access the AdWords API in ruby.\
 Currently the following AdWords API versions are supported:\
 \
-* V4\
-* V5\
-* V6\
+* V7\
+* V8\
+* V9\
 }
 
     s.files = PKG_FILES.to_a
@@ -192,12 +192,12 @@ Currently the following AdWords API versions are supported:\
 #      '--main' << 'README' <<
 #      '--line-numbers'
     
-    s.author = "Patrick Chanezon"
-    s.email = "patrick@chanezon.com"
-    s.homepage = "http://rubyforge.org/projects/adwords4r/"
+    s.author = "Patrick Chanezon, Ryan Leavengood"
+    s.email = "leavengood@gmail.com"
+    s.homepage = "http://rubyforge.org/projects/google4r/"
     s.requirements << 'soap4r v 1.5.4 or greater'
     s.requirements << 'http-access2 v 2.0.5 or greater'
-    s.rubyforge_project = 'adwords4r'
+    s.rubyforge_project = 'google4r'
   end
   
     Rake::GemPackageTask.new(spec) do |t|

@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
+# Use adwords4r in parent dir
+$LOAD_PATH.unshift '../lib/'
+
 require 'adwords4r'
-require 'pp'
 
 SEP = "---"
 
@@ -20,7 +22,8 @@ end
 begin
     adwords = AdWords::API.new
     
-    res = adwords.estimateKeywordList([AdWords::KeywordRequest.new(nil, 50000, false, 'flowers', 'Broad')])
+    res = adwords.estimateKeywordList(
+        [AdWords::KeywordRequest.new(nil, 50000, false, 'flowers', 'Broad')]).estimateKeywordListReturn
     res.each {|c| puts dumpObj(c)}
 
 rescue AdWords::Error::UnknownAPICall => e

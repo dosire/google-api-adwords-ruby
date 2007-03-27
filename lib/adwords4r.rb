@@ -2,6 +2,22 @@ require 'soap/soap'
 require 'adwords4r/credentials'
 require 'adwords4r/services'
 
+# Fix an issue with SOAPDate. Google complains of the dates have any timezone
+# info in them. There are probably better ways to fix this.
+module SOAP
+    class SOAPDate
+        def of2tz(offset)
+          diffmin = offset * 24 * 60
+          if diffmin.zero?
+            ''
+          else
+            ((diffmin < 0) ? '-' : '+') << format('%02d:%02d',
+            (diffmin.abs / 60.0).to_i, (diffmin.abs % 60.0).to_i)
+          end
+        end
+    end
+end
+
 module AdWords
 
     class API
@@ -92,11 +108,15 @@ module AdWords
         
         #workaround the bug: some services do not follow the naming convention
         def getServiceName(s)
-            if s == "TrafficEstimator" then "TrafficEstimatorInterface"
-            elsif s == "Report" then "ReportServiceInterface"
-            elsif s == "Info" then "InfoServiceInterface"
-            elsif s == "KeywordTool" then "KeywordToolInterface"
-            else (s + "Service")
+            if @version < 8
+              if s == "TrafficEstimator" then "TrafficEstimatorInterface"
+              elsif s == "Report" then "ReportServiceInterface"
+              elsif s == "Info" then "InfoServiceInterface"
+              elsif s == "KeywordTool" then "KeywordToolInterface"
+              else (s + "Service")
+              end
+            else
+              s + "Interface"
             end
         end
         
@@ -126,17 +146,31 @@ module AdWords
             attr_accessor :code
             attr_accessor :internal
             attr_accessor :message
+            attr_accessor :index
+            attr_accessor :field
             attr_accessor :trigger
-            attr_accessor :violations
+            attr_accessor :isExemptable
+            attr_accessor :textIndex
+            attr_accessor :textLength
+            attr_accessor :detail
             
             def initialize(fault)
                 @soap_faultcode = getOrNil(fault, 'faultcode')
                 @soap_faultstring = getOrNil(fault, 'faultstring')
-                @code = getOrNil(fault.detail, 'code')
-                @internal = getOrNil(fault.detail,'internal')
-                @message = getOrNil(fault.detail,'message')
-                @trigger = getOrNil(fault.detail,'trigger')
-                @violations = getOrNil(fault.detail,'violations')
+                if getOrNil(fault.detail, 'fault')
+                    @code = getOrNil(fault.detail.fault, 'code')
+                    @internal = getOrNil(fault.detail.fault,'internal')
+                    @message = getOrNil(fault.detail.fault,'message')
+                    if getOrNil(fault.detail.fault, 'errors')
+                        @index = getOrNil(fault.detail.fault.errors,'index')
+                        @field = getOrNil(fault.detail.fault.errors,'field');
+                        @trigger = getOrNil(fault.detail.fault.errors,'trigger')
+                        @isExemptable = getOrNil(fault.detail.fault.errors,'isExemptable');
+                        @textIndex = getOrNil(fault.detail.fault.errors,'textIndex');
+                        @textLength = getOrNil(fault.detail.fault.errors,'textLength');
+                        @detail = getOrNil(fault.detail.fault.errors,'detail');
+                    end
+                end
             end
             
             private
