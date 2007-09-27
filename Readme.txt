@@ -13,7 +13,7 @@ Install it using the gem install command.
 > gem install --remote adwords4r
 
 Requirements are:
-    s.requirements << 'soap4r v 1.5.4 or greater'
+    s.requirements << 'soap4r v 1.5.6 or greater'
     s.requirements << 'http-access2 v 2.0.5 or greater'
 (see gem file for details)
 

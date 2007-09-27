@@ -1,4 +1,10 @@
-﻿0.8
+﻿1.0
+- added support for API v10
+- removed support for APIs v6, v7 and v8
+- used soap4r v1.5.6 to generate the API files from the WSDL
+- added soap4r v1.5.6 and http-access2 v2.0.5 as gem dependencies
+- cleaned up some of the kludges that were needed for older soap4r libraries
+0.8
 - Ryan Leavengood takes over as maintainer of this project
 - added support for APIs v7, v8 and v9
 - removed support for v4 and v5
