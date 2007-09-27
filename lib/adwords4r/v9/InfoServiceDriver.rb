@@ -1,66 +1,67 @@
-module AdWords
 require 'adwords4r/v9/InfoService'
+require 'adwords4r/v9/InfoServiceMappingRegistry'
 
+module AdWords
+module InfoService
 require 'soap/rpc/driver'
 
 class InfoInterface < ::SOAP::RPC::Driver
   DefaultEndpointUrl = "https://adwords.google.com/api/adwords/v9/InfoService"
-  MappingRegistry = ::SOAP::Mapping::Registry.new
 
   Methods = [
     [ "",
       "getFreeUsageQuotaThisMonth",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getFreeUsageQuotaThisMonth"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getFreeUsageQuotaThisMonthResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getFreeUsageQuotaThisMonth"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getFreeUsageQuotaThisMonthResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ],
     [ "",
       "getMethodCost",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getMethodCost"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getMethodCostResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getMethodCost"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getMethodCostResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ],
     [ "",
       "getOperationCount",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationCount"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationCountResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationCount"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationCountResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ],
     [ "",
       "getOperationsQuotaThisMonth",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationsQuotaThisMonth"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationsQuotaThisMonthResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationsQuotaThisMonth"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getOperationsQuotaThisMonthResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ],
     [ "",
       "getUnitCount",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCount"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCount"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ],
     [ "",
       "getUnitCountForClients",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForClients"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForClientsResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForClients"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForClientsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ],
     [ "",
       "getUnitCountForMethod",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForMethod"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForMethodResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForMethod"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUnitCountForMethodResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ],
     [ "",
       "getUsageQuotaThisMonth",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUsageQuotaThisMonth"], true],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUsageQuotaThisMonthResponse"], true] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUsageQuotaThisMonth"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v9", "getUsageQuotaThisMonthResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal }
     ]
@@ -69,7 +70,8 @@ class InfoInterface < ::SOAP::RPC::Driver
   def initialize(endpoint_url = nil)
     endpoint_url ||= DefaultEndpointUrl
     super(endpoint_url, nil)
-    self.mapping_registry = MappingRegistry
+    self.mapping_registry = DefaultMappingRegistry::EncodedRegistry
+    self.literal_mapping_registry = DefaultMappingRegistry::LiteralRegistry
     init_methods
   end
 
@@ -94,4 +96,6 @@ private
   end
 end
 
+
+end
 end

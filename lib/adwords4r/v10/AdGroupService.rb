@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module AdGroupService
 
 
-# {https://adwords.google.com/api/adwords/v9}AdGroup
+# {https://adwords.google.com/api/adwords/v10}AdGroup
 class AdGroup
   attr_accessor :campaignId
   attr_accessor :id
@@ -26,7 +26,7 @@ class AdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -49,7 +49,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -66,7 +66,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}StatsRecord
+# {https://adwords.google.com/api/adwords/v10}StatsRecord
 class StatsRecord
   attr_accessor :averagePosition
   attr_accessor :clicks
@@ -87,14 +87,14 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdGroupStatus
+# {https://adwords.google.com/api/adwords/v10}AdGroupStatus
 class AdGroupStatus < ::String
   Deleted = AdGroupStatus.new("Deleted")
   Enabled = AdGroupStatus.new("Enabled")
   Paused = AdGroupStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v9}addAdGroup
+# {https://adwords.google.com/api/adwords/v10}addAdGroup
 class AddAdGroup
   attr_accessor :campaignID
   attr_accessor :newData
@@ -105,7 +105,7 @@ class AddAdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}addAdGroupList
+# {https://adwords.google.com/api/adwords/v10}addAdGroupList
 class AddAdGroupList
   attr_accessor :campaignID
   attr_accessor :newData
@@ -116,11 +116,11 @@ class AddAdGroupList
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}addAdGroupListResponse
+# {https://adwords.google.com/api/adwords/v10}addAdGroupListResponse
 class AddAdGroupListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}addAdGroupResponse
+# {https://adwords.google.com/api/adwords/v10}addAdGroupResponse
 class AddAdGroupResponse
   attr_accessor :addAdGroupReturn
 
@@ -129,7 +129,7 @@ class AddAdGroupResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdGroup
+# {https://adwords.google.com/api/adwords/v10}getAdGroup
 class GetAdGroup
   attr_accessor :adGroupId
 
@@ -138,15 +138,15 @@ class GetAdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdGroupList
+# {https://adwords.google.com/api/adwords/v10}getAdGroupList
 class GetAdGroupList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdGroupListResponse
+# {https://adwords.google.com/api/adwords/v10}getAdGroupListResponse
 class GetAdGroupListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdGroupResponse
+# {https://adwords.google.com/api/adwords/v10}getAdGroupResponse
 class GetAdGroupResponse
   attr_accessor :getAdGroupReturn
 
@@ -155,7 +155,7 @@ class GetAdGroupResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdGroupStats
+# {https://adwords.google.com/api/adwords/v10}getAdGroupStats
 class GetAdGroupStats
   attr_accessor :campaignId
   attr_accessor :adGroupIds
@@ -170,11 +170,11 @@ class GetAdGroupStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdGroupStatsResponse
+# {https://adwords.google.com/api/adwords/v10}getAdGroupStatsResponse
 class GetAdGroupStatsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllAdGroups
+# {https://adwords.google.com/api/adwords/v10}getAllAdGroups
 class GetAllAdGroups
   attr_accessor :campaignID
 
@@ -183,11 +183,11 @@ class GetAllAdGroups
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllAdGroupsResponse
+# {https://adwords.google.com/api/adwords/v10}getAllAdGroupsResponse
 class GetAllAdGroupsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAdGroup
+# {https://adwords.google.com/api/adwords/v10}updateAdGroup
 class UpdateAdGroup
   attr_accessor :changedData
 
@@ -196,17 +196,17 @@ class UpdateAdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAdGroupList
+# {https://adwords.google.com/api/adwords/v10}updateAdGroupList
 class UpdateAdGroupList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAdGroupListResponse
+# {https://adwords.google.com/api/adwords/v10}updateAdGroupListResponse
 class UpdateAdGroupListResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAdGroupResponse
+# {https://adwords.google.com/api/adwords/v10}updateAdGroupResponse
 class UpdateAdGroupResponse
   def initialize
   end

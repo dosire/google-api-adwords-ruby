@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module CampaignService
 
 
-# {https://adwords.google.com/api/adwords/v9}AdSchedule
+# {https://adwords.google.com/api/adwords/v10}AdSchedule
 class AdSchedule
   attr_accessor :intervals
   attr_accessor :status
@@ -14,7 +14,7 @@ class AdSchedule
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -37,7 +37,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -54,7 +54,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}BudgetOptimizerSettings
+# {https://adwords.google.com/api/adwords/v10}BudgetOptimizerSettings
 class BudgetOptimizerSettings
   attr_accessor :bidCeiling
   attr_accessor :enabled
@@ -67,7 +67,7 @@ class BudgetOptimizerSettings
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Campaign
+# {https://adwords.google.com/api/adwords/v10}Campaign
 class Campaign
   attr_accessor :budgetOptimizerSettings
   attr_accessor :dailyBudget
@@ -98,30 +98,67 @@ class Campaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}GeoTarget
-class GeoTarget
-  attr_accessor :cities
-  attr_accessor :countries
-  attr_accessor :metros
-  attr_accessor :regions
+# {https://adwords.google.com/api/adwords/v10}Circle
+class Circle
+  attr_accessor :latitudeMicroDegrees
+  attr_accessor :longitudeMicroDegrees
+  attr_accessor :radiusMeters
 
-  def initialize(cities = [], countries = [], metros = [], regions = [])
-    @cities = cities
-    @countries = countries
-    @metros = metros
-    @regions = regions
+  def initialize(latitudeMicroDegrees = nil, longitudeMicroDegrees = nil, radiusMeters = nil)
+    @latitudeMicroDegrees = latitudeMicroDegrees
+    @longitudeMicroDegrees = longitudeMicroDegrees
+    @radiusMeters = radiusMeters
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}LanguageTarget
+# {https://adwords.google.com/api/adwords/v10}CityTargets
+class CityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}CountryTargets
+class CountryTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}GeoTarget
+class GeoTarget
+  attr_accessor :cityTargets
+  attr_accessor :countryTargets
+  attr_accessor :metroTargets
+  attr_accessor :proximityTargets
+  attr_accessor :regionTargets
+  attr_accessor :targetAll
+
+  def initialize(cityTargets = nil, countryTargets = nil, metroTargets = nil, proximityTargets = nil, regionTargets = nil, targetAll = nil)
+    @cityTargets = cityTargets
+    @countryTargets = countryTargets
+    @metroTargets = metroTargets
+    @proximityTargets = proximityTargets
+    @regionTargets = regionTargets
+    @targetAll = targetAll
+  end
+end
+
+# {https://adwords.google.com/api/adwords/v10}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}NetworkTarget
+# {https://adwords.google.com/api/adwords/v10}MetroTargets
+class MetroTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}SchedulingInterval
+# {https://adwords.google.com/api/adwords/v10}ProximityTargets
+class ProximityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}RegionTargets
+class RegionTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}SchedulingInterval
 class SchedulingInterval
   attr_accessor :day
   attr_accessor :endHour
@@ -140,7 +177,7 @@ class SchedulingInterval
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}StatsRecord
+# {https://adwords.google.com/api/adwords/v10}StatsRecord
 class StatsRecord
   attr_accessor :averagePosition
   attr_accessor :clicks
@@ -161,13 +198,13 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdScheduleStatus
+# {https://adwords.google.com/api/adwords/v10}AdScheduleStatus
 class AdScheduleStatus < ::String
   Disabled = AdScheduleStatus.new("Disabled")
   Enabled = AdScheduleStatus.new("Enabled")
 end
 
-# {https://adwords.google.com/api/adwords/v9}CampaignStatus
+# {https://adwords.google.com/api/adwords/v10}CampaignStatus
 class CampaignStatus < ::String
   Active = CampaignStatus.new("Active")
   Deleted = CampaignStatus.new("Deleted")
@@ -177,7 +214,7 @@ class CampaignStatus < ::String
   Suspended = CampaignStatus.new("Suspended")
 end
 
-# {https://adwords.google.com/api/adwords/v9}DayOfWeek
+# {https://adwords.google.com/api/adwords/v10}DayOfWeek
 class DayOfWeek < ::String
   Friday = DayOfWeek.new("Friday")
   Monday = DayOfWeek.new("Monday")
@@ -188,14 +225,14 @@ class DayOfWeek < ::String
   Wednesday = DayOfWeek.new("Wednesday")
 end
 
-# {https://adwords.google.com/api/adwords/v9}NetworkType
+# {https://adwords.google.com/api/adwords/v10}NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v9}addCampaign
+# {https://adwords.google.com/api/adwords/v10}addCampaign
 class AddCampaign
   attr_accessor :campaign
 
@@ -204,15 +241,15 @@ class AddCampaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}addCampaignList
+# {https://adwords.google.com/api/adwords/v10}addCampaignList
 class AddCampaignList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}addCampaignListResponse
+# {https://adwords.google.com/api/adwords/v10}addCampaignListResponse
 class AddCampaignListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}addCampaignResponse
+# {https://adwords.google.com/api/adwords/v10}addCampaignResponse
 class AddCampaignResponse
   attr_accessor :addCampaignReturn
 
@@ -221,7 +258,7 @@ class AddCampaignResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllAdWordsCampaigns
+# {https://adwords.google.com/api/adwords/v10}getAllAdWordsCampaigns
 class GetAllAdWordsCampaigns
   attr_accessor :dummy
 
@@ -230,11 +267,11 @@ class GetAllAdWordsCampaigns
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllAdWordsCampaignsResponse
+# {https://adwords.google.com/api/adwords/v10}getAllAdWordsCampaignsResponse
 class GetAllAdWordsCampaignsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaign
+# {https://adwords.google.com/api/adwords/v10}getCampaign
 class GetCampaign
   attr_accessor :id
 
@@ -243,15 +280,15 @@ class GetCampaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaignList
+# {https://adwords.google.com/api/adwords/v10}getCampaignList
 class GetCampaignList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaignListResponse
+# {https://adwords.google.com/api/adwords/v10}getCampaignListResponse
 class GetCampaignListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaignResponse
+# {https://adwords.google.com/api/adwords/v10}getCampaignResponse
 class GetCampaignResponse
   attr_accessor :getCampaignReturn
 
@@ -260,7 +297,7 @@ class GetCampaignResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaignStats
+# {https://adwords.google.com/api/adwords/v10}getCampaignStats
 class GetCampaignStats
   attr_accessor :campaignIds
   attr_accessor :startDay
@@ -273,11 +310,11 @@ class GetCampaignStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaignStatsResponse
+# {https://adwords.google.com/api/adwords/v10}getCampaignStatsResponse
 class GetCampaignStatsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getOptimizeAdServing
+# {https://adwords.google.com/api/adwords/v10}getOptimizeAdServing
 class GetOptimizeAdServing
   attr_accessor :campaignId
 
@@ -286,7 +323,7 @@ class GetOptimizeAdServing
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getOptimizeAdServingResponse
+# {https://adwords.google.com/api/adwords/v10}getOptimizeAdServingResponse
 class GetOptimizeAdServingResponse
   attr_accessor :getOptimizeAdServingReturn
 
@@ -295,7 +332,7 @@ class GetOptimizeAdServingResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}setOptimizeAdServing
+# {https://adwords.google.com/api/adwords/v10}setOptimizeAdServing
 class SetOptimizeAdServing
   attr_accessor :campaignId
   attr_accessor :enable
@@ -306,13 +343,13 @@ class SetOptimizeAdServing
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}setOptimizeAdServingResponse
+# {https://adwords.google.com/api/adwords/v10}setOptimizeAdServingResponse
 class SetOptimizeAdServingResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateCampaign
+# {https://adwords.google.com/api/adwords/v10}updateCampaign
 class UpdateCampaign
   attr_accessor :campaign
 
@@ -321,17 +358,17 @@ class UpdateCampaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateCampaignList
+# {https://adwords.google.com/api/adwords/v10}updateCampaignList
 class UpdateCampaignList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateCampaignListResponse
+# {https://adwords.google.com/api/adwords/v10}updateCampaignListResponse
 class UpdateCampaignListResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateCampaignResponse
+# {https://adwords.google.com/api/adwords/v10}updateCampaignResponse
 class UpdateCampaignResponse
   def initialize
   end

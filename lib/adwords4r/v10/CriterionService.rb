@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module CriterionService
 
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -26,7 +26,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -43,7 +43,28 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Criterion
+# {https://adwords.google.com/api/adwords/v10}Circle
+class Circle
+  attr_accessor :latitudeMicroDegrees
+  attr_accessor :longitudeMicroDegrees
+  attr_accessor :radiusMeters
+
+  def initialize(latitudeMicroDegrees = nil, longitudeMicroDegrees = nil, radiusMeters = nil)
+    @latitudeMicroDegrees = latitudeMicroDegrees
+    @longitudeMicroDegrees = longitudeMicroDegrees
+    @radiusMeters = radiusMeters
+  end
+end
+
+# {https://adwords.google.com/api/adwords/v10}CityTargets
+class CityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}CountryTargets
+class CountryTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}Criterion
 # abstract
 class Criterion
   attr_accessor :adGroupId
@@ -69,7 +90,7 @@ class Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Keyword
+# {https://adwords.google.com/api/adwords/v10}Keyword
 class Keyword < Criterion
   attr_accessor :adGroupId
   attr_accessor :criterionType
@@ -104,7 +125,7 @@ class Keyword < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Website
+# {https://adwords.google.com/api/adwords/v10}Website
 class Website < Criterion
   attr_accessor :adGroupId
   attr_accessor :criterionType
@@ -133,26 +154,42 @@ class Website < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}GeoTarget
+# {https://adwords.google.com/api/adwords/v10}GeoTarget
 class GeoTarget
-  attr_accessor :cities
-  attr_accessor :countries
-  attr_accessor :metros
-  attr_accessor :regions
+  attr_accessor :cityTargets
+  attr_accessor :countryTargets
+  attr_accessor :metroTargets
+  attr_accessor :proximityTargets
+  attr_accessor :regionTargets
+  attr_accessor :targetAll
 
-  def initialize(cities = [], countries = [], metros = [], regions = [])
-    @cities = cities
-    @countries = countries
-    @metros = metros
-    @regions = regions
+  def initialize(cityTargets = nil, countryTargets = nil, metroTargets = nil, proximityTargets = nil, regionTargets = nil, targetAll = nil)
+    @cityTargets = cityTargets
+    @countryTargets = countryTargets
+    @metroTargets = metroTargets
+    @proximityTargets = proximityTargets
+    @regionTargets = regionTargets
+    @targetAll = targetAll
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}LanguageTarget
+# {https://adwords.google.com/api/adwords/v10}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}StatsRecord
+# {https://adwords.google.com/api/adwords/v10}MetroTargets
+class MetroTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}ProximityTargets
+class ProximityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}RegionTargets
+class RegionTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}StatsRecord
 class StatsRecord
   attr_accessor :averagePosition
   attr_accessor :clicks
@@ -173,7 +210,7 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}CriterionStatus
+# {https://adwords.google.com/api/adwords/v10}CriterionStatus
 class CriterionStatus < ::String
   Active = CriterionStatus.new("Active")
   Deleted = CriterionStatus.new("Deleted")
@@ -181,28 +218,28 @@ class CriterionStatus < ::String
   InActive = CriterionStatus.new("InActive")
 end
 
-# {https://adwords.google.com/api/adwords/v9}CriterionType
+# {https://adwords.google.com/api/adwords/v10}CriterionType
 class CriterionType < ::String
   Keyword = CriterionType.new("Keyword")
   Website = CriterionType.new("Website")
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordType
+# {https://adwords.google.com/api/adwords/v10}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v9}addCriteria
+# {https://adwords.google.com/api/adwords/v10}addCriteria
 class AddCriteria < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}addCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}addCriteriaResponse
 class AddCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}checkCriteria
+# {https://adwords.google.com/api/adwords/v10}checkCriteria
 class CheckCriteria
   attr_accessor :criteria
   attr_accessor :languageTarget
@@ -215,11 +252,11 @@ class CheckCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}checkCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}checkCriteriaResponse
 class CheckCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllCriteria
+# {https://adwords.google.com/api/adwords/v10}getAllCriteria
 class GetAllCriteria
   attr_accessor :adGroupId
 
@@ -228,11 +265,11 @@ class GetAllCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}getAllCriteriaResponse
 class GetAllCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaignNegativeCriteria
+# {https://adwords.google.com/api/adwords/v10}getCampaignNegativeCriteria
 class GetCampaignNegativeCriteria
   attr_accessor :campaignId
 
@@ -241,11 +278,11 @@ class GetCampaignNegativeCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCampaignNegativeCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}getCampaignNegativeCriteriaResponse
 class GetCampaignNegativeCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCriteria
+# {https://adwords.google.com/api/adwords/v10}getCriteria
 class GetCriteria
   attr_accessor :adGroupId
   attr_accessor :criterionIds
@@ -256,11 +293,11 @@ class GetCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}getCriteriaResponse
 class GetCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCriterionStats
+# {https://adwords.google.com/api/adwords/v10}getCriterionStats
 class GetCriterionStats
   attr_accessor :adGroupId
   attr_accessor :criterionIds
@@ -275,11 +312,11 @@ class GetCriterionStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getCriterionStatsResponse
+# {https://adwords.google.com/api/adwords/v10}getCriterionStatsResponse
 class GetCriterionStatsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}removeCriteria
+# {https://adwords.google.com/api/adwords/v10}removeCriteria
 class RemoveCriteria
   attr_accessor :adGroupId
   attr_accessor :criterionIds
@@ -290,13 +327,13 @@ class RemoveCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}removeCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}removeCriteriaResponse
 class RemoveCriteriaResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}setCampaignNegativeCriteria
+# {https://adwords.google.com/api/adwords/v10}setCampaignNegativeCriteria
 class SetCampaignNegativeCriteria
   attr_accessor :campaignId
   attr_accessor :criteria
@@ -307,17 +344,17 @@ class SetCampaignNegativeCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}setCampaignNegativeCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}setCampaignNegativeCriteriaResponse
 class SetCampaignNegativeCriteriaResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateCriteria
+# {https://adwords.google.com/api/adwords/v10}updateCriteria
 class UpdateCriteria < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateCriteriaResponse
+# {https://adwords.google.com/api/adwords/v10}updateCriteriaResponse
 class UpdateCriteriaResponse
   def initialize
   end

@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module AdService
 
 
-# {https://adwords.google.com/api/adwords/v9}Ad
+# {https://adwords.google.com/api/adwords/v10}Ad
 # abstract
 class Ad
   attr_accessor :adGroupId
@@ -27,7 +27,7 @@ class Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}CommerceAd
+# {https://adwords.google.com/api/adwords/v10}CommerceAd
 class CommerceAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -64,7 +64,7 @@ class CommerceAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ImageAd
+# {https://adwords.google.com/api/adwords/v10}ImageAd
 class ImageAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -89,7 +89,7 @@ class ImageAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}LocalBusinessAd
+# {https://adwords.google.com/api/adwords/v10}LocalBusinessAd
 class LocalBusinessAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -142,7 +142,7 @@ class LocalBusinessAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}MobileAd
+# {https://adwords.google.com/api/adwords/v10}MobileAd
 class MobileAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -179,7 +179,7 @@ class MobileAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}TextAd
+# {https://adwords.google.com/api/adwords/v10}TextAd
 class TextAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -208,7 +208,7 @@ class TextAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}VideoAd
+# {https://adwords.google.com/api/adwords/v10}VideoAd
 class VideoAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -237,7 +237,7 @@ class VideoAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -260,7 +260,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -277,7 +277,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Business
+# {https://adwords.google.com/api/adwords/v10}Business
 class Business
   attr_accessor :address
   attr_accessor :city
@@ -306,22 +306,47 @@ class Business
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}GeoTarget
-class GeoTarget
-  attr_accessor :cities
-  attr_accessor :countries
-  attr_accessor :metros
-  attr_accessor :regions
+# {https://adwords.google.com/api/adwords/v10}Circle
+class Circle
+  attr_accessor :latitudeMicroDegrees
+  attr_accessor :longitudeMicroDegrees
+  attr_accessor :radiusMeters
 
-  def initialize(cities = [], countries = [], metros = [], regions = [])
-    @cities = cities
-    @countries = countries
-    @metros = metros
-    @regions = regions
+  def initialize(latitudeMicroDegrees = nil, longitudeMicroDegrees = nil, radiusMeters = nil)
+    @latitudeMicroDegrees = latitudeMicroDegrees
+    @longitudeMicroDegrees = longitudeMicroDegrees
+    @radiusMeters = radiusMeters
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Image
+# {https://adwords.google.com/api/adwords/v10}CityTargets
+class CityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}CountryTargets
+class CountryTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}GeoTarget
+class GeoTarget
+  attr_accessor :cityTargets
+  attr_accessor :countryTargets
+  attr_accessor :metroTargets
+  attr_accessor :proximityTargets
+  attr_accessor :regionTargets
+  attr_accessor :targetAll
+
+  def initialize(cityTargets = nil, countryTargets = nil, metroTargets = nil, proximityTargets = nil, regionTargets = nil, targetAll = nil)
+    @cityTargets = cityTargets
+    @countryTargets = countryTargets
+    @metroTargets = metroTargets
+    @proximityTargets = proximityTargets
+    @regionTargets = regionTargets
+    @targetAll = targetAll
+  end
+end
+
+# {https://adwords.google.com/api/adwords/v10}Image
 class Image
   attr_accessor :data
   attr_accessor :height
@@ -344,11 +369,23 @@ class Image
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}LanguageTarget
+# {https://adwords.google.com/api/adwords/v10}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}StatsRecord
+# {https://adwords.google.com/api/adwords/v10}MetroTargets
+class MetroTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}ProximityTargets
+class ProximityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}RegionTargets
+class RegionTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}StatsRecord
 class StatsRecord
   attr_accessor :averagePosition
   attr_accessor :clicks
@@ -369,7 +406,7 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Video
+# {https://adwords.google.com/api/adwords/v10}Video
 class Video
   attr_accessor :duration
   attr_accessor :filename
@@ -386,14 +423,14 @@ class Video
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdStatus
+# {https://adwords.google.com/api/adwords/v10}AdStatus
 class AdStatus < ::String
   Disabled = AdStatus.new("Disabled")
   Enabled = AdStatus.new("Enabled")
   Paused = AdStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdType
+# {https://adwords.google.com/api/adwords/v10}AdType
 class AdType < ::String
   CommerceAd = AdType.new("CommerceAd")
   ImageAd = AdType.new("ImageAd")
@@ -403,14 +440,14 @@ class AdType < ::String
   VideoAd = AdType.new("VideoAd")
 end
 
-# {https://adwords.google.com/api/adwords/v9}ImageType
+# {https://adwords.google.com/api/adwords/v10}ImageType
 class ImageType < ::String
   DynamicImage = ImageType.new("dynamicImage")
   Flash = ImageType.new("flash")
   Image = ImageType.new("image")
 end
 
-# {https://adwords.google.com/api/adwords/v9}StockIcon
+# {https://adwords.google.com/api/adwords/v10}StockIcon
 class StockIcon < ::String
   Standard_1 = StockIcon.new("Standard_1")
   Standard_10 = StockIcon.new("Standard_10")
@@ -431,15 +468,15 @@ class StockIcon < ::String
   Standard_9 = StockIcon.new("Standard_9")
 end
 
-# {https://adwords.google.com/api/adwords/v9}addAds
+# {https://adwords.google.com/api/adwords/v10}addAds
 class AddAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}addAdsResponse
+# {https://adwords.google.com/api/adwords/v10}addAdsResponse
 class AddAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}checkAds
+# {https://adwords.google.com/api/adwords/v10}checkAds
 class CheckAds
   attr_accessor :ads
   attr_accessor :languageTarget
@@ -452,11 +489,11 @@ class CheckAds
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}checkAdsResponse
+# {https://adwords.google.com/api/adwords/v10}checkAdsResponse
 class CheckAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}findBusinesses
+# {https://adwords.google.com/api/adwords/v10}findBusinesses
 class FindBusinesses
   attr_accessor :name
   attr_accessor :address
@@ -469,19 +506,19 @@ class FindBusinesses
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}findBusinessesResponse
+# {https://adwords.google.com/api/adwords/v10}findBusinessesResponse
 class FindBusinessesResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getActiveAds
+# {https://adwords.google.com/api/adwords/v10}getActiveAds
 class GetActiveAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getActiveAdsResponse
+# {https://adwords.google.com/api/adwords/v10}getActiveAdsResponse
 class GetActiveAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAd
+# {https://adwords.google.com/api/adwords/v10}getAd
 class GetAd
   attr_accessor :adGroupId
   attr_accessor :adId
@@ -492,7 +529,7 @@ class GetAd
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdResponse
+# {https://adwords.google.com/api/adwords/v10}getAdResponse
 class GetAdResponse
   attr_accessor :getAdReturn
 
@@ -501,7 +538,7 @@ class GetAdResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdStats
+# {https://adwords.google.com/api/adwords/v10}getAdStats
 class GetAdStats
   attr_accessor :adGroupId
   attr_accessor :adIds
@@ -516,43 +553,43 @@ class GetAdStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAdStatsResponse
+# {https://adwords.google.com/api/adwords/v10}getAdStatsResponse
 class GetAdStatsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllAds
+# {https://adwords.google.com/api/adwords/v10}getAllAds
 class GetAllAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllAdsResponse
+# {https://adwords.google.com/api/adwords/v10}getAllAdsResponse
 class GetAllAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getMyBusinesses
+# {https://adwords.google.com/api/adwords/v10}getMyBusinesses
 class GetMyBusinesses
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getMyBusinessesResponse
+# {https://adwords.google.com/api/adwords/v10}getMyBusinessesResponse
 class GetMyBusinessesResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getMyVideos
+# {https://adwords.google.com/api/adwords/v10}getMyVideos
 class GetMyVideos
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getMyVideosResponse
+# {https://adwords.google.com/api/adwords/v10}getMyVideosResponse
 class GetMyVideosResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAds
+# {https://adwords.google.com/api/adwords/v10}updateAds
 class UpdateAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAdsResponse
+# {https://adwords.google.com/api/adwords/v10}updateAdsResponse
 class UpdateAdsResponse
   def initialize
   end

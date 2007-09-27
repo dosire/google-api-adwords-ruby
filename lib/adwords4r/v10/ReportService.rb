@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module ReportService
 
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -26,7 +26,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -43,7 +43,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ReportJob
+# {https://adwords.google.com/api/adwords/v10}ReportJob
 # abstract
 class ReportJob
   attr_accessor :aggregationType
@@ -67,7 +67,7 @@ class ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AccountReportJob
+# {https://adwords.google.com/api/adwords/v10}AccountReportJob
 class AccountReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -92,7 +92,7 @@ class AccountReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdGroupReportJob
+# {https://adwords.google.com/api/adwords/v10}AdGroupReportJob
 class AdGroupReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -121,7 +121,7 @@ class AdGroupReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdImageReportJob
+# {https://adwords.google.com/api/adwords/v10}AdImageReportJob
 class AdImageReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -146,7 +146,7 @@ class AdImageReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdTextReportJob
+# {https://adwords.google.com/api/adwords/v10}AdTextReportJob
 class AdTextReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -173,7 +173,7 @@ class AdTextReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}CampaignReportJob
+# {https://adwords.google.com/api/adwords/v10}CampaignReportJob
 class CampaignReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -200,7 +200,7 @@ class CampaignReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}CustomReportJob
+# {https://adwords.google.com/api/adwords/v10}CustomReportJob
 class CustomReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -243,7 +243,7 @@ class CustomReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordReportJob
+# {https://adwords.google.com/api/adwords/v10}KeywordReportJob
 class KeywordReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -276,7 +276,7 @@ class KeywordReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}UrlReportJob
+# {https://adwords.google.com/api/adwords/v10}UrlReportJob
 class UrlReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -303,20 +303,20 @@ class UrlReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdGroupStatus
+# {https://adwords.google.com/api/adwords/v10}AdGroupStatus
 class AdGroupStatus < ::String
   Deleted = AdGroupStatus.new("Deleted")
   Enabled = AdGroupStatus.new("Enabled")
   Paused = AdGroupStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdWordsType
+# {https://adwords.google.com/api/adwords/v10}AdWordsType
 class AdWordsType < ::String
   ContentOnly = AdWordsType.new("ContentOnly")
   SearchOnly = AdWordsType.new("SearchOnly")
 end
 
-# {https://adwords.google.com/api/adwords/v9}AggregationType
+# {https://adwords.google.com/api/adwords/v10}AggregationType
 class AggregationType < ::String
   Daily = AggregationType.new("Daily")
   HourlyByDate = AggregationType.new("HourlyByDate")
@@ -328,7 +328,7 @@ class AggregationType < ::String
   Yearly = AggregationType.new("Yearly")
 end
 
-# {https://adwords.google.com/api/adwords/v9}CampaignStatus
+# {https://adwords.google.com/api/adwords/v10}CampaignStatus
 class CampaignStatus < ::String
   Active = CampaignStatus.new("Active")
   Deleted = CampaignStatus.new("Deleted")
@@ -338,7 +338,7 @@ class CampaignStatus < ::String
   Suspended = CampaignStatus.new("Suspended")
 end
 
-# {https://adwords.google.com/api/adwords/v9}CustomReportOption
+# {https://adwords.google.com/api/adwords/v10}CustomReportOption
 class CustomReportOption < ::String
   AccountName = CustomReportOption.new("AccountName")
   AdGroup = CustomReportOption.new("AdGroup")
@@ -407,7 +407,7 @@ class CustomReportOption < ::String
   Website = CustomReportOption.new("Website")
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordStatus
+# {https://adwords.google.com/api/adwords/v10}KeywordStatus
 class KeywordStatus < ::String
   Active = KeywordStatus.new("Active")
   Deleted = KeywordStatus.new("Deleted")
@@ -416,14 +416,14 @@ class KeywordStatus < ::String
   Paused = KeywordStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordType
+# {https://adwords.google.com/api/adwords/v10}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v9}ReportJobStatus
+# {https://adwords.google.com/api/adwords/v10}ReportJobStatus
 class ReportJobStatus < ::String
   Completed = ReportJobStatus.new("Completed")
   Failed = ReportJobStatus.new("Failed")
@@ -431,7 +431,7 @@ class ReportJobStatus < ::String
   Pending = ReportJobStatus.new("Pending")
 end
 
-# {https://adwords.google.com/api/adwords/v9}deleteReport
+# {https://adwords.google.com/api/adwords/v10}deleteReport
 class DeleteReport
   attr_accessor :reportJobId
 
@@ -440,23 +440,23 @@ class DeleteReport
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}deleteReportResponse
+# {https://adwords.google.com/api/adwords/v10}deleteReportResponse
 class DeleteReportResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllJobs
+# {https://adwords.google.com/api/adwords/v10}getAllJobs
 class GetAllJobs
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAllJobsResponse
+# {https://adwords.google.com/api/adwords/v10}getAllJobsResponse
 class GetAllJobsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getGzipReportDownloadUrl
+# {https://adwords.google.com/api/adwords/v10}getGzipReportDownloadUrl
 class GetGzipReportDownloadUrl
   attr_accessor :reportJobId
 
@@ -465,7 +465,7 @@ class GetGzipReportDownloadUrl
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getGzipReportDownloadUrlResponse
+# {https://adwords.google.com/api/adwords/v10}getGzipReportDownloadUrlResponse
 class GetGzipReportDownloadUrlResponse
   attr_accessor :getGzipReportDownloadUrlReturn
 
@@ -474,7 +474,7 @@ class GetGzipReportDownloadUrlResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getReportDownloadUrl
+# {https://adwords.google.com/api/adwords/v10}getReportDownloadUrl
 class GetReportDownloadUrl
   attr_accessor :reportJobId
 
@@ -483,7 +483,7 @@ class GetReportDownloadUrl
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getReportDownloadUrlResponse
+# {https://adwords.google.com/api/adwords/v10}getReportDownloadUrlResponse
 class GetReportDownloadUrlResponse
   attr_accessor :getReportDownloadUrlReturn
 
@@ -492,7 +492,7 @@ class GetReportDownloadUrlResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getReportJobStatus
+# {https://adwords.google.com/api/adwords/v10}getReportJobStatus
 class GetReportJobStatus
   attr_accessor :reportJobId
 
@@ -501,7 +501,7 @@ class GetReportJobStatus
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getReportJobStatusResponse
+# {https://adwords.google.com/api/adwords/v10}getReportJobStatusResponse
 class GetReportJobStatusResponse
   attr_accessor :getReportJobStatusReturn
 
@@ -510,7 +510,7 @@ class GetReportJobStatusResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}scheduleReportJob
+# {https://adwords.google.com/api/adwords/v10}scheduleReportJob
 class ScheduleReportJob
   attr_accessor :job
 
@@ -519,7 +519,7 @@ class ScheduleReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}scheduleReportJobResponse
+# {https://adwords.google.com/api/adwords/v10}scheduleReportJobResponse
 class ScheduleReportJobResponse
   attr_accessor :scheduleReportJobReturn
 

@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module KeywordToolService
 
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -26,7 +26,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -43,7 +43,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordVariation
+# {https://adwords.google.com/api/adwords/v10}KeywordVariation
 class KeywordVariation
   attr_accessor :advertiserCompetitionScale
   attr_accessor :language
@@ -58,7 +58,7 @@ class KeywordVariation
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordVariations
+# {https://adwords.google.com/api/adwords/v10}KeywordVariations
 class KeywordVariations
   attr_accessor :additionalToConsider
   attr_accessor :moreSpecific
@@ -69,7 +69,7 @@ class KeywordVariations
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}SeedKeyword
+# {https://adwords.google.com/api/adwords/v10}SeedKeyword
 class SeedKeyword
   attr_accessor :negative
   attr_accessor :text
@@ -82,7 +82,7 @@ class SeedKeyword
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}SiteKeyword
+# {https://adwords.google.com/api/adwords/v10}SiteKeyword
 class SiteKeyword
   attr_accessor :advertiserCompetitionScale
   attr_accessor :groupId
@@ -97,7 +97,7 @@ class SiteKeyword
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}SiteKeywordGroups
+# {https://adwords.google.com/api/adwords/v10}SiteKeywordGroups
 class SiteKeywordGroups
   attr_accessor :groups
   attr_accessor :keywords
@@ -108,14 +108,14 @@ class SiteKeywordGroups
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordType
+# {https://adwords.google.com/api/adwords/v10}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v9}getKeywordVariations
+# {https://adwords.google.com/api/adwords/v10}getKeywordVariations
 class GetKeywordVariations
   attr_accessor :seedKeywords
   attr_accessor :useSynonyms
@@ -130,7 +130,7 @@ class GetKeywordVariations
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getKeywordVariationsResponse
+# {https://adwords.google.com/api/adwords/v10}getKeywordVariationsResponse
 class GetKeywordVariationsResponse
   attr_accessor :getKeywordVariationsReturn
 
@@ -139,7 +139,7 @@ class GetKeywordVariationsResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getKeywordsFromSite
+# {https://adwords.google.com/api/adwords/v10}getKeywordsFromSite
 class GetKeywordsFromSite
   attr_accessor :url
   attr_accessor :includeLinkedPages
@@ -154,7 +154,7 @@ class GetKeywordsFromSite
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getKeywordsFromSiteResponse
+# {https://adwords.google.com/api/adwords/v10}getKeywordsFromSiteResponse
 class GetKeywordsFromSiteResponse
   attr_accessor :getKeywordsFromSiteReturn
 

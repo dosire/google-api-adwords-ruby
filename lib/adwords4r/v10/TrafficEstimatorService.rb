@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module TrafficEstimatorService
 
 
-# {https://adwords.google.com/api/adwords/v9}AdGroupEstimate
+# {https://adwords.google.com/api/adwords/v10}AdGroupEstimate
 class AdGroupEstimate
   attr_accessor :id
   attr_accessor :keywordEstimates
@@ -14,7 +14,7 @@ class AdGroupEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}AdGroupRequest
+# {https://adwords.google.com/api/adwords/v10}AdGroupRequest
 class AdGroupRequest
   attr_accessor :id
   attr_accessor :keywordRequests
@@ -27,7 +27,7 @@ class AdGroupRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -50,7 +50,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -67,7 +67,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}CampaignEstimate
+# {https://adwords.google.com/api/adwords/v10}CampaignEstimate
 class CampaignEstimate
   attr_accessor :adGroupEstimates
   attr_accessor :id
@@ -78,7 +78,7 @@ class CampaignEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}CampaignRequest
+# {https://adwords.google.com/api/adwords/v10}CampaignRequest
 class CampaignRequest
   attr_accessor :adGroupRequests
   attr_accessor :geoTargeting
@@ -95,22 +95,47 @@ class CampaignRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}GeoTarget
-class GeoTarget
-  attr_accessor :cities
-  attr_accessor :countries
-  attr_accessor :metros
-  attr_accessor :regions
+# {https://adwords.google.com/api/adwords/v10}Circle
+class Circle
+  attr_accessor :latitudeMicroDegrees
+  attr_accessor :longitudeMicroDegrees
+  attr_accessor :radiusMeters
 
-  def initialize(cities = [], countries = [], metros = [], regions = [])
-    @cities = cities
-    @countries = countries
-    @metros = metros
-    @regions = regions
+  def initialize(latitudeMicroDegrees = nil, longitudeMicroDegrees = nil, radiusMeters = nil)
+    @latitudeMicroDegrees = latitudeMicroDegrees
+    @longitudeMicroDegrees = longitudeMicroDegrees
+    @radiusMeters = radiusMeters
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordEstimate
+# {https://adwords.google.com/api/adwords/v10}CityTargets
+class CityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}CountryTargets
+class CountryTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}GeoTarget
+class GeoTarget
+  attr_accessor :cityTargets
+  attr_accessor :countryTargets
+  attr_accessor :metroTargets
+  attr_accessor :proximityTargets
+  attr_accessor :regionTargets
+  attr_accessor :targetAll
+
+  def initialize(cityTargets = nil, countryTargets = nil, metroTargets = nil, proximityTargets = nil, regionTargets = nil, targetAll = nil)
+    @cityTargets = cityTargets
+    @countryTargets = countryTargets
+    @metroTargets = metroTargets
+    @proximityTargets = proximityTargets
+    @regionTargets = regionTargets
+    @targetAll = targetAll
+  end
+end
+
+# {https://adwords.google.com/api/adwords/v10}KeywordEstimate
 class KeywordEstimate
   attr_accessor :id
   attr_accessor :lowerAvgPosition
@@ -131,7 +156,7 @@ class KeywordEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordRequest
+# {https://adwords.google.com/api/adwords/v10}KeywordRequest
 class KeywordRequest
   attr_accessor :id
   attr_accessor :maxCpc
@@ -148,49 +173,89 @@ class KeywordRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}LanguageTarget
+# {https://adwords.google.com/api/adwords/v10}KeywordTrafficRequest
+class KeywordTrafficRequest
+  attr_accessor :keywordText
+  attr_accessor :keywordType
+  attr_accessor :language
+
+  def initialize(keywordText = nil, keywordType = nil, language = nil)
+    @keywordText = keywordText
+    @keywordType = keywordType
+    @language = language
+  end
+end
+
+# {https://adwords.google.com/api/adwords/v10}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}NetworkTarget
+# {https://adwords.google.com/api/adwords/v10}MetroTargets
+class MetroTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}KeywordType
+# {https://adwords.google.com/api/adwords/v10}ProximityTargets
+class ProximityTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}RegionTargets
+class RegionTargets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}KeywordTraffic
+class KeywordTraffic < ::String
+  HasTraffic = KeywordTraffic.new("HasTraffic")
+  Unknown = KeywordTraffic.new("Unknown")
+  VeryLowTraffic = KeywordTraffic.new("VeryLowTraffic")
+end
+
+# {https://adwords.google.com/api/adwords/v10}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v9}NetworkType
+# {https://adwords.google.com/api/adwords/v10}NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v9}estimateAdGroupList
+# {https://adwords.google.com/api/adwords/v10}checkKeywordTraffic
+class CheckKeywordTraffic < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}checkKeywordTrafficResponse
+class CheckKeywordTrafficResponse < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v10}estimateAdGroupList
 class EstimateAdGroupList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}estimateAdGroupListResponse
+# {https://adwords.google.com/api/adwords/v10}estimateAdGroupListResponse
 class EstimateAdGroupListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}estimateCampaignList
+# {https://adwords.google.com/api/adwords/v10}estimateCampaignList
 class EstimateCampaignList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}estimateCampaignListResponse
+# {https://adwords.google.com/api/adwords/v10}estimateCampaignListResponse
 class EstimateCampaignListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}estimateKeywordList
+# {https://adwords.google.com/api/adwords/v10}estimateKeywordList
 class EstimateKeywordList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}estimateKeywordListResponse
+# {https://adwords.google.com/api/adwords/v10}estimateKeywordListResponse
 class EstimateKeywordListResponse < ::Array
 end
 

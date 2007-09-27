@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module AccountService
 
 
-# {https://adwords.google.com/api/adwords/v9}AccountInfo
+# {https://adwords.google.com/api/adwords/v10}AccountInfo
 class AccountInfo
   attr_accessor :billingAddress
   attr_accessor :currencyCode
@@ -32,7 +32,7 @@ class AccountInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}Address
+# {https://adwords.google.com/api/adwords/v10}Address
 class Address
   attr_accessor :addressLine1
   attr_accessor :addressLine2
@@ -61,7 +61,7 @@ class Address
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -84,7 +84,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -101,7 +101,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}EmailPromotionsPreferences
+# {https://adwords.google.com/api/adwords/v10}EmailPromotionsPreferences
 class EmailPromotionsPreferences
   attr_accessor :accountPerformanceEnabled
   attr_accessor :disapprovedAdsEnabled
@@ -118,24 +118,24 @@ class EmailPromotionsPreferences
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}NetworkTarget
+# {https://adwords.google.com/api/adwords/v10}NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}NetworkType
+# {https://adwords.google.com/api/adwords/v10}NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAccountInfo
+# {https://adwords.google.com/api/adwords/v10}getAccountInfo
 class GetAccountInfo
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getAccountInfoResponse
+# {https://adwords.google.com/api/adwords/v10}getAccountInfoResponse
 class GetAccountInfoResponse
   attr_accessor :getAccountInfoReturn
 
@@ -144,17 +144,17 @@ class GetAccountInfoResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getClientAccounts
+# {https://adwords.google.com/api/adwords/v10}getClientAccounts
 class GetClientAccounts
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getClientAccountsResponse
+# {https://adwords.google.com/api/adwords/v10}getClientAccountsResponse
 class GetClientAccountsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}setLoginInfo
+# {https://adwords.google.com/api/adwords/v10}setLoginInfo
 class SetLoginInfo
   attr_accessor :login
   attr_accessor :newPassword
@@ -165,13 +165,13 @@ class SetLoginInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}setLoginInfoResponse
+# {https://adwords.google.com/api/adwords/v10}setLoginInfoResponse
 class SetLoginInfoResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAccountInfo
+# {https://adwords.google.com/api/adwords/v10}updateAccountInfo
 class UpdateAccountInfo
   attr_accessor :accountInfo
 
@@ -180,7 +180,7 @@ class UpdateAccountInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}updateAccountInfoResponse
+# {https://adwords.google.com/api/adwords/v10}updateAccountInfoResponse
 class UpdateAccountInfoResponse
   def initialize
   end

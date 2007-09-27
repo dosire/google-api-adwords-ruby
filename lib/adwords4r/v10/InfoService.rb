@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module InfoService
 
 
-# {https://adwords.google.com/api/adwords/v9}ApiError
+# {https://adwords.google.com/api/adwords/v10}ApiError
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -26,7 +26,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ApiException
+# {https://adwords.google.com/api/adwords/v10}ApiException
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -43,7 +43,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}ClientUsageRecord
+# {https://adwords.google.com/api/adwords/v10}ClientUsageRecord
 class ClientUsageRecord
   attr_accessor :clientEmail
   attr_accessor :quotaUnits
@@ -54,13 +54,13 @@ class ClientUsageRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getFreeUsageQuotaThisMonth
+# {https://adwords.google.com/api/adwords/v10}getFreeUsageQuotaThisMonth
 class GetFreeUsageQuotaThisMonth
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getFreeUsageQuotaThisMonthResponse
+# {https://adwords.google.com/api/adwords/v10}getFreeUsageQuotaThisMonthResponse
 class GetFreeUsageQuotaThisMonthResponse
   attr_accessor :getFreeUsageQuotaThisMonthReturn
 
@@ -69,7 +69,7 @@ class GetFreeUsageQuotaThisMonthResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getMethodCost
+# {https://adwords.google.com/api/adwords/v10}getMethodCost
 class GetMethodCost
   attr_accessor :service
   attr_accessor :method
@@ -82,7 +82,7 @@ class GetMethodCost
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getMethodCostResponse
+# {https://adwords.google.com/api/adwords/v10}getMethodCostResponse
 class GetMethodCostResponse
   attr_accessor :getMethodCostReturn
 
@@ -91,7 +91,7 @@ class GetMethodCostResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getOperationCount
+# {https://adwords.google.com/api/adwords/v10}getOperationCount
 class GetOperationCount
   attr_accessor :startDate
   attr_accessor :endDate
@@ -102,7 +102,7 @@ class GetOperationCount
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getOperationCountResponse
+# {https://adwords.google.com/api/adwords/v10}getOperationCountResponse
 class GetOperationCountResponse
   attr_accessor :getOperationCountReturn
 
@@ -111,13 +111,13 @@ class GetOperationCountResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getOperationsQuotaThisMonth
+# {https://adwords.google.com/api/adwords/v10}getOperationsQuotaThisMonth
 class GetOperationsQuotaThisMonth
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getOperationsQuotaThisMonthResponse
+# {https://adwords.google.com/api/adwords/v10}getOperationsQuotaThisMonthResponse
 class GetOperationsQuotaThisMonthResponse
   attr_accessor :getOperationsQuotaThisMonthReturn
 
@@ -126,7 +126,7 @@ class GetOperationsQuotaThisMonthResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUnitCount
+# {https://adwords.google.com/api/adwords/v10}getUnitCount
 class GetUnitCount
   attr_accessor :startDate
   attr_accessor :endDate
@@ -137,7 +137,7 @@ class GetUnitCount
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUnitCountForClients
+# {https://adwords.google.com/api/adwords/v10}getUnitCountForClients
 class GetUnitCountForClients
   attr_accessor :clientEmails
   attr_accessor :startDate
@@ -150,11 +150,11 @@ class GetUnitCountForClients
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUnitCountForClientsResponse
+# {https://adwords.google.com/api/adwords/v10}getUnitCountForClientsResponse
 class GetUnitCountForClientsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUnitCountForMethod
+# {https://adwords.google.com/api/adwords/v10}getUnitCountForMethod
 class GetUnitCountForMethod
   attr_accessor :service
   attr_accessor :method
@@ -169,7 +169,7 @@ class GetUnitCountForMethod
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUnitCountForMethodResponse
+# {https://adwords.google.com/api/adwords/v10}getUnitCountForMethodResponse
 class GetUnitCountForMethodResponse
   attr_accessor :getUnitCountForMethodReturn
 
@@ -178,7 +178,7 @@ class GetUnitCountForMethodResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUnitCountResponse
+# {https://adwords.google.com/api/adwords/v10}getUnitCountResponse
 class GetUnitCountResponse
   attr_accessor :getUnitCountReturn
 
@@ -187,13 +187,13 @@ class GetUnitCountResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUsageQuotaThisMonth
+# {https://adwords.google.com/api/adwords/v10}getUsageQuotaThisMonth
 class GetUsageQuotaThisMonth
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v9}getUsageQuotaThisMonthResponse
+# {https://adwords.google.com/api/adwords/v10}getUsageQuotaThisMonthResponse
 class GetUsageQuotaThisMonthResponse
   attr_accessor :getUsageQuotaThisMonthReturn
 

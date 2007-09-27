@@ -1,34 +1,25 @@
-require 'wsdl/soap/wsdl2ruby'
-require 'net/https'
 require 'fileutils'
-require 'rake/clean'
+require 'net/https'
 require 'logger'
-begin
-  require 'rubygems'
-  require 'rake/gempackagetask'
-rescue Exception
-  nil
-end
-begin
-  require 'lib/adwords4r/services'
-rescue Exception
-  puts 'require services not found'
-  nil
-end
+require 'rake/clean'
+
+require 'rubygems'
+gem 'rake'
+require 'rake/gempackagetask'
+gem 'soap4r'
+require 'wsdl/soap/wsdl2ruby'
+require 'xsd/codegen/classdef'
+
+require 'lib/adwords4r/services'
 
 # Determine the current version of the software
 
 CLOBBER.include('pkg')
 
-CURRENT_VERSION = '0.8'
+CURRENT_VERSION = '1.0'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 SRC_RB = FileList['lib/**/*.rb']
-
-# The default task is run if rake is given no explicit arguments.
-
-#desc "Default Task"
-#task :default => :test_all
 
 WSDLDIR = 'wsdl'
 LIBDIR = 'lib'
@@ -68,6 +59,7 @@ task :generate do
             worker.opt.update(getWsdlOpt(name))
             worker.run
             fixImport(v, File.join(gendir, "#{name}Driver.rb"))
+            fixImport(v, File.join(gendir, "#{name}MappingRegistry.rb"))
             fixImport(v, File.join(gendir, "#{name}.rb"))
         end
     end
@@ -78,33 +70,27 @@ def fixImport(version, file)
     tempfile = file + '.tmp'
     outfile = File.new(tempfile,"w")
     File.open(file, "r") do |infile|
-        outfile.puts "module AdWords"
-        #outfile.puts "module AdWordsV#{version}"
         infile.each do |l|
-            if (l =~/require.*Service.rb/) then
-#                outfile.puts l.gsub(/require \'(.*)Service.rb\'/, 'require #\'adwords4r/' + vname + '/\1Service\'')
-                outfile.puts l.gsub(/require \'(.*)Service.rb\'/, 'require \'adwords4r/' + vname + '/\1Service\'')
+            if (l =~ /require.*Service.*\.rb/) then
+                outfile.puts l.gsub(/require '(.*)Service(.*)\.rb'/, "require 'adwords4r/#{vname}/\\1Service\\2'")
             else
                 outfile.puts l
             end
         end
-        outfile.puts "end"
     end
     outfile.close
     File.rename(tempfile, file)
 end 
 
-
 def getWsdlOpt(s)
     optcmd= {}
     s << "Service"
     optcmd['classdef'] = s
-    #should work but doesn't, driver name is derived from classname
-    #if you specify both it breaks, same thing for client_skelton
-    #optcmd['driver'] = s
-    optcmd['driver'] = nil
-    #optcmd['client_skelton'] = nil
     optcmd['force'] = true
+    optcmd['mapping_registry'] = true
+
+    # Causes soap4r to wrap the classes it outputs into the given modules
+    optcmd['module_path'] = ['AdWords', s]
     return optcmd
 end
   
@@ -155,12 +141,12 @@ PKG_FILES = FileList[
   'scripts/**/*.rb'
 ]
 
-puts PKG_FILES
+#puts PKG_FILES
 
 PKG_FILES.exclude(/\._/)
 
 if ! defined?(Gem)
-  puts "Package Target requires RubyGEMs"
+  puts "Package Target requires RubyGems"
 else
   spec = Gem::Specification.new do |s|
     
@@ -173,9 +159,8 @@ else
 Adwords4r provides an easy to use way to access the AdWords API in ruby.\
 Currently the following AdWords API versions are supported:\
 \
-* V7\
-* V8\
 * V9\
+* V10\
 }
 
     s.files = PKG_FILES.to_a
@@ -195,15 +180,14 @@ Currently the following AdWords API versions are supported:\
     s.author = "Patrick Chanezon, Ryan Leavengood"
     s.email = "leavengood@gmail.com"
     s.homepage = "http://rubyforge.org/projects/google4r/"
-    s.requirements << 'soap4r v 1.5.4 or greater'
-    s.requirements << 'http-access2 v 2.0.5 or greater'
+    s.requirements << 'soap4r v1.5.6 or greater'
+    s.requirements << 'http-access2 v2.0.5 or greater'
     s.rubyforge_project = 'google4r'
+    s.add_dependency('soap4r', '>= 1.5.6')
+    s.add_dependency('http-access2', '>= 2.0.5')
   end
   
-    Rake::GemPackageTask.new(spec) do |t|
-      t.need_tar = true
-    end
+  Rake::GemPackageTask.new(spec) do |t|
+    t.need_tar = true
+  end
 end
-
-#require 'scripts/publish'
-
