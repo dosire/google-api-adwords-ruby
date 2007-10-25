@@ -160,8 +160,8 @@ else
 Adwords4r provides an easy to use way to access the AdWords API in ruby.\
 Currently the following AdWords API versions are supported:\
 \
-* V9\
 * V10\
+* V11\
 }
 
     s.files = PKG_FILES.to_a
@@ -178,8 +178,8 @@ Currently the following AdWords API versions are supported:\
 #      '--main' << 'README' <<
 #      '--line-numbers'
     
-    s.author = "Patrick Chanezon, Ryan Leavengood"
-    s.email = "leavengood@gmail.com"
+    s.author = "Jeffrey Posnick, Patrick Chanezon, Ryan Leavengood"
+    s.email = "jeffy@google.com"
     s.homepage = "http://rubyforge.org/projects/google4r/"
     s.requirements << 'soap4r v1.5.6 or greater'
     s.requirements << 'http-access2 v2.0.5 or greater'
