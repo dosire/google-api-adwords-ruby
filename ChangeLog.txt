@@ -2,7 +2,7 @@
 - Jeffrey Posnick (jeffy@google.com) takes over as maintainer of this project
 - added support for AdWords API v11
 - removed support for AdWords API v9
-- added support for the ADWORDS4R_DEBUG environment variable--if set, SOAP logs will be written to the current directory when the API is used
+- added support for the ADWORDS4R_DEBUG environment variable--if set to TRUE, SOAP logs will be written to the current directory when the API is used
 
 1.0
 - added support for API v10

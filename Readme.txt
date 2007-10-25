@@ -69,6 +69,11 @@ Many: warning: already initialized constant XXX
 A few: at depth 0 - 20: unable to get local issuer certificate
 These are not serious: I need to make them go but they do not affect the correctness of the program.
 
+It is often useful to see a trace of the raw SOAP XML being sent and received.
+To enable this, set the ADWORDS4R_DEBUG environment variable to TRUE.
+e.g. in the bash shell, 'export ADWORDS4R_DEBUG=TRUE'
+The SOAP logs will be written to the current directory.
+
 
 Docs for Developers
 -------------------
