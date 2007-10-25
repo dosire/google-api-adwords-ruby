@@ -77,8 +77,11 @@ module AdWords
         driver = eval("AdWords::#{getServiceName(s)}.new")
       end
       @credentials.handlers.each {|h| driver.headerhandler << h}
-      #driver.wiredump_dev = STDOUT if @debug
-      driver.wiredump_file_base = "log"
+
+      if ENV['ADWORDS4R_DEBUG'].upcase == 'TRUE'
+	driver.wiredump_file_base = "SOAP_#{$$}"
+      end
+
       driver.options['protocol.http.ssl_config.verify_mode'] = nil
       #set driver.proxy if you are behing a proxy
       return driver
@@ -157,12 +160,12 @@ module AdWords
   class <<self 
 
     def fix_case_up(name)
-      name[0] = name[0,1].upcase # upper first character
+      name[0] = name[0, 1].upcase # upper first character
       name
     end
 
     def fix_case_down(name)
-      name[0] = name[0,1].downcase
+      name[0] = name[0, 1].downcase
       name
     end
   end

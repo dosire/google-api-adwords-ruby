@@ -1,4 +1,4 @@
-require 'adwords4r/v10/TrafficEstimatorService'
+require 'adwords4r/v11/TrafficEstimatorService'
 require 'soap/mapping'
 
 module AdWords; module TrafficEstimatorService
@@ -6,11 +6,11 @@ module AdWords; module TrafficEstimatorService
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
   LiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
-  NsV10 = "https://adwords.google.com/api/adwords/v10"
+  NsV11 = "https://adwords.google.com/api/adwords/v11"
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::AdGroupEstimate,
-    :schema_type => XSD::QName.new(NsV10, "AdGroupEstimate"),
+    :schema_type => XSD::QName.new(NsV11, "AdGroupEstimate"),
     :schema_element => [
       ["id", "SOAP::SOAPInt", [0, 1]],
       ["keywordEstimates", "AdWords::TrafficEstimatorService::KeywordEstimate[]", [1, nil]]
@@ -19,7 +19,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::AdGroupRequest,
-    :schema_type => XSD::QName.new(NsV10, "AdGroupRequest"),
+    :schema_type => XSD::QName.new(NsV11, "AdGroupRequest"),
     :schema_element => [
       ["id", "SOAP::SOAPInt", [0, 1]],
       ["keywordRequests", "AdWords::TrafficEstimatorService::KeywordRequest[]", [1, nil]],
@@ -29,7 +29,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -44,7 +44,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::TrafficEstimatorService::ApiError[]", [1, nil]],
@@ -56,7 +56,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::CampaignEstimate,
-    :schema_type => XSD::QName.new(NsV10, "CampaignEstimate"),
+    :schema_type => XSD::QName.new(NsV11, "CampaignEstimate"),
     :schema_element => [
       ["adGroupEstimates", "AdWords::TrafficEstimatorService::AdGroupEstimate[]", [1, nil]],
       ["id", "SOAP::SOAPInt", [0, 1]]
@@ -65,7 +65,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::CampaignRequest,
-    :schema_type => XSD::QName.new(NsV10, "CampaignRequest"),
+    :schema_type => XSD::QName.new(NsV11, "CampaignRequest"),
     :schema_element => [
       ["adGroupRequests", "AdWords::TrafficEstimatorService::AdGroupRequest[]", [1, nil]],
       ["geoTargeting", "AdWords::TrafficEstimatorService::GeoTarget", [0, 1]],
@@ -77,7 +77,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::Circle,
-    :schema_type => XSD::QName.new(NsV10, "Circle"),
+    :schema_type => XSD::QName.new(NsV11, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
       ["longitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -87,7 +87,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::CityTargets,
-    :schema_type => XSD::QName.new(NsV10, "CityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -95,7 +95,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::CountryTargets,
-    :schema_type => XSD::QName.new(NsV10, "CountryTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -103,7 +103,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::GeoTarget,
-    :schema_type => XSD::QName.new(NsV10, "GeoTarget"),
+    :schema_type => XSD::QName.new(NsV11, "GeoTarget"),
     :schema_element => [
       ["cityTargets", "AdWords::TrafficEstimatorService::CityTargets", [0, 1]],
       ["countryTargets", "AdWords::TrafficEstimatorService::CountryTargets", [0, 1]],
@@ -116,7 +116,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordEstimate,
-    :schema_type => XSD::QName.new(NsV10, "KeywordEstimate"),
+    :schema_type => XSD::QName.new(NsV11, "KeywordEstimate"),
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["lowerAvgPosition", "SOAP::SOAPFloat"],
@@ -130,7 +130,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordRequest,
-    :schema_type => XSD::QName.new(NsV10, "KeywordRequest"),
+    :schema_type => XSD::QName.new(NsV11, "KeywordRequest"),
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["maxCpc", "SOAP::SOAPLong", [0, 1]],
@@ -142,17 +142,17 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordTrafficRequest,
-    :schema_type => XSD::QName.new(NsV10, "KeywordTrafficRequest"),
+    :schema_type => XSD::QName.new(NsV11, "KeywordTrafficRequest"),
     :schema_element => [
       ["keywordText", "SOAP::SOAPString"],
       ["keywordType", "AdWords::TrafficEstimatorService::KeywordType"],
-      ["language", "SOAP::SOAPString"]
+      ["language", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::LanguageTarget,
-    :schema_type => XSD::QName.new(NsV10, "LanguageTarget"),
+    :schema_type => XSD::QName.new(NsV11, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
     ]
@@ -160,7 +160,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::MetroTargets,
-    :schema_type => XSD::QName.new(NsV10, "MetroTargets"),
+    :schema_type => XSD::QName.new(NsV11, "MetroTargets"),
     :schema_element => [
       ["metros", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -168,7 +168,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::NetworkTarget,
-    :schema_type => XSD::QName.new(NsV10, "NetworkTarget"),
+    :schema_type => XSD::QName.new(NsV11, "NetworkTarget"),
     :schema_element => [
       ["networkTypes", "AdWords::TrafficEstimatorService::NetworkType[]", [0, nil]]
     ]
@@ -176,7 +176,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::ProximityTargets,
-    :schema_type => XSD::QName.new(NsV10, "ProximityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "ProximityTargets"),
     :schema_element => [
       ["circles", "AdWords::TrafficEstimatorService::Circle[]", [1, nil]]
     ]
@@ -184,7 +184,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::RegionTargets,
-    :schema_type => XSD::QName.new(NsV10, "RegionTargets"),
+    :schema_type => XSD::QName.new(NsV11, "RegionTargets"),
     :schema_element => [
       ["regions", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -192,22 +192,22 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordTraffic,
-    :schema_type => XSD::QName.new(NsV10, "KeywordTraffic")
+    :schema_type => XSD::QName.new(NsV11, "KeywordTraffic")
   )
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordType,
-    :schema_type => XSD::QName.new(NsV10, "KeywordType")
+    :schema_type => XSD::QName.new(NsV11, "KeywordType")
   )
 
   EncodedRegistry.register(
     :class => AdWords::TrafficEstimatorService::NetworkType,
-    :schema_type => XSD::QName.new(NsV10, "NetworkType")
+    :schema_type => XSD::QName.new(NsV11, "NetworkType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::AdGroupEstimate,
-    :schema_type => XSD::QName.new(NsV10, "AdGroupEstimate"),
+    :schema_type => XSD::QName.new(NsV11, "AdGroupEstimate"),
     :schema_element => [
       ["id", "SOAP::SOAPInt", [0, 1]],
       ["keywordEstimates", "AdWords::TrafficEstimatorService::KeywordEstimate[]", [1, nil]]
@@ -216,7 +216,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::AdGroupRequest,
-    :schema_type => XSD::QName.new(NsV10, "AdGroupRequest"),
+    :schema_type => XSD::QName.new(NsV11, "AdGroupRequest"),
     :schema_element => [
       ["id", "SOAP::SOAPInt", [0, 1]],
       ["keywordRequests", "AdWords::TrafficEstimatorService::KeywordRequest[]", [1, nil]],
@@ -226,7 +226,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -241,7 +241,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::TrafficEstimatorService::ApiError[]", [1, nil]],
@@ -253,7 +253,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::CampaignEstimate,
-    :schema_type => XSD::QName.new(NsV10, "CampaignEstimate"),
+    :schema_type => XSD::QName.new(NsV11, "CampaignEstimate"),
     :schema_element => [
       ["adGroupEstimates", "AdWords::TrafficEstimatorService::AdGroupEstimate[]", [1, nil]],
       ["id", "SOAP::SOAPInt", [0, 1]]
@@ -262,7 +262,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::CampaignRequest,
-    :schema_type => XSD::QName.new(NsV10, "CampaignRequest"),
+    :schema_type => XSD::QName.new(NsV11, "CampaignRequest"),
     :schema_element => [
       ["adGroupRequests", "AdWords::TrafficEstimatorService::AdGroupRequest[]", [1, nil]],
       ["geoTargeting", "AdWords::TrafficEstimatorService::GeoTarget", [0, 1]],
@@ -274,7 +274,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::Circle,
-    :schema_type => XSD::QName.new(NsV10, "Circle"),
+    :schema_type => XSD::QName.new(NsV11, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
       ["longitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -284,7 +284,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::CityTargets,
-    :schema_type => XSD::QName.new(NsV10, "CityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -292,7 +292,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::CountryTargets,
-    :schema_type => XSD::QName.new(NsV10, "CountryTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -300,7 +300,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::GeoTarget,
-    :schema_type => XSD::QName.new(NsV10, "GeoTarget"),
+    :schema_type => XSD::QName.new(NsV11, "GeoTarget"),
     :schema_element => [
       ["cityTargets", "AdWords::TrafficEstimatorService::CityTargets", [0, 1]],
       ["countryTargets", "AdWords::TrafficEstimatorService::CountryTargets", [0, 1]],
@@ -313,7 +313,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordEstimate,
-    :schema_type => XSD::QName.new(NsV10, "KeywordEstimate"),
+    :schema_type => XSD::QName.new(NsV11, "KeywordEstimate"),
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["lowerAvgPosition", "SOAP::SOAPFloat"],
@@ -327,7 +327,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordRequest,
-    :schema_type => XSD::QName.new(NsV10, "KeywordRequest"),
+    :schema_type => XSD::QName.new(NsV11, "KeywordRequest"),
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["maxCpc", "SOAP::SOAPLong", [0, 1]],
@@ -339,17 +339,17 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordTrafficRequest,
-    :schema_type => XSD::QName.new(NsV10, "KeywordTrafficRequest"),
+    :schema_type => XSD::QName.new(NsV11, "KeywordTrafficRequest"),
     :schema_element => [
       ["keywordText", "SOAP::SOAPString"],
       ["keywordType", "AdWords::TrafficEstimatorService::KeywordType"],
-      ["language", "SOAP::SOAPString"]
+      ["language", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::LanguageTarget,
-    :schema_type => XSD::QName.new(NsV10, "LanguageTarget"),
+    :schema_type => XSD::QName.new(NsV11, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
     ]
@@ -357,7 +357,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::MetroTargets,
-    :schema_type => XSD::QName.new(NsV10, "MetroTargets"),
+    :schema_type => XSD::QName.new(NsV11, "MetroTargets"),
     :schema_element => [
       ["metros", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -365,7 +365,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::NetworkTarget,
-    :schema_type => XSD::QName.new(NsV10, "NetworkTarget"),
+    :schema_type => XSD::QName.new(NsV11, "NetworkTarget"),
     :schema_element => [
       ["networkTypes", "AdWords::TrafficEstimatorService::NetworkType[]", [0, nil]]
     ]
@@ -373,7 +373,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::ProximityTargets,
-    :schema_type => XSD::QName.new(NsV10, "ProximityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "ProximityTargets"),
     :schema_element => [
       ["circles", "AdWords::TrafficEstimatorService::Circle[]", [1, nil]]
     ]
@@ -381,7 +381,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::RegionTargets,
-    :schema_type => XSD::QName.new(NsV10, "RegionTargets"),
+    :schema_type => XSD::QName.new(NsV11, "RegionTargets"),
     :schema_element => [
       ["regions", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -389,22 +389,22 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordTraffic,
-    :schema_type => XSD::QName.new(NsV10, "KeywordTraffic")
+    :schema_type => XSD::QName.new(NsV11, "KeywordTraffic")
   )
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::KeywordType,
-    :schema_type => XSD::QName.new(NsV10, "KeywordType")
+    :schema_type => XSD::QName.new(NsV11, "KeywordType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::NetworkType,
-    :schema_type => XSD::QName.new(NsV10, "NetworkType")
+    :schema_type => XSD::QName.new(NsV11, "NetworkType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::CheckKeywordTraffic,
-    :schema_name => XSD::QName.new(NsV10, "checkKeywordTraffic"),
+    :schema_name => XSD::QName.new(NsV11, "checkKeywordTraffic"),
     :schema_element => [
       ["requests", "AdWords::TrafficEstimatorService::KeywordTrafficRequest[]", [1, nil]]
     ]
@@ -412,7 +412,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::CheckKeywordTrafficResponse,
-    :schema_name => XSD::QName.new(NsV10, "checkKeywordTrafficResponse"),
+    :schema_name => XSD::QName.new(NsV11, "checkKeywordTrafficResponse"),
     :schema_element => [
       ["checkKeywordTrafficReturn", "AdWords::TrafficEstimatorService::KeywordTraffic[]", [1, nil]]
     ]
@@ -420,7 +420,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::EstimateAdGroupList,
-    :schema_name => XSD::QName.new(NsV10, "estimateAdGroupList"),
+    :schema_name => XSD::QName.new(NsV11, "estimateAdGroupList"),
     :schema_element => [
       ["adGroupRequests", "AdWords::TrafficEstimatorService::AdGroupRequest[]", [1, nil]]
     ]
@@ -428,7 +428,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::EstimateAdGroupListResponse,
-    :schema_name => XSD::QName.new(NsV10, "estimateAdGroupListResponse"),
+    :schema_name => XSD::QName.new(NsV11, "estimateAdGroupListResponse"),
     :schema_element => [
       ["estimateAdGroupListReturn", "AdWords::TrafficEstimatorService::AdGroupEstimate[]", [1, nil]]
     ]
@@ -436,7 +436,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::EstimateCampaignList,
-    :schema_name => XSD::QName.new(NsV10, "estimateCampaignList"),
+    :schema_name => XSD::QName.new(NsV11, "estimateCampaignList"),
     :schema_element => [
       ["campaignRequests", "AdWords::TrafficEstimatorService::CampaignRequest[]", [1, nil]]
     ]
@@ -444,7 +444,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::EstimateCampaignListResponse,
-    :schema_name => XSD::QName.new(NsV10, "estimateCampaignListResponse"),
+    :schema_name => XSD::QName.new(NsV11, "estimateCampaignListResponse"),
     :schema_element => [
       ["estimateCampaignListReturn", "AdWords::TrafficEstimatorService::CampaignEstimate[]", [1, nil]]
     ]
@@ -452,7 +452,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::EstimateKeywordList,
-    :schema_name => XSD::QName.new(NsV10, "estimateKeywordList"),
+    :schema_name => XSD::QName.new(NsV11, "estimateKeywordList"),
     :schema_element => [
       ["keywordRequests", "AdWords::TrafficEstimatorService::KeywordRequest[]", [1, nil]]
     ]
@@ -460,7 +460,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::EstimateKeywordListResponse,
-    :schema_name => XSD::QName.new(NsV10, "estimateKeywordListResponse"),
+    :schema_name => XSD::QName.new(NsV11, "estimateKeywordListResponse"),
     :schema_element => [
       ["estimateKeywordListReturn", "AdWords::TrafficEstimatorService::KeywordEstimate[]", [1, nil]]
     ]
@@ -468,7 +468,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::TrafficEstimatorService::ApiException,
-    :schema_name => XSD::QName.new(NsV10, "fault"),
+    :schema_name => XSD::QName.new(NsV11, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::TrafficEstimatorService::ApiError[]", [1, nil]],

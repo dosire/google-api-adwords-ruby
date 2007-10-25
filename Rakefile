@@ -16,7 +16,7 @@ require 'lib/adwords4r/services'
 
 CLOBBER.include('pkg')
 
-CURRENT_VERSION = '1.0'
+CURRENT_VERSION = '11.0.0'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 SRC_RB = FileList['lib/**/*.rb']
@@ -88,6 +88,7 @@ def getWsdlOpt(s)
     optcmd['classdef'] = s
     optcmd['force'] = true
     optcmd['mapping_registry'] = true
+    optcmd['driver'] = nil
 
     # Causes soap4r to wrap the classes it outputs into the given modules
     optcmd['module_path'] = ['AdWords', s]

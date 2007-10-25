@@ -1,4 +1,4 @@
-require 'adwords4r/v10/AdService'
+require 'adwords4r/v11/AdService'
 require 'soap/mapping'
 
 module AdWords; module AdService
@@ -6,11 +6,11 @@ module AdWords; module AdService
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
   LiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
-  NsV10 = "https://adwords.google.com/api/adwords/v10"
+  NsV11 = "https://adwords.google.com/api/adwords/v11"
 
   EncodedRegistry.register(
     :class => AdWords::AdService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -25,7 +25,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::AdService::ApiError[]", [1, nil]],
@@ -37,7 +37,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::Business,
-    :schema_type => XSD::QName.new(NsV10, "Business"),
+    :schema_type => XSD::QName.new(NsV11, "Business"),
     :schema_element => [
       ["address", "SOAP::SOAPString"],
       ["city", "SOAP::SOAPString"],
@@ -55,7 +55,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::Circle,
-    :schema_type => XSD::QName.new(NsV10, "Circle"),
+    :schema_type => XSD::QName.new(NsV11, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
       ["longitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -65,7 +65,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::CityTargets,
-    :schema_type => XSD::QName.new(NsV10, "CityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -73,8 +73,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::CommerceAd,
-    :schema_type => XSD::QName.new(NsV10, "CommerceAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "CommerceAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -96,7 +96,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::CountryTargets,
-    :schema_type => XSD::QName.new(NsV10, "CountryTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -104,7 +104,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::GeoTarget,
-    :schema_type => XSD::QName.new(NsV10, "GeoTarget"),
+    :schema_type => XSD::QName.new(NsV11, "GeoTarget"),
     :schema_element => [
       ["cityTargets", "AdWords::AdService::CityTargets", [0, 1]],
       ["countryTargets", "AdWords::AdService::CountryTargets", [0, 1]],
@@ -117,13 +117,14 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::Image,
-    :schema_type => XSD::QName.new(NsV10, "Image"),
+    :schema_type => XSD::QName.new(NsV11, "Image"),
     :schema_element => [
       ["data", "SOAP::SOAPBase64", [0, 1]],
       ["height", "SOAP::SOAPInt", [0, 1]],
       ["imageUrl", "SOAP::SOAPString", [0, 1]],
       ["mimeType", "SOAP::SOAPString", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
+      ["shrunkenUrl", "SOAP::SOAPString", [0, 1]],
       ["thumbnailUrl", "SOAP::SOAPString", [0, 1]],
       ["type", "AdWords::AdService::ImageType", [0, 1]],
       ["width", "SOAP::SOAPInt", [0, 1]]
@@ -132,8 +133,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::ImageAd,
-    :schema_type => XSD::QName.new(NsV10, "ImageAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "ImageAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -149,7 +150,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::LanguageTarget,
-    :schema_type => XSD::QName.new(NsV10, "LanguageTarget"),
+    :schema_type => XSD::QName.new(NsV11, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
     ]
@@ -157,8 +158,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::LocalBusinessAd,
-    :schema_type => XSD::QName.new(NsV10, "LocalBusinessAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "LocalBusinessAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -168,11 +169,11 @@ module DefaultMappingRegistry
       ["exemptionRequest", "SOAP::SOAPString", [0, 1]],
       ["id", "SOAP::SOAPLong"],
       ["status", "AdWords::AdService::AdStatus", [0, 1]],
-      ["address", "SOAP::SOAPString"],
+      ["address", "SOAP::SOAPString", [0, 1]],
       ["businessImage", "AdWords::AdService::Image", [0, 1]],
       ["businessKey", "SOAP::SOAPString", [0, 1]],
-      ["businessName", "SOAP::SOAPString"],
-      ["city", "SOAP::SOAPString"],
+      ["businessName", "SOAP::SOAPString", [0, 1]],
+      ["city", "SOAP::SOAPString", [0, 1]],
       ["countryCode", "SOAP::SOAPString"],
       ["customIcon", "AdWords::AdService::Image", [0, 1]],
       ["customIconId", "SOAP::SOAPLong", [0, 1]],
@@ -188,7 +189,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::MetroTargets,
-    :schema_type => XSD::QName.new(NsV10, "MetroTargets"),
+    :schema_type => XSD::QName.new(NsV11, "MetroTargets"),
     :schema_element => [
       ["metros", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -196,8 +197,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::MobileAd,
-    :schema_type => XSD::QName.new(NsV10, "MobileAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "MobileAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -219,7 +220,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::ProximityTargets,
-    :schema_type => XSD::QName.new(NsV10, "ProximityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "ProximityTargets"),
     :schema_element => [
       ["circles", "AdWords::AdService::Circle[]", [1, nil]]
     ]
@@ -227,7 +228,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::RegionTargets,
-    :schema_type => XSD::QName.new(NsV10, "RegionTargets"),
+    :schema_type => XSD::QName.new(NsV11, "RegionTargets"),
     :schema_element => [
       ["regions", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -235,7 +236,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::StatsRecord,
-    :schema_type => XSD::QName.new(NsV10, "StatsRecord"),
+    :schema_type => XSD::QName.new(NsV11, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
       ["clicks", "SOAP::SOAPLong"],
@@ -249,8 +250,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::TextAd,
-    :schema_type => XSD::QName.new(NsV10, "TextAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "TextAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -268,7 +269,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::Video,
-    :schema_type => XSD::QName.new(NsV10, "Video"),
+    :schema_type => XSD::QName.new(NsV11, "Video"),
     :schema_element => [
       ["duration", "SOAP::SOAPLong", [0, 1]],
       ["filename", "SOAP::SOAPString", [0, 1]],
@@ -280,8 +281,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::VideoAd,
-    :schema_type => XSD::QName.new(NsV10, "VideoAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "VideoAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -299,27 +300,27 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AdService::AdStatus,
-    :schema_type => XSD::QName.new(NsV10, "AdStatus")
+    :schema_type => XSD::QName.new(NsV11, "AdStatus")
   )
 
   EncodedRegistry.register(
     :class => AdWords::AdService::AdType,
-    :schema_type => XSD::QName.new(NsV10, "AdType")
+    :schema_type => XSD::QName.new(NsV11, "AdType")
   )
 
   EncodedRegistry.register(
     :class => AdWords::AdService::ImageType,
-    :schema_type => XSD::QName.new(NsV10, "ImageType")
+    :schema_type => XSD::QName.new(NsV11, "ImageType")
   )
 
   EncodedRegistry.register(
     :class => AdWords::AdService::StockIcon,
-    :schema_type => XSD::QName.new(NsV10, "StockIcon")
+    :schema_type => XSD::QName.new(NsV11, "StockIcon")
   )
 
   LiteralRegistry.register(
     :class => AdWords::AdService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -334,7 +335,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::AdService::ApiError[]", [1, nil]],
@@ -346,7 +347,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::Business,
-    :schema_type => XSD::QName.new(NsV10, "Business"),
+    :schema_type => XSD::QName.new(NsV11, "Business"),
     :schema_element => [
       ["address", "SOAP::SOAPString"],
       ["city", "SOAP::SOAPString"],
@@ -364,7 +365,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::Circle,
-    :schema_type => XSD::QName.new(NsV10, "Circle"),
+    :schema_type => XSD::QName.new(NsV11, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
       ["longitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -374,7 +375,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::CityTargets,
-    :schema_type => XSD::QName.new(NsV10, "CityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -382,8 +383,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::CommerceAd,
-    :schema_type => XSD::QName.new(NsV10, "CommerceAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "CommerceAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -405,7 +406,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::CountryTargets,
-    :schema_type => XSD::QName.new(NsV10, "CountryTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -413,7 +414,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GeoTarget,
-    :schema_type => XSD::QName.new(NsV10, "GeoTarget"),
+    :schema_type => XSD::QName.new(NsV11, "GeoTarget"),
     :schema_element => [
       ["cityTargets", "AdWords::AdService::CityTargets", [0, 1]],
       ["countryTargets", "AdWords::AdService::CountryTargets", [0, 1]],
@@ -426,13 +427,14 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::Image,
-    :schema_type => XSD::QName.new(NsV10, "Image"),
+    :schema_type => XSD::QName.new(NsV11, "Image"),
     :schema_element => [
       ["data", "SOAP::SOAPBase64", [0, 1]],
       ["height", "SOAP::SOAPInt", [0, 1]],
       ["imageUrl", "SOAP::SOAPString", [0, 1]],
       ["mimeType", "SOAP::SOAPString", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
+      ["shrunkenUrl", "SOAP::SOAPString", [0, 1]],
       ["thumbnailUrl", "SOAP::SOAPString", [0, 1]],
       ["type", "AdWords::AdService::ImageType", [0, 1]],
       ["width", "SOAP::SOAPInt", [0, 1]]
@@ -441,8 +443,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::ImageAd,
-    :schema_type => XSD::QName.new(NsV10, "ImageAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "ImageAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -458,7 +460,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::LanguageTarget,
-    :schema_type => XSD::QName.new(NsV10, "LanguageTarget"),
+    :schema_type => XSD::QName.new(NsV11, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
     ]
@@ -466,8 +468,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::LocalBusinessAd,
-    :schema_type => XSD::QName.new(NsV10, "LocalBusinessAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "LocalBusinessAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -477,11 +479,11 @@ module DefaultMappingRegistry
       ["exemptionRequest", "SOAP::SOAPString", [0, 1]],
       ["id", "SOAP::SOAPLong"],
       ["status", "AdWords::AdService::AdStatus", [0, 1]],
-      ["address", "SOAP::SOAPString"],
+      ["address", "SOAP::SOAPString", [0, 1]],
       ["businessImage", "AdWords::AdService::Image", [0, 1]],
       ["businessKey", "SOAP::SOAPString", [0, 1]],
-      ["businessName", "SOAP::SOAPString"],
-      ["city", "SOAP::SOAPString"],
+      ["businessName", "SOAP::SOAPString", [0, 1]],
+      ["city", "SOAP::SOAPString", [0, 1]],
       ["countryCode", "SOAP::SOAPString"],
       ["customIcon", "AdWords::AdService::Image", [0, 1]],
       ["customIconId", "SOAP::SOAPLong", [0, 1]],
@@ -497,7 +499,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::MetroTargets,
-    :schema_type => XSD::QName.new(NsV10, "MetroTargets"),
+    :schema_type => XSD::QName.new(NsV11, "MetroTargets"),
     :schema_element => [
       ["metros", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -505,8 +507,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::MobileAd,
-    :schema_type => XSD::QName.new(NsV10, "MobileAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "MobileAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -528,7 +530,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::ProximityTargets,
-    :schema_type => XSD::QName.new(NsV10, "ProximityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "ProximityTargets"),
     :schema_element => [
       ["circles", "AdWords::AdService::Circle[]", [1, nil]]
     ]
@@ -536,7 +538,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::RegionTargets,
-    :schema_type => XSD::QName.new(NsV10, "RegionTargets"),
+    :schema_type => XSD::QName.new(NsV11, "RegionTargets"),
     :schema_element => [
       ["regions", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -544,7 +546,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::StatsRecord,
-    :schema_type => XSD::QName.new(NsV10, "StatsRecord"),
+    :schema_type => XSD::QName.new(NsV11, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
       ["clicks", "SOAP::SOAPLong"],
@@ -558,8 +560,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::TextAd,
-    :schema_type => XSD::QName.new(NsV10, "TextAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "TextAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -577,7 +579,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::Video,
-    :schema_type => XSD::QName.new(NsV10, "Video"),
+    :schema_type => XSD::QName.new(NsV11, "Video"),
     :schema_element => [
       ["duration", "SOAP::SOAPLong", [0, 1]],
       ["filename", "SOAP::SOAPString", [0, 1]],
@@ -589,8 +591,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::VideoAd,
-    :schema_type => XSD::QName.new(NsV10, "VideoAd"),
-    :schema_basetype => XSD::QName.new(NsV10, "Ad"),
+    :schema_type => XSD::QName.new(NsV11, "VideoAd"),
+    :schema_basetype => XSD::QName.new(NsV11, "Ad"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adType", "AdWords::AdService::AdType", [0, 1]],
@@ -608,27 +610,27 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::AdStatus,
-    :schema_type => XSD::QName.new(NsV10, "AdStatus")
+    :schema_type => XSD::QName.new(NsV11, "AdStatus")
   )
 
   LiteralRegistry.register(
     :class => AdWords::AdService::AdType,
-    :schema_type => XSD::QName.new(NsV10, "AdType")
+    :schema_type => XSD::QName.new(NsV11, "AdType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::AdService::ImageType,
-    :schema_type => XSD::QName.new(NsV10, "ImageType")
+    :schema_type => XSD::QName.new(NsV11, "ImageType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::AdService::StockIcon,
-    :schema_type => XSD::QName.new(NsV10, "StockIcon")
+    :schema_type => XSD::QName.new(NsV11, "StockIcon")
   )
 
   LiteralRegistry.register(
     :class => AdWords::AdService::AddAds,
-    :schema_name => XSD::QName.new(NsV10, "addAds"),
+    :schema_name => XSD::QName.new(NsV11, "addAds"),
     :schema_element => [
       ["ads", "AdWords::AdService::Ad[]", [1, nil]]
     ]
@@ -636,7 +638,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::AddAdsResponse,
-    :schema_name => XSD::QName.new(NsV10, "addAdsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "addAdsResponse"),
     :schema_element => [
       ["addAdsReturn", "AdWords::AdService::Ad[]", [1, nil]]
     ]
@@ -644,7 +646,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::CheckAds,
-    :schema_name => XSD::QName.new(NsV10, "checkAds"),
+    :schema_name => XSD::QName.new(NsV11, "checkAds"),
     :schema_element => [
       ["ads", "AdWords::AdService::Ad[]", [1, nil]],
       ["languageTarget", "AdWords::AdService::LanguageTarget"],
@@ -654,7 +656,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::CheckAdsResponse,
-    :schema_name => XSD::QName.new(NsV10, "checkAdsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "checkAdsResponse"),
     :schema_element => [
       ["checkAdsReturn", "AdWords::AdService::ApiError[]", [1, nil]]
     ]
@@ -662,7 +664,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::ApiException,
-    :schema_name => XSD::QName.new(NsV10, "fault"),
+    :schema_name => XSD::QName.new(NsV11, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::AdService::ApiError[]", [1, nil]],
@@ -674,7 +676,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::FindBusinesses,
-    :schema_name => XSD::QName.new(NsV10, "findBusinesses"),
+    :schema_name => XSD::QName.new(NsV11, "findBusinesses"),
     :schema_element => [
       ["name", "SOAP::SOAPString"],
       ["address", "SOAP::SOAPString"],
@@ -684,7 +686,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::FindBusinessesResponse,
-    :schema_name => XSD::QName.new(NsV10, "findBusinessesResponse"),
+    :schema_name => XSD::QName.new(NsV11, "findBusinessesResponse"),
     :schema_element => [
       ["findBusinessesReturn", "AdWords::AdService::Business[]", [1, nil]]
     ]
@@ -692,7 +694,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetActiveAds,
-    :schema_name => XSD::QName.new(NsV10, "getActiveAds"),
+    :schema_name => XSD::QName.new(NsV11, "getActiveAds"),
     :schema_element => [
       ["adGroupIds", "SOAP::SOAPInt[]", [1, nil]]
     ]
@@ -700,7 +702,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetActiveAdsResponse,
-    :schema_name => XSD::QName.new(NsV10, "getActiveAdsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getActiveAdsResponse"),
     :schema_element => [
       ["getActiveAdsReturn", "AdWords::AdService::Ad[]", [1, nil]]
     ]
@@ -708,7 +710,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetAd,
-    :schema_name => XSD::QName.new(NsV10, "getAd"),
+    :schema_name => XSD::QName.new(NsV11, "getAd"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adId", "SOAP::SOAPLong"]
@@ -717,7 +719,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetAdResponse,
-    :schema_name => XSD::QName.new(NsV10, "getAdResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getAdResponse"),
     :schema_element => [
       ["getAdReturn", "AdWords::AdService::Ad"]
     ]
@@ -725,7 +727,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetAdStats,
-    :schema_name => XSD::QName.new(NsV10, "getAdStats"),
+    :schema_name => XSD::QName.new(NsV11, "getAdStats"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["adIds", "SOAP::SOAPLong[]", [1, nil]],
@@ -736,7 +738,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetAdStatsResponse,
-    :schema_name => XSD::QName.new(NsV10, "getAdStatsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getAdStatsResponse"),
     :schema_element => [
       ["getAdStatsReturn", "AdWords::AdService::StatsRecord[]", [1, nil]]
     ]
@@ -744,7 +746,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetAllAds,
-    :schema_name => XSD::QName.new(NsV10, "getAllAds"),
+    :schema_name => XSD::QName.new(NsV11, "getAllAds"),
     :schema_element => [
       ["adGroupIds", "SOAP::SOAPInt[]", [1, nil]]
     ]
@@ -752,7 +754,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetAllAdsResponse,
-    :schema_name => XSD::QName.new(NsV10, "getAllAdsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getAllAdsResponse"),
     :schema_element => [
       ["getAllAdsReturn", "AdWords::AdService::Ad[]", [1, nil]]
     ]
@@ -760,13 +762,13 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetMyBusinesses,
-    :schema_name => XSD::QName.new(NsV10, "getMyBusinesses"),
+    :schema_name => XSD::QName.new(NsV11, "getMyBusinesses"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetMyBusinessesResponse,
-    :schema_name => XSD::QName.new(NsV10, "getMyBusinessesResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getMyBusinessesResponse"),
     :schema_element => [
       ["getMyBusinessesReturn", "AdWords::AdService::Business[]", [1, nil]]
     ]
@@ -774,13 +776,13 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetMyVideos,
-    :schema_name => XSD::QName.new(NsV10, "getMyVideos"),
+    :schema_name => XSD::QName.new(NsV11, "getMyVideos"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
     :class => AdWords::AdService::GetMyVideosResponse,
-    :schema_name => XSD::QName.new(NsV10, "getMyVideosResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getMyVideosResponse"),
     :schema_element => [
       ["getMyVideosReturn", "AdWords::AdService::Video[]", [1, nil]]
     ]
@@ -788,7 +790,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::UpdateAds,
-    :schema_name => XSD::QName.new(NsV10, "updateAds"),
+    :schema_name => XSD::QName.new(NsV11, "updateAds"),
     :schema_element => [
       ["ads", "AdWords::AdService::Ad[]", [1, nil]]
     ]
@@ -796,7 +798,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AdService::UpdateAdsResponse,
-    :schema_name => XSD::QName.new(NsV10, "updateAdsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "updateAdsResponse"),
     :schema_element => []
   )
 

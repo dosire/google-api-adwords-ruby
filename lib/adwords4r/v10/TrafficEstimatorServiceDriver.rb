@@ -1,9 +1,9 @@
 require 'adwords4r/v10/TrafficEstimatorService'
 require 'adwords4r/v10/TrafficEstimatorServiceMappingRegistry'
+require 'soap/rpc/driver'
 
 module AdWords
 module TrafficEstimatorService
-require 'soap/rpc/driver'
 
 class TrafficEstimatorInterface < ::SOAP::RPC::Driver
   DefaultEndpointUrl = "https://adwords.google.com/api/adwords/v10/TrafficEstimatorService"
@@ -15,7 +15,7 @@ class TrafficEstimatorInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "checkKeywordTrafficResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:name=>"ApiException", :use=>"literal", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v10"}} }
+        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v10", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
     ],
     [ "",
       "estimateAdGroupList",
@@ -23,7 +23,7 @@ class TrafficEstimatorInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "estimateAdGroupListResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:name=>"ApiException", :use=>"literal", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v10"}} }
+        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v10", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
     ],
     [ "",
       "estimateCampaignList",
@@ -31,7 +31,7 @@ class TrafficEstimatorInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "estimateCampaignListResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:name=>"ApiException", :use=>"literal", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v10"}} }
+        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v10", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
     ],
     [ "",
       "estimateKeywordList",
@@ -39,7 +39,7 @@ class TrafficEstimatorInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "estimateKeywordListResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:name=>"ApiException", :use=>"literal", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v10"}} }
+        :faults => {"AdWords::TrafficEstimatorService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v10", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
     ]
   ]
 

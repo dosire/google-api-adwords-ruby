@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module TrafficEstimatorService
 
 
-# {https://adwords.google.com/api/adwords/v10}AdGroupEstimate
+# {https://adwords.google.com/api/adwords/v11}AdGroupEstimate
 #   id - SOAP::SOAPInt
 #   keywordEstimates - AdWords::TrafficEstimatorService::KeywordEstimate
 class AdGroupEstimate
@@ -16,7 +16,7 @@ class AdGroupEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}AdGroupRequest
+# {https://adwords.google.com/api/adwords/v11}AdGroupRequest
 #   id - SOAP::SOAPInt
 #   keywordRequests - AdWords::TrafficEstimatorService::KeywordRequest
 #   maxCpc - SOAP::SOAPLong
@@ -32,7 +32,7 @@ class AdGroupRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiError
+# {https://adwords.google.com/api/adwords/v11}ApiError
 #   code - SOAP::SOAPInt
 #   detail - SOAP::SOAPString
 #   field - SOAP::SOAPString
@@ -63,7 +63,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiException
+# {https://adwords.google.com/api/adwords/v11}ApiException
 #   code - SOAP::SOAPInt
 #   errors - AdWords::TrafficEstimatorService::ApiError
 #   internal - SOAP::SOAPBoolean
@@ -85,7 +85,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}CampaignEstimate
+# {https://adwords.google.com/api/adwords/v11}CampaignEstimate
 #   adGroupEstimates - AdWords::TrafficEstimatorService::AdGroupEstimate
 #   id - SOAP::SOAPInt
 class CampaignEstimate
@@ -98,7 +98,7 @@ class CampaignEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}CampaignRequest
+# {https://adwords.google.com/api/adwords/v11}CampaignRequest
 #   adGroupRequests - AdWords::TrafficEstimatorService::AdGroupRequest
 #   geoTargeting - AdWords::TrafficEstimatorService::GeoTarget
 #   id - SOAP::SOAPInt
@@ -120,7 +120,7 @@ class CampaignRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Circle
+# {https://adwords.google.com/api/adwords/v11}Circle
 #   latitudeMicroDegrees - SOAP::SOAPInt
 #   longitudeMicroDegrees - SOAP::SOAPInt
 #   radiusMeters - SOAP::SOAPInt
@@ -136,15 +136,15 @@ class Circle
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}CityTargets
+# {https://adwords.google.com/api/adwords/v11}CityTargets
 class CityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}CountryTargets
+# {https://adwords.google.com/api/adwords/v11}CountryTargets
 class CountryTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}GeoTarget
+# {https://adwords.google.com/api/adwords/v11}GeoTarget
 #   cityTargets - AdWords::TrafficEstimatorService::CityTargets
 #   countryTargets - AdWords::TrafficEstimatorService::CountryTargets
 #   metroTargets - AdWords::TrafficEstimatorService::MetroTargets
@@ -169,7 +169,7 @@ class GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordEstimate
+# {https://adwords.google.com/api/adwords/v11}KeywordEstimate
 #   id - SOAP::SOAPLong
 #   lowerAvgPosition - SOAP::SOAPFloat
 #   lowerClicksPerDay - SOAP::SOAPFloat
@@ -197,7 +197,7 @@ class KeywordEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordRequest
+# {https://adwords.google.com/api/adwords/v11}KeywordRequest
 #   id - SOAP::SOAPLong
 #   maxCpc - SOAP::SOAPLong
 #   negative - SOAP::SOAPBoolean
@@ -219,7 +219,7 @@ class KeywordRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordTrafficRequest
+# {https://adwords.google.com/api/adwords/v11}KeywordTrafficRequest
 #   keywordText - SOAP::SOAPString
 #   keywordType - AdWords::TrafficEstimatorService::KeywordType
 #   language - SOAP::SOAPString
@@ -235,76 +235,76 @@ class KeywordTrafficRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}LanguageTarget
+# {https://adwords.google.com/api/adwords/v11}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}MetroTargets
+# {https://adwords.google.com/api/adwords/v11}MetroTargets
 class MetroTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}NetworkTarget
+# {https://adwords.google.com/api/adwords/v11}NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}ProximityTargets
+# {https://adwords.google.com/api/adwords/v11}ProximityTargets
 class ProximityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}RegionTargets
+# {https://adwords.google.com/api/adwords/v11}RegionTargets
 class RegionTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordTraffic
+# {https://adwords.google.com/api/adwords/v11}KeywordTraffic
 class KeywordTraffic < ::String
   HasTraffic = KeywordTraffic.new("HasTraffic")
   Unknown = KeywordTraffic.new("Unknown")
   VeryLowTraffic = KeywordTraffic.new("VeryLowTraffic")
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordType
+# {https://adwords.google.com/api/adwords/v11}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v10}NetworkType
+# {https://adwords.google.com/api/adwords/v11}NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v10}checkKeywordTraffic
+# {https://adwords.google.com/api/adwords/v11}checkKeywordTraffic
 class CheckKeywordTraffic < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}checkKeywordTrafficResponse
+# {https://adwords.google.com/api/adwords/v11}checkKeywordTrafficResponse
 class CheckKeywordTrafficResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}estimateAdGroupList
+# {https://adwords.google.com/api/adwords/v11}estimateAdGroupList
 class EstimateAdGroupList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}estimateAdGroupListResponse
+# {https://adwords.google.com/api/adwords/v11}estimateAdGroupListResponse
 class EstimateAdGroupListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}estimateCampaignList
+# {https://adwords.google.com/api/adwords/v11}estimateCampaignList
 class EstimateCampaignList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}estimateCampaignListResponse
+# {https://adwords.google.com/api/adwords/v11}estimateCampaignListResponse
 class EstimateCampaignListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}estimateKeywordList
+# {https://adwords.google.com/api/adwords/v11}estimateKeywordList
 class EstimateKeywordList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}estimateKeywordListResponse
+# {https://adwords.google.com/api/adwords/v11}estimateKeywordListResponse
 class EstimateKeywordListResponse < ::Array
 end
 

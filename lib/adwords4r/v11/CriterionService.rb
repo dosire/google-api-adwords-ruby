@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module CriterionService
 
 
-# {https://adwords.google.com/api/adwords/v10}ApiError
+# {https://adwords.google.com/api/adwords/v11}ApiError
 #   code - SOAP::SOAPInt
 #   detail - SOAP::SOAPString
 #   field - SOAP::SOAPString
@@ -34,7 +34,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiException
+# {https://adwords.google.com/api/adwords/v11}ApiException
 #   code - SOAP::SOAPInt
 #   errors - AdWords::CriterionService::ApiError
 #   internal - SOAP::SOAPBoolean
@@ -56,7 +56,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Circle
+# {https://adwords.google.com/api/adwords/v11}Circle
 #   latitudeMicroDegrees - SOAP::SOAPInt
 #   longitudeMicroDegrees - SOAP::SOAPInt
 #   radiusMeters - SOAP::SOAPInt
@@ -72,15 +72,15 @@ class Circle
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}CityTargets
+# {https://adwords.google.com/api/adwords/v11}CityTargets
 class CityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}CountryTargets
+# {https://adwords.google.com/api/adwords/v11}CountryTargets
 class CountryTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}Criterion
+# {https://adwords.google.com/api/adwords/v11}Criterion
 # abstract
 #   adGroupId - SOAP::SOAPInt
 #   criterionType - AdWords::CriterionService::CriterionType
@@ -115,7 +115,7 @@ class Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Keyword
+# {https://adwords.google.com/api/adwords/v11}Keyword
 #   adGroupId - SOAP::SOAPInt
 #   criterionType - AdWords::CriterionService::CriterionType
 #   destinationUrl - SOAP::SOAPString
@@ -164,7 +164,7 @@ class Keyword < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Website
+# {https://adwords.google.com/api/adwords/v11}Website
 #   adGroupId - SOAP::SOAPInt
 #   criterionType - AdWords::CriterionService::CriterionType
 #   destinationUrl - SOAP::SOAPString
@@ -204,7 +204,7 @@ class Website < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}GeoTarget
+# {https://adwords.google.com/api/adwords/v11}GeoTarget
 #   cityTargets - AdWords::CriterionService::CityTargets
 #   countryTargets - AdWords::CriterionService::CountryTargets
 #   metroTargets - AdWords::CriterionService::MetroTargets
@@ -229,23 +229,23 @@ class GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}LanguageTarget
+# {https://adwords.google.com/api/adwords/v11}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}MetroTargets
+# {https://adwords.google.com/api/adwords/v11}MetroTargets
 class MetroTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}ProximityTargets
+# {https://adwords.google.com/api/adwords/v11}ProximityTargets
 class ProximityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}RegionTargets
+# {https://adwords.google.com/api/adwords/v11}RegionTargets
 class RegionTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}StatsRecord
+# {https://adwords.google.com/api/adwords/v11}StatsRecord
 #   averagePosition - SOAP::SOAPDouble
 #   clicks - SOAP::SOAPLong
 #   conversionRate - SOAP::SOAPDouble
@@ -273,7 +273,7 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}CriterionStatus
+# {https://adwords.google.com/api/adwords/v11}CriterionStatus
 class CriterionStatus < ::String
   Active = CriterionStatus.new("Active")
   Deleted = CriterionStatus.new("Deleted")
@@ -281,28 +281,28 @@ class CriterionStatus < ::String
   InActive = CriterionStatus.new("InActive")
 end
 
-# {https://adwords.google.com/api/adwords/v10}CriterionType
+# {https://adwords.google.com/api/adwords/v11}CriterionType
 class CriterionType < ::String
   Keyword = CriterionType.new("Keyword")
   Website = CriterionType.new("Website")
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordType
+# {https://adwords.google.com/api/adwords/v11}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v10}addCriteria
+# {https://adwords.google.com/api/adwords/v11}addCriteria
 class AddCriteria < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}addCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}addCriteriaResponse
 class AddCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}checkCriteria
+# {https://adwords.google.com/api/adwords/v11}checkCriteria
 #   criteria - AdWords::CriterionService::Criterion
 #   languageTarget - AdWords::CriterionService::LanguageTarget
 #   geoTarget - AdWords::CriterionService::GeoTarget
@@ -318,11 +318,11 @@ class CheckCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}checkCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}checkCriteriaResponse
 class CheckCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAllCriteria
+# {https://adwords.google.com/api/adwords/v11}getAllCriteria
 #   adGroupId - SOAP::SOAPInt
 class GetAllCriteria
   attr_accessor :adGroupId
@@ -332,11 +332,11 @@ class GetAllCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAllCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}getAllCriteriaResponse
 class GetAllCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getCampaignNegativeCriteria
+# {https://adwords.google.com/api/adwords/v11}getCampaignNegativeCriteria
 #   campaignId - SOAP::SOAPInt
 class GetCampaignNegativeCriteria
   attr_accessor :campaignId
@@ -346,11 +346,11 @@ class GetCampaignNegativeCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getCampaignNegativeCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}getCampaignNegativeCriteriaResponse
 class GetCampaignNegativeCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getCriteria
+# {https://adwords.google.com/api/adwords/v11}getCriteria
 #   adGroupId - SOAP::SOAPInt
 #   criterionIds - SOAP::SOAPLong
 class GetCriteria
@@ -363,11 +363,11 @@ class GetCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}getCriteriaResponse
 class GetCriteriaResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getCriterionStats
+# {https://adwords.google.com/api/adwords/v11}getCriterionStats
 #   adGroupId - SOAP::SOAPInt
 #   criterionIds - SOAP::SOAPLong
 #   startDay - SOAP::SOAPDate
@@ -386,11 +386,11 @@ class GetCriterionStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getCriterionStatsResponse
+# {https://adwords.google.com/api/adwords/v11}getCriterionStatsResponse
 class GetCriterionStatsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}removeCriteria
+# {https://adwords.google.com/api/adwords/v11}removeCriteria
 #   adGroupId - SOAP::SOAPInt
 #   criterionIds - SOAP::SOAPLong
 class RemoveCriteria
@@ -403,13 +403,13 @@ class RemoveCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}removeCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}removeCriteriaResponse
 class RemoveCriteriaResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}setCampaignNegativeCriteria
+# {https://adwords.google.com/api/adwords/v11}setCampaignNegativeCriteria
 #   campaignId - SOAP::SOAPInt
 #   criteria - AdWords::CriterionService::Criterion
 class SetCampaignNegativeCriteria
@@ -422,17 +422,17 @@ class SetCampaignNegativeCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}setCampaignNegativeCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}setCampaignNegativeCriteriaResponse
 class SetCampaignNegativeCriteriaResponse
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}updateCriteria
+# {https://adwords.google.com/api/adwords/v11}updateCriteria
 class UpdateCriteria < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}updateCriteriaResponse
+# {https://adwords.google.com/api/adwords/v11}updateCriteriaResponse
 class UpdateCriteriaResponse
   def initialize
   end

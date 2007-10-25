@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module InfoService
 
 
-# {https://adwords.google.com/api/adwords/v10}ApiError
+# {https://adwords.google.com/api/adwords/v11}ApiError
 #   code - SOAP::SOAPInt
 #   detail - SOAP::SOAPString
 #   field - SOAP::SOAPString
@@ -34,7 +34,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiException
+# {https://adwords.google.com/api/adwords/v11}ApiException
 #   code - SOAP::SOAPInt
 #   errors - AdWords::InfoService::ApiError
 #   internal - SOAP::SOAPBoolean
@@ -56,7 +56,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ClientUsageRecord
+# {https://adwords.google.com/api/adwords/v11}ClientUsageRecord
 #   clientEmail - SOAP::SOAPString
 #   quotaUnits - SOAP::SOAPLong
 class ClientUsageRecord
@@ -69,13 +69,13 @@ class ClientUsageRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getFreeUsageQuotaThisMonth
+# {https://adwords.google.com/api/adwords/v11}getFreeUsageQuotaThisMonth
 class GetFreeUsageQuotaThisMonth
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getFreeUsageQuotaThisMonthResponse
+# {https://adwords.google.com/api/adwords/v11}getFreeUsageQuotaThisMonthResponse
 #   getFreeUsageQuotaThisMonthReturn - SOAP::SOAPLong
 class GetFreeUsageQuotaThisMonthResponse
   attr_accessor :getFreeUsageQuotaThisMonthReturn
@@ -85,7 +85,7 @@ class GetFreeUsageQuotaThisMonthResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getMethodCost
+# {https://adwords.google.com/api/adwords/v11}getMethodCost
 #   service - SOAP::SOAPString
 #   method - SOAP::SOAPString
 #   date - SOAP::SOAPDate
@@ -101,7 +101,7 @@ class GetMethodCost
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getMethodCostResponse
+# {https://adwords.google.com/api/adwords/v11}getMethodCostResponse
 #   getMethodCostReturn - SOAP::SOAPInt
 class GetMethodCostResponse
   attr_accessor :getMethodCostReturn
@@ -111,7 +111,7 @@ class GetMethodCostResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getOperationCount
+# {https://adwords.google.com/api/adwords/v11}getOperationCount
 #   startDate - SOAP::SOAPDate
 #   endDate - SOAP::SOAPDate
 class GetOperationCount
@@ -124,7 +124,7 @@ class GetOperationCount
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getOperationCountResponse
+# {https://adwords.google.com/api/adwords/v11}getOperationCountResponse
 #   getOperationCountReturn - SOAP::SOAPLong
 class GetOperationCountResponse
   attr_accessor :getOperationCountReturn
@@ -134,13 +134,13 @@ class GetOperationCountResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getOperationsQuotaThisMonth
+# {https://adwords.google.com/api/adwords/v11}getOperationsQuotaThisMonth
 class GetOperationsQuotaThisMonth
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getOperationsQuotaThisMonthResponse
+# {https://adwords.google.com/api/adwords/v11}getOperationsQuotaThisMonthResponse
 #   getOperationsQuotaThisMonthReturn - SOAP::SOAPLong
 class GetOperationsQuotaThisMonthResponse
   attr_accessor :getOperationsQuotaThisMonthReturn
@@ -150,7 +150,7 @@ class GetOperationsQuotaThisMonthResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUnitCount
+# {https://adwords.google.com/api/adwords/v11}getUnitCount
 #   startDate - SOAP::SOAPDate
 #   endDate - SOAP::SOAPDate
 class GetUnitCount
@@ -163,7 +163,7 @@ class GetUnitCount
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUnitCountForClients
+# {https://adwords.google.com/api/adwords/v11}getUnitCountForClients
 #   clientEmails - SOAP::SOAPString
 #   startDate - SOAP::SOAPDate
 #   endDate - SOAP::SOAPDate
@@ -179,11 +179,11 @@ class GetUnitCountForClients
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUnitCountForClientsResponse
+# {https://adwords.google.com/api/adwords/v11}getUnitCountForClientsResponse
 class GetUnitCountForClientsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUnitCountForMethod
+# {https://adwords.google.com/api/adwords/v11}getUnitCountForMethod
 #   service - SOAP::SOAPString
 #   method - SOAP::SOAPString
 #   startDate - SOAP::SOAPDate
@@ -202,7 +202,7 @@ class GetUnitCountForMethod
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUnitCountForMethodResponse
+# {https://adwords.google.com/api/adwords/v11}getUnitCountForMethodResponse
 #   getUnitCountForMethodReturn - SOAP::SOAPLong
 class GetUnitCountForMethodResponse
   attr_accessor :getUnitCountForMethodReturn
@@ -212,7 +212,7 @@ class GetUnitCountForMethodResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUnitCountResponse
+# {https://adwords.google.com/api/adwords/v11}getUnitCountResponse
 #   getUnitCountReturn - SOAP::SOAPLong
 class GetUnitCountResponse
   attr_accessor :getUnitCountReturn
@@ -222,13 +222,13 @@ class GetUnitCountResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUsageQuotaThisMonth
+# {https://adwords.google.com/api/adwords/v11}getUsageQuotaThisMonth
 class GetUsageQuotaThisMonth
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getUsageQuotaThisMonthResponse
+# {https://adwords.google.com/api/adwords/v11}getUsageQuotaThisMonthResponse
 #   getUsageQuotaThisMonthReturn - SOAP::SOAPLong
 class GetUsageQuotaThisMonthResponse
   attr_accessor :getUsageQuotaThisMonthReturn

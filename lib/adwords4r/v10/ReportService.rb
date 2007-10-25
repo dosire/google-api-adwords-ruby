@@ -4,6 +4,14 @@ module AdWords; module ReportService
 
 
 # {https://adwords.google.com/api/adwords/v10}ApiError
+#   code - SOAP::SOAPInt
+#   detail - SOAP::SOAPString
+#   field - SOAP::SOAPString
+#   index - SOAP::SOAPInt
+#   isExemptable - SOAP::SOAPBoolean
+#   textIndex - SOAP::SOAPInt
+#   textLength - SOAP::SOAPInt
+#   trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -27,6 +35,11 @@ class ApiError
 end
 
 # {https://adwords.google.com/api/adwords/v10}ApiException
+#   code - SOAP::SOAPInt
+#   errors - AdWords::ReportService::ApiError
+#   internal - SOAP::SOAPBoolean
+#   message - SOAP::SOAPString
+#   trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -45,6 +58,14 @@ end
 
 # {https://adwords.google.com/api/adwords/v10}ReportJob
 # abstract
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
 class ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -68,6 +89,15 @@ class ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}AccountReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   adWordsType - AdWords::ReportService::AdWordsType
 class AccountReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -93,6 +123,17 @@ class AccountReportJob < ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}AdGroupReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   adGroupStatuses - AdWords::ReportService::AdGroupStatus
+#   adWordsType - AdWords::ReportService::AdWordsType
+#   campaigns - SOAP::SOAPInt
 class AdGroupReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -122,6 +163,15 @@ class AdGroupReportJob < ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}AdImageReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   campaigns - SOAP::SOAPInt
 class AdImageReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -147,6 +197,16 @@ class AdImageReportJob < ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}AdTextReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   adWordsType - AdWords::ReportService::AdWordsType
+#   campaigns - SOAP::SOAPInt
 class AdTextReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -174,6 +234,16 @@ class AdTextReportJob < ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}CampaignReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   adWordsType - AdWords::ReportService::AdWordsType
+#   campaigns - SOAP::SOAPInt
 class CampaignReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -201,6 +271,24 @@ class CampaignReportJob < ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}CustomReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   adGroupStatuses - AdWords::ReportService::AdGroupStatus
+#   adGroups - SOAP::SOAPInt
+#   adWordsType - AdWords::ReportService::AdWordsType
+#   campaignStatuses - AdWords::ReportService::CampaignStatus
+#   campaigns - SOAP::SOAPInt
+#   customOptions - AdWords::ReportService::CustomReportOption
+#   includeZeroImpression - SOAP::SOAPBoolean
+#   keywordStatuses - AdWords::ReportService::KeywordStatus
+#   keywordType - AdWords::ReportService::KeywordType
+#   keywords - SOAP::SOAPString
 class CustomReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -244,6 +332,19 @@ class CustomReportJob < ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}KeywordReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   adWordsType - AdWords::ReportService::AdWordsType
+#   campaigns - SOAP::SOAPInt
+#   includeZeroImpression - SOAP::SOAPBoolean
+#   keywordStatuses - AdWords::ReportService::KeywordStatus
+#   keywordType - AdWords::ReportService::KeywordType
 class KeywordReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -277,6 +378,16 @@ class KeywordReportJob < ReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}UrlReportJob
+#   aggregationType - AdWords::ReportService::AggregationType
+#   clientEmails - SOAP::SOAPString
+#   crossClient - SOAP::SOAPBoolean
+#   endDay - SOAP::SOAPDate
+#   id - SOAP::SOAPLong
+#   name - SOAP::SOAPString
+#   startDay - SOAP::SOAPDate
+#   status - AdWords::ReportService::ReportJobStatus
+#   adWordsType - AdWords::ReportService::AdWordsType
+#   campaigns - SOAP::SOAPInt
 class UrlReportJob < ReportJob
   attr_accessor :aggregationType
   attr_accessor :clientEmails
@@ -432,6 +543,7 @@ class ReportJobStatus < ::String
 end
 
 # {https://adwords.google.com/api/adwords/v10}deleteReport
+#   reportJobId - SOAP::SOAPLong
 class DeleteReport
   attr_accessor :reportJobId
 
@@ -457,6 +569,7 @@ class GetAllJobsResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v10}getGzipReportDownloadUrl
+#   reportJobId - SOAP::SOAPLong
 class GetGzipReportDownloadUrl
   attr_accessor :reportJobId
 
@@ -466,6 +579,7 @@ class GetGzipReportDownloadUrl
 end
 
 # {https://adwords.google.com/api/adwords/v10}getGzipReportDownloadUrlResponse
+#   getGzipReportDownloadUrlReturn - SOAP::SOAPString
 class GetGzipReportDownloadUrlResponse
   attr_accessor :getGzipReportDownloadUrlReturn
 
@@ -475,6 +589,7 @@ class GetGzipReportDownloadUrlResponse
 end
 
 # {https://adwords.google.com/api/adwords/v10}getReportDownloadUrl
+#   reportJobId - SOAP::SOAPLong
 class GetReportDownloadUrl
   attr_accessor :reportJobId
 
@@ -484,6 +599,7 @@ class GetReportDownloadUrl
 end
 
 # {https://adwords.google.com/api/adwords/v10}getReportDownloadUrlResponse
+#   getReportDownloadUrlReturn - SOAP::SOAPString
 class GetReportDownloadUrlResponse
   attr_accessor :getReportDownloadUrlReturn
 
@@ -493,6 +609,7 @@ class GetReportDownloadUrlResponse
 end
 
 # {https://adwords.google.com/api/adwords/v10}getReportJobStatus
+#   reportJobId - SOAP::SOAPLong
 class GetReportJobStatus
   attr_accessor :reportJobId
 
@@ -502,6 +619,7 @@ class GetReportJobStatus
 end
 
 # {https://adwords.google.com/api/adwords/v10}getReportJobStatusResponse
+#   getReportJobStatusReturn - AdWords::ReportService::ReportJobStatus
 class GetReportJobStatusResponse
   attr_accessor :getReportJobStatusReturn
 
@@ -511,6 +629,7 @@ class GetReportJobStatusResponse
 end
 
 # {https://adwords.google.com/api/adwords/v10}scheduleReportJob
+#   job - AdWords::ReportService::ReportJob
 class ScheduleReportJob
   attr_accessor :job
 
@@ -520,6 +639,7 @@ class ScheduleReportJob
 end
 
 # {https://adwords.google.com/api/adwords/v10}scheduleReportJobResponse
+#   scheduleReportJobReturn - SOAP::SOAPLong
 class ScheduleReportJobResponse
   attr_accessor :scheduleReportJobReturn
 

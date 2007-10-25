@@ -1,4 +1,4 @@
-require 'adwords4r/v10/CriterionService'
+require 'adwords4r/v11/CriterionService'
 require 'soap/mapping'
 
 module AdWords; module CriterionService
@@ -6,11 +6,11 @@ module AdWords; module CriterionService
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
   LiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
-  NsV10 = "https://adwords.google.com/api/adwords/v10"
+  NsV11 = "https://adwords.google.com/api/adwords/v11"
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -25,7 +25,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::CriterionService::ApiError[]", [1, nil]],
@@ -37,7 +37,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::Circle,
-    :schema_type => XSD::QName.new(NsV10, "Circle"),
+    :schema_type => XSD::QName.new(NsV11, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
       ["longitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -47,7 +47,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::CityTargets,
-    :schema_type => XSD::QName.new(NsV10, "CityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -55,7 +55,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::CountryTargets,
-    :schema_type => XSD::QName.new(NsV10, "CountryTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -63,7 +63,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::GeoTarget,
-    :schema_type => XSD::QName.new(NsV10, "GeoTarget"),
+    :schema_type => XSD::QName.new(NsV11, "GeoTarget"),
     :schema_element => [
       ["cityTargets", "AdWords::CriterionService::CityTargets", [0, 1]],
       ["countryTargets", "AdWords::CriterionService::CountryTargets", [0, 1]],
@@ -76,8 +76,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::Keyword,
-    :schema_type => XSD::QName.new(NsV10, "Keyword"),
-    :schema_basetype => XSD::QName.new(NsV10, "Criterion"),
+    :schema_type => XSD::QName.new(NsV11, "Keyword"),
+    :schema_basetype => XSD::QName.new(NsV11, "Criterion"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["criterionType", "AdWords::CriterionService::CriterionType", [0, 1]],
@@ -98,7 +98,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::LanguageTarget,
-    :schema_type => XSD::QName.new(NsV10, "LanguageTarget"),
+    :schema_type => XSD::QName.new(NsV11, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
     ]
@@ -106,7 +106,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::MetroTargets,
-    :schema_type => XSD::QName.new(NsV10, "MetroTargets"),
+    :schema_type => XSD::QName.new(NsV11, "MetroTargets"),
     :schema_element => [
       ["metros", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -114,7 +114,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::ProximityTargets,
-    :schema_type => XSD::QName.new(NsV10, "ProximityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "ProximityTargets"),
     :schema_element => [
       ["circles", "AdWords::CriterionService::Circle[]", [1, nil]]
     ]
@@ -122,7 +122,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::RegionTargets,
-    :schema_type => XSD::QName.new(NsV10, "RegionTargets"),
+    :schema_type => XSD::QName.new(NsV11, "RegionTargets"),
     :schema_element => [
       ["regions", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -130,7 +130,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::StatsRecord,
-    :schema_type => XSD::QName.new(NsV10, "StatsRecord"),
+    :schema_type => XSD::QName.new(NsV11, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
       ["clicks", "SOAP::SOAPLong"],
@@ -144,8 +144,8 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::Website,
-    :schema_type => XSD::QName.new(NsV10, "Website"),
-    :schema_basetype => XSD::QName.new(NsV10, "Criterion"),
+    :schema_type => XSD::QName.new(NsV11, "Website"),
+    :schema_basetype => XSD::QName.new(NsV11, "Criterion"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["criterionType", "AdWords::CriterionService::CriterionType", [0, 1]],
@@ -163,22 +163,22 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::CriterionStatus,
-    :schema_type => XSD::QName.new(NsV10, "CriterionStatus")
+    :schema_type => XSD::QName.new(NsV11, "CriterionStatus")
   )
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::CriterionType,
-    :schema_type => XSD::QName.new(NsV10, "CriterionType")
+    :schema_type => XSD::QName.new(NsV11, "CriterionType")
   )
 
   EncodedRegistry.register(
     :class => AdWords::CriterionService::KeywordType,
-    :schema_type => XSD::QName.new(NsV10, "KeywordType")
+    :schema_type => XSD::QName.new(NsV11, "KeywordType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -193,7 +193,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::CriterionService::ApiError[]", [1, nil]],
@@ -205,7 +205,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::Circle,
-    :schema_type => XSD::QName.new(NsV10, "Circle"),
+    :schema_type => XSD::QName.new(NsV11, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
       ["longitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -215,7 +215,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::CityTargets,
-    :schema_type => XSD::QName.new(NsV10, "CityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -223,7 +223,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::CountryTargets,
-    :schema_type => XSD::QName.new(NsV10, "CountryTargets"),
+    :schema_type => XSD::QName.new(NsV11, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -231,7 +231,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GeoTarget,
-    :schema_type => XSD::QName.new(NsV10, "GeoTarget"),
+    :schema_type => XSD::QName.new(NsV11, "GeoTarget"),
     :schema_element => [
       ["cityTargets", "AdWords::CriterionService::CityTargets", [0, 1]],
       ["countryTargets", "AdWords::CriterionService::CountryTargets", [0, 1]],
@@ -244,8 +244,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::Keyword,
-    :schema_type => XSD::QName.new(NsV10, "Keyword"),
-    :schema_basetype => XSD::QName.new(NsV10, "Criterion"),
+    :schema_type => XSD::QName.new(NsV11, "Keyword"),
+    :schema_basetype => XSD::QName.new(NsV11, "Criterion"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["criterionType", "AdWords::CriterionService::CriterionType", [0, 1]],
@@ -266,7 +266,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::LanguageTarget,
-    :schema_type => XSD::QName.new(NsV10, "LanguageTarget"),
+    :schema_type => XSD::QName.new(NsV11, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
     ]
@@ -274,7 +274,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::MetroTargets,
-    :schema_type => XSD::QName.new(NsV10, "MetroTargets"),
+    :schema_type => XSD::QName.new(NsV11, "MetroTargets"),
     :schema_element => [
       ["metros", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -282,7 +282,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::ProximityTargets,
-    :schema_type => XSD::QName.new(NsV10, "ProximityTargets"),
+    :schema_type => XSD::QName.new(NsV11, "ProximityTargets"),
     :schema_element => [
       ["circles", "AdWords::CriterionService::Circle[]", [1, nil]]
     ]
@@ -290,7 +290,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::RegionTargets,
-    :schema_type => XSD::QName.new(NsV10, "RegionTargets"),
+    :schema_type => XSD::QName.new(NsV11, "RegionTargets"),
     :schema_element => [
       ["regions", "SOAP::SOAPString[]", [0, nil]]
     ]
@@ -298,7 +298,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::StatsRecord,
-    :schema_type => XSD::QName.new(NsV10, "StatsRecord"),
+    :schema_type => XSD::QName.new(NsV11, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
       ["clicks", "SOAP::SOAPLong"],
@@ -312,8 +312,8 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::Website,
-    :schema_type => XSD::QName.new(NsV10, "Website"),
-    :schema_basetype => XSD::QName.new(NsV10, "Criterion"),
+    :schema_type => XSD::QName.new(NsV11, "Website"),
+    :schema_basetype => XSD::QName.new(NsV11, "Criterion"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["criterionType", "AdWords::CriterionService::CriterionType", [0, 1]],
@@ -331,22 +331,22 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::CriterionStatus,
-    :schema_type => XSD::QName.new(NsV10, "CriterionStatus")
+    :schema_type => XSD::QName.new(NsV11, "CriterionStatus")
   )
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::CriterionType,
-    :schema_type => XSD::QName.new(NsV10, "CriterionType")
+    :schema_type => XSD::QName.new(NsV11, "CriterionType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::KeywordType,
-    :schema_type => XSD::QName.new(NsV10, "KeywordType")
+    :schema_type => XSD::QName.new(NsV11, "KeywordType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::AddCriteria,
-    :schema_name => XSD::QName.new(NsV10, "addCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "addCriteria"),
     :schema_element => [
       ["criteria", "AdWords::CriterionService::Criterion[]", [1, nil]]
     ]
@@ -354,7 +354,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::AddCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "addCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "addCriteriaResponse"),
     :schema_element => [
       ["addCriteriaReturn", "AdWords::CriterionService::Criterion[]", [1, nil]]
     ]
@@ -362,7 +362,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::CheckCriteria,
-    :schema_name => XSD::QName.new(NsV10, "checkCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "checkCriteria"),
     :schema_element => [
       ["criteria", "AdWords::CriterionService::Criterion[]", [1, nil]],
       ["languageTarget", "AdWords::CriterionService::LanguageTarget"],
@@ -372,7 +372,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::CheckCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "checkCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "checkCriteriaResponse"),
     :schema_element => [
       ["checkCriteriaReturn", "AdWords::CriterionService::ApiError[]", [1, nil]]
     ]
@@ -380,7 +380,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::ApiException,
-    :schema_name => XSD::QName.new(NsV10, "fault"),
+    :schema_name => XSD::QName.new(NsV11, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::CriterionService::ApiError[]", [1, nil]],
@@ -392,7 +392,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetAllCriteria,
-    :schema_name => XSD::QName.new(NsV10, "getAllCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "getAllCriteria"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"]
     ]
@@ -400,7 +400,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetAllCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "getAllCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getAllCriteriaResponse"),
     :schema_element => [
       ["getAllCriteriaReturn", "AdWords::CriterionService::Criterion[]", [1, nil]]
     ]
@@ -408,7 +408,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetCampaignNegativeCriteria,
-    :schema_name => XSD::QName.new(NsV10, "getCampaignNegativeCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "getCampaignNegativeCriteria"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"]
     ]
@@ -416,7 +416,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetCampaignNegativeCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "getCampaignNegativeCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getCampaignNegativeCriteriaResponse"),
     :schema_element => [
       ["getCampaignNegativeCriteriaReturn", "AdWords::CriterionService::Criterion[]", [1, nil]]
     ]
@@ -424,7 +424,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetCriteria,
-    :schema_name => XSD::QName.new(NsV10, "getCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "getCriteria"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["criterionIds", "SOAP::SOAPLong[]", [1, nil]]
@@ -433,7 +433,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "getCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getCriteriaResponse"),
     :schema_element => [
       ["getCriteriaReturn", "AdWords::CriterionService::Criterion[]", [1, nil]]
     ]
@@ -441,7 +441,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetCriterionStats,
-    :schema_name => XSD::QName.new(NsV10, "getCriterionStats"),
+    :schema_name => XSD::QName.new(NsV11, "getCriterionStats"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["criterionIds", "SOAP::SOAPLong[]", [1, nil]],
@@ -452,7 +452,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::GetCriterionStatsResponse,
-    :schema_name => XSD::QName.new(NsV10, "getCriterionStatsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getCriterionStatsResponse"),
     :schema_element => [
       ["getCriterionStatsReturn", "AdWords::CriterionService::StatsRecord[]", [1, nil]]
     ]
@@ -460,7 +460,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::RemoveCriteria,
-    :schema_name => XSD::QName.new(NsV10, "removeCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "removeCriteria"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPInt"],
       ["criterionIds", "SOAP::SOAPLong[]", [1, nil]]
@@ -469,13 +469,13 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::RemoveCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "removeCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "removeCriteriaResponse"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::SetCampaignNegativeCriteria,
-    :schema_name => XSD::QName.new(NsV10, "setCampaignNegativeCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "setCampaignNegativeCriteria"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"],
       ["criteria", "AdWords::CriterionService::Criterion[]", [1, nil]]
@@ -484,13 +484,13 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::SetCampaignNegativeCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "setCampaignNegativeCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "setCampaignNegativeCriteriaResponse"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::UpdateCriteria,
-    :schema_name => XSD::QName.new(NsV10, "updateCriteria"),
+    :schema_name => XSD::QName.new(NsV11, "updateCriteria"),
     :schema_element => [
       ["criteria", "AdWords::CriterionService::Criterion[]", [1, nil]]
     ]
@@ -498,7 +498,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::CriterionService::UpdateCriteriaResponse,
-    :schema_name => XSD::QName.new(NsV10, "updateCriteriaResponse"),
+    :schema_name => XSD::QName.new(NsV11, "updateCriteriaResponse"),
     :schema_element => []
   )
 

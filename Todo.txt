@@ -18,12 +18,4 @@ SOAP::Property.loadproperty("adwords.properties")'
 - pass in a hash for complex objects
 - comments everywhere, rdoc
 - documentation
-- more samples: traffic_estimator, report, 
-
-OK- generate v4
-OK- get rid of yaml dependency
-OK- change the property file name to adwords.properties
-OK- make it work with all generated classes in their own module
-OK- fix bug in InfoService
-OK- gem file
-OK- traditional setup file
+- more samples: traffic_estimator, report,

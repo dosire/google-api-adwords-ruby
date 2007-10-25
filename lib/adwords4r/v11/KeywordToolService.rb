@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module KeywordToolService
 
 
-# {https://adwords.google.com/api/adwords/v10}ApiError
+# {https://adwords.google.com/api/adwords/v11}ApiError
 #   code - SOAP::SOAPInt
 #   detail - SOAP::SOAPString
 #   field - SOAP::SOAPString
@@ -34,7 +34,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiException
+# {https://adwords.google.com/api/adwords/v11}ApiException
 #   code - SOAP::SOAPInt
 #   errors - AdWords::KeywordToolService::ApiError
 #   internal - SOAP::SOAPBoolean
@@ -56,7 +56,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordVariation
+# {https://adwords.google.com/api/adwords/v11}KeywordVariation
 #   advertiserCompetitionScale - SOAP::SOAPInt
 #   language - SOAP::SOAPString
 #   searchVolumeScale - SOAP::SOAPInt
@@ -75,7 +75,7 @@ class KeywordVariation
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordVariations
+# {https://adwords.google.com/api/adwords/v11}KeywordVariations
 #   additionalToConsider - AdWords::KeywordToolService::KeywordVariation
 #   moreSpecific - AdWords::KeywordToolService::KeywordVariation
 class KeywordVariations
@@ -88,7 +88,7 @@ class KeywordVariations
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}SeedKeyword
+# {https://adwords.google.com/api/adwords/v11}SeedKeyword
 #   negative - SOAP::SOAPBoolean
 #   text - SOAP::SOAPString
 #   type - AdWords::KeywordToolService::KeywordType
@@ -104,7 +104,7 @@ class SeedKeyword
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}SiteKeyword
+# {https://adwords.google.com/api/adwords/v11}SiteKeyword
 #   advertiserCompetitionScale - SOAP::SOAPInt
 #   groupId - SOAP::SOAPInt
 #   searchVolumeScale - SOAP::SOAPInt
@@ -123,7 +123,7 @@ class SiteKeyword
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}SiteKeywordGroups
+# {https://adwords.google.com/api/adwords/v11}SiteKeywordGroups
 #   groups - SOAP::SOAPString
 #   keywords - AdWords::KeywordToolService::SiteKeyword
 class SiteKeywordGroups
@@ -136,14 +136,14 @@ class SiteKeywordGroups
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}KeywordType
+# {https://adwords.google.com/api/adwords/v11}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v10}getKeywordVariations
+# {https://adwords.google.com/api/adwords/v11}getKeywordVariations
 #   seedKeywords - AdWords::KeywordToolService::SeedKeyword
 #   useSynonyms - SOAP::SOAPBoolean
 #   languages - SOAP::SOAPString
@@ -162,7 +162,7 @@ class GetKeywordVariations
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getKeywordVariationsResponse
+# {https://adwords.google.com/api/adwords/v11}getKeywordVariationsResponse
 #   getKeywordVariationsReturn - AdWords::KeywordToolService::KeywordVariations
 class GetKeywordVariationsResponse
   attr_accessor :getKeywordVariationsReturn
@@ -172,7 +172,7 @@ class GetKeywordVariationsResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getKeywordsFromSite
+# {https://adwords.google.com/api/adwords/v11}getKeywordsFromSite
 #   url - SOAP::SOAPString
 #   includeLinkedPages - SOAP::SOAPBoolean
 #   languages - SOAP::SOAPString
@@ -191,7 +191,7 @@ class GetKeywordsFromSite
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getKeywordsFromSiteResponse
+# {https://adwords.google.com/api/adwords/v11}getKeywordsFromSiteResponse
 #   getKeywordsFromSiteReturn - AdWords::KeywordToolService::SiteKeywordGroups
 class GetKeywordsFromSiteResponse
   attr_accessor :getKeywordsFromSiteReturn

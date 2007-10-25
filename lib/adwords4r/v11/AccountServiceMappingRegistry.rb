@@ -1,4 +1,4 @@
-require 'adwords4r/v10/AccountService'
+require 'adwords4r/v11/AccountService'
 require 'soap/mapping'
 
 module AdWords; module AccountService
@@ -6,11 +6,11 @@ module AdWords; module AccountService
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
   LiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
-  NsV10 = "https://adwords.google.com/api/adwords/v10"
+  NsV11 = "https://adwords.google.com/api/adwords/v11"
 
   EncodedRegistry.register(
     :class => AdWords::AccountService::AccountInfo,
-    :schema_type => XSD::QName.new(NsV10, "AccountInfo"),
+    :schema_type => XSD::QName.new(NsV11, "AccountInfo"),
     :schema_element => [
       ["billingAddress", "AdWords::AccountService::Address"],
       ["currencyCode", "SOAP::SOAPString"],
@@ -28,7 +28,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AccountService::Address,
-    :schema_type => XSD::QName.new(NsV10, "Address"),
+    :schema_type => XSD::QName.new(NsV11, "Address"),
     :schema_element => [
       ["addressLine1", "SOAP::SOAPString"],
       ["addressLine2", "SOAP::SOAPString"],
@@ -46,7 +46,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AccountService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -61,7 +61,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AccountService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::AccountService::ApiError[]", [1, nil]],
@@ -73,7 +73,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AccountService::EmailPromotionsPreferences,
-    :schema_type => XSD::QName.new(NsV10, "EmailPromotionsPreferences"),
+    :schema_type => XSD::QName.new(NsV11, "EmailPromotionsPreferences"),
     :schema_element => [
       ["accountPerformanceEnabled", "SOAP::SOAPBoolean"],
       ["disapprovedAdsEnabled", "SOAP::SOAPBoolean"],
@@ -85,7 +85,7 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AccountService::NetworkTarget,
-    :schema_type => XSD::QName.new(NsV10, "NetworkTarget"),
+    :schema_type => XSD::QName.new(NsV11, "NetworkTarget"),
     :schema_element => [
       ["networkTypes", "AdWords::AccountService::NetworkType[]", [0, nil]]
     ]
@@ -93,12 +93,12 @@ module DefaultMappingRegistry
 
   EncodedRegistry.register(
     :class => AdWords::AccountService::NetworkType,
-    :schema_type => XSD::QName.new(NsV10, "NetworkType")
+    :schema_type => XSD::QName.new(NsV11, "NetworkType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::AccountInfo,
-    :schema_type => XSD::QName.new(NsV10, "AccountInfo"),
+    :schema_type => XSD::QName.new(NsV11, "AccountInfo"),
     :schema_element => [
       ["billingAddress", "AdWords::AccountService::Address"],
       ["currencyCode", "SOAP::SOAPString"],
@@ -116,7 +116,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::Address,
-    :schema_type => XSD::QName.new(NsV10, "Address"),
+    :schema_type => XSD::QName.new(NsV11, "Address"),
     :schema_element => [
       ["addressLine1", "SOAP::SOAPString"],
       ["addressLine2", "SOAP::SOAPString"],
@@ -134,7 +134,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::ApiError,
-    :schema_type => XSD::QName.new(NsV10, "ApiError"),
+    :schema_type => XSD::QName.new(NsV11, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["detail", "SOAP::SOAPString"],
@@ -149,7 +149,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::ApiException,
-    :schema_type => XSD::QName.new(NsV10, "ApiException"),
+    :schema_type => XSD::QName.new(NsV11, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::AccountService::ApiError[]", [1, nil]],
@@ -161,7 +161,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::EmailPromotionsPreferences,
-    :schema_type => XSD::QName.new(NsV10, "EmailPromotionsPreferences"),
+    :schema_type => XSD::QName.new(NsV11, "EmailPromotionsPreferences"),
     :schema_element => [
       ["accountPerformanceEnabled", "SOAP::SOAPBoolean"],
       ["disapprovedAdsEnabled", "SOAP::SOAPBoolean"],
@@ -173,7 +173,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::NetworkTarget,
-    :schema_type => XSD::QName.new(NsV10, "NetworkTarget"),
+    :schema_type => XSD::QName.new(NsV11, "NetworkTarget"),
     :schema_element => [
       ["networkTypes", "AdWords::AccountService::NetworkType[]", [0, nil]]
     ]
@@ -181,12 +181,12 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::NetworkType,
-    :schema_type => XSD::QName.new(NsV10, "NetworkType")
+    :schema_type => XSD::QName.new(NsV11, "NetworkType")
   )
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::ApiException,
-    :schema_name => XSD::QName.new(NsV10, "fault"),
+    :schema_name => XSD::QName.new(NsV11, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
       ["errors", "AdWords::AccountService::ApiError[]", [1, nil]],
@@ -198,13 +198,13 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::GetAccountInfo,
-    :schema_name => XSD::QName.new(NsV10, "getAccountInfo"),
+    :schema_name => XSD::QName.new(NsV11, "getAccountInfo"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::GetAccountInfoResponse,
-    :schema_name => XSD::QName.new(NsV10, "getAccountInfoResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getAccountInfoResponse"),
     :schema_element => [
       ["getAccountInfoReturn", "AdWords::AccountService::AccountInfo"]
     ]
@@ -212,36 +212,21 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::GetClientAccounts,
-    :schema_name => XSD::QName.new(NsV10, "getClientAccounts"),
+    :schema_name => XSD::QName.new(NsV11, "getClientAccounts"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::GetClientAccountsResponse,
-    :schema_name => XSD::QName.new(NsV10, "getClientAccountsResponse"),
+    :schema_name => XSD::QName.new(NsV11, "getClientAccountsResponse"),
     :schema_element => [
       ["getClientAccountsReturn", "SOAP::SOAPString[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AccountService::SetLoginInfo,
-    :schema_name => XSD::QName.new(NsV10, "setLoginInfo"),
-    :schema_element => [
-      ["login", "SOAP::SOAPString"],
-      ["newPassword", "SOAP::SOAPString"]
-    ]
-  )
-
-  LiteralRegistry.register(
-    :class => AdWords::AccountService::SetLoginInfoResponse,
-    :schema_name => XSD::QName.new(NsV10, "setLoginInfoResponse"),
-    :schema_element => []
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::AccountService::UpdateAccountInfo,
-    :schema_name => XSD::QName.new(NsV10, "updateAccountInfo"),
+    :schema_name => XSD::QName.new(NsV11, "updateAccountInfo"),
     :schema_element => [
       ["accountInfo", "AdWords::AccountService::AccountInfo"]
     ]
@@ -249,7 +234,7 @@ module DefaultMappingRegistry
 
   LiteralRegistry.register(
     :class => AdWords::AccountService::UpdateAccountInfoResponse,
-    :schema_name => XSD::QName.new(NsV10, "updateAccountInfoResponse"),
+    :schema_name => XSD::QName.new(NsV11, "updateAccountInfoResponse"),
     :schema_element => []
   )
 

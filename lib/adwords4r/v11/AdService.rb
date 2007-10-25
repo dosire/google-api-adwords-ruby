@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module AdService
 
 
-# {https://adwords.google.com/api/adwords/v10}Ad
+# {https://adwords.google.com/api/adwords/v11}Ad
 # abstract
 #   adGroupId - SOAP::SOAPInt
 #   adType - AdWords::AdService::AdType
@@ -35,7 +35,7 @@ class Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}CommerceAd
+# {https://adwords.google.com/api/adwords/v11}CommerceAd
 #   adGroupId - SOAP::SOAPInt
 #   adType - AdWords::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
@@ -87,7 +87,7 @@ class CommerceAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ImageAd
+# {https://adwords.google.com/api/adwords/v11}ImageAd
 #   adGroupId - SOAP::SOAPInt
 #   adType - AdWords::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
@@ -121,7 +121,7 @@ class ImageAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}LocalBusinessAd
+# {https://adwords.google.com/api/adwords/v11}LocalBusinessAd
 #   adGroupId - SOAP::SOAPInt
 #   adType - AdWords::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
@@ -197,7 +197,7 @@ class LocalBusinessAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}MobileAd
+# {https://adwords.google.com/api/adwords/v11}MobileAd
 #   adGroupId - SOAP::SOAPInt
 #   adType - AdWords::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
@@ -249,7 +249,7 @@ class MobileAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}TextAd
+# {https://adwords.google.com/api/adwords/v11}TextAd
 #   adGroupId - SOAP::SOAPInt
 #   adType - AdWords::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
@@ -289,7 +289,7 @@ class TextAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}VideoAd
+# {https://adwords.google.com/api/adwords/v11}VideoAd
 #   adGroupId - SOAP::SOAPInt
 #   adType - AdWords::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
@@ -329,7 +329,7 @@ class VideoAd < Ad
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiError
+# {https://adwords.google.com/api/adwords/v11}ApiError
 #   code - SOAP::SOAPInt
 #   detail - SOAP::SOAPString
 #   field - SOAP::SOAPString
@@ -360,7 +360,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiException
+# {https://adwords.google.com/api/adwords/v11}ApiException
 #   code - SOAP::SOAPInt
 #   errors - AdWords::AdService::ApiError
 #   internal - SOAP::SOAPBoolean
@@ -382,7 +382,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Business
+# {https://adwords.google.com/api/adwords/v11}Business
 #   address - SOAP::SOAPString
 #   city - SOAP::SOAPString
 #   countryCode - SOAP::SOAPString
@@ -422,7 +422,7 @@ class Business
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Circle
+# {https://adwords.google.com/api/adwords/v11}Circle
 #   latitudeMicroDegrees - SOAP::SOAPInt
 #   longitudeMicroDegrees - SOAP::SOAPInt
 #   radiusMeters - SOAP::SOAPInt
@@ -438,15 +438,15 @@ class Circle
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}CityTargets
+# {https://adwords.google.com/api/adwords/v11}CityTargets
 class CityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}CountryTargets
+# {https://adwords.google.com/api/adwords/v11}CountryTargets
 class CountryTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}GeoTarget
+# {https://adwords.google.com/api/adwords/v11}GeoTarget
 #   cityTargets - AdWords::AdService::CityTargets
 #   countryTargets - AdWords::AdService::CountryTargets
 #   metroTargets - AdWords::AdService::MetroTargets
@@ -471,12 +471,13 @@ class GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Image
+# {https://adwords.google.com/api/adwords/v11}Image
 #   data - SOAP::SOAPBase64
 #   height - SOAP::SOAPInt
 #   imageUrl - SOAP::SOAPString
 #   mimeType - SOAP::SOAPString
 #   name - SOAP::SOAPString
+#   shrunkenUrl - SOAP::SOAPString
 #   thumbnailUrl - SOAP::SOAPString
 #   type - AdWords::AdService::ImageType
 #   width - SOAP::SOAPInt
@@ -486,39 +487,41 @@ class Image
   attr_accessor :imageUrl
   attr_accessor :mimeType
   attr_accessor :name
+  attr_accessor :shrunkenUrl
   attr_accessor :thumbnailUrl
   attr_accessor :type
   attr_accessor :width
 
-  def initialize(data = nil, height = nil, imageUrl = nil, mimeType = nil, name = nil, thumbnailUrl = nil, type = nil, width = nil)
+  def initialize(data = nil, height = nil, imageUrl = nil, mimeType = nil, name = nil, shrunkenUrl = nil, thumbnailUrl = nil, type = nil, width = nil)
     @data = data
     @height = height
     @imageUrl = imageUrl
     @mimeType = mimeType
     @name = name
+    @shrunkenUrl = shrunkenUrl
     @thumbnailUrl = thumbnailUrl
     @type = type
     @width = width
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}LanguageTarget
+# {https://adwords.google.com/api/adwords/v11}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}MetroTargets
+# {https://adwords.google.com/api/adwords/v11}MetroTargets
 class MetroTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}ProximityTargets
+# {https://adwords.google.com/api/adwords/v11}ProximityTargets
 class ProximityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}RegionTargets
+# {https://adwords.google.com/api/adwords/v11}RegionTargets
 class RegionTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}StatsRecord
+# {https://adwords.google.com/api/adwords/v11}StatsRecord
 #   averagePosition - SOAP::SOAPDouble
 #   clicks - SOAP::SOAPLong
 #   conversionRate - SOAP::SOAPDouble
@@ -546,7 +549,7 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Video
+# {https://adwords.google.com/api/adwords/v11}Video
 #   duration - SOAP::SOAPLong
 #   filename - SOAP::SOAPString
 #   preview - SOAP::SOAPString
@@ -568,14 +571,14 @@ class Video
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}AdStatus
+# {https://adwords.google.com/api/adwords/v11}AdStatus
 class AdStatus < ::String
   Disabled = AdStatus.new("Disabled")
   Enabled = AdStatus.new("Enabled")
   Paused = AdStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v10}AdType
+# {https://adwords.google.com/api/adwords/v11}AdType
 class AdType < ::String
   CommerceAd = AdType.new("CommerceAd")
   ImageAd = AdType.new("ImageAd")
@@ -585,14 +588,14 @@ class AdType < ::String
   VideoAd = AdType.new("VideoAd")
 end
 
-# {https://adwords.google.com/api/adwords/v10}ImageType
+# {https://adwords.google.com/api/adwords/v11}ImageType
 class ImageType < ::String
   DynamicImage = ImageType.new("dynamicImage")
   Flash = ImageType.new("flash")
   Image = ImageType.new("image")
 end
 
-# {https://adwords.google.com/api/adwords/v10}StockIcon
+# {https://adwords.google.com/api/adwords/v11}StockIcon
 class StockIcon < ::String
   Standard_1 = StockIcon.new("Standard_1")
   Standard_10 = StockIcon.new("Standard_10")
@@ -613,15 +616,15 @@ class StockIcon < ::String
   Standard_9 = StockIcon.new("Standard_9")
 end
 
-# {https://adwords.google.com/api/adwords/v10}addAds
+# {https://adwords.google.com/api/adwords/v11}addAds
 class AddAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}addAdsResponse
+# {https://adwords.google.com/api/adwords/v11}addAdsResponse
 class AddAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}checkAds
+# {https://adwords.google.com/api/adwords/v11}checkAds
 #   ads - AdWords::AdService::Ad
 #   languageTarget - AdWords::AdService::LanguageTarget
 #   geoTarget - AdWords::AdService::GeoTarget
@@ -637,11 +640,11 @@ class CheckAds
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}checkAdsResponse
+# {https://adwords.google.com/api/adwords/v11}checkAdsResponse
 class CheckAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}findBusinesses
+# {https://adwords.google.com/api/adwords/v11}findBusinesses
 #   name - SOAP::SOAPString
 #   address - SOAP::SOAPString
 #   countryCode - SOAP::SOAPString
@@ -657,19 +660,19 @@ class FindBusinesses
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}findBusinessesResponse
+# {https://adwords.google.com/api/adwords/v11}findBusinessesResponse
 class FindBusinessesResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getActiveAds
+# {https://adwords.google.com/api/adwords/v11}getActiveAds
 class GetActiveAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getActiveAdsResponse
+# {https://adwords.google.com/api/adwords/v11}getActiveAdsResponse
 class GetActiveAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAd
+# {https://adwords.google.com/api/adwords/v11}getAd
 #   adGroupId - SOAP::SOAPInt
 #   adId - SOAP::SOAPLong
 class GetAd
@@ -682,7 +685,7 @@ class GetAd
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAdResponse
+# {https://adwords.google.com/api/adwords/v11}getAdResponse
 #   getAdReturn - AdWords::AdService::Ad
 class GetAdResponse
   attr_accessor :getAdReturn
@@ -692,7 +695,7 @@ class GetAdResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAdStats
+# {https://adwords.google.com/api/adwords/v11}getAdStats
 #   adGroupId - SOAP::SOAPInt
 #   adIds - SOAP::SOAPLong
 #   startDay - SOAP::SOAPDate
@@ -711,43 +714,43 @@ class GetAdStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAdStatsResponse
+# {https://adwords.google.com/api/adwords/v11}getAdStatsResponse
 class GetAdStatsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAllAds
+# {https://adwords.google.com/api/adwords/v11}getAllAds
 class GetAllAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAllAdsResponse
+# {https://adwords.google.com/api/adwords/v11}getAllAdsResponse
 class GetAllAdsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getMyBusinesses
+# {https://adwords.google.com/api/adwords/v11}getMyBusinesses
 class GetMyBusinesses
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getMyBusinessesResponse
+# {https://adwords.google.com/api/adwords/v11}getMyBusinessesResponse
 class GetMyBusinessesResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}getMyVideos
+# {https://adwords.google.com/api/adwords/v11}getMyVideos
 class GetMyVideos
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getMyVideosResponse
+# {https://adwords.google.com/api/adwords/v11}getMyVideosResponse
 class GetMyVideosResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}updateAds
+# {https://adwords.google.com/api/adwords/v11}updateAds
 class UpdateAds < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}updateAdsResponse
+# {https://adwords.google.com/api/adwords/v11}updateAdsResponse
 class UpdateAdsResponse
   def initialize
   end

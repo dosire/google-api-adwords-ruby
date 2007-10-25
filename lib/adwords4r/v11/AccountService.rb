@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module AccountService
 
 
-# {https://adwords.google.com/api/adwords/v10}AccountInfo
+# {https://adwords.google.com/api/adwords/v11}AccountInfo
 #   billingAddress - AdWords::AccountService::Address
 #   currencyCode - SOAP::SOAPString
 #   customerId - SOAP::SOAPLong
@@ -43,7 +43,7 @@ class AccountInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}Address
+# {https://adwords.google.com/api/adwords/v11}Address
 #   addressLine1 - SOAP::SOAPString
 #   addressLine2 - SOAP::SOAPString
 #   city - SOAP::SOAPString
@@ -83,7 +83,7 @@ class Address
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiError
+# {https://adwords.google.com/api/adwords/v11}ApiError
 #   code - SOAP::SOAPInt
 #   detail - SOAP::SOAPString
 #   field - SOAP::SOAPString
@@ -114,7 +114,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}ApiException
+# {https://adwords.google.com/api/adwords/v11}ApiException
 #   code - SOAP::SOAPInt
 #   errors - AdWords::AccountService::ApiError
 #   internal - SOAP::SOAPBoolean
@@ -136,7 +136,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}EmailPromotionsPreferences
+# {https://adwords.google.com/api/adwords/v11}EmailPromotionsPreferences
 #   accountPerformanceEnabled - SOAP::SOAPBoolean
 #   disapprovedAdsEnabled - SOAP::SOAPBoolean
 #   marketResearchEnabled - SOAP::SOAPBoolean
@@ -158,24 +158,24 @@ class EmailPromotionsPreferences
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}NetworkTarget
+# {https://adwords.google.com/api/adwords/v11}NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}NetworkType
+# {https://adwords.google.com/api/adwords/v11}NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAccountInfo
+# {https://adwords.google.com/api/adwords/v11}getAccountInfo
 class GetAccountInfo
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getAccountInfoResponse
+# {https://adwords.google.com/api/adwords/v11}getAccountInfoResponse
 #   getAccountInfoReturn - AdWords::AccountService::AccountInfo
 class GetAccountInfoResponse
   attr_accessor :getAccountInfoReturn
@@ -185,36 +185,17 @@ class GetAccountInfoResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getClientAccounts
+# {https://adwords.google.com/api/adwords/v11}getClientAccounts
 class GetClientAccounts
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}getClientAccountsResponse
+# {https://adwords.google.com/api/adwords/v11}getClientAccountsResponse
 class GetClientAccountsResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v10}setLoginInfo
-#   login - SOAP::SOAPString
-#   newPassword - SOAP::SOAPString
-class SetLoginInfo
-  attr_accessor :login
-  attr_accessor :newPassword
-
-  def initialize(login = nil, newPassword = nil)
-    @login = login
-    @newPassword = newPassword
-  end
-end
-
-# {https://adwords.google.com/api/adwords/v10}setLoginInfoResponse
-class SetLoginInfoResponse
-  def initialize
-  end
-end
-
-# {https://adwords.google.com/api/adwords/v10}updateAccountInfo
+# {https://adwords.google.com/api/adwords/v11}updateAccountInfo
 #   accountInfo - AdWords::AccountService::AccountInfo
 class UpdateAccountInfo
   attr_accessor :accountInfo
@@ -224,7 +205,7 @@ class UpdateAccountInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v10}updateAccountInfoResponse
+# {https://adwords.google.com/api/adwords/v11}updateAccountInfoResponse
 class UpdateAccountInfoResponse
   def initialize
   end

@@ -1,14 +1,26 @@
-﻿Google adwwords4r Library
-----------------------
+Google adwwords4r Library
+-------------------------
 
-Welcome to adwords4r, bringing the delights of ruby programming to the AdWords world: AdWords::API.new.getAllAdWordsCampaigns(123).each {|c| puts c.name}
+Welcome to adwords4r: Bringing the delights of ruby programming to the AdWords world!
 
-Not much doc or comments yet
+	 AdWords::API.new.getAllAdWordsCampaigns(123).each {|c| puts c.name}
 
-docs for users
+Documentation and comments are a work in progress.
+
+
+Useful Web Resources
+--------------------
+
+- AdWords home: https://adwords.google.com/
+- The AdWords API main documentation: http://www.google.com/apis/adwords/developer/index.html
+- This project's Google Code page: http://code.google.com/p/google-api-adwords-ruby/
+
+
+Docs for Users
 --------------
 
 adwords4r is a ruby gem.  See http://docs.rubygems.org/read/book/1
+
 Install it using the gem install command.
 > gem install --remote adwords4r
 
@@ -45,7 +57,7 @@ adwords = AdWords::API.new(credentials, version)
 
 In order to use the sandbox, you can add a credential named
 alternateUrl, like:
-alternateUrl=https://sandbox.google.com/api/adwords/v5/
+alternateUrl=https://sandbox.google.com/api/adwords/v11/
 
 Then just use methods of the API against your driver.
 adwords.getAllAdWordsCampaigns(123).each {|c| puts c.name}
@@ -57,8 +69,10 @@ Many: warning: already initialized constant XXX
 A few: at depth 0 - 20: unable to get local issuer certificate
 These are not serious: I need to make them go but they do not affect the correctness of the program.
 
-docs for developers
+
+Docs for Developers
 -------------------
+
 rake getwsdl
     to get the wsdl files
 rake generate
@@ -79,6 +93,4 @@ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
 GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
 HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
-THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
-
-It is fun to use adwords4r anyway...
+THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

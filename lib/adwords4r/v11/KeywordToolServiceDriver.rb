@@ -1,29 +1,29 @@
-require 'adwords4r/v10/KeywordToolService'
-require 'adwords4r/v10/KeywordToolServiceMappingRegistry'
+require 'adwords4r/v11/KeywordToolService'
+require 'adwords4r/v11/KeywordToolServiceMappingRegistry'
 require 'soap/rpc/driver'
 
 module AdWords
 module KeywordToolService
 
 class KeywordToolInterface < ::SOAP::RPC::Driver
-  DefaultEndpointUrl = "https://adwords.google.com/api/adwords/v10/KeywordToolService"
+  DefaultEndpointUrl = "https://adwords.google.com/api/adwords/v11/KeywordToolService"
 
   Methods = [
     [ "",
       "getKeywordVariations",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "getKeywordVariations"]],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "getKeywordVariationsResponse"]] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v11", "getKeywordVariations"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v11", "getKeywordVariationsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::KeywordToolService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v10", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
+        :faults => {"AdWords::KeywordToolService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v11", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
     ],
     [ "",
       "getKeywordsFromSite",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "getKeywordsFromSite"]],
-        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v10", "getKeywordsFromSiteResponse"]] ],
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v11", "getKeywordsFromSite"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v11", "getKeywordsFromSiteResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::KeywordToolService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v10", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
+        :faults => {"AdWords::KeywordToolService::ApiException"=>{:namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v11", :encodingstyle=>"document", :use=>"literal", :name=>"ApiException"}} }
     ]
   ]
 
