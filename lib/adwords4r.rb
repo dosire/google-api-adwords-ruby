@@ -79,7 +79,7 @@ module AdWords
       @credentials.handlers.each {|h| driver.headerhandler << h}
 
       if ENV['ADWORDS4R_DEBUG'].upcase == 'TRUE'
-	driver.wiredump_file_base = "SOAP_#{$$}"
+        driver.wiredump_file_base = "SOAP_#{$$}"
       end
 
       driver.options['protocol.http.ssl_config.verify_mode'] = nil
