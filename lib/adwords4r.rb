@@ -78,7 +78,7 @@ module AdWords
       end
       @credentials.handlers.each {|h| driver.headerhandler << h}
 
-      if ENV['ADWORDS4R_DEBUG'].upcase == 'TRUE'
+      if !ENV['ADWORDS4R_DEBUG'].nil? && ENV['ADWORDS4R_DEBUG'].upcase == 'TRUE'
         driver.wiredump_file_base = "SOAP_#{$$}"
       end
 

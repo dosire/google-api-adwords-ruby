@@ -181,10 +181,10 @@ Currently the following AdWords API versions are supported:\
     s.author = "Jeffrey Posnick, Patrick Chanezon, Ryan Leavengood"
     s.email = "jeffy@google.com"
     s.homepage = "http://rubyforge.org/projects/google4r/"
-    s.requirements << 'soap4r v1.5.6 or greater'
+    s.requirements << 'soap4r v1.5.8 or greater'
     s.requirements << 'httpclient v2.1.2 or greater'
     s.rubyforge_project = 'google4r'
-    s.add_dependency('soap4r', '>= 1.5.6')
+    s.add_dependency('soap4r', '>= 1.5.8')
     s.add_dependency('httpclient', '>= 2.1.2')
   end
   
