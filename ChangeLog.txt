@@ -1,3 +1,7 @@
+11.0.3
+- update soap4r minimum version requirement in the .gem file to 1.5.8, as there are compatibility problems with 1.5.6
+- the ADWORDS4R_DEBUG environment variable was causing problems when it was not set instead of silently disabling debugging; this is fixed.
+
 11.0.2
 - Jeffrey Posnick (jeffy@google.com) takes over as maintainer of this project
 - added support for AdWords API v11
