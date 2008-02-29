@@ -6,6 +6,7 @@ rescue
 end
 require 'soap/soap'
 require 'soap/mapping'
+require 'soap/rpc/driver'
 require 'adwords4r/credentials'
 require 'adwords4r/services'
 
@@ -28,6 +29,26 @@ end
 module AdWords
 
   class API
+
+    @@total_units = 0
+    @@last_units = 0
+
+    def API.add_total_units(increment)
+      @@total_units += increment
+    end
+
+    def API.get_total_units()
+      return @@total_units
+    end
+    
+    def API.set_last_units(value)
+      @@last_units = value
+    end
+    
+    def API.get_last_units()
+      return @@last_units
+    end
+
     attr_reader :credentials, :drivers, :version
     @methodMap = Hash.new
 
@@ -49,7 +70,7 @@ module AdWords
       else
         raise(Error::UnknownAPICall, "Unknown API Call: #{requestName}", caller)
       end
-      # Handle AdWords Application-level error
+    # Handle AdWords Application-level error
     rescue SOAP::FaultError => fault
       raise(Error::ApiError.new(fault), "#{methodName} Call Failed: #{fault.faultstring.to_s}", caller)
     end
@@ -77,6 +98,9 @@ module AdWords
         driver = eval("AdWords::#{getServiceName(s)}.new")
       end
       @credentials.handlers.each {|h| driver.headerhandler << h}
+      
+      # Add response filter to this driver for API unit usage processing.
+      driver.filterchain << ResponseFilter.new
 
       if !ENV['ADWORDS4R_DEBUG'].nil? && ENV['ADWORDS4R_DEBUG'].upcase == 'TRUE'
         driver.wiredump_file_base = "SOAP_#{$$}"
@@ -108,7 +132,6 @@ module AdWords
 
     # Raised if a call returns with a SOAP error, gives you easy access to adwords error fields
     class ApiError < Error
-
       attr_accessor :soap_faultcode
       attr_accessor :soap_faultstring
       attr_accessor :top_code
@@ -122,15 +145,28 @@ module AdWords
       attr_accessor :textIndex
       attr_accessor :textLength
       attr_accessor :trigger
+      
+      # These *_ex attributes have been added to correct deficiencies with the initial implementation.
+      # They should expose more useful information (i.e. text of errors instead of a SOAP element)
+      # and proper mapping of a fault's trigger and code.
+      # The old attributes are left behind for backward compatibility; hopefully this isn't too confusing!
+      attr_accessor :trigger_ex
+      attr_accessor :soap_faultcode_ex
+      attr_accessor :soap_faultstring_ex
+      attr_accessor :code_ex
 
       def initialize(soap_fault)
         @soap_faultcode = protect { soap_fault.faultcode }
+        @soap_faultcode_ex = protect { soap_fault.faultcode.text }
         @soap_faultstring = protect { soap_fault.faultstring }
+        @soap_faultstring_ex = protect { soap_fault.faultstring.text }
         if protect { soap_fault.detail and soap_fault.detail.fault }
           fault = soap_fault.detail.fault
           @top_code = protect { fault.code }
           @internal = protect { fault.internal }
           @message = protect { fault.message }
+          @trigger_ex = protect { fault.trigger }
+	  @code_ex = protect { fault.code }
           if protect { fault.errors and fault.errors.size > 0 }
             error = fault.errors.first
             @code = protect { error.code }
@@ -153,6 +189,22 @@ module AdWords
           nil
         end
       end
+    end
+  end
+
+  # SOAP filter to process response messages for API unit usage information.
+  class ResponseFilter < SOAP::Filter::Handler
+    def on_inbound(xml, opt)
+      # Parse the response XML string for the <operations> header value.
+      if xml =~ %r{<units.+?>(\d+)</units>}
+	units = $1.to_i
+	# Since we don't really have an instance of a useful class here,
+	# we're stuck sticking the value in a class variable for AdWords::API.
+	AdWords::API.set_last_units(units)
+	AdWords::API.add_total_units(units)
+      end
+
+      return xml
     end
   end
 

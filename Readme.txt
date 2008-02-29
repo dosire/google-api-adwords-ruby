@@ -3,8 +3,6 @@ Google adwwords4r Library
 
 Welcome to adwords4r: Bringing the delights of ruby programming to the AdWords world!
 
-	 AdWords::API.new.getAllAdWordsCampaigns(123).each {|c| puts c.name}
-
 Documentation and comments are a work in progress.
 
 
@@ -12,7 +10,8 @@ Useful Web Resources
 --------------------
 
 - AdWords home: https://adwords.google.com/
-- The AdWords API main documentation: http://www.google.com/apis/adwords/developer/index.html
+- AdWords API discussion forum: http://groups.google.com/group/adwords-api
+- AdWords API documentation: http://www.google.com/apis/adwords/developer/index.html
 - This project's Google Code page: http://code.google.com/p/google-api-adwords-ruby/
 
 
@@ -24,10 +23,9 @@ adwords4r is a ruby gem.  See http://docs.rubygems.org/read/book/1
 Install it using the gem install command.
 > gem install --remote adwords4r
 
-Requirements are:
-    s.requirements << 'soap4r v 1.5.6 or greater'
-    s.requirements << 'http-access2 v 2.0.5 or greater'
-(see gem file for details)
+The following gem libraries are required:
+- soap4r v1.5.8 or greater
+- httpclient v2.1.2 or greater
 
 It's pretty easy to use.
 See http://docs.rubygems.org/read/chapter/3#page70 for how to set the rubygem environment.
@@ -42,36 +40,32 @@ Then
 require 'adwords4r'
 
 adwords = AdWords::API.new
-creates a driver for the latest version of AdWords API using credentials provided in ~/adwords.properties
-There is an example in the root adwords4r directory.
+creates a driver for the latest version of AdWords API using a credentials file in ENV['HOME']/adwords.properties
+There is an example credentials in the root adwords4r directory.
 You can also pass API a manually constructed AdWordsCredentials object like:
-adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(
-{  'token' => 'mytoken',
-  'useragent' => 'P@ playing with the API from ruby',
-  'password' => 'mypasswd',
-  'email' => 'em...@example.com'}
-)) 
+adwords = AdWords::API.new(AdWords::AdWordsCredentials.new({
+  'developerToken' => 'DEVELOPER_TOKEN',
+  'applicationToken' => 'APPLICATION_TOKEN',
+  'useragent' => 'Ruby Sample',
+  'password' => 'PASSWORD',
+  'email' => 'user@domain.com'
+  'clientEmail' => 'user2@domain.com',
+}))
 
 If you want something more specific, use the optional parameters of the constructor
 adwords = AdWords::API.new(credentials, version)
 
 In order to use the sandbox, you can add a credential named
-alternateUrl, like:
+alternateUrl like:
 alternateUrl=https://sandbox.google.com/api/adwords/v11/
 
 Then just use methods of the API against your driver.
-adwords.getAllAdWordsCampaigns(123).each {|c| puts c.name}
-
-See sample code in examples.
-
-The client code will generate warnings in the console:
-Many: warning: already initialized constant XXX
-A few: at depth 0 - 20: unable to get local issuer certificate
-These are not serious: I need to make them go but they do not affect the correctness of the program.
+See sample code in examples, particularly reports.rb
 
 It is often useful to see a trace of the raw SOAP XML being sent and received.
 To enable this, set the ADWORDS4R_DEBUG environment variable to TRUE.
-e.g. in the bash shell, 'export ADWORDS4R_DEBUG=TRUE'
+e.g. in the bash shell, export ADWORDS4R_DEBUG=TRUE
+or from your Ruby code, ENV['ADWORDS4R_DEBUG'] = 'TRUE'
 The SOAP logs will be written to the current directory.
 
 
@@ -84,18 +78,21 @@ rake generate
     to regenerate the bindings if needed
 rake package
     to package the gem and create a release
-rake publish
-    to publish the gem to rubyforge
     
-adwords4r is licensed under the BSD License
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
-THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Copyright/License Info
+----------------------
+
+Copyright 2008, Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

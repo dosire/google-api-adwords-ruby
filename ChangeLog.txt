@@ -1,3 +1,15 @@
+11.1.0
+- Added additional attributes to the AdWords::Error::ApiError class.
+  This should make it easier to get all the useful SOAP fault information, some of which wasn't available in the previous version.
+  The extra attributes are :trigger_ex, :soap_faultcode_ex, :soap_faultstring_ex, and :code_ex
+- Added static methods to the AdWords::API class to retrieve API unit usage information.
+  AdWords::API.get_total_units() will return the a running total of API units used since the API was initialized.
+  AdWords::API.get_last_units() will return the number of API units used for the last API call.
+- Started the process of creating new sample code. The existing code samples are a bit lacking and were moved to the 'examples/old' directory.
+  A new sample program, 'examples/reports.rb' was created. This sample validates, schedules, and downloads a Keyword Structure report.
+  It's a fairly extensive sample and illustrates some of the new API features as well as general best-practices. 
+  Look for more sample code in future releases.
+
 11.0.3
 - update soap4r minimum version requirement in the .gem file to 1.5.8, as there are compatibility problems with 1.5.6
 - the ADWORDS4R_DEBUG environment variable was causing problems when it was not set instead of silently disabling debugging; this is fixed.

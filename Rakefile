@@ -16,7 +16,7 @@ require 'lib/adwords4r/services'
 
 CLOBBER.include('pkg')
 
-CURRENT_VERSION = '11.0.3'
+CURRENT_VERSION = '11.1.0'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 SRC_RB = FileList['lib/**/*.rb']
