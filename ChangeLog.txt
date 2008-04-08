@@ -1,3 +1,7 @@
+12.0.0
+- Added support for v12 of the AdWords API.
+  Removed support for v10 of the API, which has been deco'ed.
+
 11.1.0
 - Added additional attributes to the AdWords::Error::ApiError class.
   This should make it easier to get all the useful SOAP fault information, some of which wasn't available in the previous version.

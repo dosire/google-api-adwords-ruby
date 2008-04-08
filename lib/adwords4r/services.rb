@@ -2,8 +2,10 @@ module AdWords
   class Service
 
     @services = {
-      10 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info", "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"],
-      11 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info", "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"]
+      11 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info",
+        "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"],
+      12 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info",
+        "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"]
     }
 
     def self.getVersions

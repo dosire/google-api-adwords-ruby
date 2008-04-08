@@ -27,7 +27,7 @@ module SOAP
 end
 
 module AdWords
-
+  
   class API
 
     @@total_units = 0
@@ -36,7 +36,7 @@ module AdWords
     def API.add_total_units(increment)
       @@total_units += increment
     end
-
+    
     def API.get_total_units()
       return @@total_units
     end
@@ -48,11 +48,12 @@ module AdWords
     def API.get_last_units()
       return @@last_units
     end
-
+    
     attr_reader :credentials, :drivers, :version
     @methodMap = Hash.new
-
-    def initialize(credentials = AdWordsCredentials.new, version = Service.getVersions.sort.last)
+    
+    def initialize(credentials = AdWordsCredentials.new,
+		   version = Service.getVersions.sort.last)
       @credentials, @version = credentials, version
       @drivers = Hash.new
       prepareDrivers
@@ -72,7 +73,8 @@ module AdWords
       end
     # Handle AdWords Application-level error
     rescue SOAP::FaultError => fault
-      raise(Error::ApiError.new(fault), "#{methodName} Call Failed: #{fault.faultstring.to_s}", caller)
+      raise(Error::ApiError.new(fault),
+          "#{methodName} Call Failed: #{fault.faultstring.to_s}", caller)
     end
 
     def prepareDrivers()
@@ -124,13 +126,16 @@ module AdWords
   class Error
     class Error < StandardError; end
 
-    # Raised if a call is made to a method that does not exist in the AdWords SOAP API
+    # Raised if a call is made to a method that does not exist
+    # in the AdWords SOAP API
     class UnknownAPICall < Error; end
 
-    # Raised if an attempt is made to instantiate a type that does not exist in the AdWords SOAP API
+    # Raised if an attempt is made to instantiate a type that does not exist
+    # in the AdWords SOAP API
     class UnknownType < Error; end
 
-    # Raised if a call returns with a SOAP error, gives you easy access to adwords error fields
+    # Raised if a call returns with a SOAP error,
+    # gives you easy access to adwords error fields
     class ApiError < Error
       attr_accessor :soap_faultcode
       attr_accessor :soap_faultstring
@@ -146,10 +151,12 @@ module AdWords
       attr_accessor :textLength
       attr_accessor :trigger
       
-      # These *_ex attributes have been added to correct deficiencies with the initial implementation.
-      # They should expose more useful information (i.e. text of errors instead of a SOAP element)
-      # and proper mapping of a fault's trigger and code.
-      # The old attributes are left behind for backward compatibility; hopefully this isn't too confusing!
+      # These *_ex attributes have been added to correct deficiencies with the
+      # initial implementation.
+      # They should expose more useful information (i.e. text of errors instead
+      # of a SOAP element) and proper mapping of a fault's trigger and code.
+      # The old attributes are left behind for backward compatibility;
+      # hopefully this isn't too confusing!
       attr_accessor :trigger_ex
       attr_accessor :soap_faultcode_ex
       attr_accessor :soap_faultstring_ex
@@ -166,7 +173,7 @@ module AdWords
           @internal = protect { fault.internal }
           @message = protect { fault.message }
           @trigger_ex = protect { fault.trigger }
-	  @code_ex = protect { fault.code }
+          @code_ex = protect { fault.code }
           if protect { fault.errors and fault.errors.size > 0 }
             error = fault.errors.first
             @code = protect { error.code }
@@ -197,11 +204,11 @@ module AdWords
     def on_inbound(xml, opt)
       # Parse the response XML string for the <operations> header value.
       if xml =~ %r{<units.+?>(\d+)</units>}
-	units = $1.to_i
-	# Since we don't really have an instance of a useful class here,
-	# we're stuck sticking the value in a class variable for AdWords::API.
-	AdWords::API.set_last_units(units)
-	AdWords::API.add_total_units(units)
+        units = $1.to_i
+        # Since we don't really have an instance of a useful class here,
+        # we're stuck sticking the value in a class variable for AdWords::API.
+        AdWords::API.set_last_units(units)
+        AdWords::API.add_total_units(units)
       end
 
       return xml

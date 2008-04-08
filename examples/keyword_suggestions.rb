@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# This code sample illustrates how to schedule and download an AdWords report
-# using the adwords4r client library.
+# This code sample illustrates how to get keyword variations for seed keyword(s)
+# and then estimate the traffic that the "top" variations might receive.
 
 require 'rubygems'
 gem 'soap4r', '>= 1.5.8'
@@ -49,72 +49,79 @@ def main()
     # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 11)
 
     adwords = AdWords::API.new
-    
-    report_name = 'Report-%s' % DateTime.now.to_s
-    
-    # The following example creates a Structure report with Keyword aggregation.
-    # Because it is a Structure report, startDay and endDay values are ignored.
-    # See http://www.google.com/apis/adwords/developer/ReportService.html for
-    # more information about the different reports you can create.
 
-    job = AdWords::DefinedReportJob.new
-    job.selectedReportType = 'Structure'
-    job.aggregationTypes = 'Keyword'
-    job.name = report_name
-    job.selectedColumns = %w{Campaign AdGroup Keyword KeywordTypeDisplay}
-    job.startDay = '2008-01-01'
-    job.endDay = '2008-01-31'
-    
-    # Validate the report definition to make sure it is valid.
-    # If it is not, an AdWords::Error::ApiError will be thrown.
+    # Modify the following values to set the seed keywords, language,
+    # country targeting, and synonyms options.
 
-    adwords.validateReportJob(job)
-    
-    # Since validation passed, schedule the report.
+    keywords = ['hot dog']
+    languages = %w{en}
+    countries = %w{US}
+    use_synonyms = false
 
-    job_id = adwords.scheduleReportJob(job).scheduleReportJobReturn
-    sleep_interval = 10
-    puts 'Scheduled report with id %d. Now sleeping %d seconds.' %
-      [job_id, sleep_interval]
-    sleep(sleep_interval)
-    
-    # Repeatedly check the report status until it is finished.
-    # 'Pending' and 'InProgress' statuses indicate the job is still being run.
-
-    status = adwords.getReportJobStatus(job_id).getReportJobStatusReturn
-    while status != 'Completed' && status != 'Failed'
-      puts 'Report status is %s. Now sleeping another %d seconds.' %
-	[status, sleep_interval]
-      sleep(sleep_interval)
-      status = adwords.getReportJobStatus(job_id).getReportJobStatusReturn
+    seed_keywords = []
+    keywords.each do |keyword|
+      seed_keyword = AdWords::KeywordToolService::SeedKeyword.new
+      seed_keyword.text = keyword
+      seed_keyword.type = 'Broad'  # Or 'Phrase' or 'Exact' if desired.
+      seed_keywords << seed_keyword
     end
-    
-    if status == 'Completed'
-      report_url = adwords.getReportDownloadUrl(job_id).
-        getReportDownloadUrlReturn
-      puts 'Report is completed. Downloading report from %s' % report_url
-      
-      # Download the report via the HTTPClient library and write it to disk.
-      # The report is an XML document; the actual element names vary depending
-      # on what type of report run and columns requested.
 
-      client = HTTPClient.new
-      report_data = client.get_content(report_url)
-      file_name = '%s.xml' % report_name  # Add path to write report elsewhere.
-      begin
-        open(file_name, 'w') {|file| file.puts(report_data)}
-        puts 'Report has been written to %s' % file_name
+    variations = adwords.getKeywordVariations(seed_keywords, use_synonyms,
+					      languages, countries
+					      ).getKeywordVariationsReturn
 
-      rescue Errno::ENOENT, Errno::EACCES => e
-	puts 'Unable to write file: %s' % e
+    variation_objects = []
+    unless variations.moreSpecific.nil?
+      variation_objects.concat(variations.moreSpecific)
+    end
+    unless variations.additionalToConsider.nil?
+      variation_objects.concat(variations.additionalToConsider)
+    end
+    variation_objects.sort! do |a, b|
+      if b.searchVolumeScale == a.searchVolumeScale
+	a.advertiserCompetitionScale <=> b.advertiserCompetitionScale
+      else
+	b.searchVolumeScale <=> a.searchVolumeScale
       end
-    else
-      # Reports that pass validation will normally not fail, but if there is
-      # an error in the report generation service it can sometimes happen.
-
-      puts 'Report generation failed.'
     end
-    
+
+    max_estimates = 3
+    keywords_to_estimate = []
+    variation_objects[0..max_estimates - 1].each do |variation_object|
+      keywords_to_estimate << variation_object.text
+    end
+
+    ad_group_request = AdWords::TrafficEstimatorService::AdGroupRequest.new
+    ad_group_request.maxCpc = 1000000
+    keywords_to_estimate.each do |keyword_to_estimate|
+      keyword_request = AdWords::TrafficEstimatorService::KeywordRequest.new
+      keyword_request.text = keyword_to_estimate
+      keyword_request.type = 'Broad'  # Or 'Phrase' or 'Exact' if desired.
+      ad_group_request.keywordRequests << keyword_request
+    end
+
+    geo_targeting = AdWords::TrafficEstimatorService::GeoTarget.new
+    geo_targeting.countryTargets = countries
+
+    campaign_request = AdWords::TrafficEstimatorService::CampaignRequest.new
+    campaign_request.adGroupRequests = ad_group_request
+    campaign_request.geoTargeting = geo_targeting
+    campaign_request.languageTargeting = languages
+    campaign_request.networkTargeting = %w{SearchNetwork ContentNetwork}
+
+    campaign_estimate = adwords.estimateCampaignList([campaign_request]).first
+    ad_group_estimate = campaign_estimate.adGroupEstimates.first
+    keyword_estimates = ad_group_estimate.keywordEstimates
+    for i in 0..keyword_estimates.length - 1
+      estimate = keyword_estimates[i]
+      text = keywords_to_estimate[i]
+
+      puts "Keyword: %s\tClicks: %f - %f\tCPC: %d - %d\tPosition: %f - %f" %
+	[text, estimate.lowerClicksPerDay, estimate.upperClicksPerDay,
+	estimate.lowerCpc, estimate.upperCpc, estimate.lowerAvgPosition,
+	estimate.upperAvgPosition]
+    end
+
   rescue Errno::ECONNRESET, SOAP::HTTPStreamError, SocketError => e
     # This exception indicates a connection-level error.
     # In general, it is likely to be transitory.
@@ -146,8 +153,8 @@ def main()
     puts 'Source: %s' % e.backtrace.first
 
   ensure
-    # Display API unit usage information. This data is stored as a class
-    # variable in the AdWords::API class and accessed via static methods.
+    # Display API unit usage info. This data is stored as a class variable
+    # in the AdWords::API class and accessed via static methods.
     # AdWords::API.get_total_units() returns a running total of units used in
     # the scope of the current program.
     # AdWords::API.get_last_units() returns the number used in the last call.

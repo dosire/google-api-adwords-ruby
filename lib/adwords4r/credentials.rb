@@ -20,7 +20,8 @@ module AdWords
 
     def getDefaults()
       cred = Hash.new
-      IO.foreach("#{ENV['HOME']}/adwords.properties") {|line| addCredential(cred, line.split('=')) if !(line =~ /^#/)}
+      IO.foreach("#{ENV['HOME']}/adwords.properties") {|line|
+        addCredential(cred, line.split('=')) if !(line =~ /^#/)}
       return cred
     end
 
@@ -36,7 +37,8 @@ module AdWords
       else
         credentials = getDefaults()
       end
-      credentials.each {|key, value| @handlers << HeaderHandler.new(key, value) if !(key =~ /^alternateUrl/)}
+      credentials.each {|key, value|
+        @handlers << HeaderHandler.new(key, value) if !(key =~ /^alternateUrl/)}
       @alternateUrl = credentials['alternateUrl']
     end
   end
