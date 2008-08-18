@@ -3,6 +3,9 @@ require 'soap/header/simplehandler'
 module AdWords
 
   class HeaderHandler < SOAP::Header::SimpleHandler
+    attr_reader :tag
+    attr_writer :value
+
     def initialize(tag, value)
       super(XSD::QName.new(nil, tag))
       @tag = tag
@@ -40,6 +43,14 @@ module AdWords
       credentials.each {|key, value|
         @handlers << HeaderHandler.new(key, value) if !(key =~ /^alternateUrl/)}
       @alternateUrl = credentials['alternateUrl']
+    end
+
+    def setHeader(header, value)
+      handlers.each do |handler|
+        if handler.tag == header then
+          handler.value = value
+        end
+      end
     end
   end
 end

@@ -57,10 +57,10 @@ adwords = AdWords::API.new(credentials, version)
 
 In order to use the sandbox, you can add a credential named
 alternateUrl like:
-alternateUrl=https://sandbox.google.com/api/adwords/v11/
+alternateUrl=https://sandbox.google.com/api/adwords/v12/
 
 Then just use methods of the API against your driver.
-See sample code in examples, particularly reports.rb
+See sample code in the examples directory for working examples you can build from.
 
 It is often useful to see a trace of the raw SOAP XML being sent and received.
 To enable this, set the ADWORDS4R_DEBUG environment variable to TRUE.

@@ -52,11 +52,21 @@ module AdWords
     attr_reader :credentials, :drivers, :version
     @methodMap = Hash.new
     
+    # Any option for the soap4r driver can be set passing a lambda as
+    # driver_initializer, e.g.:
+    #
+    #  soap_options_setter = lambda do |driver|
+    #    driver.options["protocol.http.connect_timeout"] = 300
+    #    driver.options["protocol.http.send_timeout"] = 300
+    #  end
+    #  
+    #  AdWords::API.new(credentials, version, soap_options_setter)
     def initialize(credentials = AdWordsCredentials.new,
-		   version = Service.getVersions.sort.last)
+		   version = Service.getVersions.sort.last,
+                   driver_initializer = nil)
       @credentials, @version = credentials, version
       @drivers = Hash.new
-      prepareDrivers
+      prepareDrivers(driver_initializer)
     end
 
     def method_missing(m, *args)
@@ -77,9 +87,10 @@ module AdWords
           "#{methodName} Call Failed: #{fault.faultstring.to_s}", caller)
     end
 
-    def prepareDrivers()
+    def prepareDrivers(driver_initializer)
       Service.doRequire(@version)
-      Service.getServices(@version).each {|s| @drivers[s] = prepareDriver(s)}
+      Service.getServices(@version).each {|s| @drivers[s] =
+          prepareDriver(s, driver_initializer)}
       @methodMap = Service.getMethodMap(@drivers)
     end
 
@@ -88,7 +99,7 @@ module AdWords
       return @methodMap[call]
     end
 
-    def prepareDriver(s)
+    def prepareDriver(s, driver_initializer)
       # Include the module for this service
       AdWords.class_eval("include #{s}Service")
 
@@ -107,9 +118,8 @@ module AdWords
       if !ENV['ADWORDS4R_DEBUG'].nil? && ENV['ADWORDS4R_DEBUG'].upcase == 'TRUE'
         driver.wiredump_file_base = "SOAP_#{$$}"
       end
-
       driver.options['protocol.http.ssl_config.verify_mode'] = nil
-      #set driver.proxy if you are behing a proxy
+      driver_initializer.call(driver) if driver_initializer
       return driver
     end
 

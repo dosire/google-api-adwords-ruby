@@ -44,9 +44,9 @@ def main()
     #   'email' => 'user@domain.com',
     #   'clientEmail' => 'client_1+user@domain.com',
     #   'applicationToken' => 'IGNORED',
-    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v11/',
+    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v12/',
     # }
-    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 11)
+    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 12)
 
     adwords = AdWords::API.new
     
