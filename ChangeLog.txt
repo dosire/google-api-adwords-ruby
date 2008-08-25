@@ -1,7 +1,5 @@
 12.1.0
 - Removed support for v11 of the API, which has been deco'ed.
-- Added patch to support passing options in to the soap4r stack -- see http://code.google.com/p/google-api-adwords-ruby/issues/detail?id=4
-  Thanks to Chirag Doshi and Paolo Negri of Trafficbroker (http://www.trafficbroker.co.uk) for submitting the patch.
 - Replaced some old examples that weren't behaving properly with better, well-commented example code.
 
 12.0.0
