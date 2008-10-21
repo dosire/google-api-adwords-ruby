@@ -19,6 +19,7 @@
 
 require 'rubygems'
 gem 'soap4r', '>= 1.5.8'
+$:.unshift '../lib'
 require 'adwords4r'
 
 
@@ -44,16 +45,16 @@ def main()
     #   'email' => 'user@domain.com',
     #   'clientEmail' => 'client_1+user@domain.com',
     #   'applicationToken' => 'IGNORED',
-    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v12/',
+    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/',
     # }
-    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 12)
+    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 13)
 
     adwords = AdWords::API.new
 
     # Modify the following values to set the seed keywords, language,
     # country targeting, and synonyms options.
 
-    keywords = ['hot dog']
+    keywords = ['new york']
     languages = %w{en}
     countries = %w{US}
     use_synonyms = false
@@ -70,6 +71,10 @@ def main()
 					      languages, countries
 					      ).getKeywordVariationsReturn
 
+    # Sort the list of variations using the following criteria:
+    #   - treat moreSepcific and additionalToConsider results identically
+    #   - sort in descending value based on lastMonthSearchVolume
+    #   - in case of ties, use avgSearchVolume
     variation_objects = []
     unless variations.moreSpecific.nil?
       variation_objects.concat(variations.moreSpecific)
@@ -78,14 +83,14 @@ def main()
       variation_objects.concat(variations.additionalToConsider)
     end
     variation_objects.sort! do |a, b|
-      if b.searchVolumeScale == a.searchVolumeScale
-	a.advertiserCompetitionScale <=> b.advertiserCompetitionScale
+      if b.avgSearchVolume == a.avgSearchVolume
+	a.lastMonthSearchVolume <=> b.lastMonthSearchVolume
       else
-	b.searchVolumeScale <=> a.searchVolumeScale
+	b.avgSearchVolume <=> a.avgSearchVolume
       end
     end
 
-    max_estimates = 3
+    max_estimates = 5
     keywords_to_estimate = []
     variation_objects[0..max_estimates - 1].each do |variation_object|
       keywords_to_estimate << variation_object.text
@@ -101,7 +106,9 @@ def main()
     end
 
     geo_targeting = AdWords::TrafficEstimatorService::GeoTarget.new
-    geo_targeting.countryTargets = countries
+    countryTargets = AdWords::TrafficEstimatorService::CountryTargets.new
+    countryTargets.countries = countries
+    geo_targeting.countryTargets = countryTargets
 
     campaign_request = AdWords::TrafficEstimatorService::CampaignRequest.new
     campaign_request.adGroupRequests = ad_group_request

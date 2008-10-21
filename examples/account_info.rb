@@ -44,9 +44,9 @@ def main()
     #   'email' => 'user@domain.com',
     #   'clientEmail' => 'client_1+user@domain.com',
     #   'applicationToken' => 'IGNORED',
-    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v12/',
+    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/',
     # }
-    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 12)
+    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 13)
 
     adwords = AdWords::API.new
 
@@ -125,7 +125,7 @@ if __FILE__ == $0
   # This can be done either from your operating system environment or via
   # code, as done below.
 
-  ENV['ADWORDS4R_DEBUG'] = 'false'
+  ENV['ADWORDS4R_DEBUG'] = 'TRUE'
 
   main()
 end

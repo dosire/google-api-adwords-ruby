@@ -1,3 +1,6 @@
+13.0.0
+- Added support for v13 of the AdWords API.
+
 12.1.0
 - Removed support for v11 of the API, which has been deco'ed.
 - Replaced some old examples that weren't behaving properly with better, well-commented example code.

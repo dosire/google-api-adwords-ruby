@@ -3,7 +3,7 @@ require 'xsd/qname'
 module AdWords; module TrafficEstimatorService
 
 
-# {https://adwords.google.com/api/adwords/v12}AdGroupEstimate
+# {https://adwords.google.com/api/adwords/v13}AdGroupEstimate
 #   id - SOAP::SOAPInt
 #   keywordEstimates - AdWords::TrafficEstimatorService::KeywordEstimate
 class AdGroupEstimate
@@ -16,7 +16,7 @@ class AdGroupEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}AdGroupRequest
+# {https://adwords.google.com/api/adwords/v13}AdGroupRequest
 #   id - SOAP::SOAPLong
 #   keywordRequests - AdWords::TrafficEstimatorService::KeywordRequest
 #   maxCpc - SOAP::SOAPLong
@@ -32,7 +32,7 @@ class AdGroupRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}ApiError
+# {https://adwords.google.com/api/adwords/v13}ApiError
 #   code - SOAP::SOAPInt
 #   detail - SOAP::SOAPString
 #   field - SOAP::SOAPString
@@ -63,7 +63,7 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}ApiException
+# {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
 #   errors - AdWords::TrafficEstimatorService::ApiError
 #   internal - SOAP::SOAPBoolean
@@ -85,7 +85,7 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}CampaignEstimate
+# {https://adwords.google.com/api/adwords/v13}CampaignEstimate
 #   adGroupEstimates - AdWords::TrafficEstimatorService::AdGroupEstimate
 #   id - SOAP::SOAPInt
 class CampaignEstimate
@@ -98,7 +98,7 @@ class CampaignEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}CampaignRequest
+# {https://adwords.google.com/api/adwords/v13}CampaignRequest
 #   adGroupRequests - AdWords::TrafficEstimatorService::AdGroupRequest
 #   geoTargeting - AdWords::TrafficEstimatorService::GeoTarget
 #   id - SOAP::SOAPInt
@@ -120,7 +120,7 @@ class CampaignRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}Circle
+# {https://adwords.google.com/api/adwords/v13}Circle
 #   latitudeMicroDegrees - SOAP::SOAPInt
 #   longitudeMicroDegrees - SOAP::SOAPInt
 #   radiusMeters - SOAP::SOAPInt
@@ -136,15 +136,33 @@ class Circle
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}CityTargets
-class CityTargets < ::Array
+# {https://adwords.google.com/api/adwords/v13}CityTargets
+#   cities - SOAP::SOAPString
+#   excludedCities - SOAP::SOAPString
+class CityTargets
+  attr_accessor :cities
+  attr_accessor :excludedCities
+
+  def initialize(cities = [], excludedCities = [])
+    @cities = cities
+    @excludedCities = excludedCities
+  end
 end
 
-# {https://adwords.google.com/api/adwords/v12}CountryTargets
-class CountryTargets < ::Array
+# {https://adwords.google.com/api/adwords/v13}CountryTargets
+#   countries - SOAP::SOAPString
+#   excludedCountries - SOAP::SOAPString
+class CountryTargets
+  attr_accessor :countries
+  attr_accessor :excludedCountries
+
+  def initialize(countries = [], excludedCountries = [])
+    @countries = countries
+    @excludedCountries = excludedCountries
+  end
 end
 
-# {https://adwords.google.com/api/adwords/v12}GeoTarget
+# {https://adwords.google.com/api/adwords/v13}GeoTarget
 #   cityTargets - AdWords::TrafficEstimatorService::CityTargets
 #   countryTargets - AdWords::TrafficEstimatorService::CountryTargets
 #   metroTargets - AdWords::TrafficEstimatorService::MetroTargets
@@ -169,7 +187,7 @@ class GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}KeywordEstimate
+# {https://adwords.google.com/api/adwords/v13}KeywordEstimate
 #   id - SOAP::SOAPLong
 #   lowerAvgPosition - SOAP::SOAPFloat
 #   lowerClicksPerDay - SOAP::SOAPFloat
@@ -197,7 +215,7 @@ class KeywordEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}KeywordRequest
+# {https://adwords.google.com/api/adwords/v13}KeywordRequest
 #   id - SOAP::SOAPLong
 #   maxCpc - SOAP::SOAPLong
 #   negative - SOAP::SOAPBoolean
@@ -219,7 +237,7 @@ class KeywordRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}KeywordTrafficRequest
+# {https://adwords.google.com/api/adwords/v13}KeywordTrafficRequest
 #   keywordText - SOAP::SOAPString
 #   keywordType - AdWords::TrafficEstimatorService::KeywordType
 #   language - SOAP::SOAPString
@@ -235,76 +253,94 @@ class KeywordTrafficRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v12}LanguageTarget
+# {https://adwords.google.com/api/adwords/v13}LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}MetroTargets
-class MetroTargets < ::Array
+# {https://adwords.google.com/api/adwords/v13}MetroTargets
+#   excludedMetros - SOAP::SOAPString
+#   metros - SOAP::SOAPString
+class MetroTargets
+  attr_accessor :excludedMetros
+  attr_accessor :metros
+
+  def initialize(excludedMetros = [], metros = [])
+    @excludedMetros = excludedMetros
+    @metros = metros
+  end
 end
 
-# {https://adwords.google.com/api/adwords/v12}NetworkTarget
+# {https://adwords.google.com/api/adwords/v13}NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}ProximityTargets
+# {https://adwords.google.com/api/adwords/v13}ProximityTargets
 class ProximityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}RegionTargets
-class RegionTargets < ::Array
+# {https://adwords.google.com/api/adwords/v13}RegionTargets
+#   excludedRegions - SOAP::SOAPString
+#   regions - SOAP::SOAPString
+class RegionTargets
+  attr_accessor :excludedRegions
+  attr_accessor :regions
+
+  def initialize(excludedRegions = [], regions = [])
+    @excludedRegions = excludedRegions
+    @regions = regions
+  end
 end
 
-# {https://adwords.google.com/api/adwords/v12}KeywordTraffic
+# {https://adwords.google.com/api/adwords/v13}KeywordTraffic
 class KeywordTraffic < ::String
   HasTraffic = KeywordTraffic.new("HasTraffic")
   Unknown = KeywordTraffic.new("Unknown")
   VeryLowTraffic = KeywordTraffic.new("VeryLowTraffic")
 end
 
-# {https://adwords.google.com/api/adwords/v12}KeywordType
+# {https://adwords.google.com/api/adwords/v13}KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v12}NetworkType
+# {https://adwords.google.com/api/adwords/v13}NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v12}checkKeywordTraffic
+# {https://adwords.google.com/api/adwords/v13}checkKeywordTraffic
 class CheckKeywordTraffic < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}checkKeywordTrafficResponse
+# {https://adwords.google.com/api/adwords/v13}checkKeywordTrafficResponse
 class CheckKeywordTrafficResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}estimateAdGroupList
+# {https://adwords.google.com/api/adwords/v13}estimateAdGroupList
 class EstimateAdGroupList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}estimateAdGroupListResponse
+# {https://adwords.google.com/api/adwords/v13}estimateAdGroupListResponse
 class EstimateAdGroupListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}estimateCampaignList
+# {https://adwords.google.com/api/adwords/v13}estimateCampaignList
 class EstimateCampaignList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}estimateCampaignListResponse
+# {https://adwords.google.com/api/adwords/v13}estimateCampaignListResponse
 class EstimateCampaignListResponse < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}estimateKeywordList
+# {https://adwords.google.com/api/adwords/v13}estimateKeywordList
 class EstimateKeywordList < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v12}estimateKeywordListResponse
+# {https://adwords.google.com/api/adwords/v13}estimateKeywordListResponse
 class EstimateKeywordListResponse < ::Array
 end
 
