@@ -19,7 +19,6 @@
 
 require 'rubygems'
 gem 'soap4r', '>= 1.5.8'
-$:.unshift '../lib'
 require 'adwords4r'
 
 

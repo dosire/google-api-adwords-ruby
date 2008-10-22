@@ -125,7 +125,7 @@ if __FILE__ == $0
   # This can be done either from your operating system environment or via
   # code, as done below.
 
-  ENV['ADWORDS4R_DEBUG'] = 'TRUE'
+  ENV['ADWORDS4R_DEBUG'] = 'false'
 
   main()
 end
