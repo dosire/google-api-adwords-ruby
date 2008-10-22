@@ -72,7 +72,7 @@ def main()
 					      ).getKeywordVariationsReturn
 
     # Sort the list of variations using the following criteria:
-    #   - treat moreSepcific and additionalToConsider results identically
+    #   - treat moreSpecific and additionalToConsider results identically
     #   - sort in descending value based on lastMonthSearchVolume
     #   - in case of ties, use avgSearchVolume
     variation_objects = []
