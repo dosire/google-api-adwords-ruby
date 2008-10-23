@@ -16,7 +16,7 @@ require 'lib/adwords4r/services'
 
 CLOBBER.include('pkg')
 
-CURRENT_VERSION = '13.0.0'
+CURRENT_VERSION = '13.0.1'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 SRC_RB = FileList['lib/**/*.rb']
@@ -166,8 +166,8 @@ else
 Adwords4r provides an easy to use way to access the AdWords API in ruby.\
 Currently the following AdWords API versions are supported:\
 \
-* V10\
-* V11\
+* V12\
+* V13\
 }
     
     s.files = PKG_FILES.to_a

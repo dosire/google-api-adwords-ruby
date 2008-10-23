@@ -1,3 +1,6 @@
+13.0.1
+- Modified the file permissions on many of the files to make them world-readable.
+
 13.0.0
 - Added support for v13 of the AdWords API.
 
