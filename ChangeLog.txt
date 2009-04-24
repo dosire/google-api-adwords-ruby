@@ -1,3 +1,7 @@
+14.0.0
+- Sérgio Gomes (api.sgomes@gmail.com) takes over as maintainer of this project
+- Removed support for v12 of the API, which has been deco'ed.
+
 13.0.1
 - Modified the file permissions on many of the files to make them world-readable.
 
