@@ -2,6 +2,8 @@ module AdWords
   class Service
 
     @services = {
+      12 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info",
+        "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"],
       13 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info",
         "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"]
     }

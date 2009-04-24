@@ -1,4 +1,4 @@
-Google adwords4r Library
+Google adwwords4r Library
 -------------------------
 
 Welcome to adwords4r: Bringing the delights of ruby programming to the AdWords world!
@@ -57,7 +57,7 @@ adwords = AdWords::API.new(credentials, version)
 
 In order to use the sandbox, you can add a credential named
 alternateUrl like:
-alternateUrl=https://sandbox.google.com/api/adwords/v13/
+alternateUrl=https://sandbox.google.com/api/adwords/v12/
 
 Then just use methods of the API against your driver.
 See sample code in the examples directory for working examples you can build from.

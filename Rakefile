@@ -16,7 +16,7 @@ require 'lib/adwords4r/services'
 
 CLOBBER.include('pkg')
 
-CURRENT_VERSION = '14.0.0'
+CURRENT_VERSION = '13.0.1'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 SRC_RB = FileList['lib/**/*.rb']
@@ -166,6 +166,7 @@ else
 Adwords4r provides an easy to use way to access the AdWords API in ruby.\
 Currently the following AdWords API versions are supported:\
 \
+* V12\
 * V13\
 }
     
@@ -183,12 +184,12 @@ Currently the following AdWords API versions are supported:\
     #      '--main' << 'README' <<
     #      '--line-numbers'
     
-    s.author =
-        "Sergio Gomes, Jeffrey Posnick, Patrick Chanezon, Ryan Leavengood"
+    s.author = "Jeffrey Posnick, Patrick Chanezon, Ryan Leavengood"
     s.email = "jeffy@google.com"
-    s.homepage = "http://code.google.com/p/google-api-adwords-ruby/"
+    s.homepage = "http://rubyforge.org/projects/google4r/"
     s.requirements << 'soap4r v1.5.8 or greater'
     s.requirements << 'httpclient v2.1.2 or greater'
+    s.rubyforge_project = 'google4r'
     s.add_dependency('soap4r', '>= 1.5.8')
     s.add_dependency('httpclient', '>= 2.1.2')
   end
