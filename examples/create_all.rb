@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #
-# Copyright 2008, Google Inc. All Rights Reserved.
+# Copyright 2009, Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 # keywords, and website criteria, all in one fell swoop.
 
 require 'rubygems'
-gem 'soap4r', '>= 1.5.8'
+gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
 
@@ -38,72 +38,76 @@ def main()
     # specified inline as a hash:
     #
     # creds = {
-    #   'developerToken' => 'user@domain.com++USD',
-    #   'useragent' => 'Sample User Agent',
-    #   'password' => 'password',
-    #   'email' => 'user@domain.com',
-    #   'clientEmail' => 'client_1+user@domain.com',
-    #   'applicationToken' => 'IGNORED',
-    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/',
+    #     'developerToken' => 'user@domain.com++USD',
+    #     'useragent' => 'Sample User Agent',
+    #     'password' => 'password',
+    #     'email' => 'user@domain.com',
+    #     'clientEmail' => 'client_1+user@domain.com',
+    #     'applicationToken' => 'IGNORED',
+    #     'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/',
     # }
-    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 13)
-
+    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds))
     adwords = AdWords::API.new
 
     # Alternatively, you can create new AdWords::Campaign, AdWords::AdGroup,
     # etc. objects and set their properties instead of working with hashes.
     campaign_data = {
-      :name => 'Sample Campaign %s' % Time.new.to_s, # Ensure name is unique.
-      :budgetAmount => 1000000, # 1000000 micros = 1 unit of currency.
-      :budgetPeriod => 'Daily',
-      :languageTargeting => ['en'], # If the default all-language targeting is
-                                    # used then website placements criteria
-                                    # would not be supported.
-      :status => 'Paused', # Pause the campaign so that it doesn't actually run.
-      # Default geo and network targeting will be used.
+        :name => 'Sample Campaign %s' % Time.new.to_s, # Ensure name is unique.
+        :budgetAmount => 1000000, # 1000000 micros = 1 unit of currency.
+        :budgetPeriod => 'Daily',
+        :languageTargeting => ['en'], # If the default all-language targeting is
+                                      # used then website placements criteria
+                                      # would not be supported.
+        :status => 'Paused', # Pause campaign so that it doesn't actually run.
+        # Default geo and network targeting will be used.
     }
 
-    campaign  = adwords.addCampaign(campaign_data).addCampaignReturn
+    campaign_srv = adwords.get_service(13, 'Campaign')
+    campaign  = campaign_srv.addCampaign(campaign_data).addCampaignReturn
     puts 'Campaign id %d was successfully added.' % campaign.id
 
     ad_group_data = {
-      :name => 'Sample Ad Group %s' % Time.new.to_s, # Ensure name is unique.
-      :keywordMaxCpc => 100000, # 100000 micros = 0.1 unit of currency.
-      :siteMaxCpc => 100000, # 100000 micros = 0.1 unit of currency.
+        :name => 'Sample Ad Group %s' % Time.new.to_s, # Ensure name is unique.
+        :keywordMaxCpc => 100000, # 100000 micros = 0.1 unit of currency.
+        :siteMaxCpc => 100000, # 100000 micros = 0.1 unit of currency.
     }
 
-    ad_group = adwords.addAdGroup(campaign.id, ad_group_data).addAdGroupReturn
+    ad_group_srv = adwords.get_service(13, 'AdGroup')
+    ad_group =
+        ad_group_srv.addAdGroup(campaign.id, ad_group_data).addAdGroupReturn
     puts 'Ad group id %d was successfully added.' % ad_group.id
 
     ad_data = {
-      :adGroupId => ad_group.id,
-      :adType => 'TextAd',
-      :headline => 'AdWords API Ruby Library',
-      :description1 => 'Write AdWords API apps in Ruby.',
-      :description2 => 'Use adwords4r!',
-      :destinationUrl => 'http://code.google.com/p/google-api-adwords-ruby/',
-      :displayUrl => 'http://code.google.com/',
+        :adGroupId => ad_group.id,
+        :adType => 'TextAd',
+        :headline => 'AdWords API Ruby Library',
+        :description1 => 'Write AdWords API apps in Ruby.',
+        :description2 => 'Use adwords4r!',
+        :destinationUrl => 'http://code.google.com/p/google-api-adwords-ruby/',
+        :displayUrl => 'http://code.google.com/',
     }
 
-    ad = adwords.addAds([ad_data])[0]
+    ad_srv = adwords.get_service(13, 'Ad')
+    ad = ad_srv.addAds([ad_data])[0]
     puts 'Text ad id %d was successfully added.' % ad.id
 
     keyword_data = {
-      :adGroupId => ad_group.id,
-      :criterionType => 'Keyword',
-      :text => 'adwords4r',
-      :type => 'Broad', # Or 'Phrase' or 'Exact' if desired.
-      # Default ad destination URL and ad group CPC values will be used.
+        :adGroupId => ad_group.id,
+        :criterionType => 'Keyword',
+        :text => 'adwords4r',
+        :type => 'Broad', # Or 'Phrase' or 'Exact' if desired.
+        # Default ad destination URL and ad group CPC values will be used.
     }
 
     website_data = {
-      :adGroupId => ad_group.id,
-      :criterionType => 'Website',
-      :url => 'http://www.ruby-forum.com/', # Target this site for ads.
-      # Default ad destination URL and ad group CPC values will be used.
+        :adGroupId => ad_group.id,
+        :criterionType => 'Website',
+        :url => 'http://www.ruby-forum.com/', # Target this site for ads.
+        # Default ad destination URL and ad group CPC values will be used.
     }
 
-    criteria = adwords.addCriteria([keyword_data, website_data])
+    criterion_srv = adwords.get_service(13, 'Criterion')
+    criteria = criterion_srv.addCriteria([keyword_data, website_data])
     criteria.each do |criterion|
       puts 'Criterion id %d was successfully added.' % criterion.id
     end
@@ -111,16 +115,14 @@ def main()
   rescue Errno::ECONNRESET, SOAP::HTTPStreamError, SocketError => e
     # This exception indicates a connection-level error.
     # In general, it is likely to be transitory.
-
     puts 'Connection Error: %s' % e
     puts 'Source: %s' % e.backtrace.first
-    
+
   rescue AdWords::Error::UnknownAPICall => e
     # This exception is thrown when an unknown SOAP method is invoked.
-
     puts e
     puts 'Source: %s' % e.backtrace.first
-    
+
   rescue AdWords::Error::ApiError => e
     # This exception maps to receiving a SOAP Fault back from the service.
     # The e.soap_faultstring_ex, e.code_ex, and potentially e.trigger_ex
@@ -133,7 +135,6 @@ def main()
     #     puts '%s => %s' % [var, value]
     #   end
     # end
-
     puts 'SOAP Error: %s (code: %d)' % [e.soap_faultstring_ex, e.code_ex]
     puts 'Trigger: %s' % e.trigger_ex unless e.trigger_ex.nil?
     puts 'Source: %s' % e.backtrace.first
@@ -141,13 +142,11 @@ def main()
   ensure
     # Display API unit usage info. This data is stored as a class variable
     # in the AdWords::API class and accessed via static methods.
-    # AdWords::API.get_total_units() returns a running total of units used in
-    # the scope of the current program.
-    # AdWords::API.get_last_units() returns the number used in the last call.
-
+    # total_units() returns a running total of units used in the scope of the
+    # current program. last_units() returns the number used in the last call.
     puts
     puts '%d API units consumed total (%d in last call).' %
-      [AdWords::API.get_total_units(), AdWords::API.get_last_units()]
+        [adwords.total_units, adwords.last_units]
   end
 end
 
@@ -158,7 +157,6 @@ if __FILE__ == $0
   # To enable this, set the ADWORDS4R_DEBUG environement varaible to 'true'.
   # This can be done either from your operating system environment or via
   # code, as done below.
-
   ENV['ADWORDS4R_DEBUG'] = 'false'
 
   main()

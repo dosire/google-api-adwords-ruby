@@ -1,17 +1,17 @@
 require 'xsd/qname'
 
-module AdWords; module AccountService
+module AdWords; module V13; module AccountService
 
 
 # {https://adwords.google.com/api/adwords/v13}AccountInfo
-#   billingAddress - AdWords::AccountService::Address
+#   billingAddress - AdWords::V13::AccountService::Address
 #   currencyCode - SOAP::SOAPString
 #   customerId - SOAP::SOAPLong
-#   defaultNetworkTargeting - AdWords::AccountService::NetworkTarget
+#   defaultNetworkTargeting - AdWords::V13::AccountService::NetworkTarget
 #   descriptiveName - SOAP::SOAPString
-#   emailPromotionsPreferences - AdWords::AccountService::EmailPromotionsPreferences
+#   emailPromotionsPreferences - AdWords::V13::AccountService::EmailPromotionsPreferences
 #   languagePreference - SOAP::SOAPString
-#   primaryAddress - AdWords::AccountService::Address
+#   primaryAddress - AdWords::V13::AccountService::Address
 #   primaryBusinessCategory - SOAP::SOAPString
 #   timeZoneEffectiveDate - SOAP::SOAPLong
 #   timeZoneId - SOAP::SOAPString
@@ -116,7 +116,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::AccountService::ApiError
+#   errors - AdWords::V13::AccountService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -176,9 +176,9 @@ end
 #   clientCustomerId - SOAP::SOAPLong
 #   clientLogin - SOAP::SOAPString
 #   clientName - SOAP::SOAPString
-#   priority - AdWords::AccountService::MccAlertPriority
+#   priority - AdWords::V13::AccountService::MccAlertPriority
 #   triggerTime - SOAP::SOAPDateTime
-#   type - AdWords::AccountService::MccAlertType
+#   type - AdWords::V13::AccountService::MccAlertType
 class MccAlert
   attr_accessor :clientCompanyName
   attr_accessor :clientCustomerId
@@ -238,7 +238,7 @@ class GetAccountInfo
 end
 
 # {https://adwords.google.com/api/adwords/v13}getAccountInfoResponse
-#   getAccountInfoReturn - AdWords::AccountService::AccountInfo
+#   getAccountInfoReturn - AdWords::V13::AccountService::AccountInfo
 class GetAccountInfoResponse
   attr_accessor :getAccountInfoReturn
 
@@ -278,7 +278,7 @@ class GetMccAlertsResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}updateAccountInfo
-#   accountInfo - AdWords::AccountService::AccountInfo
+#   accountInfo - AdWords::V13::AccountService::AccountInfo
 class UpdateAccountInfo
   attr_accessor :accountInfo
 
@@ -294,4 +294,4 @@ class UpdateAccountInfoResponse
 end
 
 
-end; end
+end; end; end

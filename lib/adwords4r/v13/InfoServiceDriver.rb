@@ -3,6 +3,7 @@ require 'adwords4r/v13/InfoServiceMappingRegistry'
 require 'soap/rpc/driver'
 
 module AdWords
+module V13
 module InfoService
 
 class InfoInterface < ::SOAP::RPC::Driver
@@ -15,7 +16,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getFreeUsageQuotaThisMonthResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getMethodCost",
@@ -23,7 +24,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getMethodCostResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getOperationCount",
@@ -31,7 +32,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getOperationCountResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getOperationsQuotaThisMonth",
@@ -39,7 +40,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getOperationsQuotaThisMonthResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getUnitCount",
@@ -47,7 +48,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getUnitCountResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getUnitCountForClients",
@@ -55,7 +56,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getUnitCountForClientsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getUnitCountForMethod",
@@ -63,7 +64,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getUnitCountForMethodResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getUsageQuotaThisMonth",
@@ -71,7 +72,7 @@ class InfoInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getUsageQuotaThisMonthResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::InfoService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::InfoService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ]
   ]
 
@@ -105,5 +106,6 @@ private
 end
 
 
+end
 end
 end

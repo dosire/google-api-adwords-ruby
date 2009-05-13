@@ -1,11 +1,11 @@
 require 'xsd/qname'
 
-module AdWords; module CampaignService
+module AdWords; module V13; module CampaignService
 
 
 # {https://adwords.google.com/api/adwords/v13}AdSchedule
-#   intervals - AdWords::CampaignService::SchedulingInterval
-#   status - AdWords::CampaignService::AdScheduleStatus
+#   intervals - AdWords::V13::CampaignService::SchedulingInterval
+#   status - AdWords::V13::CampaignService::AdScheduleStatus
 class AdSchedule
   attr_accessor :intervals
   attr_accessor :status
@@ -49,7 +49,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::CampaignService::ApiError
+#   errors - AdWords::V13::CampaignService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -87,19 +87,19 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}Campaign
 #   budgetAmount - SOAP::SOAPLong
-#   budgetOptimizerSettings - AdWords::CampaignService::BudgetOptimizerSettings
-#   budgetPeriod - AdWords::CampaignService::BudgetPeriod
-#   contentTargeting - AdWords::CampaignService::ContentTargeting
-#   conversionOptimizerSettings - AdWords::CampaignService::ConversionOptimizerSettings
+#   budgetOptimizerSettings - AdWords::V13::CampaignService::BudgetOptimizerSettings
+#   budgetPeriod - AdWords::V13::CampaignService::BudgetPeriod
+#   contentTargeting - AdWords::V13::CampaignService::ContentTargeting
+#   conversionOptimizerSettings - AdWords::V13::CampaignService::ConversionOptimizerSettings
 #   endDay - SOAP::SOAPDate
-#   geoTargeting - AdWords::CampaignService::GeoTarget
+#   geoTargeting - AdWords::V13::CampaignService::GeoTarget
 #   id - SOAP::SOAPInt
-#   languageTargeting - AdWords::CampaignService::LanguageTarget
+#   languageTargeting - AdWords::V13::CampaignService::LanguageTarget
 #   name - SOAP::SOAPString
-#   networkTargeting - AdWords::CampaignService::NetworkTarget
-#   schedule - AdWords::CampaignService::AdSchedule
+#   networkTargeting - AdWords::V13::CampaignService::NetworkTarget
+#   schedule - AdWords::V13::CampaignService::AdSchedule
 #   startDay - SOAP::SOAPDate
-#   status - AdWords::CampaignService::CampaignStatus
+#   status - AdWords::V13::CampaignService::CampaignStatus
 class Campaign
   attr_accessor :budgetAmount
   attr_accessor :budgetOptimizerSettings
@@ -136,7 +136,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}CampaignBudget
 #   budgetAmount - SOAP::SOAPLong
-#   budgetPeriod - AdWords::CampaignService::BudgetPeriod
+#   budgetPeriod - AdWords::V13::CampaignService::BudgetPeriod
 class CampaignBudget
   attr_accessor :budgetAmount
   attr_accessor :budgetPeriod
@@ -216,11 +216,11 @@ class CountryTargets
 end
 
 # {https://adwords.google.com/api/adwords/v13}GeoTarget
-#   cityTargets - AdWords::CampaignService::CityTargets
-#   countryTargets - AdWords::CampaignService::CountryTargets
-#   metroTargets - AdWords::CampaignService::MetroTargets
-#   proximityTargets - AdWords::CampaignService::ProximityTargets
-#   regionTargets - AdWords::CampaignService::RegionTargets
+#   cityTargets - AdWords::V13::CampaignService::CityTargets
+#   countryTargets - AdWords::V13::CampaignService::CountryTargets
+#   metroTargets - AdWords::V13::CampaignService::MetroTargets
+#   proximityTargets - AdWords::V13::CampaignService::ProximityTargets
+#   regionTargets - AdWords::V13::CampaignService::RegionTargets
 #   targetAll - SOAP::SOAPBoolean
 class GeoTarget
   attr_accessor :cityTargets
@@ -265,6 +265,19 @@ end
 class ProximityTargets < ::Array
 end
 
+# {https://adwords.google.com/api/adwords/v13}RecommendedBudget
+#   budget - AdWords::V13::CampaignService::CampaignBudget
+#   campaignId - SOAP::SOAPInt
+class RecommendedBudget
+  attr_accessor :budget
+  attr_accessor :campaignId
+
+  def initialize(budget = nil, campaignId = nil)
+    @budget = budget
+    @campaignId = campaignId
+  end
+end
+
 # {https://adwords.google.com/api/adwords/v13}RegionTargets
 #   excludedRegions - SOAP::SOAPString
 #   regions - SOAP::SOAPString
@@ -279,7 +292,7 @@ class RegionTargets
 end
 
 # {https://adwords.google.com/api/adwords/v13}SchedulingInterval
-#   day - AdWords::CampaignService::DayOfWeek
+#   day - AdWords::V13::CampaignService::DayOfWeek
 #   endHour - SOAP::SOAPInt
 #   endMinute - SOAP::SOAPInt
 #   multiplier - SOAP::SOAPDouble
@@ -378,7 +391,7 @@ class NetworkType < ::String
 end
 
 # {https://adwords.google.com/api/adwords/v13}addCampaign
-#   campaign - AdWords::CampaignService::Campaign
+#   campaign - AdWords::V13::CampaignService::Campaign
 class AddCampaign
   attr_accessor :campaign
 
@@ -396,7 +409,7 @@ class AddCampaignListResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}addCampaignResponse
-#   addCampaignReturn - AdWords::CampaignService::Campaign
+#   addCampaignReturn - AdWords::V13::CampaignService::Campaign
 class AddCampaignResponse
   attr_accessor :addCampaignReturn
 
@@ -448,7 +461,7 @@ class GetCampaignListResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}getCampaignResponse
-#   getCampaignReturn - AdWords::CampaignService::Campaign
+#   getCampaignReturn - AdWords::V13::CampaignService::Campaign
 class GetCampaignResponse
   attr_accessor :getCampaignReturn
 
@@ -513,6 +526,14 @@ end
 class GetRecommendedBudgetListResponse < ::Array
 end
 
+# {https://adwords.google.com/api/adwords/v13}getRecommendedBudgets
+class GetRecommendedBudgets < ::Array
+end
+
+# {https://adwords.google.com/api/adwords/v13}getRecommendedBudgetsResponse
+class GetRecommendedBudgetsResponse < ::Array
+end
+
 # {https://adwords.google.com/api/adwords/v13}setOptimizeAdServing
 #   campaignId - SOAP::SOAPInt
 #   enable - SOAP::SOAPBoolean
@@ -533,7 +554,7 @@ class SetOptimizeAdServingResponse
 end
 
 # {https://adwords.google.com/api/adwords/v13}updateCampaign
-#   campaign - AdWords::CampaignService::Campaign
+#   campaign - AdWords::V13::CampaignService::Campaign
 class UpdateCampaign
   attr_accessor :campaign
 
@@ -559,4 +580,4 @@ class UpdateCampaignResponse
 end
 
 
-end; end
+end; end; end

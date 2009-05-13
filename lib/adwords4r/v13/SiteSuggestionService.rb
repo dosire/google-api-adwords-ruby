@@ -1,6 +1,6 @@
 require 'xsd/qname'
 
-module AdWords; module SiteSuggestionService
+module AdWords; module V13; module SiteSuggestionService
 
 
 # {https://adwords.google.com/api/adwords/v13}ApiError
@@ -36,7 +36,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::SiteSuggestionService::ApiError
+#   errors - AdWords::V13::SiteSuggestionService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -57,13 +57,13 @@ class ApiException
 end
 
 # {https://adwords.google.com/api/adwords/v13}DemographicsTarget
-#   childrenTarget - AdWords::SiteSuggestionService::ChildrenTarget
-#   ethnicityTarget - AdWords::SiteSuggestionService::EthnicityTarget
-#   genderTarget - AdWords::SiteSuggestionService::GenderTarget
-#   maxAgeRange - AdWords::SiteSuggestionService::AgeRange
-#   maxHouseholdIncomeRange - AdWords::SiteSuggestionService::HouseholdIncomeRange
-#   minAgeRange - AdWords::SiteSuggestionService::AgeRange
-#   minHouseholdIncomeRange - AdWords::SiteSuggestionService::HouseholdIncomeRange
+#   childrenTarget - AdWords::V13::SiteSuggestionService::ChildrenTarget
+#   ethnicityTarget - AdWords::V13::SiteSuggestionService::EthnicityTarget
+#   genderTarget - AdWords::V13::SiteSuggestionService::GenderTarget
+#   maxAgeRange - AdWords::V13::SiteSuggestionService::AgeRange
+#   maxHouseholdIncomeRange - AdWords::V13::SiteSuggestionService::HouseholdIncomeRange
+#   minAgeRange - AdWords::V13::SiteSuggestionService::AgeRange
+#   minHouseholdIncomeRange - AdWords::V13::SiteSuggestionService::HouseholdIncomeRange
 class DemographicsTarget
   attr_accessor :childrenTarget
   attr_accessor :ethnicityTarget
@@ -172,7 +172,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}getSitesByCategoryName
 #   categoryName - SOAP::SOAPString
-#   targeting - AdWords::SiteSuggestionService::LanguageGeoTargeting
+#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
 class GetSitesByCategoryName
   attr_accessor :categoryName
   attr_accessor :targeting
@@ -188,8 +188,8 @@ class GetSitesByCategoryNameResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}getSitesByDemographics
-#   demo - AdWords::SiteSuggestionService::DemographicsTarget
-#   targeting - AdWords::SiteSuggestionService::LanguageGeoTargeting
+#   demo - AdWords::V13::SiteSuggestionService::DemographicsTarget
+#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
 class GetSitesByDemographics
   attr_accessor :demo
   attr_accessor :targeting
@@ -206,7 +206,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}getSitesByTopics
 #   topics - SOAP::SOAPString
-#   targeting - AdWords::SiteSuggestionService::LanguageGeoTargeting
+#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
 class GetSitesByTopics
   attr_accessor :topics
   attr_accessor :targeting
@@ -223,7 +223,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}getSitesByUrls
 #   urls - SOAP::SOAPString
-#   targeting - AdWords::SiteSuggestionService::LanguageGeoTargeting
+#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
 class GetSitesByUrls
   attr_accessor :urls
   attr_accessor :targeting
@@ -239,4 +239,4 @@ class GetSitesByUrlsResponse < ::Array
 end
 
 
-end; end
+end; end; end

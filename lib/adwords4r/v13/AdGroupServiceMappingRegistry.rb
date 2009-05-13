@@ -1,7 +1,7 @@
 require 'adwords4r/v13/AdGroupService'
 require 'soap/mapping'
 
-module AdWords; module AdGroupService
+module AdWords; module V13; module AdGroupService
 
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
@@ -9,7 +9,7 @@ module DefaultMappingRegistry
   NsV13 = "https://adwords.google.com/api/adwords/v13"
 
   EncodedRegistry.register(
-    :class => AdWords::AdGroupService::AdGroup,
+    :class => AdWords::V13::AdGroupService::AdGroup,
     :schema_type => XSD::QName.new(NsV13, "AdGroup"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"],
@@ -21,12 +21,12 @@ module DefaultMappingRegistry
       ["proxyKeywordMaxCpc", "SOAP::SOAPLong", [0, 1]],
       ["siteMaxCpc", "SOAP::SOAPLong", [0, 1]],
       ["siteMaxCpm", "SOAP::SOAPLong", [0, 1]],
-      ["status", "AdWords::AdGroupService::AdGroupStatus", [0, 1]]
+      ["status", "AdWords::V13::AdGroupService::AdGroupStatus", [0, 1]]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::AdGroupService::ApiError,
+    :class => AdWords::V13::AdGroupService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -41,11 +41,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::AdGroupService::ApiException,
+    :class => AdWords::V13::AdGroupService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::AdGroupService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::AdGroupService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -53,7 +53,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::AdGroupService::StatsRecord,
+    :class => AdWords::V13::AdGroupService::StatsRecord,
     :schema_type => XSD::QName.new(NsV13, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
@@ -67,12 +67,12 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::AdGroupService::AdGroupStatus,
+    :class => AdWords::V13::AdGroupService::AdGroupStatus,
     :schema_type => XSD::QName.new(NsV13, "AdGroupStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::AdGroup,
+    :class => AdWords::V13::AdGroupService::AdGroup,
     :schema_type => XSD::QName.new(NsV13, "AdGroup"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"],
@@ -84,12 +84,12 @@ module DefaultMappingRegistry
       ["proxyKeywordMaxCpc", "SOAP::SOAPLong", [0, 1]],
       ["siteMaxCpc", "SOAP::SOAPLong", [0, 1]],
       ["siteMaxCpm", "SOAP::SOAPLong", [0, 1]],
-      ["status", "AdWords::AdGroupService::AdGroupStatus", [0, 1]]
+      ["status", "AdWords::V13::AdGroupService::AdGroupStatus", [0, 1]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::ApiError,
+    :class => AdWords::V13::AdGroupService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -104,11 +104,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::ApiException,
+    :class => AdWords::V13::AdGroupService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::AdGroupService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::AdGroupService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -116,7 +116,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::StatsRecord,
+    :class => AdWords::V13::AdGroupService::StatsRecord,
     :schema_type => XSD::QName.new(NsV13, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
@@ -130,50 +130,50 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::AdGroupStatus,
+    :class => AdWords::V13::AdGroupService::AdGroupStatus,
     :schema_type => XSD::QName.new(NsV13, "AdGroupStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::AddAdGroup,
+    :class => AdWords::V13::AdGroupService::AddAdGroup,
     :schema_name => XSD::QName.new(NsV13, "addAdGroup"),
     :schema_element => [
       ["campaignID", "SOAP::SOAPInt"],
-      ["newData", "AdWords::AdGroupService::AdGroup"]
+      ["newData", "AdWords::V13::AdGroupService::AdGroup"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::AddAdGroupList,
+    :class => AdWords::V13::AdGroupService::AddAdGroupList,
     :schema_name => XSD::QName.new(NsV13, "addAdGroupList"),
     :schema_element => [
       ["campaignID", "SOAP::SOAPInt"],
-      ["newData", "AdWords::AdGroupService::AdGroup[]", [1, nil]]
+      ["newData", "AdWords::V13::AdGroupService::AdGroup[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::AddAdGroupListResponse,
+    :class => AdWords::V13::AdGroupService::AddAdGroupListResponse,
     :schema_name => XSD::QName.new(NsV13, "addAdGroupListResponse"),
     :schema_element => [
-      ["addAdGroupListReturn", "AdWords::AdGroupService::AdGroup[]", [1, nil]]
+      ["addAdGroupListReturn", "AdWords::V13::AdGroupService::AdGroup[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::AddAdGroupResponse,
+    :class => AdWords::V13::AdGroupService::AddAdGroupResponse,
     :schema_name => XSD::QName.new(NsV13, "addAdGroupResponse"),
     :schema_element => [
-      ["addAdGroupReturn", "AdWords::AdGroupService::AdGroup"]
+      ["addAdGroupReturn", "AdWords::V13::AdGroupService::AdGroup"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::ApiException,
+    :class => AdWords::V13::AdGroupService::ApiException,
     :schema_name => XSD::QName.new(NsV13, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::AdGroupService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::AdGroupService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -181,7 +181,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetActiveAdGroups,
+    :class => AdWords::V13::AdGroupService::GetActiveAdGroups,
     :schema_name => XSD::QName.new(NsV13, "getActiveAdGroups"),
     :schema_element => [
       ["campaignID", "SOAP::SOAPInt"]
@@ -189,15 +189,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetActiveAdGroupsResponse,
+    :class => AdWords::V13::AdGroupService::GetActiveAdGroupsResponse,
     :schema_name => XSD::QName.new(NsV13, "getActiveAdGroupsResponse"),
     :schema_element => [
-      ["getActiveAdGroupsReturn", "AdWords::AdGroupService::AdGroup[]", [1, nil]]
+      ["getActiveAdGroupsReturn", "AdWords::V13::AdGroupService::AdGroup[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAdGroup,
+    :class => AdWords::V13::AdGroupService::GetAdGroup,
     :schema_name => XSD::QName.new(NsV13, "getAdGroup"),
     :schema_element => [
       ["adGroupId", "SOAP::SOAPLong"]
@@ -205,7 +205,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAdGroupList,
+    :class => AdWords::V13::AdGroupService::GetAdGroupList,
     :schema_name => XSD::QName.new(NsV13, "getAdGroupList"),
     :schema_element => [
       ["adgroupIDs", "SOAP::SOAPLong[]", [1, nil]]
@@ -213,23 +213,23 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAdGroupListResponse,
+    :class => AdWords::V13::AdGroupService::GetAdGroupListResponse,
     :schema_name => XSD::QName.new(NsV13, "getAdGroupListResponse"),
     :schema_element => [
-      ["getAdGroupListReturn", "AdWords::AdGroupService::AdGroup[]", [1, nil]]
+      ["getAdGroupListReturn", "AdWords::V13::AdGroupService::AdGroup[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAdGroupResponse,
+    :class => AdWords::V13::AdGroupService::GetAdGroupResponse,
     :schema_name => XSD::QName.new(NsV13, "getAdGroupResponse"),
     :schema_element => [
-      ["getAdGroupReturn", "AdWords::AdGroupService::AdGroup"]
+      ["getAdGroupReturn", "AdWords::V13::AdGroupService::AdGroup"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAdGroupStats,
+    :class => AdWords::V13::AdGroupService::GetAdGroupStats,
     :schema_name => XSD::QName.new(NsV13, "getAdGroupStats"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"],
@@ -240,15 +240,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAdGroupStatsResponse,
+    :class => AdWords::V13::AdGroupService::GetAdGroupStatsResponse,
     :schema_name => XSD::QName.new(NsV13, "getAdGroupStatsResponse"),
     :schema_element => [
-      ["getAdGroupStatsReturn", "AdWords::AdGroupService::StatsRecord[]", [1, nil]]
+      ["getAdGroupStatsReturn", "AdWords::V13::AdGroupService::StatsRecord[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAllAdGroups,
+    :class => AdWords::V13::AdGroupService::GetAllAdGroups,
     :schema_name => XSD::QName.new(NsV13, "getAllAdGroups"),
     :schema_element => [
       ["campaignID", "SOAP::SOAPInt"]
@@ -256,41 +256,41 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::GetAllAdGroupsResponse,
+    :class => AdWords::V13::AdGroupService::GetAllAdGroupsResponse,
     :schema_name => XSD::QName.new(NsV13, "getAllAdGroupsResponse"),
     :schema_element => [
-      ["getAllAdGroupsReturn", "AdWords::AdGroupService::AdGroup[]", [1, nil]]
+      ["getAllAdGroupsReturn", "AdWords::V13::AdGroupService::AdGroup[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::UpdateAdGroup,
+    :class => AdWords::V13::AdGroupService::UpdateAdGroup,
     :schema_name => XSD::QName.new(NsV13, "updateAdGroup"),
     :schema_element => [
-      ["changedData", "AdWords::AdGroupService::AdGroup"]
+      ["changedData", "AdWords::V13::AdGroupService::AdGroup"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::UpdateAdGroupList,
+    :class => AdWords::V13::AdGroupService::UpdateAdGroupList,
     :schema_name => XSD::QName.new(NsV13, "updateAdGroupList"),
     :schema_element => [
-      ["changedData", "AdWords::AdGroupService::AdGroup[]", [1, nil]]
+      ["changedData", "AdWords::V13::AdGroupService::AdGroup[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::UpdateAdGroupListResponse,
+    :class => AdWords::V13::AdGroupService::UpdateAdGroupListResponse,
     :schema_name => XSD::QName.new(NsV13, "updateAdGroupListResponse"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::AdGroupService::UpdateAdGroupResponse,
+    :class => AdWords::V13::AdGroupService::UpdateAdGroupResponse,
     :schema_name => XSD::QName.new(NsV13, "updateAdGroupResponse"),
     :schema_element => []
   )
 
 end
 
-end; end
+end; end; end

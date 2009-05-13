@@ -1,6 +1,6 @@
 require 'xsd/qname'
 
-module AdWords; module CriterionService
+module AdWords; module V13; module CriterionService
 
 
 # {https://adwords.google.com/api/adwords/v13}ApiError
@@ -36,7 +36,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::CriterionService::ApiError
+#   errors - AdWords::V13::CriterionService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -101,14 +101,14 @@ end
 # {https://adwords.google.com/api/adwords/v13}Criterion
 # abstract
 #   adGroupId - SOAP::SOAPLong
-#   criterionType - AdWords::CriterionService::CriterionType
+#   criterionType - AdWords::V13::CriterionService::CriterionType
 #   destinationUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
 #   language - SOAP::SOAPString
 #   negative - SOAP::SOAPBoolean
 #   paused - SOAP::SOAPBoolean
-#   status - AdWords::CriterionService::CriterionStatus
+#   status - AdWords::V13::CriterionService::CriterionStatus
 class Criterion
   attr_accessor :adGroupId
   attr_accessor :criterionType
@@ -135,20 +135,20 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}Keyword
 #   adGroupId - SOAP::SOAPLong
-#   criterionType - AdWords::CriterionService::CriterionType
+#   criterionType - AdWords::V13::CriterionService::CriterionType
 #   destinationUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
 #   language - SOAP::SOAPString
 #   negative - SOAP::SOAPBoolean
 #   paused - SOAP::SOAPBoolean
-#   status - AdWords::CriterionService::CriterionStatus
+#   status - AdWords::V13::CriterionService::CriterionStatus
 #   firstPageCpc - SOAP::SOAPLong
 #   maxCpc - SOAP::SOAPLong
 #   proxyMaxCpc - SOAP::SOAPLong
 #   qualityScore - SOAP::SOAPInt
 #   text - SOAP::SOAPString
-#   type - AdWords::CriterionService::KeywordType
+#   type - AdWords::V13::CriterionService::KeywordType
 class Keyword < Criterion
   attr_accessor :adGroupId
   attr_accessor :criterionType
@@ -187,14 +187,14 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}Website
 #   adGroupId - SOAP::SOAPLong
-#   criterionType - AdWords::CriterionService::CriterionType
+#   criterionType - AdWords::V13::CriterionService::CriterionType
 #   destinationUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
 #   language - SOAP::SOAPString
 #   negative - SOAP::SOAPBoolean
 #   paused - SOAP::SOAPBoolean
-#   status - AdWords::CriterionService::CriterionStatus
+#   status - AdWords::V13::CriterionService::CriterionStatus
 #   maxCpc - SOAP::SOAPLong
 #   maxCpm - SOAP::SOAPLong
 #   url - SOAP::SOAPString
@@ -229,11 +229,11 @@ class Website < Criterion
 end
 
 # {https://adwords.google.com/api/adwords/v13}GeoTarget
-#   cityTargets - AdWords::CriterionService::CityTargets
-#   countryTargets - AdWords::CriterionService::CountryTargets
-#   metroTargets - AdWords::CriterionService::MetroTargets
-#   proximityTargets - AdWords::CriterionService::ProximityTargets
-#   regionTargets - AdWords::CriterionService::RegionTargets
+#   cityTargets - AdWords::V13::CriterionService::CityTargets
+#   countryTargets - AdWords::V13::CriterionService::CountryTargets
+#   metroTargets - AdWords::V13::CriterionService::MetroTargets
+#   proximityTargets - AdWords::V13::CriterionService::ProximityTargets
+#   regionTargets - AdWords::V13::CriterionService::RegionTargets
 #   targetAll - SOAP::SOAPBoolean
 class GeoTarget
   attr_accessor :cityTargets
@@ -345,9 +345,9 @@ class AddCriteriaResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}checkCriteria
-#   criteria - AdWords::CriterionService::Criterion
-#   languageTarget - AdWords::CriterionService::LanguageTarget
-#   geoTarget - AdWords::CriterionService::GeoTarget
+#   criteria - AdWords::V13::CriterionService::Criterion
+#   languageTarget - AdWords::V13::CriterionService::LanguageTarget
+#   geoTarget - AdWords::V13::CriterionService::GeoTarget
 class CheckCriteria
   attr_accessor :criteria
   attr_accessor :languageTarget
@@ -453,7 +453,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}setCampaignNegativeCriteria
 #   campaignId - SOAP::SOAPInt
-#   criteria - AdWords::CriterionService::Criterion
+#   criteria - AdWords::V13::CriterionService::Criterion
 class SetCampaignNegativeCriteria
   attr_accessor :campaignId
   attr_accessor :criteria
@@ -481,4 +481,4 @@ class UpdateCriteriaResponse
 end
 
 
-end; end
+end; end; end

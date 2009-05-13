@@ -1,7 +1,7 @@
 require 'adwords4r/v13/SiteSuggestionService'
 require 'soap/mapping'
 
-module AdWords; module SiteSuggestionService
+module AdWords; module V13; module SiteSuggestionService
 
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
@@ -9,7 +9,7 @@ module DefaultMappingRegistry
   NsV13 = "https://adwords.google.com/api/adwords/v13"
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::ApiError,
+    :class => AdWords::V13::SiteSuggestionService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -24,11 +24,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::ApiException,
+    :class => AdWords::V13::SiteSuggestionService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::SiteSuggestionService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::SiteSuggestionService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -36,21 +36,21 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::DemographicsTarget,
+    :class => AdWords::V13::SiteSuggestionService::DemographicsTarget,
     :schema_type => XSD::QName.new(NsV13, "DemographicsTarget"),
     :schema_element => [
-      ["childrenTarget", "AdWords::SiteSuggestionService::ChildrenTarget", [0, 1]],
-      ["ethnicityTarget", "AdWords::SiteSuggestionService::EthnicityTarget", [0, 1]],
-      ["genderTarget", "AdWords::SiteSuggestionService::GenderTarget", [0, 1]],
-      ["maxAgeRange", "AdWords::SiteSuggestionService::AgeRange", [0, 1]],
-      ["maxHouseholdIncomeRange", "AdWords::SiteSuggestionService::HouseholdIncomeRange", [0, 1]],
-      ["minAgeRange", "AdWords::SiteSuggestionService::AgeRange", [0, 1]],
-      ["minHouseholdIncomeRange", "AdWords::SiteSuggestionService::HouseholdIncomeRange", [0, 1]]
+      ["childrenTarget", "AdWords::V13::SiteSuggestionService::ChildrenTarget", [0, 1]],
+      ["ethnicityTarget", "AdWords::V13::SiteSuggestionService::EthnicityTarget", [0, 1]],
+      ["genderTarget", "AdWords::V13::SiteSuggestionService::GenderTarget", [0, 1]],
+      ["maxAgeRange", "AdWords::V13::SiteSuggestionService::AgeRange", [0, 1]],
+      ["maxHouseholdIncomeRange", "AdWords::V13::SiteSuggestionService::HouseholdIncomeRange", [0, 1]],
+      ["minAgeRange", "AdWords::V13::SiteSuggestionService::AgeRange", [0, 1]],
+      ["minHouseholdIncomeRange", "AdWords::V13::SiteSuggestionService::HouseholdIncomeRange", [0, 1]]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::LanguageGeoTargeting,
+    :class => AdWords::V13::SiteSuggestionService::LanguageGeoTargeting,
     :schema_type => XSD::QName.new(NsV13, "LanguageGeoTargeting"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [1, nil]],
@@ -61,7 +61,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::SiteSuggestion,
+    :class => AdWords::V13::SiteSuggestionService::SiteSuggestion,
     :schema_type => XSD::QName.new(NsV13, "SiteSuggestion"),
     :schema_element => [
       ["acceptsImageAds", "SOAP::SOAPBoolean"],
@@ -73,32 +73,32 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::AgeRange,
+    :class => AdWords::V13::SiteSuggestionService::AgeRange,
     :schema_type => XSD::QName.new(NsV13, "AgeRange")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::ChildrenTarget,
+    :class => AdWords::V13::SiteSuggestionService::ChildrenTarget,
     :schema_type => XSD::QName.new(NsV13, "ChildrenTarget")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::EthnicityTarget,
+    :class => AdWords::V13::SiteSuggestionService::EthnicityTarget,
     :schema_type => XSD::QName.new(NsV13, "EthnicityTarget")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::GenderTarget,
+    :class => AdWords::V13::SiteSuggestionService::GenderTarget,
     :schema_type => XSD::QName.new(NsV13, "GenderTarget")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::SiteSuggestionService::HouseholdIncomeRange,
+    :class => AdWords::V13::SiteSuggestionService::HouseholdIncomeRange,
     :schema_type => XSD::QName.new(NsV13, "HouseholdIncomeRange")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::ApiError,
+    :class => AdWords::V13::SiteSuggestionService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -113,11 +113,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::ApiException,
+    :class => AdWords::V13::SiteSuggestionService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::SiteSuggestionService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::SiteSuggestionService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -125,21 +125,21 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::DemographicsTarget,
+    :class => AdWords::V13::SiteSuggestionService::DemographicsTarget,
     :schema_type => XSD::QName.new(NsV13, "DemographicsTarget"),
     :schema_element => [
-      ["childrenTarget", "AdWords::SiteSuggestionService::ChildrenTarget", [0, 1]],
-      ["ethnicityTarget", "AdWords::SiteSuggestionService::EthnicityTarget", [0, 1]],
-      ["genderTarget", "AdWords::SiteSuggestionService::GenderTarget", [0, 1]],
-      ["maxAgeRange", "AdWords::SiteSuggestionService::AgeRange", [0, 1]],
-      ["maxHouseholdIncomeRange", "AdWords::SiteSuggestionService::HouseholdIncomeRange", [0, 1]],
-      ["minAgeRange", "AdWords::SiteSuggestionService::AgeRange", [0, 1]],
-      ["minHouseholdIncomeRange", "AdWords::SiteSuggestionService::HouseholdIncomeRange", [0, 1]]
+      ["childrenTarget", "AdWords::V13::SiteSuggestionService::ChildrenTarget", [0, 1]],
+      ["ethnicityTarget", "AdWords::V13::SiteSuggestionService::EthnicityTarget", [0, 1]],
+      ["genderTarget", "AdWords::V13::SiteSuggestionService::GenderTarget", [0, 1]],
+      ["maxAgeRange", "AdWords::V13::SiteSuggestionService::AgeRange", [0, 1]],
+      ["maxHouseholdIncomeRange", "AdWords::V13::SiteSuggestionService::HouseholdIncomeRange", [0, 1]],
+      ["minAgeRange", "AdWords::V13::SiteSuggestionService::AgeRange", [0, 1]],
+      ["minHouseholdIncomeRange", "AdWords::V13::SiteSuggestionService::HouseholdIncomeRange", [0, 1]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::LanguageGeoTargeting,
+    :class => AdWords::V13::SiteSuggestionService::LanguageGeoTargeting,
     :schema_type => XSD::QName.new(NsV13, "LanguageGeoTargeting"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [1, nil]],
@@ -150,7 +150,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::SiteSuggestion,
+    :class => AdWords::V13::SiteSuggestionService::SiteSuggestion,
     :schema_type => XSD::QName.new(NsV13, "SiteSuggestion"),
     :schema_element => [
       ["acceptsImageAds", "SOAP::SOAPBoolean"],
@@ -162,36 +162,36 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::AgeRange,
+    :class => AdWords::V13::SiteSuggestionService::AgeRange,
     :schema_type => XSD::QName.new(NsV13, "AgeRange")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::ChildrenTarget,
+    :class => AdWords::V13::SiteSuggestionService::ChildrenTarget,
     :schema_type => XSD::QName.new(NsV13, "ChildrenTarget")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::EthnicityTarget,
+    :class => AdWords::V13::SiteSuggestionService::EthnicityTarget,
     :schema_type => XSD::QName.new(NsV13, "EthnicityTarget")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GenderTarget,
+    :class => AdWords::V13::SiteSuggestionService::GenderTarget,
     :schema_type => XSD::QName.new(NsV13, "GenderTarget")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::HouseholdIncomeRange,
+    :class => AdWords::V13::SiteSuggestionService::HouseholdIncomeRange,
     :schema_type => XSD::QName.new(NsV13, "HouseholdIncomeRange")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::ApiException,
+    :class => AdWords::V13::SiteSuggestionService::ApiException,
     :schema_name => XSD::QName.new(NsV13, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::SiteSuggestionService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::SiteSuggestionService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -199,73 +199,73 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByCategoryName,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByCategoryName,
     :schema_name => XSD::QName.new(NsV13, "getSitesByCategoryName"),
     :schema_element => [
       ["categoryName", "SOAP::SOAPString"],
-      ["targeting", "AdWords::SiteSuggestionService::LanguageGeoTargeting"]
+      ["targeting", "AdWords::V13::SiteSuggestionService::LanguageGeoTargeting"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByCategoryNameResponse,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByCategoryNameResponse,
     :schema_name => XSD::QName.new(NsV13, "getSitesByCategoryNameResponse"),
     :schema_element => [
-      ["getSitesByCategoryNameReturn", "AdWords::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
+      ["getSitesByCategoryNameReturn", "AdWords::V13::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByDemographics,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByDemographics,
     :schema_name => XSD::QName.new(NsV13, "getSitesByDemographics"),
     :schema_element => [
-      ["demo", "AdWords::SiteSuggestionService::DemographicsTarget"],
-      ["targeting", "AdWords::SiteSuggestionService::LanguageGeoTargeting"]
+      ["demo", "AdWords::V13::SiteSuggestionService::DemographicsTarget"],
+      ["targeting", "AdWords::V13::SiteSuggestionService::LanguageGeoTargeting"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByDemographicsResponse,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByDemographicsResponse,
     :schema_name => XSD::QName.new(NsV13, "getSitesByDemographicsResponse"),
     :schema_element => [
-      ["getSitesByDemographicsReturn", "AdWords::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
+      ["getSitesByDemographicsReturn", "AdWords::V13::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByTopics,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByTopics,
     :schema_name => XSD::QName.new(NsV13, "getSitesByTopics"),
     :schema_element => [
       ["topics", "SOAP::SOAPString[]", [1, nil]],
-      ["targeting", "AdWords::SiteSuggestionService::LanguageGeoTargeting"]
+      ["targeting", "AdWords::V13::SiteSuggestionService::LanguageGeoTargeting"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByTopicsResponse,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByTopicsResponse,
     :schema_name => XSD::QName.new(NsV13, "getSitesByTopicsResponse"),
     :schema_element => [
-      ["getSitesByTopicsReturn", "AdWords::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
+      ["getSitesByTopicsReturn", "AdWords::V13::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByUrls,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByUrls,
     :schema_name => XSD::QName.new(NsV13, "getSitesByUrls"),
     :schema_element => [
       ["urls", "SOAP::SOAPString[]", [1, nil]],
-      ["targeting", "AdWords::SiteSuggestionService::LanguageGeoTargeting"]
+      ["targeting", "AdWords::V13::SiteSuggestionService::LanguageGeoTargeting"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::SiteSuggestionService::GetSitesByUrlsResponse,
+    :class => AdWords::V13::SiteSuggestionService::GetSitesByUrlsResponse,
     :schema_name => XSD::QName.new(NsV13, "getSitesByUrlsResponse"),
     :schema_element => [
-      ["getSitesByUrlsReturn", "AdWords::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
+      ["getSitesByUrlsReturn", "AdWords::V13::SiteSuggestionService::SiteSuggestion[]", [1, nil]]
     ]
   )
 
 end
 
-end; end
+end; end; end

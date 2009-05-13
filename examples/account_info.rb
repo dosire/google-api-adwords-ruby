@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #
-# Copyright 2008, Google Inc. All Rights Reserved.
+# Copyright 2009, Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 # MCC account, and then iteratively retrieves information about each account.
 
 require 'rubygems'
-gem 'soap4r', '>= 1.5.8'
+gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
 
@@ -38,30 +38,30 @@ def main()
     # specified inline as a hash:
     #
     # creds = {
-    #   'developerToken' => 'user@domain.com++USD',
-    #   'useragent' => 'Sample User Agent',
-    #   'password' => 'password',
-    #   'email' => 'user@domain.com',
-    #   'clientEmail' => 'client_1+user@domain.com',
-    #   'applicationToken' => 'IGNORED',
-    #   'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/',
+    #     'developerToken' => 'user@domain.com++USD',
+    #     'useragent' => 'Sample User Agent',
+    #     'password' => 'password',
+    #     'email' => 'user@domain.com',
+    #     'clientEmail' => 'client_1+user@domain.com',
+    #     'applicationToken' => 'IGNORED',
+    #     'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/',
     # }
-    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds), 13)
-
+    # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds))
     adwords = AdWords::API.new
 
     # Clear out the clientEmail header temporarily so that we run under the
     # context of the MCC user.
-    adwords.credentials.setHeader('clientEmail', '')
+    adwords.credentials.set_header('clientEmail', '')
 
-    client_accounts = adwords.getClientAccounts
+    account_srv = adwords.get_service(13, 'Account')
+    client_accounts = account_srv.getClientAccounts
 
     if client_accounts.length > 0 then
       client_accounts.each do |client_account|
         # Set the clientEmail header to each account's login email so that API
         # calls are made in the context of that account.
-        adwords.credentials.setHeader('clientEmail', client_account)
-        account_info = adwords.getAccountInfo.getAccountInfoReturn
+        adwords.credentials.set_header('clientEmail', client_account)
+        account_info = account_srv.getAccountInfo.getAccountInfoReturn
 
         puts 'Client Email: %s' % client_account
         if ! account_info.descriptiveName.empty? then
@@ -77,16 +77,14 @@ def main()
   rescue Errno::ECONNRESET, SOAP::HTTPStreamError, SocketError => e
     # This exception indicates a connection-level error.
     # In general, it is likely to be transitory.
-
     puts 'Connection Error: %s' % e
     puts 'Source: %s' % e.backtrace.first
-    
+
   rescue AdWords::Error::UnknownAPICall => e
     # This exception is thrown when an unknown SOAP method is invoked.
-
     puts e
     puts 'Source: %s' % e.backtrace.first
-    
+
   rescue AdWords::Error::ApiError => e
     # This exception maps to receiving a SOAP Fault back from the service.
     # The e.soap_faultstring_ex, e.code_ex, and potentially e.trigger_ex
@@ -99,7 +97,6 @@ def main()
     #     puts '%s => %s' % [var, value]
     #   end
     # end
-
     puts 'SOAP Error: %s (code: %d)' % [e.soap_faultstring_ex, e.code_ex]
     puts 'Trigger: %s' % e.trigger_ex unless e.trigger_ex.nil?
     puts 'Source: %s' % e.backtrace.first
@@ -107,13 +104,11 @@ def main()
   ensure
     # Display API unit usage info. This data is stored as a class variable
     # in the AdWords::API class and accessed via static methods.
-    # AdWords::API.get_total_units() returns a running total of units used in
-    # the scope of the current program.
-    # AdWords::API.get_last_units() returns the number used in the last call.
-
+    # total_units() returns a running total of units used in the scope of the
+    # current program. last_units() returns the number used in the last call.
     puts
     puts '%d API units consumed total (%d in last call).' %
-      [AdWords::API.get_total_units(), AdWords::API.get_last_units()]
+        [adwords.total_units, adwords.last_units]
   end
 end
 
@@ -124,7 +119,6 @@ if __FILE__ == $0
   # To enable this, set the ADWORDS4R_DEBUG environement varaible to 'true'.
   # This can be done either from your operating system environment or via
   # code, as done below.
-
   ENV['ADWORDS4R_DEBUG'] = 'false'
 
   main()

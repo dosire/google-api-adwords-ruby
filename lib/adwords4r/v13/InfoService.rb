@@ -1,6 +1,6 @@
 require 'xsd/qname'
 
-module AdWords; module InfoService
+module AdWords; module V13; module InfoService
 
 
 # {https://adwords.google.com/api/adwords/v13}ApiError
@@ -36,7 +36,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::InfoService::ApiError
+#   errors - AdWords::V13::InfoService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -239,4 +239,4 @@ class GetUsageQuotaThisMonthResponse
 end
 
 
-end; end
+end; end; end

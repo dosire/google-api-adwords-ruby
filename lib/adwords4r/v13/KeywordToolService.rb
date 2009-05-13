@@ -1,6 +1,6 @@
 require 'xsd/qname'
 
-module AdWords; module KeywordToolService
+module AdWords; module V13; module KeywordToolService
 
 
 # {https://adwords.google.com/api/adwords/v13}ApiError
@@ -36,7 +36,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::KeywordToolService::ApiError
+#   errors - AdWords::V13::KeywordToolService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -79,8 +79,8 @@ class KeywordVariation
 end
 
 # {https://adwords.google.com/api/adwords/v13}KeywordVariations
-#   additionalToConsider - AdWords::KeywordToolService::KeywordVariation
-#   moreSpecific - AdWords::KeywordToolService::KeywordVariation
+#   additionalToConsider - AdWords::V13::KeywordToolService::KeywordVariation
+#   moreSpecific - AdWords::V13::KeywordToolService::KeywordVariation
 class KeywordVariations
   attr_accessor :additionalToConsider
   attr_accessor :moreSpecific
@@ -94,7 +94,7 @@ end
 # {https://adwords.google.com/api/adwords/v13}SeedKeyword
 #   negative - SOAP::SOAPBoolean
 #   text - SOAP::SOAPString
-#   type - AdWords::KeywordToolService::KeywordType
+#   type - AdWords::V13::KeywordToolService::KeywordType
 class SeedKeyword
   attr_accessor :negative
   attr_accessor :text
@@ -131,7 +131,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}SiteKeywordGroups
 #   groups - SOAP::SOAPString
-#   keywords - AdWords::KeywordToolService::SiteKeyword
+#   keywords - AdWords::V13::KeywordToolService::SiteKeyword
 class SiteKeywordGroups
   attr_accessor :groups
   attr_accessor :keywords
@@ -150,7 +150,7 @@ class KeywordType < ::String
 end
 
 # {https://adwords.google.com/api/adwords/v13}getKeywordVariations
-#   seedKeywords - AdWords::KeywordToolService::SeedKeyword
+#   seedKeywords - AdWords::V13::KeywordToolService::SeedKeyword
 #   useSynonyms - SOAP::SOAPBoolean
 #   languages - SOAP::SOAPString
 #   countries - SOAP::SOAPString
@@ -169,7 +169,7 @@ class GetKeywordVariations
 end
 
 # {https://adwords.google.com/api/adwords/v13}getKeywordVariationsResponse
-#   getKeywordVariationsReturn - AdWords::KeywordToolService::KeywordVariations
+#   getKeywordVariationsReturn - AdWords::V13::KeywordToolService::KeywordVariations
 class GetKeywordVariationsResponse
   attr_accessor :getKeywordVariationsReturn
 
@@ -198,7 +198,7 @@ class GetKeywordsFromSite
 end
 
 # {https://adwords.google.com/api/adwords/v13}getKeywordsFromSiteResponse
-#   getKeywordsFromSiteReturn - AdWords::KeywordToolService::SiteKeywordGroups
+#   getKeywordsFromSiteReturn - AdWords::V13::KeywordToolService::SiteKeywordGroups
 class GetKeywordsFromSiteResponse
   attr_accessor :getKeywordsFromSiteReturn
 
@@ -208,4 +208,4 @@ class GetKeywordsFromSiteResponse
 end
 
 
-end; end
+end; end; end

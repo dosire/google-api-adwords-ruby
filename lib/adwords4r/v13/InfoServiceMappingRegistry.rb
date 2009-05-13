@@ -1,7 +1,7 @@
 require 'adwords4r/v13/InfoService'
 require 'soap/mapping'
 
-module AdWords; module InfoService
+module AdWords; module V13; module InfoService
 
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
@@ -9,7 +9,7 @@ module DefaultMappingRegistry
   NsV13 = "https://adwords.google.com/api/adwords/v13"
 
   EncodedRegistry.register(
-    :class => AdWords::InfoService::ApiError,
+    :class => AdWords::V13::InfoService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -24,11 +24,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::InfoService::ApiException,
+    :class => AdWords::V13::InfoService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::InfoService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::InfoService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -36,7 +36,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::InfoService::ClientUsageRecord,
+    :class => AdWords::V13::InfoService::ClientUsageRecord,
     :schema_type => XSD::QName.new(NsV13, "ClientUsageRecord"),
     :schema_element => [
       ["clientEmail", "SOAP::SOAPString"],
@@ -45,7 +45,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::ApiError,
+    :class => AdWords::V13::InfoService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -60,11 +60,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::ApiException,
+    :class => AdWords::V13::InfoService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::InfoService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::InfoService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -72,7 +72,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::ClientUsageRecord,
+    :class => AdWords::V13::InfoService::ClientUsageRecord,
     :schema_type => XSD::QName.new(NsV13, "ClientUsageRecord"),
     :schema_element => [
       ["clientEmail", "SOAP::SOAPString"],
@@ -81,11 +81,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::ApiException,
+    :class => AdWords::V13::InfoService::ApiException,
     :schema_name => XSD::QName.new(NsV13, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::InfoService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::InfoService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -93,13 +93,13 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetFreeUsageQuotaThisMonth,
+    :class => AdWords::V13::InfoService::GetFreeUsageQuotaThisMonth,
     :schema_name => XSD::QName.new(NsV13, "getFreeUsageQuotaThisMonth"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetFreeUsageQuotaThisMonthResponse,
+    :class => AdWords::V13::InfoService::GetFreeUsageQuotaThisMonthResponse,
     :schema_name => XSD::QName.new(NsV13, "getFreeUsageQuotaThisMonthResponse"),
     :schema_element => [
       ["getFreeUsageQuotaThisMonthReturn", "SOAP::SOAPLong"]
@@ -107,7 +107,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetMethodCost,
+    :class => AdWords::V13::InfoService::GetMethodCost,
     :schema_name => XSD::QName.new(NsV13, "getMethodCost"),
     :schema_element => [
       ["service", "SOAP::SOAPString"],
@@ -117,7 +117,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetMethodCostResponse,
+    :class => AdWords::V13::InfoService::GetMethodCostResponse,
     :schema_name => XSD::QName.new(NsV13, "getMethodCostResponse"),
     :schema_element => [
       ["getMethodCostReturn", "SOAP::SOAPInt"]
@@ -125,7 +125,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetOperationCount,
+    :class => AdWords::V13::InfoService::GetOperationCount,
     :schema_name => XSD::QName.new(NsV13, "getOperationCount"),
     :schema_element => [
       ["startDate", "SOAP::SOAPDate"],
@@ -134,7 +134,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetOperationCountResponse,
+    :class => AdWords::V13::InfoService::GetOperationCountResponse,
     :schema_name => XSD::QName.new(NsV13, "getOperationCountResponse"),
     :schema_element => [
       ["getOperationCountReturn", "SOAP::SOAPLong"]
@@ -142,13 +142,13 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetOperationsQuotaThisMonth,
+    :class => AdWords::V13::InfoService::GetOperationsQuotaThisMonth,
     :schema_name => XSD::QName.new(NsV13, "getOperationsQuotaThisMonth"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetOperationsQuotaThisMonthResponse,
+    :class => AdWords::V13::InfoService::GetOperationsQuotaThisMonthResponse,
     :schema_name => XSD::QName.new(NsV13, "getOperationsQuotaThisMonthResponse"),
     :schema_element => [
       ["getOperationsQuotaThisMonthReturn", "SOAP::SOAPLong"]
@@ -156,7 +156,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUnitCount,
+    :class => AdWords::V13::InfoService::GetUnitCount,
     :schema_name => XSD::QName.new(NsV13, "getUnitCount"),
     :schema_element => [
       ["startDate", "SOAP::SOAPDate"],
@@ -165,7 +165,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUnitCountForClients,
+    :class => AdWords::V13::InfoService::GetUnitCountForClients,
     :schema_name => XSD::QName.new(NsV13, "getUnitCountForClients"),
     :schema_element => [
       ["clientEmails", "SOAP::SOAPString[]", [1, nil]],
@@ -175,15 +175,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUnitCountForClientsResponse,
+    :class => AdWords::V13::InfoService::GetUnitCountForClientsResponse,
     :schema_name => XSD::QName.new(NsV13, "getUnitCountForClientsResponse"),
     :schema_element => [
-      ["getUnitCountForClientsReturn", "AdWords::InfoService::ClientUsageRecord[]", [1, nil]]
+      ["getUnitCountForClientsReturn", "AdWords::V13::InfoService::ClientUsageRecord[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUnitCountForMethod,
+    :class => AdWords::V13::InfoService::GetUnitCountForMethod,
     :schema_name => XSD::QName.new(NsV13, "getUnitCountForMethod"),
     :schema_element => [
       ["service", "SOAP::SOAPString"],
@@ -194,7 +194,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUnitCountForMethodResponse,
+    :class => AdWords::V13::InfoService::GetUnitCountForMethodResponse,
     :schema_name => XSD::QName.new(NsV13, "getUnitCountForMethodResponse"),
     :schema_element => [
       ["getUnitCountForMethodReturn", "SOAP::SOAPLong"]
@@ -202,7 +202,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUnitCountResponse,
+    :class => AdWords::V13::InfoService::GetUnitCountResponse,
     :schema_name => XSD::QName.new(NsV13, "getUnitCountResponse"),
     :schema_element => [
       ["getUnitCountReturn", "SOAP::SOAPLong"]
@@ -210,13 +210,13 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUsageQuotaThisMonth,
+    :class => AdWords::V13::InfoService::GetUsageQuotaThisMonth,
     :schema_name => XSD::QName.new(NsV13, "getUsageQuotaThisMonth"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::InfoService::GetUsageQuotaThisMonthResponse,
+    :class => AdWords::V13::InfoService::GetUsageQuotaThisMonthResponse,
     :schema_name => XSD::QName.new(NsV13, "getUsageQuotaThisMonthResponse"),
     :schema_element => [
       ["getUsageQuotaThisMonthReturn", "SOAP::SOAPLong"]
@@ -225,4 +225,4 @@ module DefaultMappingRegistry
 
 end
 
-end; end
+end; end; end

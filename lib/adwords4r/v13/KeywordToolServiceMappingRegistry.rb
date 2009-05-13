@@ -1,7 +1,7 @@
 require 'adwords4r/v13/KeywordToolService'
 require 'soap/mapping'
 
-module AdWords; module KeywordToolService
+module AdWords; module V13; module KeywordToolService
 
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
@@ -9,7 +9,7 @@ module DefaultMappingRegistry
   NsV13 = "https://adwords.google.com/api/adwords/v13"
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::ApiError,
+    :class => AdWords::V13::KeywordToolService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -24,11 +24,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::ApiException,
+    :class => AdWords::V13::KeywordToolService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::KeywordToolService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::KeywordToolService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -36,7 +36,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::KeywordVariation,
+    :class => AdWords::V13::KeywordToolService::KeywordVariation,
     :schema_type => XSD::QName.new(NsV13, "KeywordVariation"),
     :schema_element => [
       ["advertiserCompetitionScale", "SOAP::SOAPInt"],
@@ -48,26 +48,26 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::KeywordVariations,
+    :class => AdWords::V13::KeywordToolService::KeywordVariations,
     :schema_type => XSD::QName.new(NsV13, "KeywordVariations"),
     :schema_element => [
-      ["additionalToConsider", "AdWords::KeywordToolService::KeywordVariation[]", [1, nil]],
-      ["moreSpecific", "AdWords::KeywordToolService::KeywordVariation[]", [1, nil]]
+      ["additionalToConsider", "AdWords::V13::KeywordToolService::KeywordVariation[]", [1, nil]],
+      ["moreSpecific", "AdWords::V13::KeywordToolService::KeywordVariation[]", [1, nil]]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::SeedKeyword,
+    :class => AdWords::V13::KeywordToolService::SeedKeyword,
     :schema_type => XSD::QName.new(NsV13, "SeedKeyword"),
     :schema_element => [
       ["negative", "SOAP::SOAPBoolean", [0, 1]],
       ["text", "SOAP::SOAPString"],
-      ["type", "AdWords::KeywordToolService::KeywordType"]
+      ["type", "AdWords::V13::KeywordToolService::KeywordType"]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::SiteKeyword,
+    :class => AdWords::V13::KeywordToolService::SiteKeyword,
     :schema_type => XSD::QName.new(NsV13, "SiteKeyword"),
     :schema_element => [
       ["advertiserCompetitionScale", "SOAP::SOAPInt"],
@@ -79,21 +79,21 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::SiteKeywordGroups,
+    :class => AdWords::V13::KeywordToolService::SiteKeywordGroups,
     :schema_type => XSD::QName.new(NsV13, "SiteKeywordGroups"),
     :schema_element => [
       ["groups", "SOAP::SOAPString[]", [1, nil]],
-      ["keywords", "AdWords::KeywordToolService::SiteKeyword[]", [1, nil]]
+      ["keywords", "AdWords::V13::KeywordToolService::SiteKeyword[]", [1, nil]]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::KeywordToolService::KeywordType,
+    :class => AdWords::V13::KeywordToolService::KeywordType,
     :schema_type => XSD::QName.new(NsV13, "KeywordType")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::ApiError,
+    :class => AdWords::V13::KeywordToolService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -108,11 +108,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::ApiException,
+    :class => AdWords::V13::KeywordToolService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::KeywordToolService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::KeywordToolService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -120,7 +120,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::KeywordVariation,
+    :class => AdWords::V13::KeywordToolService::KeywordVariation,
     :schema_type => XSD::QName.new(NsV13, "KeywordVariation"),
     :schema_element => [
       ["advertiserCompetitionScale", "SOAP::SOAPInt"],
@@ -132,26 +132,26 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::KeywordVariations,
+    :class => AdWords::V13::KeywordToolService::KeywordVariations,
     :schema_type => XSD::QName.new(NsV13, "KeywordVariations"),
     :schema_element => [
-      ["additionalToConsider", "AdWords::KeywordToolService::KeywordVariation[]", [1, nil]],
-      ["moreSpecific", "AdWords::KeywordToolService::KeywordVariation[]", [1, nil]]
+      ["additionalToConsider", "AdWords::V13::KeywordToolService::KeywordVariation[]", [1, nil]],
+      ["moreSpecific", "AdWords::V13::KeywordToolService::KeywordVariation[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::SeedKeyword,
+    :class => AdWords::V13::KeywordToolService::SeedKeyword,
     :schema_type => XSD::QName.new(NsV13, "SeedKeyword"),
     :schema_element => [
       ["negative", "SOAP::SOAPBoolean", [0, 1]],
       ["text", "SOAP::SOAPString"],
-      ["type", "AdWords::KeywordToolService::KeywordType"]
+      ["type", "AdWords::V13::KeywordToolService::KeywordType"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::SiteKeyword,
+    :class => AdWords::V13::KeywordToolService::SiteKeyword,
     :schema_type => XSD::QName.new(NsV13, "SiteKeyword"),
     :schema_element => [
       ["advertiserCompetitionScale", "SOAP::SOAPInt"],
@@ -163,25 +163,25 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::SiteKeywordGroups,
+    :class => AdWords::V13::KeywordToolService::SiteKeywordGroups,
     :schema_type => XSD::QName.new(NsV13, "SiteKeywordGroups"),
     :schema_element => [
       ["groups", "SOAP::SOAPString[]", [1, nil]],
-      ["keywords", "AdWords::KeywordToolService::SiteKeyword[]", [1, nil]]
+      ["keywords", "AdWords::V13::KeywordToolService::SiteKeyword[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::KeywordType,
+    :class => AdWords::V13::KeywordToolService::KeywordType,
     :schema_type => XSD::QName.new(NsV13, "KeywordType")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::ApiException,
+    :class => AdWords::V13::KeywordToolService::ApiException,
     :schema_name => XSD::QName.new(NsV13, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::KeywordToolService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::KeywordToolService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -189,10 +189,10 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::GetKeywordVariations,
+    :class => AdWords::V13::KeywordToolService::GetKeywordVariations,
     :schema_name => XSD::QName.new(NsV13, "getKeywordVariations"),
     :schema_element => [
-      ["seedKeywords", "AdWords::KeywordToolService::SeedKeyword[]", [1, nil]],
+      ["seedKeywords", "AdWords::V13::KeywordToolService::SeedKeyword[]", [1, nil]],
       ["useSynonyms", "SOAP::SOAPBoolean"],
       ["languages", "SOAP::SOAPString[]", [1, nil]],
       ["countries", "SOAP::SOAPString[]", [1, nil]]
@@ -200,15 +200,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::GetKeywordVariationsResponse,
+    :class => AdWords::V13::KeywordToolService::GetKeywordVariationsResponse,
     :schema_name => XSD::QName.new(NsV13, "getKeywordVariationsResponse"),
     :schema_element => [
-      ["getKeywordVariationsReturn", "AdWords::KeywordToolService::KeywordVariations"]
+      ["getKeywordVariationsReturn", "AdWords::V13::KeywordToolService::KeywordVariations"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::GetKeywordsFromSite,
+    :class => AdWords::V13::KeywordToolService::GetKeywordsFromSite,
     :schema_name => XSD::QName.new(NsV13, "getKeywordsFromSite"),
     :schema_element => [
       ["url", "SOAP::SOAPString"],
@@ -219,13 +219,13 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::KeywordToolService::GetKeywordsFromSiteResponse,
+    :class => AdWords::V13::KeywordToolService::GetKeywordsFromSiteResponse,
     :schema_name => XSD::QName.new(NsV13, "getKeywordsFromSiteResponse"),
     :schema_element => [
-      ["getKeywordsFromSiteReturn", "AdWords::KeywordToolService::SiteKeywordGroups"]
+      ["getKeywordsFromSiteReturn", "AdWords::V13::KeywordToolService::SiteKeywordGroups"]
     ]
   )
 
 end
 
-end; end
+end; end; end

@@ -1,6 +1,6 @@
 require 'xsd/qname'
 
-module AdWords; module AdGroupService
+module AdWords; module V13; module AdGroupService
 
 
 # {https://adwords.google.com/api/adwords/v13}AdGroup
@@ -13,7 +13,7 @@ module AdWords; module AdGroupService
 #   proxyKeywordMaxCpc - SOAP::SOAPLong
 #   siteMaxCpc - SOAP::SOAPLong
 #   siteMaxCpm - SOAP::SOAPLong
-#   status - AdWords::AdGroupService::AdGroupStatus
+#   status - AdWords::V13::AdGroupService::AdGroupStatus
 class AdGroup
   attr_accessor :campaignId
   attr_accessor :id
@@ -73,7 +73,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::AdGroupService::ApiError
+#   errors - AdWords::V13::AdGroupService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -130,7 +130,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}addAdGroup
 #   campaignID - SOAP::SOAPInt
-#   newData - AdWords::AdGroupService::AdGroup
+#   newData - AdWords::V13::AdGroupService::AdGroup
 class AddAdGroup
   attr_accessor :campaignID
   attr_accessor :newData
@@ -143,7 +143,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}addAdGroupList
 #   campaignID - SOAP::SOAPInt
-#   newData - AdWords::AdGroupService::AdGroup
+#   newData - AdWords::V13::AdGroupService::AdGroup
 class AddAdGroupList
   attr_accessor :campaignID
   attr_accessor :newData
@@ -159,7 +159,7 @@ class AddAdGroupListResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}addAdGroupResponse
-#   addAdGroupReturn - AdWords::AdGroupService::AdGroup
+#   addAdGroupReturn - AdWords::V13::AdGroupService::AdGroup
 class AddAdGroupResponse
   attr_accessor :addAdGroupReturn
 
@@ -201,7 +201,7 @@ class GetAdGroupListResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}getAdGroupResponse
-#   getAdGroupReturn - AdWords::AdGroupService::AdGroup
+#   getAdGroupReturn - AdWords::V13::AdGroupService::AdGroup
 class GetAdGroupResponse
   attr_accessor :getAdGroupReturn
 
@@ -248,7 +248,7 @@ class GetAllAdGroupsResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}updateAdGroup
-#   changedData - AdWords::AdGroupService::AdGroup
+#   changedData - AdWords::V13::AdGroupService::AdGroup
 class UpdateAdGroup
   attr_accessor :changedData
 
@@ -274,4 +274,4 @@ class UpdateAdGroupResponse
 end
 
 
-end; end
+end; end; end

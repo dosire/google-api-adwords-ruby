@@ -1,6 +1,6 @@
 require 'xsd/qname'
 
-module AdWords; module ReportService
+module AdWords; module V13; module ReportService
 
 
 # {https://adwords.google.com/api/adwords/v13}ApiError
@@ -36,7 +36,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::ReportService::ApiError
+#   errors - AdWords::V13::ReportService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -64,7 +64,7 @@ end
 #   id - SOAP::SOAPLong
 #   name - SOAP::SOAPString
 #   startDay - SOAP::SOAPDate
-#   status - AdWords::ReportService::ReportJobStatus
+#   status - AdWords::V13::ReportService::ReportJobStatus
 class ReportJob
   attr_accessor :clientEmails
   attr_accessor :crossClient
@@ -92,16 +92,16 @@ end
 #   id - SOAP::SOAPLong
 #   name - SOAP::SOAPString
 #   startDay - SOAP::SOAPDate
-#   status - AdWords::ReportService::ReportJobStatus
-#   adGroupStatuses - AdWords::ReportService::AdGroupStatus
+#   status - AdWords::V13::ReportService::ReportJobStatus
+#   adGroupStatuses - AdWords::V13::ReportService::AdGroupStatus
 #   adGroups - SOAP::SOAPLong
-#   adWordsType - AdWords::ReportService::AdWordsType
+#   adWordsType - AdWords::V13::ReportService::AdWordsType
 #   aggregationTypes - SOAP::SOAPString
-#   campaignStatuses - AdWords::ReportService::CampaignStatus
+#   campaignStatuses - AdWords::V13::ReportService::CampaignStatus
 #   campaigns - SOAP::SOAPInt
 #   includeZeroImpression - SOAP::SOAPBoolean
-#   keywordStatuses - AdWords::ReportService::KeywordStatus
-#   keywordType - AdWords::ReportService::KeywordType
+#   keywordStatuses - AdWords::V13::ReportService::KeywordStatus
+#   keywordType - AdWords::V13::ReportService::KeywordType
 #   keywords - SOAP::SOAPString
 #   selectedColumns - SOAP::SOAPString
 #   selectedReportType - SOAP::SOAPString
@@ -273,7 +273,7 @@ class GetReportJobStatus
 end
 
 # {https://adwords.google.com/api/adwords/v13}getReportJobStatusResponse
-#   getReportJobStatusReturn - AdWords::ReportService::ReportJobStatus
+#   getReportJobStatusReturn - AdWords::V13::ReportService::ReportJobStatus
 class GetReportJobStatusResponse
   attr_accessor :getReportJobStatusReturn
 
@@ -283,7 +283,7 @@ class GetReportJobStatusResponse
 end
 
 # {https://adwords.google.com/api/adwords/v13}scheduleReportJob
-#   job - AdWords::ReportService::ReportJob
+#   job - AdWords::V13::ReportService::ReportJob
 class ScheduleReportJob
   attr_accessor :job
 
@@ -303,7 +303,7 @@ class ScheduleReportJobResponse
 end
 
 # {https://adwords.google.com/api/adwords/v13}validateReportJob
-#   job - AdWords::ReportService::ReportJob
+#   job - AdWords::V13::ReportService::ReportJob
 class ValidateReportJob
   attr_accessor :job
 
@@ -319,4 +319,4 @@ class ValidateReportJobResponse
 end
 
 
-end; end
+end; end; end

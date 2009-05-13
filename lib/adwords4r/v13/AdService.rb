@@ -1,18 +1,18 @@
 require 'xsd/qname'
 
-module AdWords; module AdService
+module AdWords; module V13; module AdService
 
 
 # {https://adwords.google.com/api/adwords/v13}Ad
 # abstract
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
+#   status - AdWords::V13::AdService::AdStatus
 class Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -37,20 +37,20 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}CommerceAd
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
+#   status - AdWords::V13::AdService::AdStatus
 #   description1 - SOAP::SOAPString
 #   description2 - SOAP::SOAPString
 #   headline - SOAP::SOAPString
 #   postPriceAnnotation - SOAP::SOAPString
 #   prePriceAnnotation - SOAP::SOAPString
 #   priceString - SOAP::SOAPString
-#   productImage - AdWords::AdService::Image
+#   productImage - AdWords::V13::AdService::Image
 class CommerceAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -89,14 +89,14 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ImageAd
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
-#   image - AdWords::AdService::Image
+#   status - AdWords::V13::AdService::AdStatus
+#   image - AdWords::V13::AdService::Image
 class ImageAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -123,20 +123,20 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}LocalBusinessAd
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
+#   status - AdWords::V13::AdService::AdStatus
 #   address - SOAP::SOAPString
-#   businessImage - AdWords::AdService::Image
+#   businessImage - AdWords::V13::AdService::Image
 #   businessKey - SOAP::SOAPString
 #   businessName - SOAP::SOAPString
 #   city - SOAP::SOAPString
 #   countryCode - SOAP::SOAPString
-#   customIcon - AdWords::AdService::Image
+#   customIcon - AdWords::V13::AdService::Image
 #   customIconId - SOAP::SOAPLong
 #   description1 - SOAP::SOAPString
 #   description2 - SOAP::SOAPString
@@ -146,7 +146,7 @@ end
 #   phoneNumber - SOAP::SOAPString
 #   postalCode - SOAP::SOAPString
 #   region - SOAP::SOAPString
-#   stockIcon - AdWords::AdService::StockIcon
+#   stockIcon - AdWords::V13::AdService::StockIcon
 #   targetRadiusInKm - SOAP::SOAPDouble
 class LocalBusinessAd < Ad
   attr_accessor :adGroupId
@@ -208,13 +208,13 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}MobileAd
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
+#   status - AdWords::V13::AdService::AdStatus
 #   businessName - SOAP::SOAPString
 #   countryCode - SOAP::SOAPString
 #   description - SOAP::SOAPString
@@ -260,14 +260,14 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}MobileImageAd
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
-#   image - AdWords::AdService::Image
+#   status - AdWords::V13::AdService::AdStatus
+#   image - AdWords::V13::AdService::Image
 #   markupLanguages - SOAP::SOAPString
 #   mobileCarriers - SOAP::SOAPString
 class MobileImageAd < Ad
@@ -300,13 +300,13 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}TextAd
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
+#   status - AdWords::V13::AdService::AdStatus
 #   description1 - SOAP::SOAPString
 #   description2 - SOAP::SOAPString
 #   headline - SOAP::SOAPString
@@ -340,16 +340,16 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}VideoAd
 #   adGroupId - SOAP::SOAPLong
-#   adType - AdWords::AdService::AdType
+#   adType - AdWords::V13::AdService::AdType
 #   destinationUrl - SOAP::SOAPString
 #   disapproved - SOAP::SOAPBoolean
 #   displayUrl - SOAP::SOAPString
 #   exemptionRequest - SOAP::SOAPString
 #   id - SOAP::SOAPLong
-#   status - AdWords::AdService::AdStatus
-#   image - AdWords::AdService::Image
+#   status - AdWords::V13::AdService::AdStatus
+#   image - AdWords::V13::AdService::Image
 #   name - SOAP::SOAPString
-#   video - AdWords::AdService::Video
+#   video - AdWords::V13::AdService::Video
 class VideoAd < Ad
   attr_accessor :adGroupId
   attr_accessor :adType
@@ -411,7 +411,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::AdService::ApiError
+#   errors - AdWords::V13::AdService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -514,11 +514,11 @@ class CountryTargets
 end
 
 # {https://adwords.google.com/api/adwords/v13}GeoTarget
-#   cityTargets - AdWords::AdService::CityTargets
-#   countryTargets - AdWords::AdService::CountryTargets
-#   metroTargets - AdWords::AdService::MetroTargets
-#   proximityTargets - AdWords::AdService::ProximityTargets
-#   regionTargets - AdWords::AdService::RegionTargets
+#   cityTargets - AdWords::V13::AdService::CityTargets
+#   countryTargets - AdWords::V13::AdService::CountryTargets
+#   metroTargets - AdWords::V13::AdService::MetroTargets
+#   proximityTargets - AdWords::V13::AdService::ProximityTargets
+#   regionTargets - AdWords::V13::AdService::RegionTargets
 #   targetAll - SOAP::SOAPBoolean
 class GeoTarget
   attr_accessor :cityTargets
@@ -546,7 +546,7 @@ end
 #   name - SOAP::SOAPString
 #   shrunkenUrl - SOAP::SOAPString
 #   thumbnailUrl - SOAP::SOAPString
-#   type - AdWords::AdService::ImageType
+#   type - AdWords::V13::AdService::ImageType
 #   width - SOAP::SOAPInt
 class Image
   attr_accessor :data
@@ -711,9 +711,9 @@ class AddAdsResponse < ::Array
 end
 
 # {https://adwords.google.com/api/adwords/v13}checkAds
-#   ads - AdWords::AdService::Ad
-#   languageTarget - AdWords::AdService::LanguageTarget
-#   geoTarget - AdWords::AdService::GeoTarget
+#   ads - AdWords::V13::AdService::Ad
+#   languageTarget - AdWords::V13::AdService::LanguageTarget
+#   geoTarget - AdWords::V13::AdService::GeoTarget
 class CheckAds
   attr_accessor :ads
   attr_accessor :languageTarget
@@ -772,7 +772,7 @@ class GetAd
 end
 
 # {https://adwords.google.com/api/adwords/v13}getAdResponse
-#   getAdReturn - AdWords::AdService::Ad
+#   getAdReturn - AdWords::V13::AdService::Ad
 class GetAdResponse
   attr_accessor :getAdReturn
 
@@ -843,4 +843,4 @@ class UpdateAdsResponse
 end
 
 
-end; end
+end; end; end

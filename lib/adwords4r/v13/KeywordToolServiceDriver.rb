@@ -3,6 +3,7 @@ require 'adwords4r/v13/KeywordToolServiceMappingRegistry'
 require 'soap/rpc/driver'
 
 module AdWords
+module V13
 module KeywordToolService
 
 class KeywordToolInterface < ::SOAP::RPC::Driver
@@ -15,7 +16,7 @@ class KeywordToolInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getKeywordVariationsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::KeywordToolService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::KeywordToolService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getKeywordsFromSite",
@@ -23,7 +24,7 @@ class KeywordToolInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getKeywordsFromSiteResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::KeywordToolService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :ns=>"https://adwords.google.com/api/adwords/v13", :use=>"literal"}} }
+        :faults => {"AdWords::V13::KeywordToolService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ]
   ]
 
@@ -57,5 +58,6 @@ private
 end
 
 
+end
 end
 end

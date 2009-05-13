@@ -1,11 +1,11 @@
 require 'xsd/qname'
 
-module AdWords; module TrafficEstimatorService
+module AdWords; module V13; module TrafficEstimatorService
 
 
 # {https://adwords.google.com/api/adwords/v13}AdGroupEstimate
 #   id - SOAP::SOAPInt
-#   keywordEstimates - AdWords::TrafficEstimatorService::KeywordEstimate
+#   keywordEstimates - AdWords::V13::TrafficEstimatorService::KeywordEstimate
 class AdGroupEstimate
   attr_accessor :id
   attr_accessor :keywordEstimates
@@ -18,7 +18,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}AdGroupRequest
 #   id - SOAP::SOAPLong
-#   keywordRequests - AdWords::TrafficEstimatorService::KeywordRequest
+#   keywordRequests - AdWords::V13::TrafficEstimatorService::KeywordRequest
 #   maxCpc - SOAP::SOAPLong
 class AdGroupRequest
   attr_accessor :id
@@ -65,7 +65,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}ApiException
 #   code - SOAP::SOAPInt
-#   errors - AdWords::TrafficEstimatorService::ApiError
+#   errors - AdWords::V13::TrafficEstimatorService::ApiError
 #   internal - SOAP::SOAPBoolean
 #   message - SOAP::SOAPString
 #   trigger - SOAP::SOAPString
@@ -86,7 +86,7 @@ class ApiException
 end
 
 # {https://adwords.google.com/api/adwords/v13}CampaignEstimate
-#   adGroupEstimates - AdWords::TrafficEstimatorService::AdGroupEstimate
+#   adGroupEstimates - AdWords::V13::TrafficEstimatorService::AdGroupEstimate
 #   id - SOAP::SOAPInt
 class CampaignEstimate
   attr_accessor :adGroupEstimates
@@ -99,11 +99,11 @@ class CampaignEstimate
 end
 
 # {https://adwords.google.com/api/adwords/v13}CampaignRequest
-#   adGroupRequests - AdWords::TrafficEstimatorService::AdGroupRequest
-#   geoTargeting - AdWords::TrafficEstimatorService::GeoTarget
+#   adGroupRequests - AdWords::V13::TrafficEstimatorService::AdGroupRequest
+#   geoTargeting - AdWords::V13::TrafficEstimatorService::GeoTarget
 #   id - SOAP::SOAPInt
-#   languageTargeting - AdWords::TrafficEstimatorService::LanguageTarget
-#   networkTargeting - AdWords::TrafficEstimatorService::NetworkTarget
+#   languageTargeting - AdWords::V13::TrafficEstimatorService::LanguageTarget
+#   networkTargeting - AdWords::V13::TrafficEstimatorService::NetworkTarget
 class CampaignRequest
   attr_accessor :adGroupRequests
   attr_accessor :geoTargeting
@@ -163,11 +163,11 @@ class CountryTargets
 end
 
 # {https://adwords.google.com/api/adwords/v13}GeoTarget
-#   cityTargets - AdWords::TrafficEstimatorService::CityTargets
-#   countryTargets - AdWords::TrafficEstimatorService::CountryTargets
-#   metroTargets - AdWords::TrafficEstimatorService::MetroTargets
-#   proximityTargets - AdWords::TrafficEstimatorService::ProximityTargets
-#   regionTargets - AdWords::TrafficEstimatorService::RegionTargets
+#   cityTargets - AdWords::V13::TrafficEstimatorService::CityTargets
+#   countryTargets - AdWords::V13::TrafficEstimatorService::CountryTargets
+#   metroTargets - AdWords::V13::TrafficEstimatorService::MetroTargets
+#   proximityTargets - AdWords::V13::TrafficEstimatorService::ProximityTargets
+#   regionTargets - AdWords::V13::TrafficEstimatorService::RegionTargets
 #   targetAll - SOAP::SOAPBoolean
 class GeoTarget
   attr_accessor :cityTargets
@@ -220,7 +220,7 @@ end
 #   maxCpc - SOAP::SOAPLong
 #   negative - SOAP::SOAPBoolean
 #   text - SOAP::SOAPString
-#   type - AdWords::TrafficEstimatorService::KeywordType
+#   type - AdWords::V13::TrafficEstimatorService::KeywordType
 class KeywordRequest
   attr_accessor :id
   attr_accessor :maxCpc
@@ -239,7 +239,7 @@ end
 
 # {https://adwords.google.com/api/adwords/v13}KeywordTrafficRequest
 #   keywordText - SOAP::SOAPString
-#   keywordType - AdWords::TrafficEstimatorService::KeywordType
+#   keywordType - AdWords::V13::TrafficEstimatorService::KeywordType
 #   language - SOAP::SOAPString
 class KeywordTrafficRequest
   attr_accessor :keywordText
@@ -345,4 +345,4 @@ class EstimateKeywordListResponse < ::Array
 end
 
 
-end; end
+end; end; end

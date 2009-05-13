@@ -1,7 +1,7 @@
 require 'adwords4r/v13/CampaignService'
 require 'soap/mapping'
 
-module AdWords; module CampaignService
+module AdWords; module V13; module CampaignService
 
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
@@ -9,16 +9,16 @@ module DefaultMappingRegistry
   NsV13 = "https://adwords.google.com/api/adwords/v13"
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::AdSchedule,
+    :class => AdWords::V13::CampaignService::AdSchedule,
     :schema_type => XSD::QName.new(NsV13, "AdSchedule"),
     :schema_element => [
-      ["intervals", "AdWords::CampaignService::SchedulingInterval[]", [1, nil]],
-      ["status", "AdWords::CampaignService::AdScheduleStatus"]
+      ["intervals", "AdWords::V13::CampaignService::SchedulingInterval[]", [1, nil]],
+      ["status", "AdWords::V13::CampaignService::AdScheduleStatus"]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::ApiError,
+    :class => AdWords::V13::CampaignService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -33,11 +33,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::ApiException,
+    :class => AdWords::V13::CampaignService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::CampaignService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::CampaignService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -45,7 +45,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::BudgetOptimizerSettings,
+    :class => AdWords::V13::CampaignService::BudgetOptimizerSettings,
     :schema_type => XSD::QName.new(NsV13, "BudgetOptimizerSettings"),
     :schema_element => [
       ["bidCeiling", "SOAP::SOAPLong", [0, 1]],
@@ -55,37 +55,37 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::Campaign,
+    :class => AdWords::V13::CampaignService::Campaign,
     :schema_type => XSD::QName.new(NsV13, "Campaign"),
     :schema_element => [
       ["budgetAmount", "SOAP::SOAPLong", [0, 1]],
-      ["budgetOptimizerSettings", "AdWords::CampaignService::BudgetOptimizerSettings"],
-      ["budgetPeriod", "AdWords::CampaignService::BudgetPeriod", [0, 1]],
-      ["contentTargeting", "AdWords::CampaignService::ContentTargeting"],
-      ["conversionOptimizerSettings", "AdWords::CampaignService::ConversionOptimizerSettings", [0, 1]],
+      ["budgetOptimizerSettings", "AdWords::V13::CampaignService::BudgetOptimizerSettings"],
+      ["budgetPeriod", "AdWords::V13::CampaignService::BudgetPeriod", [0, 1]],
+      ["contentTargeting", "AdWords::V13::CampaignService::ContentTargeting"],
+      ["conversionOptimizerSettings", "AdWords::V13::CampaignService::ConversionOptimizerSettings", [0, 1]],
       ["endDay", "SOAP::SOAPDate", [0, 1]],
-      ["geoTargeting", "AdWords::CampaignService::GeoTarget"],
+      ["geoTargeting", "AdWords::V13::CampaignService::GeoTarget"],
       ["id", "SOAP::SOAPInt"],
-      ["languageTargeting", "AdWords::CampaignService::LanguageTarget"],
+      ["languageTargeting", "AdWords::V13::CampaignService::LanguageTarget"],
       ["name", "SOAP::SOAPString"],
-      ["networkTargeting", "AdWords::CampaignService::NetworkTarget"],
-      ["schedule", "AdWords::CampaignService::AdSchedule"],
+      ["networkTargeting", "AdWords::V13::CampaignService::NetworkTarget"],
+      ["schedule", "AdWords::V13::CampaignService::AdSchedule"],
       ["startDay", "SOAP::SOAPDate", [0, 1]],
-      ["status", "AdWords::CampaignService::CampaignStatus"]
+      ["status", "AdWords::V13::CampaignService::CampaignStatus"]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::CampaignBudget,
+    :class => AdWords::V13::CampaignService::CampaignBudget,
     :schema_type => XSD::QName.new(NsV13, "CampaignBudget"),
     :schema_element => [
       ["budgetAmount", "SOAP::SOAPLong", [0, 1]],
-      ["budgetPeriod", "AdWords::CampaignService::BudgetPeriod", [0, 1]]
+      ["budgetPeriod", "AdWords::V13::CampaignService::BudgetPeriod", [0, 1]]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::Circle,
+    :class => AdWords::V13::CampaignService::Circle,
     :schema_type => XSD::QName.new(NsV13, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -95,7 +95,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::CityTargets,
+    :class => AdWords::V13::CampaignService::CityTargets,
     :schema_type => XSD::QName.new(NsV13, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]],
@@ -104,7 +104,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::ConversionOptimizerEligibility,
+    :class => AdWords::V13::CampaignService::ConversionOptimizerEligibility,
     :schema_type => XSD::QName.new(NsV13, "ConversionOptimizerEligibility"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"],
@@ -113,7 +113,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::ConversionOptimizerSettings,
+    :class => AdWords::V13::CampaignService::ConversionOptimizerSettings,
     :schema_type => XSD::QName.new(NsV13, "ConversionOptimizerSettings"),
     :schema_element => [
       ["enabled", "SOAP::SOAPBoolean", [0, 1]],
@@ -122,7 +122,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::CountryTargets,
+    :class => AdWords::V13::CampaignService::CountryTargets,
     :schema_type => XSD::QName.new(NsV13, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]],
@@ -131,20 +131,20 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::GeoTarget,
+    :class => AdWords::V13::CampaignService::GeoTarget,
     :schema_type => XSD::QName.new(NsV13, "GeoTarget"),
     :schema_element => [
-      ["cityTargets", "AdWords::CampaignService::CityTargets", [0, 1]],
-      ["countryTargets", "AdWords::CampaignService::CountryTargets", [0, 1]],
-      ["metroTargets", "AdWords::CampaignService::MetroTargets", [0, 1]],
-      ["proximityTargets", "AdWords::CampaignService::ProximityTargets", [0, 1]],
-      ["regionTargets", "AdWords::CampaignService::RegionTargets", [0, 1]],
+      ["cityTargets", "AdWords::V13::CampaignService::CityTargets", [0, 1]],
+      ["countryTargets", "AdWords::V13::CampaignService::CountryTargets", [0, 1]],
+      ["metroTargets", "AdWords::V13::CampaignService::MetroTargets", [0, 1]],
+      ["proximityTargets", "AdWords::V13::CampaignService::ProximityTargets", [0, 1]],
+      ["regionTargets", "AdWords::V13::CampaignService::RegionTargets", [0, 1]],
       ["targetAll", "SOAP::SOAPBoolean"]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::LanguageTarget,
+    :class => AdWords::V13::CampaignService::LanguageTarget,
     :schema_type => XSD::QName.new(NsV13, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
@@ -152,7 +152,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::MetroTargets,
+    :class => AdWords::V13::CampaignService::MetroTargets,
     :schema_type => XSD::QName.new(NsV13, "MetroTargets"),
     :schema_element => [
       ["excludedMetros", "SOAP::SOAPString[]", [0, nil]],
@@ -161,23 +161,32 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::NetworkTarget,
+    :class => AdWords::V13::CampaignService::NetworkTarget,
     :schema_type => XSD::QName.new(NsV13, "NetworkTarget"),
     :schema_element => [
-      ["networkTypes", "AdWords::CampaignService::NetworkType[]", [0, nil]]
+      ["networkTypes", "AdWords::V13::CampaignService::NetworkType[]", [0, nil]]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::ProximityTargets,
+    :class => AdWords::V13::CampaignService::ProximityTargets,
     :schema_type => XSD::QName.new(NsV13, "ProximityTargets"),
     :schema_element => [
-      ["circles", "AdWords::CampaignService::Circle[]", [1, nil]]
+      ["circles", "AdWords::V13::CampaignService::Circle[]", [1, nil]]
     ]
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::RegionTargets,
+    :class => AdWords::V13::CampaignService::RecommendedBudget,
+    :schema_type => XSD::QName.new(NsV13, "RecommendedBudget"),
+    :schema_element => [
+      ["budget", "AdWords::V13::CampaignService::CampaignBudget"],
+      ["campaignId", "SOAP::SOAPInt"]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V13::CampaignService::RegionTargets,
     :schema_type => XSD::QName.new(NsV13, "RegionTargets"),
     :schema_element => [
       ["excludedRegions", "SOAP::SOAPString[]", [0, nil]],
@@ -186,10 +195,10 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::SchedulingInterval,
+    :class => AdWords::V13::CampaignService::SchedulingInterval,
     :schema_type => XSD::QName.new(NsV13, "SchedulingInterval"),
     :schema_element => [
-      ["day", "AdWords::CampaignService::DayOfWeek"],
+      ["day", "AdWords::V13::CampaignService::DayOfWeek"],
       ["endHour", "SOAP::SOAPInt"],
       ["endMinute", "SOAP::SOAPInt"],
       ["multiplier", "SOAP::SOAPDouble"],
@@ -199,7 +208,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::StatsRecord,
+    :class => AdWords::V13::CampaignService::StatsRecord,
     :schema_type => XSD::QName.new(NsV13, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
@@ -213,46 +222,46 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::AdScheduleStatus,
+    :class => AdWords::V13::CampaignService::AdScheduleStatus,
     :schema_type => XSD::QName.new(NsV13, "AdScheduleStatus")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::BudgetPeriod,
+    :class => AdWords::V13::CampaignService::BudgetPeriod,
     :schema_type => XSD::QName.new(NsV13, "BudgetPeriod")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::CampaignStatus,
+    :class => AdWords::V13::CampaignService::CampaignStatus,
     :schema_type => XSD::QName.new(NsV13, "CampaignStatus")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::ContentTargeting,
+    :class => AdWords::V13::CampaignService::ContentTargeting,
     :schema_type => XSD::QName.new(NsV13, "ContentTargeting")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::DayOfWeek,
+    :class => AdWords::V13::CampaignService::DayOfWeek,
     :schema_type => XSD::QName.new(NsV13, "DayOfWeek")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::CampaignService::NetworkType,
+    :class => AdWords::V13::CampaignService::NetworkType,
     :schema_type => XSD::QName.new(NsV13, "NetworkType")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::AdSchedule,
+    :class => AdWords::V13::CampaignService::AdSchedule,
     :schema_type => XSD::QName.new(NsV13, "AdSchedule"),
     :schema_element => [
-      ["intervals", "AdWords::CampaignService::SchedulingInterval[]", [1, nil]],
-      ["status", "AdWords::CampaignService::AdScheduleStatus"]
+      ["intervals", "AdWords::V13::CampaignService::SchedulingInterval[]", [1, nil]],
+      ["status", "AdWords::V13::CampaignService::AdScheduleStatus"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::ApiError,
+    :class => AdWords::V13::CampaignService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -267,11 +276,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::ApiException,
+    :class => AdWords::V13::CampaignService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::CampaignService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::CampaignService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -279,7 +288,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::BudgetOptimizerSettings,
+    :class => AdWords::V13::CampaignService::BudgetOptimizerSettings,
     :schema_type => XSD::QName.new(NsV13, "BudgetOptimizerSettings"),
     :schema_element => [
       ["bidCeiling", "SOAP::SOAPLong", [0, 1]],
@@ -289,37 +298,37 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::Campaign,
+    :class => AdWords::V13::CampaignService::Campaign,
     :schema_type => XSD::QName.new(NsV13, "Campaign"),
     :schema_element => [
       ["budgetAmount", "SOAP::SOAPLong", [0, 1]],
-      ["budgetOptimizerSettings", "AdWords::CampaignService::BudgetOptimizerSettings"],
-      ["budgetPeriod", "AdWords::CampaignService::BudgetPeriod", [0, 1]],
-      ["contentTargeting", "AdWords::CampaignService::ContentTargeting"],
-      ["conversionOptimizerSettings", "AdWords::CampaignService::ConversionOptimizerSettings", [0, 1]],
+      ["budgetOptimizerSettings", "AdWords::V13::CampaignService::BudgetOptimizerSettings"],
+      ["budgetPeriod", "AdWords::V13::CampaignService::BudgetPeriod", [0, 1]],
+      ["contentTargeting", "AdWords::V13::CampaignService::ContentTargeting"],
+      ["conversionOptimizerSettings", "AdWords::V13::CampaignService::ConversionOptimizerSettings", [0, 1]],
       ["endDay", "SOAP::SOAPDate", [0, 1]],
-      ["geoTargeting", "AdWords::CampaignService::GeoTarget"],
+      ["geoTargeting", "AdWords::V13::CampaignService::GeoTarget"],
       ["id", "SOAP::SOAPInt"],
-      ["languageTargeting", "AdWords::CampaignService::LanguageTarget"],
+      ["languageTargeting", "AdWords::V13::CampaignService::LanguageTarget"],
       ["name", "SOAP::SOAPString"],
-      ["networkTargeting", "AdWords::CampaignService::NetworkTarget"],
-      ["schedule", "AdWords::CampaignService::AdSchedule"],
+      ["networkTargeting", "AdWords::V13::CampaignService::NetworkTarget"],
+      ["schedule", "AdWords::V13::CampaignService::AdSchedule"],
       ["startDay", "SOAP::SOAPDate", [0, 1]],
-      ["status", "AdWords::CampaignService::CampaignStatus"]
+      ["status", "AdWords::V13::CampaignService::CampaignStatus"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::CampaignBudget,
+    :class => AdWords::V13::CampaignService::CampaignBudget,
     :schema_type => XSD::QName.new(NsV13, "CampaignBudget"),
     :schema_element => [
       ["budgetAmount", "SOAP::SOAPLong", [0, 1]],
-      ["budgetPeriod", "AdWords::CampaignService::BudgetPeriod", [0, 1]]
+      ["budgetPeriod", "AdWords::V13::CampaignService::BudgetPeriod", [0, 1]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::Circle,
+    :class => AdWords::V13::CampaignService::Circle,
     :schema_type => XSD::QName.new(NsV13, "Circle"),
     :schema_element => [
       ["latitudeMicroDegrees", "SOAP::SOAPInt"],
@@ -329,7 +338,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::CityTargets,
+    :class => AdWords::V13::CampaignService::CityTargets,
     :schema_type => XSD::QName.new(NsV13, "CityTargets"),
     :schema_element => [
       ["cities", "SOAP::SOAPString[]", [0, nil]],
@@ -338,7 +347,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::ConversionOptimizerEligibility,
+    :class => AdWords::V13::CampaignService::ConversionOptimizerEligibility,
     :schema_type => XSD::QName.new(NsV13, "ConversionOptimizerEligibility"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"],
@@ -347,7 +356,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::ConversionOptimizerSettings,
+    :class => AdWords::V13::CampaignService::ConversionOptimizerSettings,
     :schema_type => XSD::QName.new(NsV13, "ConversionOptimizerSettings"),
     :schema_element => [
       ["enabled", "SOAP::SOAPBoolean", [0, 1]],
@@ -356,7 +365,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::CountryTargets,
+    :class => AdWords::V13::CampaignService::CountryTargets,
     :schema_type => XSD::QName.new(NsV13, "CountryTargets"),
     :schema_element => [
       ["countries", "SOAP::SOAPString[]", [0, nil]],
@@ -365,20 +374,20 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GeoTarget,
+    :class => AdWords::V13::CampaignService::GeoTarget,
     :schema_type => XSD::QName.new(NsV13, "GeoTarget"),
     :schema_element => [
-      ["cityTargets", "AdWords::CampaignService::CityTargets", [0, 1]],
-      ["countryTargets", "AdWords::CampaignService::CountryTargets", [0, 1]],
-      ["metroTargets", "AdWords::CampaignService::MetroTargets", [0, 1]],
-      ["proximityTargets", "AdWords::CampaignService::ProximityTargets", [0, 1]],
-      ["regionTargets", "AdWords::CampaignService::RegionTargets", [0, 1]],
+      ["cityTargets", "AdWords::V13::CampaignService::CityTargets", [0, 1]],
+      ["countryTargets", "AdWords::V13::CampaignService::CountryTargets", [0, 1]],
+      ["metroTargets", "AdWords::V13::CampaignService::MetroTargets", [0, 1]],
+      ["proximityTargets", "AdWords::V13::CampaignService::ProximityTargets", [0, 1]],
+      ["regionTargets", "AdWords::V13::CampaignService::RegionTargets", [0, 1]],
       ["targetAll", "SOAP::SOAPBoolean"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::LanguageTarget,
+    :class => AdWords::V13::CampaignService::LanguageTarget,
     :schema_type => XSD::QName.new(NsV13, "LanguageTarget"),
     :schema_element => [
       ["languages", "SOAP::SOAPString[]", [1, nil]]
@@ -386,7 +395,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::MetroTargets,
+    :class => AdWords::V13::CampaignService::MetroTargets,
     :schema_type => XSD::QName.new(NsV13, "MetroTargets"),
     :schema_element => [
       ["excludedMetros", "SOAP::SOAPString[]", [0, nil]],
@@ -395,23 +404,32 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::NetworkTarget,
+    :class => AdWords::V13::CampaignService::NetworkTarget,
     :schema_type => XSD::QName.new(NsV13, "NetworkTarget"),
     :schema_element => [
-      ["networkTypes", "AdWords::CampaignService::NetworkType[]", [0, nil]]
+      ["networkTypes", "AdWords::V13::CampaignService::NetworkType[]", [0, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::ProximityTargets,
+    :class => AdWords::V13::CampaignService::ProximityTargets,
     :schema_type => XSD::QName.new(NsV13, "ProximityTargets"),
     :schema_element => [
-      ["circles", "AdWords::CampaignService::Circle[]", [1, nil]]
+      ["circles", "AdWords::V13::CampaignService::Circle[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::RegionTargets,
+    :class => AdWords::V13::CampaignService::RecommendedBudget,
+    :schema_type => XSD::QName.new(NsV13, "RecommendedBudget"),
+    :schema_element => [
+      ["budget", "AdWords::V13::CampaignService::CampaignBudget"],
+      ["campaignId", "SOAP::SOAPInt"]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V13::CampaignService::RegionTargets,
     :schema_type => XSD::QName.new(NsV13, "RegionTargets"),
     :schema_element => [
       ["excludedRegions", "SOAP::SOAPString[]", [0, nil]],
@@ -420,10 +438,10 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::SchedulingInterval,
+    :class => AdWords::V13::CampaignService::SchedulingInterval,
     :schema_type => XSD::QName.new(NsV13, "SchedulingInterval"),
     :schema_element => [
-      ["day", "AdWords::CampaignService::DayOfWeek"],
+      ["day", "AdWords::V13::CampaignService::DayOfWeek"],
       ["endHour", "SOAP::SOAPInt"],
       ["endMinute", "SOAP::SOAPInt"],
       ["multiplier", "SOAP::SOAPDouble"],
@@ -433,7 +451,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::StatsRecord,
+    :class => AdWords::V13::CampaignService::StatsRecord,
     :schema_type => XSD::QName.new(NsV13, "StatsRecord"),
     :schema_element => [
       ["averagePosition", "SOAP::SOAPDouble"],
@@ -447,73 +465,73 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::AdScheduleStatus,
+    :class => AdWords::V13::CampaignService::AdScheduleStatus,
     :schema_type => XSD::QName.new(NsV13, "AdScheduleStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::BudgetPeriod,
+    :class => AdWords::V13::CampaignService::BudgetPeriod,
     :schema_type => XSD::QName.new(NsV13, "BudgetPeriod")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::CampaignStatus,
+    :class => AdWords::V13::CampaignService::CampaignStatus,
     :schema_type => XSD::QName.new(NsV13, "CampaignStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::ContentTargeting,
+    :class => AdWords::V13::CampaignService::ContentTargeting,
     :schema_type => XSD::QName.new(NsV13, "ContentTargeting")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::DayOfWeek,
+    :class => AdWords::V13::CampaignService::DayOfWeek,
     :schema_type => XSD::QName.new(NsV13, "DayOfWeek")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::NetworkType,
+    :class => AdWords::V13::CampaignService::NetworkType,
     :schema_type => XSD::QName.new(NsV13, "NetworkType")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::AddCampaign,
+    :class => AdWords::V13::CampaignService::AddCampaign,
     :schema_name => XSD::QName.new(NsV13, "addCampaign"),
     :schema_element => [
-      ["campaign", "AdWords::CampaignService::Campaign"]
+      ["campaign", "AdWords::V13::CampaignService::Campaign"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::AddCampaignList,
+    :class => AdWords::V13::CampaignService::AddCampaignList,
     :schema_name => XSD::QName.new(NsV13, "addCampaignList"),
     :schema_element => [
-      ["campaigns", "AdWords::CampaignService::Campaign[]", [1, nil]]
+      ["campaigns", "AdWords::V13::CampaignService::Campaign[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::AddCampaignListResponse,
+    :class => AdWords::V13::CampaignService::AddCampaignListResponse,
     :schema_name => XSD::QName.new(NsV13, "addCampaignListResponse"),
     :schema_element => [
-      ["addCampaignListReturn", "AdWords::CampaignService::Campaign[]", [1, nil]]
+      ["addCampaignListReturn", "AdWords::V13::CampaignService::Campaign[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::AddCampaignResponse,
+    :class => AdWords::V13::CampaignService::AddCampaignResponse,
     :schema_name => XSD::QName.new(NsV13, "addCampaignResponse"),
     :schema_element => [
-      ["addCampaignReturn", "AdWords::CampaignService::Campaign"]
+      ["addCampaignReturn", "AdWords::V13::CampaignService::Campaign"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::ApiException,
+    :class => AdWords::V13::CampaignService::ApiException,
     :schema_name => XSD::QName.new(NsV13, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::CampaignService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::CampaignService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -521,21 +539,21 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetActiveAdWordsCampaigns,
+    :class => AdWords::V13::CampaignService::GetActiveAdWordsCampaigns,
     :schema_name => XSD::QName.new(NsV13, "getActiveAdWordsCampaigns"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetActiveAdWordsCampaignsResponse,
+    :class => AdWords::V13::CampaignService::GetActiveAdWordsCampaignsResponse,
     :schema_name => XSD::QName.new(NsV13, "getActiveAdWordsCampaignsResponse"),
     :schema_element => [
-      ["getActiveAdWordsCampaignsReturn", "AdWords::CampaignService::Campaign[]", [1, nil]]
+      ["getActiveAdWordsCampaignsReturn", "AdWords::V13::CampaignService::Campaign[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetAllAdWordsCampaigns,
+    :class => AdWords::V13::CampaignService::GetAllAdWordsCampaigns,
     :schema_name => XSD::QName.new(NsV13, "getAllAdWordsCampaigns"),
     :schema_element => [
       ["dummy", "SOAP::SOAPInt"]
@@ -543,15 +561,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetAllAdWordsCampaignsResponse,
+    :class => AdWords::V13::CampaignService::GetAllAdWordsCampaignsResponse,
     :schema_name => XSD::QName.new(NsV13, "getAllAdWordsCampaignsResponse"),
     :schema_element => [
-      ["getAllAdWordsCampaignsReturn", "AdWords::CampaignService::Campaign[]", [1, nil]]
+      ["getAllAdWordsCampaignsReturn", "AdWords::V13::CampaignService::Campaign[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetCampaign,
+    :class => AdWords::V13::CampaignService::GetCampaign,
     :schema_name => XSD::QName.new(NsV13, "getCampaign"),
     :schema_element => [
       ["id", "SOAP::SOAPInt"]
@@ -559,7 +577,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetCampaignList,
+    :class => AdWords::V13::CampaignService::GetCampaignList,
     :schema_name => XSD::QName.new(NsV13, "getCampaignList"),
     :schema_element => [
       ["ids", "SOAP::SOAPInt[]", [1, nil]]
@@ -567,23 +585,23 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetCampaignListResponse,
+    :class => AdWords::V13::CampaignService::GetCampaignListResponse,
     :schema_name => XSD::QName.new(NsV13, "getCampaignListResponse"),
     :schema_element => [
-      ["getCampaignListReturn", "AdWords::CampaignService::Campaign[]", [1, nil]]
+      ["getCampaignListReturn", "AdWords::V13::CampaignService::Campaign[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetCampaignResponse,
+    :class => AdWords::V13::CampaignService::GetCampaignResponse,
     :schema_name => XSD::QName.new(NsV13, "getCampaignResponse"),
     :schema_element => [
-      ["getCampaignReturn", "AdWords::CampaignService::Campaign"]
+      ["getCampaignReturn", "AdWords::V13::CampaignService::Campaign"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetCampaignStats,
+    :class => AdWords::V13::CampaignService::GetCampaignStats,
     :schema_name => XSD::QName.new(NsV13, "getCampaignStats"),
     :schema_element => [
       ["campaignIds", "SOAP::SOAPInt[]", [1, nil]],
@@ -593,15 +611,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetCampaignStatsResponse,
+    :class => AdWords::V13::CampaignService::GetCampaignStatsResponse,
     :schema_name => XSD::QName.new(NsV13, "getCampaignStatsResponse"),
     :schema_element => [
-      ["getCampaignStatsReturn", "AdWords::CampaignService::StatsRecord[]", [1, nil]]
+      ["getCampaignStatsReturn", "AdWords::V13::CampaignService::StatsRecord[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetConversionOptimizerEligibility,
+    :class => AdWords::V13::CampaignService::GetConversionOptimizerEligibility,
     :schema_name => XSD::QName.new(NsV13, "getConversionOptimizerEligibility"),
     :schema_element => [
       ["campaignIds", "SOAP::SOAPInt[]", [1, nil]]
@@ -609,15 +627,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetConversionOptimizerEligibilityResponse,
+    :class => AdWords::V13::CampaignService::GetConversionOptimizerEligibilityResponse,
     :schema_name => XSD::QName.new(NsV13, "getConversionOptimizerEligibilityResponse"),
     :schema_element => [
-      ["getConversionOptimizerEligibilityReturn", "AdWords::CampaignService::ConversionOptimizerEligibility[]", [1, nil]]
+      ["getConversionOptimizerEligibilityReturn", "AdWords::V13::CampaignService::ConversionOptimizerEligibility[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetOptimizeAdServing,
+    :class => AdWords::V13::CampaignService::GetOptimizeAdServing,
     :schema_name => XSD::QName.new(NsV13, "getOptimizeAdServing"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"]
@@ -625,7 +643,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetOptimizeAdServingResponse,
+    :class => AdWords::V13::CampaignService::GetOptimizeAdServingResponse,
     :schema_name => XSD::QName.new(NsV13, "getOptimizeAdServingResponse"),
     :schema_element => [
       ["getOptimizeAdServingReturn", "SOAP::SOAPBoolean"]
@@ -633,7 +651,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetRecommendedBudgetList,
+    :class => AdWords::V13::CampaignService::GetRecommendedBudgetList,
     :schema_name => XSD::QName.new(NsV13, "getRecommendedBudgetList"),
     :schema_element => [
       ["campaignIds", "SOAP::SOAPInt[]", [1, nil]]
@@ -641,15 +659,31 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::GetRecommendedBudgetListResponse,
+    :class => AdWords::V13::CampaignService::GetRecommendedBudgetListResponse,
     :schema_name => XSD::QName.new(NsV13, "getRecommendedBudgetListResponse"),
     :schema_element => [
-      ["getRecommendedBudgetListReturn", "AdWords::CampaignService::CampaignBudget[]", [1, nil]]
+      ["getRecommendedBudgetListReturn", "AdWords::V13::CampaignService::CampaignBudget[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::SetOptimizeAdServing,
+    :class => AdWords::V13::CampaignService::GetRecommendedBudgets,
+    :schema_name => XSD::QName.new(NsV13, "getRecommendedBudgets"),
+    :schema_element => [
+      ["campaignIds", "SOAP::SOAPInt[]", [1, nil]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V13::CampaignService::GetRecommendedBudgetsResponse,
+    :schema_name => XSD::QName.new(NsV13, "getRecommendedBudgetsResponse"),
+    :schema_element => [
+      ["getRecommendedBudgetsReturn", "AdWords::V13::CampaignService::RecommendedBudget[]", [1, nil]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V13::CampaignService::SetOptimizeAdServing,
     :schema_name => XSD::QName.new(NsV13, "setOptimizeAdServing"),
     :schema_element => [
       ["campaignId", "SOAP::SOAPInt"],
@@ -658,39 +692,39 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::SetOptimizeAdServingResponse,
+    :class => AdWords::V13::CampaignService::SetOptimizeAdServingResponse,
     :schema_name => XSD::QName.new(NsV13, "setOptimizeAdServingResponse"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::UpdateCampaign,
+    :class => AdWords::V13::CampaignService::UpdateCampaign,
     :schema_name => XSD::QName.new(NsV13, "updateCampaign"),
     :schema_element => [
-      ["campaign", "AdWords::CampaignService::Campaign"]
+      ["campaign", "AdWords::V13::CampaignService::Campaign"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::UpdateCampaignList,
+    :class => AdWords::V13::CampaignService::UpdateCampaignList,
     :schema_name => XSD::QName.new(NsV13, "updateCampaignList"),
     :schema_element => [
-      ["campaigns", "AdWords::CampaignService::Campaign[]", [1, nil]]
+      ["campaigns", "AdWords::V13::CampaignService::Campaign[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::UpdateCampaignListResponse,
+    :class => AdWords::V13::CampaignService::UpdateCampaignListResponse,
     :schema_name => XSD::QName.new(NsV13, "updateCampaignListResponse"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::CampaignService::UpdateCampaignResponse,
+    :class => AdWords::V13::CampaignService::UpdateCampaignResponse,
     :schema_name => XSD::QName.new(NsV13, "updateCampaignResponse"),
     :schema_element => []
   )
 
 end
 
-end; end
+end; end; end

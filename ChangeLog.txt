@@ -1,5 +1,26 @@
+15.0.0
+- Added support for the v200902 sandbox.
+- Added support for multiple API versions on the same AdWords::API object.
+- Added request and SOAP XML file logging options.
+  This complements the previously existing SOAP XML console output.
+- Moved API classes to their own version and service-dependent modules.
+  This is necessary for multiple version support.
+- Moved API methods from the AdWords::API object to service wrappers.
+  This is necessary to avoid collisions between similarly named methods in different services.
+- Added get_service method to AdWords::API to be able to access a particular version of a service.
+  It returns the service wrapper containing the API methods for that service.
+- Added extensions mechanism, allowing for plugging of client-side methods into the wrapper objects.
+  This allows us to provide smart methods at the service level that simplify common tasks.
+- Added report download helper method, via the extension mechanism above.
+- Moved unit tracking to happen within AdWords::API instances.
+  This allows for correct tracking with multiple AdWords::API objects.
+  The methods have been renamed total_units and last_units to fit with the getter conventions.
+- Made code style more coherent.
+- Updated v13 code samples to work with new client library model.
+- Added v200902 and multiple version code samples.
+
 14.0.0
-- Sérgio Gomes (api.sgomes@gmail.com) takes over as maintainer of this project
+- Sérgio Gomes (api.sgomes@gmail.com) takes over as maintainer of this project.
 - Removed support for v12 of the API, which has been deco'ed.
 
 13.0.1

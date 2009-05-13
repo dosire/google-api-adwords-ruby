@@ -1,7 +1,7 @@
 require 'adwords4r/v13/ReportService'
 require 'soap/mapping'
 
-module AdWords; module ReportService
+module AdWords; module V13; module ReportService
 
 module DefaultMappingRegistry
   EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
@@ -9,7 +9,7 @@ module DefaultMappingRegistry
   NsV13 = "https://adwords.google.com/api/adwords/v13"
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::ApiError,
+    :class => AdWords::V13::ReportService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -24,11 +24,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::ApiException,
+    :class => AdWords::V13::ReportService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::ReportService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::ReportService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -36,7 +36,7 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::DefinedReportJob,
+    :class => AdWords::V13::ReportService::DefinedReportJob,
     :schema_type => XSD::QName.new(NsV13, "DefinedReportJob"),
     :schema_basetype => XSD::QName.new(NsV13, "ReportJob"),
     :schema_element => [
@@ -46,16 +46,16 @@ module DefaultMappingRegistry
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
       ["startDay", "SOAP::SOAPDate"],
-      ["status", "AdWords::ReportService::ReportJobStatus", [0, 1]],
-      ["adGroupStatuses", "AdWords::ReportService::AdGroupStatus[]", [0, nil]],
+      ["status", "AdWords::V13::ReportService::ReportJobStatus", [0, 1]],
+      ["adGroupStatuses", "AdWords::V13::ReportService::AdGroupStatus[]", [0, nil]],
       ["adGroups", "SOAP::SOAPLong[]", [0, nil]],
-      ["adWordsType", "AdWords::ReportService::AdWordsType", [0, 1]],
+      ["adWordsType", "AdWords::V13::ReportService::AdWordsType", [0, 1]],
       ["aggregationTypes", "SOAP::SOAPString[]", [0, nil]],
-      ["campaignStatuses", "AdWords::ReportService::CampaignStatus[]", [0, nil]],
+      ["campaignStatuses", "AdWords::V13::ReportService::CampaignStatus[]", [0, nil]],
       ["campaigns", "SOAP::SOAPInt[]", [0, nil]],
       ["includeZeroImpression", "SOAP::SOAPBoolean", [0, 1]],
-      ["keywordStatuses", "AdWords::ReportService::KeywordStatus[]", [0, nil]],
-      ["keywordType", "AdWords::ReportService::KeywordType", [0, 1]],
+      ["keywordStatuses", "AdWords::V13::ReportService::KeywordStatus[]", [0, nil]],
+      ["keywordType", "AdWords::V13::ReportService::KeywordType", [0, 1]],
       ["keywords", "SOAP::SOAPString[]", [0, nil]],
       ["selectedColumns", "SOAP::SOAPString[]", [0, nil]],
       ["selectedReportType", "SOAP::SOAPString"]
@@ -63,37 +63,37 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::AdGroupStatus,
+    :class => AdWords::V13::ReportService::AdGroupStatus,
     :schema_type => XSD::QName.new(NsV13, "AdGroupStatus")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::AdWordsType,
+    :class => AdWords::V13::ReportService::AdWordsType,
     :schema_type => XSD::QName.new(NsV13, "AdWordsType")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::CampaignStatus,
+    :class => AdWords::V13::ReportService::CampaignStatus,
     :schema_type => XSD::QName.new(NsV13, "CampaignStatus")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::KeywordStatus,
+    :class => AdWords::V13::ReportService::KeywordStatus,
     :schema_type => XSD::QName.new(NsV13, "KeywordStatus")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::KeywordType,
+    :class => AdWords::V13::ReportService::KeywordType,
     :schema_type => XSD::QName.new(NsV13, "KeywordType")
   )
 
   EncodedRegistry.register(
-    :class => AdWords::ReportService::ReportJobStatus,
+    :class => AdWords::V13::ReportService::ReportJobStatus,
     :schema_type => XSD::QName.new(NsV13, "ReportJobStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ApiError,
+    :class => AdWords::V13::ReportService::ApiError,
     :schema_type => XSD::QName.new(NsV13, "ApiError"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
@@ -108,11 +108,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ApiException,
+    :class => AdWords::V13::ReportService::ApiException,
     :schema_type => XSD::QName.new(NsV13, "ApiException"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::ReportService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::ReportService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -120,7 +120,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::DefinedReportJob,
+    :class => AdWords::V13::ReportService::DefinedReportJob,
     :schema_type => XSD::QName.new(NsV13, "DefinedReportJob"),
     :schema_basetype => XSD::QName.new(NsV13, "ReportJob"),
     :schema_element => [
@@ -130,16 +130,16 @@ module DefaultMappingRegistry
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
       ["startDay", "SOAP::SOAPDate"],
-      ["status", "AdWords::ReportService::ReportJobStatus", [0, 1]],
-      ["adGroupStatuses", "AdWords::ReportService::AdGroupStatus[]", [0, nil]],
+      ["status", "AdWords::V13::ReportService::ReportJobStatus", [0, 1]],
+      ["adGroupStatuses", "AdWords::V13::ReportService::AdGroupStatus[]", [0, nil]],
       ["adGroups", "SOAP::SOAPLong[]", [0, nil]],
-      ["adWordsType", "AdWords::ReportService::AdWordsType", [0, 1]],
+      ["adWordsType", "AdWords::V13::ReportService::AdWordsType", [0, 1]],
       ["aggregationTypes", "SOAP::SOAPString[]", [0, nil]],
-      ["campaignStatuses", "AdWords::ReportService::CampaignStatus[]", [0, nil]],
+      ["campaignStatuses", "AdWords::V13::ReportService::CampaignStatus[]", [0, nil]],
       ["campaigns", "SOAP::SOAPInt[]", [0, nil]],
       ["includeZeroImpression", "SOAP::SOAPBoolean", [0, 1]],
-      ["keywordStatuses", "AdWords::ReportService::KeywordStatus[]", [0, nil]],
-      ["keywordType", "AdWords::ReportService::KeywordType", [0, 1]],
+      ["keywordStatuses", "AdWords::V13::ReportService::KeywordStatus[]", [0, nil]],
+      ["keywordType", "AdWords::V13::ReportService::KeywordType", [0, 1]],
       ["keywords", "SOAP::SOAPString[]", [0, nil]],
       ["selectedColumns", "SOAP::SOAPString[]", [0, nil]],
       ["selectedReportType", "SOAP::SOAPString"]
@@ -147,37 +147,37 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::AdGroupStatus,
+    :class => AdWords::V13::ReportService::AdGroupStatus,
     :schema_type => XSD::QName.new(NsV13, "AdGroupStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::AdWordsType,
+    :class => AdWords::V13::ReportService::AdWordsType,
     :schema_type => XSD::QName.new(NsV13, "AdWordsType")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::CampaignStatus,
+    :class => AdWords::V13::ReportService::CampaignStatus,
     :schema_type => XSD::QName.new(NsV13, "CampaignStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::KeywordStatus,
+    :class => AdWords::V13::ReportService::KeywordStatus,
     :schema_type => XSD::QName.new(NsV13, "KeywordStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::KeywordType,
+    :class => AdWords::V13::ReportService::KeywordType,
     :schema_type => XSD::QName.new(NsV13, "KeywordType")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ReportJobStatus,
+    :class => AdWords::V13::ReportService::ReportJobStatus,
     :schema_type => XSD::QName.new(NsV13, "ReportJobStatus")
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::DeleteReport,
+    :class => AdWords::V13::ReportService::DeleteReport,
     :schema_name => XSD::QName.new(NsV13, "deleteReport"),
     :schema_element => [
       ["reportJobId", "SOAP::SOAPLong"]
@@ -185,17 +185,17 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::DeleteReportResponse,
+    :class => AdWords::V13::ReportService::DeleteReportResponse,
     :schema_name => XSD::QName.new(NsV13, "deleteReportResponse"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ApiException,
+    :class => AdWords::V13::ReportService::ApiException,
     :schema_name => XSD::QName.new(NsV13, "fault"),
     :schema_element => [
       ["code", "SOAP::SOAPInt"],
-      ["errors", "AdWords::ReportService::ApiError[]", [1, nil]],
+      ["errors", "AdWords::V13::ReportService::ApiError[]", [1, nil]],
       ["internal", "SOAP::SOAPBoolean"],
       ["message", "SOAP::SOAPString"],
       ["trigger", "SOAP::SOAPString"]
@@ -203,21 +203,21 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetAllJobs,
+    :class => AdWords::V13::ReportService::GetAllJobs,
     :schema_name => XSD::QName.new(NsV13, "getAllJobs"),
     :schema_element => []
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetAllJobsResponse,
+    :class => AdWords::V13::ReportService::GetAllJobsResponse,
     :schema_name => XSD::QName.new(NsV13, "getAllJobsResponse"),
     :schema_element => [
-      ["getAllJobsReturn", "AdWords::ReportService::ReportJob[]", [1, nil]]
+      ["getAllJobsReturn", "AdWords::V13::ReportService::ReportJob[]", [1, nil]]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetGzipReportDownloadUrl,
+    :class => AdWords::V13::ReportService::GetGzipReportDownloadUrl,
     :schema_name => XSD::QName.new(NsV13, "getGzipReportDownloadUrl"),
     :schema_element => [
       ["reportJobId", "SOAP::SOAPLong"]
@@ -225,7 +225,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetGzipReportDownloadUrlResponse,
+    :class => AdWords::V13::ReportService::GetGzipReportDownloadUrlResponse,
     :schema_name => XSD::QName.new(NsV13, "getGzipReportDownloadUrlResponse"),
     :schema_element => [
       ["getGzipReportDownloadUrlReturn", "SOAP::SOAPString"]
@@ -233,7 +233,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetReportDownloadUrl,
+    :class => AdWords::V13::ReportService::GetReportDownloadUrl,
     :schema_name => XSD::QName.new(NsV13, "getReportDownloadUrl"),
     :schema_element => [
       ["reportJobId", "SOAP::SOAPLong"]
@@ -241,7 +241,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetReportDownloadUrlResponse,
+    :class => AdWords::V13::ReportService::GetReportDownloadUrlResponse,
     :schema_name => XSD::QName.new(NsV13, "getReportDownloadUrlResponse"),
     :schema_element => [
       ["getReportDownloadUrlReturn", "SOAP::SOAPString"]
@@ -249,7 +249,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetReportJobStatus,
+    :class => AdWords::V13::ReportService::GetReportJobStatus,
     :schema_name => XSD::QName.new(NsV13, "getReportJobStatus"),
     :schema_element => [
       ["reportJobId", "SOAP::SOAPLong"]
@@ -257,23 +257,23 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::GetReportJobStatusResponse,
+    :class => AdWords::V13::ReportService::GetReportJobStatusResponse,
     :schema_name => XSD::QName.new(NsV13, "getReportJobStatusResponse"),
     :schema_element => [
-      ["getReportJobStatusReturn", "AdWords::ReportService::ReportJobStatus"]
+      ["getReportJobStatusReturn", "AdWords::V13::ReportService::ReportJobStatus"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ScheduleReportJob,
+    :class => AdWords::V13::ReportService::ScheduleReportJob,
     :schema_name => XSD::QName.new(NsV13, "scheduleReportJob"),
     :schema_element => [
-      ["job", "AdWords::ReportService::ReportJob"]
+      ["job", "AdWords::V13::ReportService::ReportJob"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ScheduleReportJobResponse,
+    :class => AdWords::V13::ReportService::ScheduleReportJobResponse,
     :schema_name => XSD::QName.new(NsV13, "scheduleReportJobResponse"),
     :schema_element => [
       ["scheduleReportJobReturn", "SOAP::SOAPLong"]
@@ -281,18 +281,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ValidateReportJob,
+    :class => AdWords::V13::ReportService::ValidateReportJob,
     :schema_name => XSD::QName.new(NsV13, "validateReportJob"),
     :schema_element => [
-      ["job", "AdWords::ReportService::ReportJob"]
+      ["job", "AdWords::V13::ReportService::ReportJob"]
     ]
   )
 
   LiteralRegistry.register(
-    :class => AdWords::ReportService::ValidateReportJobResponse,
+    :class => AdWords::V13::ReportService::ValidateReportJobResponse,
     :schema_name => XSD::QName.new(NsV13, "validateReportJobResponse"),
     :schema_element => []
   )
 end
 
-end; end
+end; end; end
