@@ -59,8 +59,13 @@ module AdWords
     #   end
     #
     #   def getSomething(*arg)
-    #     obj = AdWords::V13::GetSomething.new(*arg)
-    #     return @driver.getSomething(obj)
+    #     begin
+    #       obj = AdWords::V13::GetSomething.new(*arg)
+    #       return @driver.getSomething(obj)
+    #     rescue SOAP::FaultError => fault
+    #       raise (Error::ApiError.new(fault),
+    #           "getSomething Call Failed: " + fault.faultstring.to_s, caller)
+    #     end
     #   end
     #
     #   def doSomethingElseExtension(par1, par2)
@@ -88,8 +93,13 @@ module AdWords
           name = method[1]
           method_def = <<-EOS
             def #{name}(*arg)
-              obj = #{module_name}::#{fix_case_up(name)}.new(*arg)
-              return @driver.#{name}(obj)
+              begin
+                obj = #{module_name}::#{fix_case_up(name)}.new(*arg)
+                return @driver.#{name}(obj)
+              rescue SOAP::FaultError => fault
+                raise(Error::ApiError.new(fault),
+                    "#{name} Call Failed: " + fault.faultstring.to_s, caller)
+              end
             end
           EOS
           class_def += method_def

@@ -1,3 +1,6 @@
+15.0.1
+- Bugfix: added generation of ApiError exceptions upon SOAP faults.
+
 15.0.0
 - Added support for the v200902 sandbox.
 - Added support for multiple API versions on the same AdWords::API object.
