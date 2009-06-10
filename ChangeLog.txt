@@ -1,3 +1,24 @@
+15.1.0
+- Added downloadCsvReport extension to the Report Service, downloads a report as CSV data.
+- Added getMethodUsage extension to the Info Service, returns a breakdown of API usage per method.
+- Added getClientUnitsUsage extension to the Info Service, returns a smart breakdown of API usage per account.
+- Service wrappers are now generated during the "rake generate" step of setup, instead of at runtime.
+  The files are created in the lib/adwords4r/v* directories.
+- Added client-side type and arity safety checks for API calls.
+  An ArgumentError will now be thrown if an API call gets an invalid number of arguments or arguments of an incorrect type.
+- Added CSV files with various lists of information (categories, countries, etc.) and utility methods to retrieve them.
+  They can be found in the newly-created AdWords::Utils module.
+- Added several subclasses of ApiError to allow for finer exception handling.
+  The correct subclass gets instanced automatically whenever a SOAP fault occurs.
+- Added unit tests for the client library functionality.
+- Added RDoc comments to client library and an RDoc generation task to the Rakefile.
+  Pre-generated documentation is also included in the doc/ directory.
+- Added unit_spend example and extended the reports one.
+- Fixed packaging issues.
+- Fixed bug in multiple_versions example.
+- Several additions and changes to the Readme.
+- Cleaned up Rakefile.
+
 15.0.1
 - Bugfix: added generation of ApiError exceptions upon SOAP faults.
 
@@ -19,8 +40,8 @@
   This allows for correct tracking with multiple AdWords::API objects.
   The methods have been renamed total_units and last_units to fit with the getter conventions.
 - Made code style more coherent.
-- Updated v13 code samples to work with new client library model.
-- Added v200902 and multiple version code samples.
+- Updated v13 examples to work with new client library model.
+- Added v200902 and multiple version examples.
 
 14.0.0
 - Sérgio Gomes (api.sgomes@gmail.com) takes over as maintainer of this project.
@@ -69,22 +90,38 @@
 - used soap4r v1.5.6 to generate the API files from the WSDL
 - added soap4r v1.5.6 and http-access2 v2.0.5 as gem dependencies
 - cleaned up some of the kludges that were needed for older soap4r libraries
+
 0.8
 - Ryan Leavengood takes over as maintainer of this project
 - added support for APIs v7, v8 and v9
 - removed support for v4 and v5
 - updated the examples amd made it so they will use the adwords4r in their parent directory
+
 0.7
 - added support for API v6
 - uncommented clientEmail in sample property file
+
 0.6
 - added support for API v5
 - added support for alternateUrl header, in order to work with sandbox
 - tested with sandbox
-0.5 Now supports AdWords API v4. Got rid of yaml dependency. Changed properties file name for default credentials to adwords.properties. Enhanced the readme.txt a bit. Added a few samples.
-0.4 Now all generated classes are within the Adwords module. Will make it easier to use that in Rails. Support for gen classes in a module is not implemented in soap4r for doc/literal style (it works for rpc/encoded). I logged a bug for soap4r. In the meantime I had to fix adwords4r from my module using module_eval to patch the Mapping class.
-0.3 fixed the bug in InfoService and many others. I fix the wsdl before generation.
-0.2 added packaging, made it a gem, and added a setup program, for easy installation in all configurations (gem and non gem).
+
+0.5
+- Now supports AdWords API v4.
+- Got rid of yaml dependency.
+- Changed properties file name for default credentials to adwords.properties.
+- Enhanced the readme.txt a bit. Added a few samples.
+
+0.4
+- Now all generated classes are within the Adwords module. Will make it easier to use that in Rails.
+- Support for gen classes in a module is not implemented in soap4r for doc/literal style (it works for rpc/encoded). I logged a bug for soap4r. In the meantime I had to fix adwords4r from my module using module_eval to patch the Mapping class.
+
+0.3
+- fixed the bug in InfoService and many others. I fix the wsdl before generation.
+
+0.2
+- added packaging, made it a gem, and added a setup program, for easy installation in all configurations (gem and non gem).
+
 0.1 -first version, not fully tested
-works for Campaigns
+- works for Campaigns
 

@@ -3,9 +3,9 @@ require 'xsd/qname'
 module AdWords; module V13; module TrafficEstimatorService
 
 
-# {https://adwords.google.com/api/adwords/v13}AdGroupEstimate
-#   id - SOAP::SOAPInt
-#   keywordEstimates - AdWords::V13::TrafficEstimatorService::KeywordEstimate
+# AdGroupEstimate
+# - id - SOAP::SOAPInt
+# - keywordEstimates - AdWords::V13::TrafficEstimatorService::KeywordEstimate
 class AdGroupEstimate
   attr_accessor :id
   attr_accessor :keywordEstimates
@@ -16,10 +16,10 @@ class AdGroupEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}AdGroupRequest
-#   id - SOAP::SOAPLong
-#   keywordRequests - AdWords::V13::TrafficEstimatorService::KeywordRequest
-#   maxCpc - SOAP::SOAPLong
+# AdGroupRequest
+# - id - SOAP::SOAPLong
+# - keywordRequests - AdWords::V13::TrafficEstimatorService::KeywordRequest
+# - maxCpc - SOAP::SOAPLong
 class AdGroupRequest
   attr_accessor :id
   attr_accessor :keywordRequests
@@ -32,15 +32,15 @@ class AdGroupRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -63,12 +63,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::TrafficEstimatorService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::TrafficEstimatorService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -85,9 +85,9 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CampaignEstimate
-#   adGroupEstimates - AdWords::V13::TrafficEstimatorService::AdGroupEstimate
-#   id - SOAP::SOAPInt
+# CampaignEstimate
+# - adGroupEstimates - AdWords::V13::TrafficEstimatorService::AdGroupEstimate
+# - id - SOAP::SOAPInt
 class CampaignEstimate
   attr_accessor :adGroupEstimates
   attr_accessor :id
@@ -98,12 +98,12 @@ class CampaignEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CampaignRequest
-#   adGroupRequests - AdWords::V13::TrafficEstimatorService::AdGroupRequest
-#   geoTargeting - AdWords::V13::TrafficEstimatorService::GeoTarget
-#   id - SOAP::SOAPInt
-#   languageTargeting - AdWords::V13::TrafficEstimatorService::LanguageTarget
-#   networkTargeting - AdWords::V13::TrafficEstimatorService::NetworkTarget
+# CampaignRequest
+# - adGroupRequests - AdWords::V13::TrafficEstimatorService::AdGroupRequest
+# - geoTargeting - AdWords::V13::TrafficEstimatorService::GeoTarget
+# - id - SOAP::SOAPInt
+# - languageTargeting - AdWords::V13::TrafficEstimatorService::LanguageTarget
+# - networkTargeting - AdWords::V13::TrafficEstimatorService::NetworkTarget
 class CampaignRequest
   attr_accessor :adGroupRequests
   attr_accessor :geoTargeting
@@ -120,10 +120,10 @@ class CampaignRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Circle
-#   latitudeMicroDegrees - SOAP::SOAPInt
-#   longitudeMicroDegrees - SOAP::SOAPInt
-#   radiusMeters - SOAP::SOAPInt
+# Circle
+# - latitudeMicroDegrees - SOAP::SOAPInt
+# - longitudeMicroDegrees - SOAP::SOAPInt
+# - radiusMeters - SOAP::SOAPInt
 class Circle
   attr_accessor :latitudeMicroDegrees
   attr_accessor :longitudeMicroDegrees
@@ -136,9 +136,9 @@ class Circle
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CityTargets
-#   cities - SOAP::SOAPString
-#   excludedCities - SOAP::SOAPString
+# CityTargets
+# - cities - SOAP::SOAPString
+# - excludedCities - SOAP::SOAPString
 class CityTargets
   attr_accessor :cities
   attr_accessor :excludedCities
@@ -149,9 +149,9 @@ class CityTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CountryTargets
-#   countries - SOAP::SOAPString
-#   excludedCountries - SOAP::SOAPString
+# CountryTargets
+# - countries - SOAP::SOAPString
+# - excludedCountries - SOAP::SOAPString
 class CountryTargets
   attr_accessor :countries
   attr_accessor :excludedCountries
@@ -162,13 +162,13 @@ class CountryTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}GeoTarget
-#   cityTargets - AdWords::V13::TrafficEstimatorService::CityTargets
-#   countryTargets - AdWords::V13::TrafficEstimatorService::CountryTargets
-#   metroTargets - AdWords::V13::TrafficEstimatorService::MetroTargets
-#   proximityTargets - AdWords::V13::TrafficEstimatorService::ProximityTargets
-#   regionTargets - AdWords::V13::TrafficEstimatorService::RegionTargets
-#   targetAll - SOAP::SOAPBoolean
+# GeoTarget
+# - cityTargets - AdWords::V13::TrafficEstimatorService::CityTargets
+# - countryTargets - AdWords::V13::TrafficEstimatorService::CountryTargets
+# - metroTargets - AdWords::V13::TrafficEstimatorService::MetroTargets
+# - proximityTargets - AdWords::V13::TrafficEstimatorService::ProximityTargets
+# - regionTargets - AdWords::V13::TrafficEstimatorService::RegionTargets
+# - targetAll - SOAP::SOAPBoolean
 class GeoTarget
   attr_accessor :cityTargets
   attr_accessor :countryTargets
@@ -187,14 +187,14 @@ class GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordEstimate
-#   id - SOAP::SOAPLong
-#   lowerAvgPosition - SOAP::SOAPFloat
-#   lowerClicksPerDay - SOAP::SOAPFloat
-#   lowerCpc - SOAP::SOAPLong
-#   upperAvgPosition - SOAP::SOAPFloat
-#   upperClicksPerDay - SOAP::SOAPFloat
-#   upperCpc - SOAP::SOAPLong
+# KeywordEstimate
+# - id - SOAP::SOAPLong
+# - lowerAvgPosition - SOAP::SOAPFloat
+# - lowerClicksPerDay - SOAP::SOAPFloat
+# - lowerCpc - SOAP::SOAPLong
+# - upperAvgPosition - SOAP::SOAPFloat
+# - upperClicksPerDay - SOAP::SOAPFloat
+# - upperCpc - SOAP::SOAPLong
 class KeywordEstimate
   attr_accessor :id
   attr_accessor :lowerAvgPosition
@@ -215,12 +215,12 @@ class KeywordEstimate
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordRequest
-#   id - SOAP::SOAPLong
-#   maxCpc - SOAP::SOAPLong
-#   negative - SOAP::SOAPBoolean
-#   text - SOAP::SOAPString
-#   type - AdWords::V13::TrafficEstimatorService::KeywordType
+# KeywordRequest
+# - id - SOAP::SOAPLong
+# - maxCpc - SOAP::SOAPLong
+# - negative - SOAP::SOAPBoolean
+# - text - SOAP::SOAPString
+# - type - AdWords::V13::TrafficEstimatorService::KeywordType
 class KeywordRequest
   attr_accessor :id
   attr_accessor :maxCpc
@@ -237,10 +237,10 @@ class KeywordRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordTrafficRequest
-#   keywordText - SOAP::SOAPString
-#   keywordType - AdWords::V13::TrafficEstimatorService::KeywordType
-#   language - SOAP::SOAPString
+# KeywordTrafficRequest
+# - keywordText - SOAP::SOAPString
+# - keywordType - AdWords::V13::TrafficEstimatorService::KeywordType
+# - language - SOAP::SOAPString
 class KeywordTrafficRequest
   attr_accessor :keywordText
   attr_accessor :keywordType
@@ -253,13 +253,13 @@ class KeywordTrafficRequest
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}LanguageTarget
+# LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}MetroTargets
-#   excludedMetros - SOAP::SOAPString
-#   metros - SOAP::SOAPString
+# MetroTargets
+# - excludedMetros - SOAP::SOAPString
+# - metros - SOAP::SOAPString
 class MetroTargets
   attr_accessor :excludedMetros
   attr_accessor :metros
@@ -270,17 +270,17 @@ class MetroTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}NetworkTarget
+# NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}ProximityTargets
+# ProximityTargets
 class ProximityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}RegionTargets
-#   excludedRegions - SOAP::SOAPString
-#   regions - SOAP::SOAPString
+# RegionTargets
+# - excludedRegions - SOAP::SOAPString
+# - regions - SOAP::SOAPString
 class RegionTargets
   attr_accessor :excludedRegions
   attr_accessor :regions
@@ -291,57 +291,57 @@ class RegionTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordTraffic
+# KeywordTraffic
 class KeywordTraffic < ::String
   HasTraffic = KeywordTraffic.new("HasTraffic")
   Unknown = KeywordTraffic.new("Unknown")
   VeryLowTraffic = KeywordTraffic.new("VeryLowTraffic")
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordType
+# KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v13}NetworkType
+# NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v13}checkKeywordTraffic
-class CheckKeywordTraffic < ::Array
+# checkKeywordTraffic
+class CheckKeywordTraffic < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}checkKeywordTrafficResponse
-class CheckKeywordTrafficResponse < ::Array
+# checkKeywordTrafficResponse
+class CheckKeywordTrafficResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}estimateAdGroupList
-class EstimateAdGroupList < ::Array
+# estimateAdGroupList
+class EstimateAdGroupList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}estimateAdGroupListResponse
-class EstimateAdGroupListResponse < ::Array
+# estimateAdGroupListResponse
+class EstimateAdGroupListResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}estimateCampaignList
-class EstimateCampaignList < ::Array
+# estimateCampaignList
+class EstimateCampaignList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}estimateCampaignListResponse
-class EstimateCampaignListResponse < ::Array
+# estimateCampaignListResponse
+class EstimateCampaignListResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}estimateKeywordList
-class EstimateKeywordList < ::Array
+# estimateKeywordList
+class EstimateKeywordList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}estimateKeywordListResponse
-class EstimateKeywordListResponse < ::Array
+# estimateKeywordListResponse
+class EstimateKeywordListResponse < ::Array #:nodoc: all
 end
 
 

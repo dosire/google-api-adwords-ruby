@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::ResponseHandler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::ResponseHandler 
+            
+                <span class="parent">&lt; 
+                    
+                    SOAP::RPC::CallbackHandler
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/adwords4r_rb.html">lib/adwords4r.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+Handler class to process response messages for <a href="API.html">API</a>
+unit usage and statistics information.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000023">new</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>O</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000024">on_callback</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000023">
+                    
+                    <a name="M000023"></a><b>new</b>(parent)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Constructor for <a href="ResponseHandler.html">ResponseHandler</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>parent: <a href="API.html">AdWords::API</a> object to which the <a
+href="ResponseHandler.html">ResponseHandler</a> should be tied
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show</a>
+                        
+                    </p>
+                    <div id="M000023_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 319</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">parent</span>)
+      <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">parent</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000024">
+                    
+                    <a name="M000024"></a><b>on_callback</b>(method_name, endpoint, envelope)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Handles the callback method. Logs the request data and tracks unit usage.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>method_name: name for the operation that was invoked
+
+</li>
+<li>endpoint: the enodpoint URL the request was sent to
+
+</li>
+<li>envelope: the envelope for the SOAP response that was received
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show</a>
+                        
+                    </p>
+                    <div id="M000024_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 331</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_callback</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">envelope</span>)
+      <span class="ruby-identifier">units</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">operations</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">response_time</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">request_id</span> = <span class="ruby-keyword kw">nil</span>
+
+      <span class="ruby-identifier">header</span> = <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">header</span>
+
+      <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword kw">do</span>
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">header</span>[<span class="ruby-value str">'units'</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">units</span> = <span class="ruby-identifier">header</span>[<span class="ruby-value str">'units'</span>].<span class="ruby-identifier">element</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>
+          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">last_units</span> = <span class="ruby-identifier">units</span>
+          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">total_units</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">total_units</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">units</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">header</span>[<span class="ruby-value str">'operations'</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">operations</span> = <span class="ruby-identifier">header</span>[<span class="ruby-value str">'operations'</span>].<span class="ruby-identifier">element</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">header</span>[<span class="ruby-value str">'responseTime'</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">response_time</span> = <span class="ruby-identifier">header</span>[<span class="ruby-value str">'responseTime'</span>].<span class="ruby-identifier">element</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">header</span>[<span class="ruby-value str">'requestId'</span>].<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">request_id</span> = <span class="ruby-identifier">header</span>[<span class="ruby-value str">'requestId'</span>].<span class="ruby-identifier">element</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">host</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">endpoint</span>).<span class="ruby-identifier">host</span>
+
+        <span class="ruby-identifier">data</span> = <span class="ruby-node">&quot;host=#{host} method=#{method_name} &quot;</span> <span class="ruby-operator">+</span>
+               <span class="ruby-node">&quot;responseTime=#{response_time} operations=#{operations} &quot;</span> <span class="ruby-operator">+</span>
+               <span class="ruby-node">&quot;units=#{units} requestId=#{request_id}&quot;</span>
+
+        <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">unit_logger</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

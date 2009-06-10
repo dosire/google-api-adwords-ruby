@@ -1,0 +1,5 @@
+date,campaign,adgroup,kwSite,kwSiteType,keywordMinCpc,maxCpc,kwDestUrl,imps,clicks,ctr,cpc,cost,pos
+2009-01-01,TestCampaign #1,TestAdGroup #1,flowers,Broad,50000,"",default URL,1,0,0.0,0,0,2.0
+2009-01-01,TestCampaign #1,TestAdGroup #1,fénêtre,Phrase,100000,"",default URL,1,0,0.0,0,0,10.0
+2009-01-01,TestCampaign #1,TestAdGroup #1,fénêtre,Phrase,100000,"",default URL,1,0,0.0,0,0,10.0
+2009-01-01,TestCampaign #1,TestAdGroup #1,global markedsføring,Broad,50000,"",default URL,1,0,0.0,0,0,2.0

@@ -3,9 +3,9 @@ require 'xsd/qname'
 module AdWords; module V13; module CampaignService
 
 
-# {https://adwords.google.com/api/adwords/v13}AdSchedule
-#   intervals - AdWords::V13::CampaignService::SchedulingInterval
-#   status - AdWords::V13::CampaignService::AdScheduleStatus
+# AdSchedule
+# - intervals - AdWords::V13::CampaignService::SchedulingInterval
+# - status - AdWords::V13::CampaignService::AdScheduleStatus
 class AdSchedule
   attr_accessor :intervals
   attr_accessor :status
@@ -16,15 +16,15 @@ class AdSchedule
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -47,12 +47,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::CampaignService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::CampaignService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -69,10 +69,10 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}BudgetOptimizerSettings
-#   bidCeiling - SOAP::SOAPLong
-#   enabled - SOAP::SOAPBoolean
-#   takeOnOptimizedBids - SOAP::SOAPBoolean
+# BudgetOptimizerSettings
+# - bidCeiling - SOAP::SOAPLong
+# - enabled - SOAP::SOAPBoolean
+# - takeOnOptimizedBids - SOAP::SOAPBoolean
 class BudgetOptimizerSettings
   attr_accessor :bidCeiling
   attr_accessor :enabled
@@ -85,21 +85,21 @@ class BudgetOptimizerSettings
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Campaign
-#   budgetAmount - SOAP::SOAPLong
-#   budgetOptimizerSettings - AdWords::V13::CampaignService::BudgetOptimizerSettings
-#   budgetPeriod - AdWords::V13::CampaignService::BudgetPeriod
-#   contentTargeting - AdWords::V13::CampaignService::ContentTargeting
-#   conversionOptimizerSettings - AdWords::V13::CampaignService::ConversionOptimizerSettings
-#   endDay - SOAP::SOAPDate
-#   geoTargeting - AdWords::V13::CampaignService::GeoTarget
-#   id - SOAP::SOAPInt
-#   languageTargeting - AdWords::V13::CampaignService::LanguageTarget
-#   name - SOAP::SOAPString
-#   networkTargeting - AdWords::V13::CampaignService::NetworkTarget
-#   schedule - AdWords::V13::CampaignService::AdSchedule
-#   startDay - SOAP::SOAPDate
-#   status - AdWords::V13::CampaignService::CampaignStatus
+# Campaign
+# - budgetAmount - SOAP::SOAPLong
+# - budgetOptimizerSettings - AdWords::V13::CampaignService::BudgetOptimizerSettings
+# - budgetPeriod - AdWords::V13::CampaignService::BudgetPeriod
+# - contentTargeting - AdWords::V13::CampaignService::ContentTargeting
+# - conversionOptimizerSettings - AdWords::V13::CampaignService::ConversionOptimizerSettings
+# - endDay - SOAP::SOAPDate
+# - geoTargeting - AdWords::V13::CampaignService::GeoTarget
+# - id - SOAP::SOAPInt
+# - languageTargeting - AdWords::V13::CampaignService::LanguageTarget
+# - name - SOAP::SOAPString
+# - networkTargeting - AdWords::V13::CampaignService::NetworkTarget
+# - schedule - AdWords::V13::CampaignService::AdSchedule
+# - startDay - SOAP::SOAPDate
+# - status - AdWords::V13::CampaignService::CampaignStatus
 class Campaign
   attr_accessor :budgetAmount
   attr_accessor :budgetOptimizerSettings
@@ -134,9 +134,9 @@ class Campaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CampaignBudget
-#   budgetAmount - SOAP::SOAPLong
-#   budgetPeriod - AdWords::V13::CampaignService::BudgetPeriod
+# CampaignBudget
+# - budgetAmount - SOAP::SOAPLong
+# - budgetPeriod - AdWords::V13::CampaignService::BudgetPeriod
 class CampaignBudget
   attr_accessor :budgetAmount
   attr_accessor :budgetPeriod
@@ -147,10 +147,10 @@ class CampaignBudget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Circle
-#   latitudeMicroDegrees - SOAP::SOAPInt
-#   longitudeMicroDegrees - SOAP::SOAPInt
-#   radiusMeters - SOAP::SOAPInt
+# Circle
+# - latitudeMicroDegrees - SOAP::SOAPInt
+# - longitudeMicroDegrees - SOAP::SOAPInt
+# - radiusMeters - SOAP::SOAPInt
 class Circle
   attr_accessor :latitudeMicroDegrees
   attr_accessor :longitudeMicroDegrees
@@ -163,9 +163,9 @@ class Circle
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CityTargets
-#   cities - SOAP::SOAPString
-#   excludedCities - SOAP::SOAPString
+# CityTargets
+# - cities - SOAP::SOAPString
+# - excludedCities - SOAP::SOAPString
 class CityTargets
   attr_accessor :cities
   attr_accessor :excludedCities
@@ -176,9 +176,9 @@ class CityTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ConversionOptimizerEligibility
-#   campaignId - SOAP::SOAPInt
-#   eligibleToSwitchOn - SOAP::SOAPBoolean
+# ConversionOptimizerEligibility
+# - campaignId - SOAP::SOAPInt
+# - eligibleToSwitchOn - SOAP::SOAPBoolean
 class ConversionOptimizerEligibility
   attr_accessor :campaignId
   attr_accessor :eligibleToSwitchOn
@@ -189,9 +189,9 @@ class ConversionOptimizerEligibility
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ConversionOptimizerSettings
-#   enabled - SOAP::SOAPBoolean
-#   maxCpaBidForAllAdGroups - SOAP::SOAPLong
+# ConversionOptimizerSettings
+# - enabled - SOAP::SOAPBoolean
+# - maxCpaBidForAllAdGroups - SOAP::SOAPLong
 class ConversionOptimizerSettings
   attr_accessor :enabled
   attr_accessor :maxCpaBidForAllAdGroups
@@ -202,9 +202,9 @@ class ConversionOptimizerSettings
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CountryTargets
-#   countries - SOAP::SOAPString
-#   excludedCountries - SOAP::SOAPString
+# CountryTargets
+# - countries - SOAP::SOAPString
+# - excludedCountries - SOAP::SOAPString
 class CountryTargets
   attr_accessor :countries
   attr_accessor :excludedCountries
@@ -215,13 +215,13 @@ class CountryTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}GeoTarget
-#   cityTargets - AdWords::V13::CampaignService::CityTargets
-#   countryTargets - AdWords::V13::CampaignService::CountryTargets
-#   metroTargets - AdWords::V13::CampaignService::MetroTargets
-#   proximityTargets - AdWords::V13::CampaignService::ProximityTargets
-#   regionTargets - AdWords::V13::CampaignService::RegionTargets
-#   targetAll - SOAP::SOAPBoolean
+# GeoTarget
+# - cityTargets - AdWords::V13::CampaignService::CityTargets
+# - countryTargets - AdWords::V13::CampaignService::CountryTargets
+# - metroTargets - AdWords::V13::CampaignService::MetroTargets
+# - proximityTargets - AdWords::V13::CampaignService::ProximityTargets
+# - regionTargets - AdWords::V13::CampaignService::RegionTargets
+# - targetAll - SOAP::SOAPBoolean
 class GeoTarget
   attr_accessor :cityTargets
   attr_accessor :countryTargets
@@ -240,13 +240,13 @@ class GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}LanguageTarget
+# LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}MetroTargets
-#   excludedMetros - SOAP::SOAPString
-#   metros - SOAP::SOAPString
+# MetroTargets
+# - excludedMetros - SOAP::SOAPString
+# - metros - SOAP::SOAPString
 class MetroTargets
   attr_accessor :excludedMetros
   attr_accessor :metros
@@ -257,17 +257,17 @@ class MetroTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}NetworkTarget
+# NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}ProximityTargets
+# ProximityTargets
 class ProximityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}RecommendedBudget
-#   budget - AdWords::V13::CampaignService::CampaignBudget
-#   campaignId - SOAP::SOAPInt
+# RecommendedBudget
+# - budget - AdWords::V13::CampaignService::CampaignBudget
+# - campaignId - SOAP::SOAPInt
 class RecommendedBudget
   attr_accessor :budget
   attr_accessor :campaignId
@@ -278,9 +278,9 @@ class RecommendedBudget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}RegionTargets
-#   excludedRegions - SOAP::SOAPString
-#   regions - SOAP::SOAPString
+# RegionTargets
+# - excludedRegions - SOAP::SOAPString
+# - regions - SOAP::SOAPString
 class RegionTargets
   attr_accessor :excludedRegions
   attr_accessor :regions
@@ -291,13 +291,13 @@ class RegionTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}SchedulingInterval
-#   day - AdWords::V13::CampaignService::DayOfWeek
-#   endHour - SOAP::SOAPInt
-#   endMinute - SOAP::SOAPInt
-#   multiplier - SOAP::SOAPDouble
-#   startHour - SOAP::SOAPInt
-#   startMinute - SOAP::SOAPInt
+# SchedulingInterval
+# - day - AdWords::V13::CampaignService::DayOfWeek
+# - endHour - SOAP::SOAPInt
+# - endMinute - SOAP::SOAPInt
+# - multiplier - SOAP::SOAPDouble
+# - startHour - SOAP::SOAPInt
+# - startMinute - SOAP::SOAPInt
 class SchedulingInterval
   attr_accessor :day
   attr_accessor :endHour
@@ -316,14 +316,14 @@ class SchedulingInterval
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}StatsRecord
-#   averagePosition - SOAP::SOAPDouble
-#   clicks - SOAP::SOAPLong
-#   conversionRate - SOAP::SOAPDouble
-#   conversions - SOAP::SOAPLong
-#   cost - SOAP::SOAPLong
-#   id - SOAP::SOAPLong
-#   impressions - SOAP::SOAPLong
+# StatsRecord
+# - averagePosition - SOAP::SOAPDouble
+# - clicks - SOAP::SOAPLong
+# - conversionRate - SOAP::SOAPDouble
+# - conversions - SOAP::SOAPLong
+# - cost - SOAP::SOAPLong
+# - id - SOAP::SOAPLong
+# - impressions - SOAP::SOAPLong
 class StatsRecord
   attr_accessor :averagePosition
   attr_accessor :clicks
@@ -344,19 +344,19 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}AdScheduleStatus
+# AdScheduleStatus
 class AdScheduleStatus < ::String
   Disabled = AdScheduleStatus.new("Disabled")
   Enabled = AdScheduleStatus.new("Enabled")
 end
 
-# {https://adwords.google.com/api/adwords/v13}BudgetPeriod
+# BudgetPeriod
 class BudgetPeriod < ::String
   Daily = BudgetPeriod.new("Daily")
   Monthly = BudgetPeriod.new("Monthly")
 end
 
-# {https://adwords.google.com/api/adwords/v13}CampaignStatus
+# CampaignStatus
 class CampaignStatus < ::String
   Active = CampaignStatus.new("Active")
   Deleted = CampaignStatus.new("Deleted")
@@ -366,13 +366,13 @@ class CampaignStatus < ::String
   Suspended = CampaignStatus.new("Suspended")
 end
 
-# {https://adwords.google.com/api/adwords/v13}ContentTargeting
+# ContentTargeting
 class ContentTargeting < ::String
   AllPlacements = ContentTargeting.new("AllPlacements")
   SelectedPlacements = ContentTargeting.new("SelectedPlacements")
 end
 
-# {https://adwords.google.com/api/adwords/v13}DayOfWeek
+# DayOfWeek
 class DayOfWeek < ::String
   Friday = DayOfWeek.new("Friday")
   Monday = DayOfWeek.new("Monday")
@@ -383,16 +383,16 @@ class DayOfWeek < ::String
   Wednesday = DayOfWeek.new("Wednesday")
 end
 
-# {https://adwords.google.com/api/adwords/v13}NetworkType
+# NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v13}addCampaign
-#   campaign - AdWords::V13::CampaignService::Campaign
-class AddCampaign
+# addCampaign
+# - campaign - AdWords::V13::CampaignService::Campaign
+class AddCampaign #:nodoc: all
   attr_accessor :campaign
 
   def initialize(campaign = nil)
@@ -400,17 +400,17 @@ class AddCampaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}addCampaignList
-class AddCampaignList < ::Array
+# addCampaignList
+class AddCampaignList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}addCampaignListResponse
-class AddCampaignListResponse < ::Array
+# addCampaignListResponse
+class AddCampaignListResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}addCampaignResponse
-#   addCampaignReturn - AdWords::V13::CampaignService::Campaign
-class AddCampaignResponse
+# addCampaignResponse
+# - addCampaignReturn - AdWords::V13::CampaignService::Campaign
+class AddCampaignResponse #:nodoc: all
   attr_accessor :addCampaignReturn
 
   def initialize(addCampaignReturn = nil)
@@ -418,19 +418,19 @@ class AddCampaignResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getActiveAdWordsCampaigns
-class GetActiveAdWordsCampaigns
+# getActiveAdWordsCampaigns
+class GetActiveAdWordsCampaigns #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getActiveAdWordsCampaignsResponse
-class GetActiveAdWordsCampaignsResponse < ::Array
+# getActiveAdWordsCampaignsResponse
+class GetActiveAdWordsCampaignsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllAdWordsCampaigns
-#   dummy - SOAP::SOAPInt
-class GetAllAdWordsCampaigns
+# getAllAdWordsCampaigns
+# - dummy - SOAP::SOAPInt
+class GetAllAdWordsCampaigns #:nodoc: all
   attr_accessor :dummy
 
   def initialize(dummy = nil)
@@ -438,13 +438,13 @@ class GetAllAdWordsCampaigns
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllAdWordsCampaignsResponse
-class GetAllAdWordsCampaignsResponse < ::Array
+# getAllAdWordsCampaignsResponse
+class GetAllAdWordsCampaignsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaign
-#   id - SOAP::SOAPInt
-class GetCampaign
+# getCampaign
+# - id - SOAP::SOAPInt
+class GetCampaign #:nodoc: all
   attr_accessor :id
 
   def initialize(id = nil)
@@ -452,17 +452,17 @@ class GetCampaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaignList
-class GetCampaignList < ::Array
+# getCampaignList
+class GetCampaignList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaignListResponse
-class GetCampaignListResponse < ::Array
+# getCampaignListResponse
+class GetCampaignListResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaignResponse
-#   getCampaignReturn - AdWords::V13::CampaignService::Campaign
-class GetCampaignResponse
+# getCampaignResponse
+# - getCampaignReturn - AdWords::V13::CampaignService::Campaign
+class GetCampaignResponse #:nodoc: all
   attr_accessor :getCampaignReturn
 
   def initialize(getCampaignReturn = nil)
@@ -470,11 +470,11 @@ class GetCampaignResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaignStats
-#   campaignIds - SOAP::SOAPInt
-#   startDay - SOAP::SOAPDate
-#   endDay - SOAP::SOAPDate
-class GetCampaignStats
+# getCampaignStats
+# - campaignIds - SOAP::SOAPInt
+# - startDay - SOAP::SOAPDate
+# - endDay - SOAP::SOAPDate
+class GetCampaignStats #:nodoc: all
   attr_accessor :campaignIds
   attr_accessor :startDay
   attr_accessor :endDay
@@ -486,21 +486,21 @@ class GetCampaignStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaignStatsResponse
-class GetCampaignStatsResponse < ::Array
+# getCampaignStatsResponse
+class GetCampaignStatsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getConversionOptimizerEligibility
-class GetConversionOptimizerEligibility < ::Array
+# getConversionOptimizerEligibility
+class GetConversionOptimizerEligibility < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getConversionOptimizerEligibilityResponse
-class GetConversionOptimizerEligibilityResponse < ::Array
+# getConversionOptimizerEligibilityResponse
+class GetConversionOptimizerEligibilityResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getOptimizeAdServing
-#   campaignId - SOAP::SOAPInt
-class GetOptimizeAdServing
+# getOptimizeAdServing
+# - campaignId - SOAP::SOAPInt
+class GetOptimizeAdServing #:nodoc: all
   attr_accessor :campaignId
 
   def initialize(campaignId = nil)
@@ -508,9 +508,9 @@ class GetOptimizeAdServing
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getOptimizeAdServingResponse
-#   getOptimizeAdServingReturn - SOAP::SOAPBoolean
-class GetOptimizeAdServingResponse
+# getOptimizeAdServingResponse
+# - getOptimizeAdServingReturn - SOAP::SOAPBoolean
+class GetOptimizeAdServingResponse #:nodoc: all
   attr_accessor :getOptimizeAdServingReturn
 
   def initialize(getOptimizeAdServingReturn = nil)
@@ -518,26 +518,26 @@ class GetOptimizeAdServingResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getRecommendedBudgetList
-class GetRecommendedBudgetList < ::Array
+# getRecommendedBudgetList
+class GetRecommendedBudgetList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getRecommendedBudgetListResponse
-class GetRecommendedBudgetListResponse < ::Array
+# getRecommendedBudgetListResponse
+class GetRecommendedBudgetListResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getRecommendedBudgets
-class GetRecommendedBudgets < ::Array
+# getRecommendedBudgets
+class GetRecommendedBudgets < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getRecommendedBudgetsResponse
-class GetRecommendedBudgetsResponse < ::Array
+# getRecommendedBudgetsResponse
+class GetRecommendedBudgetsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}setOptimizeAdServing
-#   campaignId - SOAP::SOAPInt
-#   enable - SOAP::SOAPBoolean
-class SetOptimizeAdServing
+# setOptimizeAdServing
+# - campaignId - SOAP::SOAPInt
+# - enable - SOAP::SOAPBoolean
+class SetOptimizeAdServing #:nodoc: all
   attr_accessor :campaignId
   attr_accessor :enable
 
@@ -547,15 +547,15 @@ class SetOptimizeAdServing
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}setOptimizeAdServingResponse
-class SetOptimizeAdServingResponse
+# setOptimizeAdServingResponse
+class SetOptimizeAdServingResponse #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateCampaign
-#   campaign - AdWords::V13::CampaignService::Campaign
-class UpdateCampaign
+# updateCampaign
+# - campaign - AdWords::V13::CampaignService::Campaign
+class UpdateCampaign #:nodoc: all
   attr_accessor :campaign
 
   def initialize(campaign = nil)
@@ -563,18 +563,18 @@ class UpdateCampaign
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateCampaignList
-class UpdateCampaignList < ::Array
+# updateCampaignList
+class UpdateCampaignList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateCampaignListResponse
-class UpdateCampaignListResponse
+# updateCampaignListResponse
+class UpdateCampaignListResponse #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateCampaignResponse
-class UpdateCampaignResponse
+# updateCampaignResponse
+class UpdateCampaignResponse #:nodoc: all
   def initialize
   end
 end

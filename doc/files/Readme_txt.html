@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Readme.txt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+    <script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            Readme.txt
+        </h1>
+        <ul class="files">
+            <li>Readme.txt</li>
+            <li>Last modified: Mon Jun 08 11:17:39 +0100 2009</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <h1>Google adwords4r Library</h1>
+<p>
+Welcome to adwords4r: Bringing the delights of Ruby programming to the <a
+href="../classes/AdWords.html">AdWords</a> world!
+</p>
+<p>
+Documentation and comments are a work in progress.
+</p>
+<h1>Useful Web Resources</h1>
+<ul>
+<li><a href="https://adwords.google.com/">AdWords home</a>
+
+</li>
+<li><a href="http://groups.google.com/group/adwords-api">AdWords API discussion
+forum</a>
+
+</li>
+<li><a
+href="http://code.google.com/apis/adwords/docs/developer/index.html">AdWords
+API documentation</a>
+
+</li>
+<li><a href="http://code.google.com/p/google-api-adwords-ruby/">This project's
+Google Code page</a>
+
+</li>
+</ul>
+<h1>Docs for Users</h1>
+<h2>1 - Instalation:</h2>
+<p>
+adwords4r is a ruby gem. See <a
+href="http://docs.rubygems.org/read/book/1">docs.rubygems.org/read/book/1</a>
+</p>
+<p>
+Install it using the gem install command.
+</p>
+<pre>
+   $ gem install --remote adwords4r
+</pre>
+<p>
+The following gem libraries are required:
+</p>
+<ul>
+<li>soap4r v1.5.8
+
+</li>
+<li>httpclient v2.1.2 or greater
+
+</li>
+</ul>
+<h2>2 - Using the client library:</h2>
+<p>
+It&#8217;s pretty easy to use. See <a
+href="http://docs.rubygems.org/read/chapter/3#page70">docs.rubygems.org/read/chapter/3#page70</a>
+for how to set the rubygem environment.
+</p>
+<pre>
+   $ export RUBYOPT=rubygems
+</pre>
+<p>
+or
+</p>
+<pre>
+   $ ruby -rubygems my_program_that_uses_gems
+</pre>
+<p>
+If you do not use the rubygems option, you need to add
+</p>
+<pre>
+   require 'rubygems'
+</pre>
+<p>
+at the beginning of your programs.
+</p>
+<p>
+Then:
+</p>
+<pre>
+   require 'adwords4r'
+
+   adwords = AdWords::API.new
+</pre>
+<p>
+creates a driver for the latest version of <a
+href="../classes/AdWords.html">AdWords</a> API using a credentials file in
+ENV[&#8216;HOME&#8217;]/adwords.properties There is an example credentials
+in the root adwords4r directory. You can also pass API a manually
+constructed AdWordsCredentials object like:
+</p>
+<pre>
+   adwords = AdWords::API.new(AdWords::AdWordsCredentials.new({
+     'developerToken' =&gt; 'DEVELOPER_TOKEN',
+     'applicationToken' =&gt; 'APPLICATION_TOKEN',
+     'useragent' =&gt; 'Ruby Sample',
+     'password' =&gt; 'PASSWORD',
+     'email' =&gt; 'user@domain.com'
+     'clientEmail' =&gt; 'user2@domain.com',
+   }))
+</pre>
+<p>
+Then, just specify which service you&#8217;re looking to use, and which
+version:
+</p>
+<pre>
+   account_srv = adwords.get_service(13, 'Account')
+</pre>
+<p>
+and you should now be able to just use the API methods in the object you
+were returned:
+</p>
+<pre>
+   client_accounts = account_srv.getClientAccounts
+</pre>
+<p>
+See the code in the examples directory for working examples you can build
+from.
+</p>
+<p>
+<b>Note</b>: if your setup requires you to send connections through a proxy
+server, please set the HTTP_PROXY environment variable. For example, from
+your code:
+</p>
+<pre>
+   $ ENV['HTTP_PROXY'] = 'http://myproxyserver:8080'
+</pre>
+<h3>2.1 - Using the Sandbox:</h3>
+<p>
+In order to use the v13 sandbox, you can add a credential named
+alternateUrl:
+</p>
+<pre>
+   alternateUrl=https://sandbox.google.com/api/adwords/v13/
+</pre>
+<p>
+As for v200902, the alternateUrl parameter is currently ignored, since only
+the sandbox is available at the moment. For this API version, all requests
+will be sent to the sandbox, using the &#8220;email&#8221; and
+&#8220;password&#8221; fields defined in the credentials for
+authentication, and clientEmail for specifying which client account to
+access. Developer and application tokens are ignored.
+</p>
+<p>
+This way, it&#8217;s possible to access both the v13 and v200902 sandboxes
+simultaneously. Since they share a common backend storage, it is possible
+for your application to choose between v13 and v200902 services at will,
+mixing and matching them.
+</p>
+<p>
+The multiple_versions.rb code sample shows you how to build an application
+using v13 and v200902 services simultaneously.
+</p>
+<h3>2.2 - Logging:</h3>
+<p>
+It is often useful to see a trace of the raw SOAP XML being sent and
+received. The quickest way of achieving this when debugging your
+application is by setting the ADWORDS4R_DEBUG environment variable to TRUE;
+e.g. in the bash shell:
+</p>
+<pre>
+   $ export ADWORDS4R_DEBUG=TRUE
+</pre>
+<p>
+or from your Ruby code:
+</p>
+<pre>
+   ENV['ADWORDS4R_DEBUG'] = 'TRUE'
+</pre>
+<p>
+This will output the SOAP XML to stderr, which will usually show up in your
+terminal window.
+</p>
+<p>
+There&#8217;s also the option of logging requests and XML to files. In
+order to enable this, you should use the write_to_file method of the
+loggers inside your
+</p>
+<pre>
+   AdWords::API object:
+   adwords = AdWords::API.new
+   adwords.unit_logger.log_to_file
+   adwords.xml_logger.log_to_file
+</pre>
+<p>
+The first logs the units spent and the requests made, whereas the second
+logs the full SOAP XML being sent and received over the wire. These will be
+written to the current directory by default, but you can specify a path as
+an optional parameter to log_to_file:
+</p>
+<pre>
+   adwords.unit_logger.log_to_file('/var/log/my_app')
+   adwords.xml_logger.log_to_file('/var/log/my_app')
+</pre>
+<p>
+The files will be named request_info and soap_xml, respectively.
+</p>
+<h1>Docs for Developers</h1>
+<pre>
+ $ rake getwsdl
+</pre>
+<p>
+to get the wsdl files
+</p>
+<pre>
+ $ rake generate
+</pre>
+<p>
+to regenerate the bindings if needed
+</p>
+<pre>
+ $ rake rdoc
+</pre>
+<p>
+to regenerate the project documentation if needed
+</p>
+<pre>
+ $ rake package
+</pre>
+<p>
+to package the gem and create a release
+</p>
+<pre>
+ $ rake test
+</pre>
+<p>
+to run unit tests on the library
+</p>
+<h1>Copyright/License Info</h1>
+<p>
+Copyright 2009, Google Inc. All Rights Reserved.
+</p>
+<p>
+Licensed under the Apache License, Version 2.0 (the &#8220;License&#8221;);
+you may not use this file except in compliance with the License. You may
+obtain a copy of the License at
+</p>
+<pre>
+    http://www.apache.org/licenses/LICENSE-2.0
+</pre>
+<p>
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &#8220;AS IS&#8221;
+BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing permissions
+and limitations under the License.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</div>
+    </div>
+  </body>
+</html>

@@ -60,8 +60,8 @@ def main()
     job.aggregationTypes = 'Keyword'
     job.name = report_name
     job.selectedColumns = %w{Campaign AdGroup Keyword KeywordTypeDisplay}
-    job.startDay = '2009-01-01'
-    job.endDay = '2009-01-31'
+    job.startDay = Time.new.year.to_s + '-01-01'
+    job.endDay = Time.new.year.to_s + '-01-31'
 
     report_srv = adwords.get_service(13, 'Report')
     # Validate the report definition to make sure it is valid.
@@ -81,7 +81,20 @@ def main()
       # report. This method is blocking for the calling thread.
       report_data = report_srv.downloadXmlReport(job_id)
       file_name = '%s.xml' % report_name  # Add path to write report elsewhere.
-      open(file_name, 'w') {|file| file.puts(report_data)}
+      open(file_name, 'w') { |file| file.puts(report_data) }
+      puts 'Report has been written to %s' % file_name
+    rescue AdWords::Error::Error => e
+      puts 'Error downloading report: %s' % e
+    rescue Errno::ENOENT, Errno::EACCES => e
+      puts 'Unable to write file: %s' % e
+    end
+
+    begin
+      # Invoke client-side method that handles waiting and downloading the
+      # report in CSV format. This method is blocking for the calling thread.
+      report_data = report_srv.downloadCsvReport(job_id)
+      file_name = '%s.csv' % report_name  # Add path to write report elsewhere.
+      open(file_name, 'w') { |file| file.puts(report_data) }
       puts 'Report has been written to %s' % file_name
     rescue AdWords::Error::Error => e
       puts 'Error downloading report: %s' % e

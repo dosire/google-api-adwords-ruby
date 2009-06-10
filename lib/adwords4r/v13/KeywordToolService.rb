@@ -3,15 +3,15 @@ require 'xsd/qname'
 module AdWords; module V13; module KeywordToolService
 
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -34,12 +34,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::KeywordToolService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::KeywordToolService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -56,12 +56,12 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordVariation
-#   advertiserCompetitionScale - SOAP::SOAPInt
-#   avgSearchVolume - SOAP::SOAPLong
-#   language - SOAP::SOAPString
-#   lastMonthSearchVolume - SOAP::SOAPLong
-#   text - SOAP::SOAPString
+# KeywordVariation
+# - advertiserCompetitionScale - SOAP::SOAPInt
+# - avgSearchVolume - SOAP::SOAPLong
+# - language - SOAP::SOAPString
+# - lastMonthSearchVolume - SOAP::SOAPLong
+# - text - SOAP::SOAPString
 class KeywordVariation
   attr_accessor :advertiserCompetitionScale
   attr_accessor :avgSearchVolume
@@ -78,9 +78,9 @@ class KeywordVariation
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordVariations
-#   additionalToConsider - AdWords::V13::KeywordToolService::KeywordVariation
-#   moreSpecific - AdWords::V13::KeywordToolService::KeywordVariation
+# KeywordVariations
+# - additionalToConsider - AdWords::V13::KeywordToolService::KeywordVariation
+# - moreSpecific - AdWords::V13::KeywordToolService::KeywordVariation
 class KeywordVariations
   attr_accessor :additionalToConsider
   attr_accessor :moreSpecific
@@ -91,10 +91,10 @@ class KeywordVariations
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}SeedKeyword
-#   negative - SOAP::SOAPBoolean
-#   text - SOAP::SOAPString
-#   type - AdWords::V13::KeywordToolService::KeywordType
+# SeedKeyword
+# - negative - SOAP::SOAPBoolean
+# - text - SOAP::SOAPString
+# - type - AdWords::V13::KeywordToolService::KeywordType
 class SeedKeyword
   attr_accessor :negative
   attr_accessor :text
@@ -107,12 +107,12 @@ class SeedKeyword
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}SiteKeyword
-#   advertiserCompetitionScale - SOAP::SOAPInt
-#   avgSearchVolume - SOAP::SOAPLong
-#   groupId - SOAP::SOAPInt
-#   lastMonthSearchVolume - SOAP::SOAPLong
-#   text - SOAP::SOAPString
+# SiteKeyword
+# - advertiserCompetitionScale - SOAP::SOAPInt
+# - avgSearchVolume - SOAP::SOAPLong
+# - groupId - SOAP::SOAPInt
+# - lastMonthSearchVolume - SOAP::SOAPLong
+# - text - SOAP::SOAPString
 class SiteKeyword
   attr_accessor :advertiserCompetitionScale
   attr_accessor :avgSearchVolume
@@ -129,9 +129,9 @@ class SiteKeyword
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}SiteKeywordGroups
-#   groups - SOAP::SOAPString
-#   keywords - AdWords::V13::KeywordToolService::SiteKeyword
+# SiteKeywordGroups
+# - groups - SOAP::SOAPString
+# - keywords - AdWords::V13::KeywordToolService::SiteKeyword
 class SiteKeywordGroups
   attr_accessor :groups
   attr_accessor :keywords
@@ -142,19 +142,19 @@ class SiteKeywordGroups
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordType
+# KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v13}getKeywordVariations
-#   seedKeywords - AdWords::V13::KeywordToolService::SeedKeyword
-#   useSynonyms - SOAP::SOAPBoolean
-#   languages - SOAP::SOAPString
-#   countries - SOAP::SOAPString
-class GetKeywordVariations
+# getKeywordVariations
+# - seedKeywords - AdWords::V13::KeywordToolService::SeedKeyword
+# - useSynonyms - SOAP::SOAPBoolean
+# - languages - SOAP::SOAPString
+# - countries - SOAP::SOAPString
+class GetKeywordVariations #:nodoc: all
   attr_accessor :seedKeywords
   attr_accessor :useSynonyms
   attr_accessor :languages
@@ -168,9 +168,9 @@ class GetKeywordVariations
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getKeywordVariationsResponse
-#   getKeywordVariationsReturn - AdWords::V13::KeywordToolService::KeywordVariations
-class GetKeywordVariationsResponse
+# getKeywordVariationsResponse
+# - getKeywordVariationsReturn - AdWords::V13::KeywordToolService::KeywordVariations
+class GetKeywordVariationsResponse #:nodoc: all
   attr_accessor :getKeywordVariationsReturn
 
   def initialize(getKeywordVariationsReturn = nil)
@@ -178,12 +178,12 @@ class GetKeywordVariationsResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getKeywordsFromSite
-#   url - SOAP::SOAPString
-#   includeLinkedPages - SOAP::SOAPBoolean
-#   languages - SOAP::SOAPString
-#   countries - SOAP::SOAPString
-class GetKeywordsFromSite
+# getKeywordsFromSite
+# - url - SOAP::SOAPString
+# - includeLinkedPages - SOAP::SOAPBoolean
+# - languages - SOAP::SOAPString
+# - countries - SOAP::SOAPString
+class GetKeywordsFromSite #:nodoc: all
   attr_accessor :url
   attr_accessor :includeLinkedPages
   attr_accessor :languages
@@ -197,9 +197,9 @@ class GetKeywordsFromSite
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getKeywordsFromSiteResponse
-#   getKeywordsFromSiteReturn - AdWords::V13::KeywordToolService::SiteKeywordGroups
-class GetKeywordsFromSiteResponse
+# getKeywordsFromSiteResponse
+# - getKeywordsFromSiteReturn - AdWords::V13::KeywordToolService::SiteKeywordGroups
+class GetKeywordsFromSiteResponse #:nodoc: all
   attr_accessor :getKeywordsFromSiteReturn
 
   def initialize(getKeywordsFromSiteReturn = nil)

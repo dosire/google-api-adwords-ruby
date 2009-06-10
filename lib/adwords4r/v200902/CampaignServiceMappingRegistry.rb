@@ -101,6 +101,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200902::CampaignService::DateError,
+    :schema_type => XSD::QName.new(NsV200902, "DateError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::CampaignService::DateErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200902::CampaignService::DateRange,
     :schema_type => XSD::QName.new(NsV200902, "DateRange"),
     :schema_element => [
@@ -127,6 +139,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200902::CampaignService::DistinctErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::CampaignService::EntityNotFound,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::CampaignService::EntityNotFoundReason", [0, 1]]
     ]
   )
 
@@ -239,6 +263,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200902::CampaignService::QuotaCheckError,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::CampaignService::QuotaCheckErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200902::CampaignService::QuotaError,
     :schema_type => XSD::QName.new(NsV200902, "QuotaError"),
     :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
@@ -291,9 +327,11 @@ module DefaultMappingRegistry
     :class => AdWords::V200902::CampaignService::SoapHeader,
     :schema_type => XSD::QName.new(NsV200902, "SoapHeader"),
     :schema_element => [
+      ["applicationToken", "SOAP::SOAPString", [0, 1]],
       ["authToken", "SOAP::SOAPString", [0, 1]],
       ["clientCustomerId", "SOAP::SOAPString", [0, 1]],
-      ["clientEmail", "SOAP::SOAPString", [0, 1]]
+      ["clientEmail", "SOAP::SOAPString", [0, 1]],
+      ["developerToken", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -303,7 +341,9 @@ module DefaultMappingRegistry
     :schema_element => [
       ["requestId", "SOAP::SOAPString", [0, 1]],
       ["operations", "SOAP::SOAPLong", [0, 1]],
-      ["responseTime", "SOAP::SOAPLong", [0, 1]]
+      ["responseTime", "SOAP::SOAPLong", [0, 1]],
+      ["callCost", "SOAP::SOAPLong", [0, 1]],
+      ["operationCount", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 
@@ -478,7 +518,6 @@ module DefaultMappingRegistry
       ["biddingStrategy", "AdWords::V200902::CampaignService::BiddingStrategy", [0, 1]],
       ["autoKeywordMatchingStatus", "AdWords::V200902::CampaignService::AutoKeywordMatchingStatus", [0, 1]],
       ["stats", "AdWords::V200902::CampaignService::Stats", [0, 1]],
-      ["campaignType", "AdWords::V200902::CampaignService::CampaignType", [0, 1]],
       ["adServingOptimizationStatus", "AdWords::V200902::CampaignService::AdServingOptimizationStatus", [0, 1]]
     ]
   )
@@ -610,18 +649,23 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200902::CampaignService::CampaignType,
-    :schema_type => XSD::QName.new(NsV200902, "CampaignType")
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200902::CampaignService::DatabaseErrorReason,
     :schema_type => XSD::QName.new(NsV200902, "DatabaseError.Reason")
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200902::CampaignService::DateErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "DateError.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200902::CampaignService::DistinctErrorReason,
     :schema_type => XSD::QName.new(NsV200902, "DistinctError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::CampaignService::EntityNotFoundReason,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound.Reason")
   )
 
   EncodedRegistry.register(
@@ -662,6 +706,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200902::CampaignService::PricingModel,
     :schema_type => XSD::QName.new(NsV200902, "PricingModel")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::CampaignService::QuotaCheckErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError.Reason")
   )
 
   EncodedRegistry.register(
@@ -797,6 +846,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200902::CampaignService::DateError,
+    :schema_type => XSD::QName.new(NsV200902, "DateError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::CampaignService::DateErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200902::CampaignService::DateRange,
     :schema_type => XSD::QName.new(NsV200902, "DateRange"),
     :schema_element => [
@@ -823,6 +884,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200902::CampaignService::DistinctErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::CampaignService::EntityNotFound,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::CampaignService::EntityNotFoundReason", [0, 1]]
     ]
   )
 
@@ -935,6 +1008,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200902::CampaignService::QuotaCheckError,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::CampaignService::QuotaCheckErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200902::CampaignService::QuotaError,
     :schema_type => XSD::QName.new(NsV200902, "QuotaError"),
     :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
@@ -987,9 +1072,11 @@ module DefaultMappingRegistry
     :class => AdWords::V200902::CampaignService::SoapHeader,
     :schema_type => XSD::QName.new(NsV200902, "SoapHeader"),
     :schema_element => [
+      ["applicationToken", "SOAP::SOAPString", [0, 1]],
       ["authToken", "SOAP::SOAPString", [0, 1]],
       ["clientCustomerId", "SOAP::SOAPString", [0, 1]],
-      ["clientEmail", "SOAP::SOAPString", [0, 1]]
+      ["clientEmail", "SOAP::SOAPString", [0, 1]],
+      ["developerToken", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -999,7 +1086,9 @@ module DefaultMappingRegistry
     :schema_element => [
       ["requestId", "SOAP::SOAPString", [0, 1]],
       ["operations", "SOAP::SOAPLong", [0, 1]],
-      ["responseTime", "SOAP::SOAPLong", [0, 1]]
+      ["responseTime", "SOAP::SOAPLong", [0, 1]],
+      ["callCost", "SOAP::SOAPLong", [0, 1]],
+      ["operationCount", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 
@@ -1174,7 +1263,6 @@ module DefaultMappingRegistry
       ["biddingStrategy", "AdWords::V200902::CampaignService::BiddingStrategy", [0, 1]],
       ["autoKeywordMatchingStatus", "AdWords::V200902::CampaignService::AutoKeywordMatchingStatus", [0, 1]],
       ["stats", "AdWords::V200902::CampaignService::Stats", [0, 1]],
-      ["campaignType", "AdWords::V200902::CampaignService::CampaignType", [0, 1]],
       ["adServingOptimizationStatus", "AdWords::V200902::CampaignService::AdServingOptimizationStatus", [0, 1]]
     ]
   )
@@ -1306,18 +1394,23 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200902::CampaignService::CampaignType,
-    :schema_type => XSD::QName.new(NsV200902, "CampaignType")
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200902::CampaignService::DatabaseErrorReason,
     :schema_type => XSD::QName.new(NsV200902, "DatabaseError.Reason")
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200902::CampaignService::DateErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "DateError.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200902::CampaignService::DistinctErrorReason,
     :schema_type => XSD::QName.new(NsV200902, "DistinctError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::CampaignService::EntityNotFoundReason,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound.Reason")
   )
 
   LiteralRegistry.register(
@@ -1358,6 +1451,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200902::CampaignService::PricingModel,
     :schema_type => XSD::QName.new(NsV200902, "PricingModel")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::CampaignService::QuotaCheckErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError.Reason")
   )
 
   LiteralRegistry.register(
@@ -1446,9 +1544,11 @@ module DefaultMappingRegistry
     :class => AdWords::V200902::CampaignService::SoapHeader,
     :schema_name => XSD::QName.new(NsV200902, "RequestHeader"),
     :schema_element => [
+      ["applicationToken", "SOAP::SOAPString", [0, 1]],
       ["authToken", "SOAP::SOAPString", [0, 1]],
       ["clientCustomerId", "SOAP::SOAPString", [0, 1]],
-      ["clientEmail", "SOAP::SOAPString", [0, 1]]
+      ["clientEmail", "SOAP::SOAPString", [0, 1]],
+      ["developerToken", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -1458,7 +1558,9 @@ module DefaultMappingRegistry
     :schema_element => [
       ["requestId", "SOAP::SOAPString", [0, 1]],
       ["operations", "SOAP::SOAPLong", [0, 1]],
-      ["responseTime", "SOAP::SOAPLong", [0, 1]]
+      ["responseTime", "SOAP::SOAPLong", [0, 1]],
+      ["callCost", "SOAP::SOAPLong", [0, 1]],
+      ["operationCount", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 end

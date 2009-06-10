@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::V13::AdService::AdServiceWrapper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::V13::AdService::AdServiceWrapper 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/adwords4r/v13/AdServiceWrapper_rb.html">lib/adwords4r/v13/AdServiceWrapper.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+Wrapper class for the v13 <a href="Ad.html">Ad</a> service. This class is
+automatically generated.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>A</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000072">addAds</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>C</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000074">checkAds</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>F</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000075">findBusinesses</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>G</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000076">getActiveAds</a>,</li>
+                
+                <li><a href="#M000077">getAd</a>,</li>
+                
+                <li><a href="#M000079">getAdStats</a>,</li>
+                
+                <li><a href="#M000081">getAllAds</a>,</li>
+                
+                <li><a href="#M000084">getMyBusinesses</a>,</li>
+                
+                <li><a href="#M000086">getMyVideos</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000071">new</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000087">updateAds</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>api</td>
+            <td class='attr-desc'><p>
+Holds the <a href="../../API.html">AdWords::API</a> object to which the
+wrapper belongs
+</p></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000071">
+                    
+                    <a name="M000071"></a><b>new</b>(driver, api)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Constructor for <a href="AdServiceWrapper.html">AdServiceWrapper</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>driver: SOAP::RPC::Driver object with the remote SOAP methods for this
+service
+
+</li>
+<li>api: the <a href="../../API.html">AdWords::API</a> object to which the
+wrapper belongs
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000071_source')" id="l_M000071_source">show</a>
+                        
+                    </p>
+                    <div id="M000071_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 25</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
+          <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
+          <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000072">
+                    
+                    <a name="M000072"></a><b>addAds</b>(ads)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#addAds">addAds</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#addAds">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>ads: SOAP::SOAPArray of <a href="Ad.html">AdWords::V13::AdService::Ad</a>
+
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li>addAdsReturn: SOAP::SOAPArray of <a
+href="Ad.html">AdWords::V13::AdService::Ad</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000072_source')" id="l_M000072_source">show</a>
+                        
+                    </p>
+                    <div id="M000072_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 42</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">addAds</span>(<span class="ruby-identifier">ads</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'ads'</span>,
+                <span class="ruby-identifier">ads</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">AddAds</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ads</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">addAds</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;addAds Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000074">
+                    
+                    <a name="M000074"></a><b>checkAds</b>(ads, languageTarget, geoTarget)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#checkAds">checkAds</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#checkAds">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>ads: SOAP::SOAPArray of <a href="Ad.html">AdWords::V13::AdService::Ad</a>
+
+</li>
+<li>languageTarget: <a
+href="LanguageTarget.html">AdWords::V13::AdService::LanguageTarget</a>
+
+</li>
+<li>geoTarget: <a href="GeoTarget.html">AdWords::V13::AdService::GeoTarget</a>
+
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li>checkAdsReturn: SOAP::SOAPArray of <a
+href="ApiError.html">AdWords::V13::AdService::ApiError</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000074_source')" id="l_M000074_source">show</a>
+                        
+                    </p>
+                    <div id="M000074_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 69</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkAds</span>(<span class="ruby-identifier">ads</span>, <span class="ruby-identifier">languageTarget</span>, <span class="ruby-identifier">geoTarget</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'ads'</span>,
+                <span class="ruby-identifier">ads</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'languageTarget'</span>,
+                <span class="ruby-identifier">languageTarget</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">LanguageTarget</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'geoTarget'</span>,
+                <span class="ruby-identifier">geoTarget</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">GeoTarget</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">CheckAds</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ads</span>, <span class="ruby-identifier">languageTarget</span>, <span class="ruby-identifier">geoTarget</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">checkAds</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;checkAds Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000075">
+                    
+                    <a name="M000075"></a><b>findBusinesses</b>(name, address, countryCode)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#findBusinesses">findBusinesses</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#findBusinesses">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>name: SOAP::SOAPString
+
+</li>
+<li>address: SOAP::SOAPString
+
+</li>
+<li>countryCode: SOAP::SOAPString
+
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li>findBusinessesReturn: SOAP::SOAPArray of <a
+href="Business.html">AdWords::V13::AdService::Business</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000075_source')" id="l_M000075_source">show</a>
+                        
+                    </p>
+                    <div id="M000075_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 100</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">findBusinesses</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">address</span>, <span class="ruby-identifier">countryCode</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'name'</span>,
+                <span class="ruby-identifier">name</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPString</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'address'</span>,
+                <span class="ruby-identifier">address</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPString</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'countryCode'</span>,
+                <span class="ruby-identifier">countryCode</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPString</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">FindBusinesses</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">address</span>, <span class="ruby-identifier">countryCode</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">findBusinesses</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;findBusinesses Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000076">
+                    
+                    <a name="M000076"></a><b>getActiveAds</b>(adGroupIds)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getActiveAds">getActiveAds</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getActiveAds">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>adGroupIds: SOAP::SOAPArray of SOAP::SOAPLong
+
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li>getActiveAdsReturn: SOAP::SOAPArray of <a
+href="Ad.html">AdWords::V13::AdService::Ad</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000076_source')" id="l_M000076_source">show</a>
+                        
+                    </p>
+                    <div id="M000076_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 129</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getActiveAds</span>(<span class="ruby-identifier">adGroupIds</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupIds'</span>,
+                <span class="ruby-identifier">adGroupIds</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetActiveAds</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">adGroupIds</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getActiveAds</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;getActiveAds Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000077">
+                    
+                    <a name="M000077"></a><b>getAd</b>(adGroupId, adId)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getAd">getAd</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getAd">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>adGroupId: SOAP::SOAPLong
+
+</li>
+<li>adId: SOAP::SOAPLong
+
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li>getAdReturn: <a href="Ad.html">AdWords::V13::AdService::Ad</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000077_source')" id="l_M000077_source">show</a>
+                        
+                    </p>
+                    <div id="M000077_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 155</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAd</span>(<span class="ruby-identifier">adGroupId</span>, <span class="ruby-identifier">adId</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupId'</span>,
+                <span class="ruby-identifier">adGroupId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adId'</span>,
+                <span class="ruby-identifier">adId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetAd</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">adGroupId</span>, <span class="ruby-identifier">adId</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getAd</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;getAd Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000079">
+                    
+                    <a name="M000079"></a><b>getAdStats</b>(adGroupId, adIds, startDay, endDay)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getAdStats">getAdStats</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getAdStats">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>adGroupId: SOAP::SOAPLong
+
+</li>
+<li>adIds: SOAP::SOAPArray of SOAP::SOAPLong
+
+</li>
+<li>startDay: SOAP::SOAPDate
+
+</li>
+<li>endDay: SOAP::SOAPDate
+
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li>getAdStatsReturn: SOAP::SOAPArray of <a
+href="StatsRecord.html">AdWords::V13::AdService::StatsRecord</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000079_source')" id="l_M000079_source">show</a>
+                        
+                    </p>
+                    <div id="M000079_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 185</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAdStats</span>(<span class="ruby-identifier">adGroupId</span>, <span class="ruby-identifier">adIds</span>, <span class="ruby-identifier">startDay</span>, <span class="ruby-identifier">endDay</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupId'</span>,
+                <span class="ruby-identifier">adGroupId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adIds'</span>,
+                <span class="ruby-identifier">adIds</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'startDay'</span>,
+                <span class="ruby-identifier">startDay</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPDate</span>)
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'endDay'</span>,
+                <span class="ruby-identifier">endDay</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPDate</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetAdStats</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">adGroupId</span>, <span class="ruby-identifier">adIds</span>, <span class="ruby-identifier">startDay</span>, <span class="ruby-identifier">endDay</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getAdStats</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;getAdStats Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000081">
+                    
+                    <a name="M000081"></a><b>getAllAds</b>(adGroupIds)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getAllAds">getAllAds</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getAllAds">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>adGroupIds: SOAP::SOAPArray of SOAP::SOAPLong
+
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li>getAllAdsReturn: SOAP::SOAPArray of <a
+href="Ad.html">AdWords::V13::AdService::Ad</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000081_source')" id="l_M000081_source">show</a>
+                        
+                    </p>
+                    <div id="M000081_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 216</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAllAds</span>(<span class="ruby-identifier">adGroupIds</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupIds'</span>,
+                <span class="ruby-identifier">adGroupIds</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetAllAds</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">adGroupIds</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getAllAds</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;getAllAds Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000084">
+                    
+                    <a name="M000084"></a><b>getMyBusinesses</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getMyBusinesses">getMyBusinesses</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getMyBusinesses">the
+online documentation for this method</a>.
+</p>
+<p>
+Returns:
+</p>
+<ul>
+<li>getMyBusinessesReturn: SOAP::SOAPArray of <a
+href="Business.html">AdWords::V13::AdService::Business</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000084_source')" id="l_M000084_source">show</a>
+                        
+                    </p>
+                    <div id="M000084_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 238</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getMyBusinesses</span>()
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetMyBusinesses</span>.<span class="ruby-identifier">new</span>()
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getMyBusinesses</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;getMyBusinesses Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000086">
+                    
+                    <a name="M000086"></a><b>getMyVideos</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getMyVideos">getMyVideos</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#getMyVideos">the
+online documentation for this method</a>.
+</p>
+<p>
+Returns:
+</p>
+<ul>
+<li>getMyVideosReturn: SOAP::SOAPArray of <a
+href="Video.html">AdWords::V13::AdService::Video</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000086_source')" id="l_M000086_source">show</a>
+                        
+                    </p>
+                    <div id="M000086_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 258</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getMyVideos</span>()
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetMyVideos</span>.<span class="ruby-identifier">new</span>()
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getMyVideos</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;getMyVideos Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000087">
+                    
+                    <a name="M000087"></a><b>updateAds</b>(ads)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#updateAds">updateAds</a>
+method of the <a href="Ad.html">Ad</a> service. Check <a
+href="http://code.google.com/apis/adwords/docs/developer/AdService.html#updateAds">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>ads: SOAP::SOAPArray of <a href="Ad.html">AdWords::V13::AdService::Ad</a>
+
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000087_source')" id="l_M000087_source">show</a>
+                        
+                    </p>
+                    <div id="M000087_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 278</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">updateAds</span>(<span class="ruby-identifier">ads</span>)
+          <span class="ruby-keyword kw">begin</span>
+            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'ads'</span>,
+                <span class="ruby-identifier">ads</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+            <span class="ruby-comment cmt"># Construct request object and make API call</span>
+            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span><span class="ruby-operator">::</span><span class="ruby-constant">UpdateAds</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ads</span>)
+            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">updateAds</span>(<span class="ruby-identifier">obj</span>)
+          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+                <span class="ruby-value str">&quot;updateAds Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

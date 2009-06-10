@@ -3,15 +3,15 @@ require 'xsd/qname'
 module AdWords; module V13; module SiteSuggestionService
 
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -34,12 +34,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::SiteSuggestionService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::SiteSuggestionService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -56,14 +56,14 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}DemographicsTarget
-#   childrenTarget - AdWords::V13::SiteSuggestionService::ChildrenTarget
-#   ethnicityTarget - AdWords::V13::SiteSuggestionService::EthnicityTarget
-#   genderTarget - AdWords::V13::SiteSuggestionService::GenderTarget
-#   maxAgeRange - AdWords::V13::SiteSuggestionService::AgeRange
-#   maxHouseholdIncomeRange - AdWords::V13::SiteSuggestionService::HouseholdIncomeRange
-#   minAgeRange - AdWords::V13::SiteSuggestionService::AgeRange
-#   minHouseholdIncomeRange - AdWords::V13::SiteSuggestionService::HouseholdIncomeRange
+# DemographicsTarget
+# - childrenTarget - AdWords::V13::SiteSuggestionService::ChildrenTarget
+# - ethnicityTarget - AdWords::V13::SiteSuggestionService::EthnicityTarget
+# - genderTarget - AdWords::V13::SiteSuggestionService::GenderTarget
+# - maxAgeRange - AdWords::V13::SiteSuggestionService::AgeRange
+# - maxHouseholdIncomeRange - AdWords::V13::SiteSuggestionService::HouseholdIncomeRange
+# - minAgeRange - AdWords::V13::SiteSuggestionService::AgeRange
+# - minHouseholdIncomeRange - AdWords::V13::SiteSuggestionService::HouseholdIncomeRange
 class DemographicsTarget
   attr_accessor :childrenTarget
   attr_accessor :ethnicityTarget
@@ -84,11 +84,11 @@ class DemographicsTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}LanguageGeoTargeting
-#   countries - SOAP::SOAPString
-#   languages - SOAP::SOAPString
-#   metros - SOAP::SOAPString
-#   regions - SOAP::SOAPString
+# LanguageGeoTargeting
+# - countries - SOAP::SOAPString
+# - languages - SOAP::SOAPString
+# - metros - SOAP::SOAPString
+# - regions - SOAP::SOAPString
 class LanguageGeoTargeting
   attr_accessor :countries
   attr_accessor :languages
@@ -103,12 +103,12 @@ class LanguageGeoTargeting
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}SiteSuggestion
-#   acceptsImageAds - SOAP::SOAPBoolean
-#   acceptsTextAds - SOAP::SOAPBoolean
-#   acceptsVideoAds - SOAP::SOAPBoolean
-#   pageViews - SOAP::SOAPInt
-#   url - SOAP::SOAPString
+# SiteSuggestion
+# - acceptsImageAds - SOAP::SOAPBoolean
+# - acceptsTextAds - SOAP::SOAPBoolean
+# - acceptsVideoAds - SOAP::SOAPBoolean
+# - pageViews - SOAP::SOAPInt
+# - url - SOAP::SOAPString
 class SiteSuggestion
   attr_accessor :acceptsImageAds
   attr_accessor :acceptsTextAds
@@ -125,7 +125,7 @@ class SiteSuggestion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}AgeRange
+# AgeRange
 class AgeRange < ::String
   Range0To17 = AgeRange.new("Range0To17")
   Range18To24 = AgeRange.new("Range18To24")
@@ -136,14 +136,14 @@ class AgeRange < ::String
   Range65Plus = AgeRange.new("Range65Plus")
 end
 
-# {https://adwords.google.com/api/adwords/v13}ChildrenTarget
+# ChildrenTarget
 class ChildrenTarget < ::String
   HouseholdsWithChildrenOnly = ChildrenTarget.new("HouseholdsWithChildrenOnly")
   HouseholdsWithoutChildrenOnly = ChildrenTarget.new("HouseholdsWithoutChildrenOnly")
   NoPreference = ChildrenTarget.new("NoPreference")
 end
 
-# {https://adwords.google.com/api/adwords/v13}EthnicityTarget
+# EthnicityTarget
 class EthnicityTarget < ::String
   AfricanAmericanOnly = EthnicityTarget.new("AfricanAmericanOnly")
   AsianOnly = EthnicityTarget.new("AsianOnly")
@@ -152,14 +152,14 @@ class EthnicityTarget < ::String
   NoPreference = EthnicityTarget.new("NoPreference")
 end
 
-# {https://adwords.google.com/api/adwords/v13}GenderTarget
+# GenderTarget
 class GenderTarget < ::String
   FemaleOnly = GenderTarget.new("FemaleOnly")
   MaleOnly = GenderTarget.new("MaleOnly")
   NoPreference = GenderTarget.new("NoPreference")
 end
 
-# {https://adwords.google.com/api/adwords/v13}HouseholdIncomeRange
+# HouseholdIncomeRange
 class HouseholdIncomeRange < ::String
   Range0To14999 = HouseholdIncomeRange.new("Range0To14999")
   Range100000PLUS = HouseholdIncomeRange.new("Range100000PLUS")
@@ -170,10 +170,10 @@ class HouseholdIncomeRange < ::String
   Range75000To99999 = HouseholdIncomeRange.new("Range75000To99999")
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByCategoryName
-#   categoryName - SOAP::SOAPString
-#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
-class GetSitesByCategoryName
+# getSitesByCategoryName
+# - categoryName - SOAP::SOAPString
+# - targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
+class GetSitesByCategoryName #:nodoc: all
   attr_accessor :categoryName
   attr_accessor :targeting
 
@@ -183,14 +183,14 @@ class GetSitesByCategoryName
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByCategoryNameResponse
-class GetSitesByCategoryNameResponse < ::Array
+# getSitesByCategoryNameResponse
+class GetSitesByCategoryNameResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByDemographics
-#   demo - AdWords::V13::SiteSuggestionService::DemographicsTarget
-#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
-class GetSitesByDemographics
+# getSitesByDemographics
+# - demo - AdWords::V13::SiteSuggestionService::DemographicsTarget
+# - targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
+class GetSitesByDemographics #:nodoc: all
   attr_accessor :demo
   attr_accessor :targeting
 
@@ -200,14 +200,14 @@ class GetSitesByDemographics
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByDemographicsResponse
-class GetSitesByDemographicsResponse < ::Array
+# getSitesByDemographicsResponse
+class GetSitesByDemographicsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByTopics
-#   topics - SOAP::SOAPString
-#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
-class GetSitesByTopics
+# getSitesByTopics
+# - topics - SOAP::SOAPString
+# - targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
+class GetSitesByTopics #:nodoc: all
   attr_accessor :topics
   attr_accessor :targeting
 
@@ -217,14 +217,14 @@ class GetSitesByTopics
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByTopicsResponse
-class GetSitesByTopicsResponse < ::Array
+# getSitesByTopicsResponse
+class GetSitesByTopicsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByUrls
-#   urls - SOAP::SOAPString
-#   targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
-class GetSitesByUrls
+# getSitesByUrls
+# - urls - SOAP::SOAPString
+# - targeting - AdWords::V13::SiteSuggestionService::LanguageGeoTargeting
+class GetSitesByUrls #:nodoc: all
   attr_accessor :urls
   attr_accessor :targeting
 
@@ -234,8 +234,8 @@ class GetSitesByUrls
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getSitesByUrlsResponse
-class GetSitesByUrlsResponse < ::Array
+# getSitesByUrlsResponse
+class GetSitesByUrlsResponse < ::Array #:nodoc: all
 end
 
 

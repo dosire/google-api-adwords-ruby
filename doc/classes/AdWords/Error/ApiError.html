@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::Error::ApiError</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::Error::ApiError 
+            
+                <span class="parent">&lt; 
+                    
+                    Error
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/adwords4r_rb.html">lib/adwords4r.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+Raised if a call returns with a SOAP error, gives you easy access to
+adwords error fields
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000017">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>soap_faultcode</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>soap_faultstring</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>top_code</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>internal</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>message</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>code</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>detail</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>field</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>index</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>isExemptable</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>textIndex</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>textLength</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>trigger</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>trigger_ex</td>
+            <td class='attr-desc'><p>
+The *_ex attributes have been added to correct deficiencies with the
+initial implementation. They should expose more useful information (i.e.
+text of errors instead of a SOAP element) and proper mapping of a
+fault&#8217;s trigger and code. The old attributes are left behind for
+backward compatibility; hopefully this isn&#8217;t too confusing!
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>soap_faultcode_ex</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>soap_faultstring_ex</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>code_ex</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000017">
+                    
+                    <a name="M000017"></a><b>new</b>(soap_fault)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Constructor for <a href="ApiError.html">ApiError</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>soap_fault: SOAP fault returned by the service.
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show</a>
+                        
+                    </p>
+                    <div id="M000017_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 251</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">soap_fault</span>)
+        <span class="ruby-ivar">@soap_faultcode</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">faultcode</span> }
+        <span class="ruby-ivar">@soap_faultcode_ex</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">faultcode</span>.<span class="ruby-identifier">text</span> }
+        <span class="ruby-ivar">@soap_faultstring</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">faultstring</span> }
+        <span class="ruby-ivar">@soap_faultstring_ex</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">text</span> }
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">detail</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">detail</span>.<span class="ruby-identifier">fault</span> }
+          <span class="ruby-identifier">fault</span> = <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">detail</span>.<span class="ruby-identifier">fault</span>
+          <span class="ruby-ivar">@top_code</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">code</span> }
+          <span class="ruby-ivar">@internal</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">internal</span> }
+          <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">message</span> }
+          <span class="ruby-ivar">@trigger_ex</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">trigger</span> }
+          <span class="ruby-ivar">@code_ex</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">code</span> }
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">errors</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> }
+            <span class="ruby-identifier">error</span> = <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">first</span>
+            <span class="ruby-ivar">@code</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">code</span> }
+            <span class="ruby-ivar">@detail</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">detail</span> }
+            <span class="ruby-ivar">@field</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">field</span> }
+            <span class="ruby-ivar">@index</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">index</span> }
+            <span class="ruby-ivar">@isExemptable</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">isExemptable</span> }
+            <span class="ruby-ivar">@textIndex</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">textIndex</span> }
+            <span class="ruby-ivar">@textLength</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">textLength</span> }
+            <span class="ruby-ivar">@trigger</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">error</span>.<span class="ruby-identifier">trigger</span> }
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

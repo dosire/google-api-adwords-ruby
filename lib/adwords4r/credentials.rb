@@ -24,13 +24,18 @@ module AdWords
   # Handles the headers used in the v200902 sandbox requests
   class Sandbox200902HeaderHandler < SOAP::Header::SimpleHandler
 
-    # Receives an AdWordsCredentials object as parent
+    # Constructor for Sandbox200902HeaderHandler.
+    #
+    # Args:
+    # - parent: AdWordsCredentials object containing the login credentials.
+    #
     def initialize(parent)
       namespace = 'https://adwords.google.com/api/adwords/cm/v200902'
       super(XSD::QName.new(namespace, 'RequestHeader'))
       @parent = parent
     end
 
+    # Handles callback.
     def on_simple_outbound
       return { :authToken => @parent.auth_token,
                :clientEmail => @parent.credentials['clientEmail'] }
@@ -43,46 +48,77 @@ module AdWords
     attr_reader :tag
     attr_writer :value
 
-    # Receives a tag name (email, password, etc.) and a value to be sent in that
-    # tag for outgoing requests
+    # Constructor for Pre200902HeaderHandler.
+    #
+    # Args:
+    # - tag: XML tag name to be handled (email, password, etc.)
+    # - value: value to be sent inside tag on outgoing requests
+    #
     def initialize(tag, value)
       super(XSD::QName.new(nil, tag))
       @tag = tag
       @value = value
     end
 
+    # Handles callback.
     def on_simple_outbound
       @value
     end
   end
 
-  # Generic credentials class, used for any API version
+  # Generic credentials class, used for any API version.
   class AdWordsCredentials
 
-    attr_reader :credentials, :alternateUrl
+    # Hash of credentials (credential key to value)
+    attr_reader :credentials
+    # The alternate URL being used to connect to the service (if any).
+    # <= v13 only.
+    attr_reader :alternateUrl
 
     public
 
-    def initialize(*parm)
+    # Constructor for AdWordsCredentials.
+    #
+    # Args:
+    # - credentials: Hash of credentials (credential key to value). E.g.:
+    #    {
+    #     'developerToken' => 'user@domain.com++USD',
+    #     'useragent' => 'Sample User Agent',
+    #     'password' => 'password',
+    #     'email' => 'user@domain.com',
+    #     'clientEmail' => 'client_1+user@domain.com',
+    #     'applicationToken' => 'IGNORED',
+    #     'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/'
+    #    }
+    #
+    def initialize(credentials=nil)
       @credentials = {}
       @alternateUrl = nil
       @auth_token = nil
       @handlers = []
-      if parm[0]
-        credentials = parm[0]
-      else
-        credentials = get_defaults()
-      end
+      credentials = get_defaults() if credentials.nil?
       credentials.each do |key, value|
         @credentials[key] = value if !(key =~ /^alternateUrl/)
       end
       @alternateUrl = credentials['alternateUrl']
+
+      # Fix potential problems with changing clientEmail, by forcing it to be
+      # created
+      @credentials['clientEmail'] = '' if @credentials['clientEmail'].nil?
+
       @credentials.each do |key, value|
         @handlers << Pre200902HeaderHandler.new(key, value)
       end
     end
 
-    # Return a list of handlers to be inserted into the driver's handler list
+    # Return a list of handlers to be inserted into the driver's handler list.
+    #
+    # Args:
+    # - version: API version being used. Must be an integer.
+    #
+    # Returns:
+    # The list of handlers (subclasses of SOAP::Header::SimpleHandler)
+    #
     def get_handlers(version)
       if (version <= 13)
         return @handlers
@@ -91,15 +127,25 @@ module AdWords
       end
     end
 
-    # Returns the authentication token used with >= v200902 requests
+    # Returns the authentication token used with >= v200902 requests.
+    # Generates it if there's no valid token already generated.
+    #
+    # Returns:
+    # The auth token (as a string).
+    #
     def auth_token
       generate_auth_token if @auth_token.nil?
       return @auth_token
     end
 
-    # Generates a new authentication token used with >= v200902 requests
-    # (should only be necessary for user code to invoke this if the first token
-    # expires)
+    # Generates a new authentication token used with >= v200902 requests.
+    # The generated token is stored and can later be accessed with auth_token.
+    # It should only be necessary for user code to invoke this if the first
+    # token expires.
+    #
+    # Returns:
+    # The auth token (as a string).
+    #
     def generate_auth_token
       email = @credentials['email']
       password = @credentials['password']
@@ -117,7 +163,12 @@ module AdWords
       return @auth_token
     end
 
-    # Changes one of the headers
+    # Change one of the authentication headers.
+    #
+    # Args:
+    # - header: the name for the header being changed.
+    # - value: the new value for the header.
+    #
     def set_header(header, value)
       # Invalidate previous auth token if necessary
       @auth_token = nil if header == 'email' or header == 'password'
@@ -135,18 +186,36 @@ module AdWords
       end
     end
 
-    private
-
-    def get_defaults
-      cred = Hash.new
-      IO.foreach("#{ENV['HOME']}/adwords.properties") do |line|
-        add_credential(cred, line.split('=')) if !(line =~ /^#/)
-      end
-      return cred
+    # Overloads the 'dup' method for AdWordsCredentials to correctly duplicate
+    # objects of this class.
+    #
+    # Returns:
+    # Duplicated AdWordsCredentials object
+    #
+    def dup
+      creds = @credentials.dup
+      creds['alternateUrl'] = @alternateUrl unless @alternateUrl.nil?
+      return AdWordsCredentials.new(creds)
     end
 
-    def add_credential(cred, arr)
-      cred[arr[0]] = arr[1].strip
+    private
+
+    # Get the default credentials.
+    # Loads them from the adwords.properties file in the directory specified by
+    # the HOME environment variable.
+    #
+    # Returns:
+    # Hash with the credentials (credential key to value).
+    #
+    def get_defaults
+      cred = Hash.new
+      IO.foreach(File.join(ENV['HOME'], 'adwords.properties')) do |line|
+        unless line =~ /^#/
+          split_line = line.split('=')
+          cred[split_line[0].strip] = split_line[1].strip
+        end
+      end
+      return cred
     end
   end
 end

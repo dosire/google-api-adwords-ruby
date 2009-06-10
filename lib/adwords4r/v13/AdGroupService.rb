@@ -3,17 +3,17 @@ require 'xsd/qname'
 module AdWords; module V13; module AdGroupService
 
 
-# {https://adwords.google.com/api/adwords/v13}AdGroup
-#   campaignId - SOAP::SOAPInt
-#   id - SOAP::SOAPLong
-#   keywordContentMaxCpc - SOAP::SOAPLong
-#   keywordMaxCpc - SOAP::SOAPLong
-#   maxCpa - SOAP::SOAPLong
-#   name - SOAP::SOAPString
-#   proxyKeywordMaxCpc - SOAP::SOAPLong
-#   siteMaxCpc - SOAP::SOAPLong
-#   siteMaxCpm - SOAP::SOAPLong
-#   status - AdWords::V13::AdGroupService::AdGroupStatus
+# AdGroup
+# - campaignId - SOAP::SOAPInt
+# - id - SOAP::SOAPLong
+# - keywordContentMaxCpc - SOAP::SOAPLong
+# - keywordMaxCpc - SOAP::SOAPLong
+# - maxCpa - SOAP::SOAPLong
+# - name - SOAP::SOAPString
+# - proxyKeywordMaxCpc - SOAP::SOAPLong
+# - siteMaxCpc - SOAP::SOAPLong
+# - siteMaxCpm - SOAP::SOAPLong
+# - status - AdWords::V13::AdGroupService::AdGroupStatus
 class AdGroup
   attr_accessor :campaignId
   attr_accessor :id
@@ -40,15 +40,15 @@ class AdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -71,12 +71,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::AdGroupService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::AdGroupService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -93,14 +93,14 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}StatsRecord
-#   averagePosition - SOAP::SOAPDouble
-#   clicks - SOAP::SOAPLong
-#   conversionRate - SOAP::SOAPDouble
-#   conversions - SOAP::SOAPLong
-#   cost - SOAP::SOAPLong
-#   id - SOAP::SOAPLong
-#   impressions - SOAP::SOAPLong
+# StatsRecord
+# - averagePosition - SOAP::SOAPDouble
+# - clicks - SOAP::SOAPLong
+# - conversionRate - SOAP::SOAPDouble
+# - conversions - SOAP::SOAPLong
+# - cost - SOAP::SOAPLong
+# - id - SOAP::SOAPLong
+# - impressions - SOAP::SOAPLong
 class StatsRecord
   attr_accessor :averagePosition
   attr_accessor :clicks
@@ -121,17 +121,17 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}AdGroupStatus
+# AdGroupStatus
 class AdGroupStatus < ::String
   Deleted = AdGroupStatus.new("Deleted")
   Enabled = AdGroupStatus.new("Enabled")
   Paused = AdGroupStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v13}addAdGroup
-#   campaignID - SOAP::SOAPInt
-#   newData - AdWords::V13::AdGroupService::AdGroup
-class AddAdGroup
+# addAdGroup
+# - campaignID - SOAP::SOAPInt
+# - newData - AdWords::V13::AdGroupService::AdGroup
+class AddAdGroup #:nodoc: all
   attr_accessor :campaignID
   attr_accessor :newData
 
@@ -141,10 +141,10 @@ class AddAdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}addAdGroupList
-#   campaignID - SOAP::SOAPInt
-#   newData - AdWords::V13::AdGroupService::AdGroup
-class AddAdGroupList
+# addAdGroupList
+# - campaignID - SOAP::SOAPInt
+# - newData - AdWords::V13::AdGroupService::AdGroup
+class AddAdGroupList #:nodoc: all
   attr_accessor :campaignID
   attr_accessor :newData
 
@@ -154,13 +154,13 @@ class AddAdGroupList
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}addAdGroupListResponse
-class AddAdGroupListResponse < ::Array
+# addAdGroupListResponse
+class AddAdGroupListResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}addAdGroupResponse
-#   addAdGroupReturn - AdWords::V13::AdGroupService::AdGroup
-class AddAdGroupResponse
+# addAdGroupResponse
+# - addAdGroupReturn - AdWords::V13::AdGroupService::AdGroup
+class AddAdGroupResponse #:nodoc: all
   attr_accessor :addAdGroupReturn
 
   def initialize(addAdGroupReturn = nil)
@@ -168,9 +168,9 @@ class AddAdGroupResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getActiveAdGroups
-#   campaignID - SOAP::SOAPInt
-class GetActiveAdGroups
+# getActiveAdGroups
+# - campaignID - SOAP::SOAPInt
+class GetActiveAdGroups #:nodoc: all
   attr_accessor :campaignID
 
   def initialize(campaignID = nil)
@@ -178,13 +178,13 @@ class GetActiveAdGroups
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getActiveAdGroupsResponse
-class GetActiveAdGroupsResponse < ::Array
+# getActiveAdGroupsResponse
+class GetActiveAdGroupsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAdGroup
-#   adGroupId - SOAP::SOAPLong
-class GetAdGroup
+# getAdGroup
+# - adGroupId - SOAP::SOAPLong
+class GetAdGroup #:nodoc: all
   attr_accessor :adGroupId
 
   def initialize(adGroupId = nil)
@@ -192,17 +192,17 @@ class GetAdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAdGroupList
-class GetAdGroupList < ::Array
+# getAdGroupList
+class GetAdGroupList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAdGroupListResponse
-class GetAdGroupListResponse < ::Array
+# getAdGroupListResponse
+class GetAdGroupListResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAdGroupResponse
-#   getAdGroupReturn - AdWords::V13::AdGroupService::AdGroup
-class GetAdGroupResponse
+# getAdGroupResponse
+# - getAdGroupReturn - AdWords::V13::AdGroupService::AdGroup
+class GetAdGroupResponse #:nodoc: all
   attr_accessor :getAdGroupReturn
 
   def initialize(getAdGroupReturn = nil)
@@ -210,12 +210,12 @@ class GetAdGroupResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAdGroupStats
-#   campaignId - SOAP::SOAPInt
-#   adGroupIds - SOAP::SOAPLong
-#   startDay - SOAP::SOAPDate
-#   endDay - SOAP::SOAPDate
-class GetAdGroupStats
+# getAdGroupStats
+# - campaignId - SOAP::SOAPInt
+# - adGroupIds - SOAP::SOAPLong
+# - startDay - SOAP::SOAPDate
+# - endDay - SOAP::SOAPDate
+class GetAdGroupStats #:nodoc: all
   attr_accessor :campaignId
   attr_accessor :adGroupIds
   attr_accessor :startDay
@@ -229,13 +229,13 @@ class GetAdGroupStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAdGroupStatsResponse
-class GetAdGroupStatsResponse < ::Array
+# getAdGroupStatsResponse
+class GetAdGroupStatsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllAdGroups
-#   campaignID - SOAP::SOAPInt
-class GetAllAdGroups
+# getAllAdGroups
+# - campaignID - SOAP::SOAPInt
+class GetAllAdGroups #:nodoc: all
   attr_accessor :campaignID
 
   def initialize(campaignID = nil)
@@ -243,13 +243,13 @@ class GetAllAdGroups
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllAdGroupsResponse
-class GetAllAdGroupsResponse < ::Array
+# getAllAdGroupsResponse
+class GetAllAdGroupsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateAdGroup
-#   changedData - AdWords::V13::AdGroupService::AdGroup
-class UpdateAdGroup
+# updateAdGroup
+# - changedData - AdWords::V13::AdGroupService::AdGroup
+class UpdateAdGroup #:nodoc: all
   attr_accessor :changedData
 
   def initialize(changedData = nil)
@@ -257,18 +257,18 @@ class UpdateAdGroup
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateAdGroupList
-class UpdateAdGroupList < ::Array
+# updateAdGroupList
+class UpdateAdGroupList < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateAdGroupListResponse
-class UpdateAdGroupListResponse
+# updateAdGroupListResponse
+class UpdateAdGroupListResponse #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateAdGroupResponse
-class UpdateAdGroupResponse
+# updateAdGroupResponse
+class UpdateAdGroupResponse #:nodoc: all
   def initialize
   end
 end

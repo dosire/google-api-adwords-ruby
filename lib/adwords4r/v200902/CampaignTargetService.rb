@@ -3,14 +3,14 @@ require 'xsd/qname'
 module AdWords; module V200902; module CampaignTargetService
 
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Address
-#   streetAddress - SOAP::SOAPString
-#   streetAddress2 - SOAP::SOAPString
-#   cityName - SOAP::SOAPString
-#   provinceCode - SOAP::SOAPString
-#   provinceName - SOAP::SOAPString
-#   postalCode - SOAP::SOAPString
-#   countryCode - SOAP::SOAPString
+# Address
+# - streetAddress - SOAP::SOAPString
+# - streetAddress2 - SOAP::SOAPString
+# - cityName - SOAP::SOAPString
+# - provinceCode - SOAP::SOAPString
+# - provinceName - SOAP::SOAPString
+# - postalCode - SOAP::SOAPString
+# - countryCode - SOAP::SOAPString
 class Address
   attr_accessor :streetAddress
   attr_accessor :streetAddress2
@@ -31,9 +31,9 @@ class Address
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}GeoPoint
-#   latitudeInMicroDegrees - SOAP::SOAPInt
-#   longitudeInMicroDegrees - SOAP::SOAPInt
+# GeoPoint
+# - latitudeInMicroDegrees - SOAP::SOAPInt
+# - longitudeInMicroDegrees - SOAP::SOAPInt
 class GeoPoint
   attr_accessor :latitudeInMicroDegrees
   attr_accessor :longitudeInMicroDegrees
@@ -44,47 +44,59 @@ class GeoPoint
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}SoapHeader
-#   authToken - SOAP::SOAPString
-#   clientCustomerId - SOAP::SOAPString
-#   clientEmail - SOAP::SOAPString
+# SoapHeader
+# - applicationToken - SOAP::SOAPString
+# - authToken - SOAP::SOAPString
+# - clientCustomerId - SOAP::SOAPString
+# - clientEmail - SOAP::SOAPString
+# - developerToken - SOAP::SOAPString
 class SoapHeader
+  attr_accessor :applicationToken
   attr_accessor :authToken
   attr_accessor :clientCustomerId
   attr_accessor :clientEmail
+  attr_accessor :developerToken
 
-  def initialize(authToken = nil, clientCustomerId = nil, clientEmail = nil)
+  def initialize(applicationToken = nil, authToken = nil, clientCustomerId = nil, clientEmail = nil, developerToken = nil)
+    @applicationToken = applicationToken
     @authToken = authToken
     @clientCustomerId = clientCustomerId
     @clientEmail = clientEmail
+    @developerToken = developerToken
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}SoapResponseHeader
-#   requestId - SOAP::SOAPString
-#   operations - SOAP::SOAPLong
-#   responseTime - SOAP::SOAPLong
+# SoapResponseHeader
+# - requestId - SOAP::SOAPString
+# - operations - SOAP::SOAPLong
+# - responseTime - SOAP::SOAPLong
+# - callCost - SOAP::SOAPLong
+# - operationCount - SOAP::SOAPLong
 class SoapResponseHeader
   attr_accessor :requestId
   attr_accessor :operations
   attr_accessor :responseTime
+  attr_accessor :callCost
+  attr_accessor :operationCount
 
-  def initialize(requestId = nil, operations = nil, responseTime = nil)
+  def initialize(requestId = nil, operations = nil, responseTime = nil, callCost = nil, operationCount = nil)
     @requestId = requestId
     @operations = operations
     @responseTime = responseTime
+    @callCost = callCost
+    @operationCount = operationCount
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}VoidReturnValue
+# VoidReturnValue
 class VoidReturnValue
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignId
-#   id - SOAP::SOAPLong
-#   campaignId_Type - SOAP::SOAPString
+# CampaignId
+# - id - SOAP::SOAPLong
+# - campaignId_Type - SOAP::SOAPString
 class CampaignId
   attr_accessor :id
   attr_accessor :campaignId_Type
@@ -95,13 +107,13 @@ class CampaignId
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignTargetSelector
+# CampaignTargetSelector
 class CampaignTargetSelector < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Target
+# Target
 # abstract
-#   target_Type - SOAP::SOAPString
+# - target_Type - SOAP::SOAPString
 class Target
   attr_accessor :target_Type
 
@@ -110,14 +122,14 @@ class Target
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AdScheduleTarget
-#   target_Type - SOAP::SOAPString
-#   dayOfWeek - AdWords::V200902::CampaignTargetService::DayOfWeek
-#   startHour - SOAP::SOAPInt
-#   startMinute - AdWords::V200902::CampaignTargetService::MinuteOfHour
-#   endHour - SOAP::SOAPInt
-#   endMinute - AdWords::V200902::CampaignTargetService::MinuteOfHour
-#   bidMultiplier - SOAP::SOAPDouble
+# AdScheduleTarget
+# - target_Type - SOAP::SOAPString
+# - dayOfWeek - AdWords::V200902::CampaignTargetService::DayOfWeek
+# - startHour - SOAP::SOAPInt
+# - startMinute - AdWords::V200902::CampaignTargetService::MinuteOfHour
+# - endHour - SOAP::SOAPInt
+# - endMinute - AdWords::V200902::CampaignTargetService::MinuteOfHour
+# - bidMultiplier - SOAP::SOAPDouble
 class AdScheduleTarget < Target
   attr_accessor :target_Type
   attr_accessor :dayOfWeek
@@ -138,9 +150,9 @@ class AdScheduleTarget < Target
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}LanguageTarget
-#   target_Type - SOAP::SOAPString
-#   languageCode - SOAP::SOAPString
+# LanguageTarget
+# - target_Type - SOAP::SOAPString
+# - languageCode - SOAP::SOAPString
 class LanguageTarget < Target
   attr_accessor :target_Type
   attr_accessor :languageCode
@@ -151,9 +163,9 @@ class LanguageTarget < Target
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NetworkTarget
-#   target_Type - SOAP::SOAPString
-#   networkCoverageType - AdWords::V200902::CampaignTargetService::NetworkCoverageType
+# NetworkTarget
+# - target_Type - SOAP::SOAPString
+# - networkCoverageType - AdWords::V200902::CampaignTargetService::NetworkCoverageType
 class NetworkTarget < Target
   attr_accessor :target_Type
   attr_accessor :networkCoverageType
@@ -164,9 +176,9 @@ class NetworkTarget < Target
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}PlatformTarget
-#   target_Type - SOAP::SOAPString
-#   platformType - AdWords::V200902::CampaignTargetService::PlatformType
+# PlatformTarget
+# - target_Type - SOAP::SOAPString
+# - platformType - AdWords::V200902::CampaignTargetService::PlatformType
 class PlatformTarget < Target
   attr_accessor :target_Type
   attr_accessor :platformType
@@ -177,10 +189,10 @@ class PlatformTarget < Target
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DemographicTarget
+# DemographicTarget
 # abstract
-#   target_Type - SOAP::SOAPString
-#   bidModifier - SOAP::SOAPInt
+# - target_Type - SOAP::SOAPString
+# - bidModifier - SOAP::SOAPInt
 class DemographicTarget < Target
   attr_accessor :target_Type
   attr_accessor :bidModifier
@@ -191,10 +203,10 @@ class DemographicTarget < Target
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AgeTarget
-#   target_Type - SOAP::SOAPString
-#   bidModifier - SOAP::SOAPInt
-#   age - AdWords::V200902::CampaignTargetService::AgeTargetAge
+# AgeTarget
+# - target_Type - SOAP::SOAPString
+# - bidModifier - SOAP::SOAPInt
+# - age - AdWords::V200902::CampaignTargetService::AgeTargetAge
 class AgeTarget < DemographicTarget
   attr_accessor :target_Type
   attr_accessor :bidModifier
@@ -207,10 +219,10 @@ class AgeTarget < DemographicTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}GenderTarget
-#   target_Type - SOAP::SOAPString
-#   bidModifier - SOAP::SOAPInt
-#   gender - AdWords::V200902::CampaignTargetService::GenderTargetGender
+# GenderTarget
+# - target_Type - SOAP::SOAPString
+# - bidModifier - SOAP::SOAPInt
+# - gender - AdWords::V200902::CampaignTargetService::GenderTargetGender
 class GenderTarget < DemographicTarget
   attr_accessor :target_Type
   attr_accessor :bidModifier
@@ -223,10 +235,10 @@ class GenderTarget < DemographicTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}GeoTarget
+# GeoTarget
 # abstract
-#   target_Type - SOAP::SOAPString
-#   excluded - SOAP::SOAPBoolean
+# - target_Type - SOAP::SOAPString
+# - excluded - SOAP::SOAPBoolean
 class GeoTarget < Target
   attr_accessor :target_Type
   attr_accessor :excluded
@@ -237,12 +249,12 @@ class GeoTarget < Target
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CityTarget
-#   target_Type - SOAP::SOAPString
-#   excluded - SOAP::SOAPBoolean
-#   cityName - SOAP::SOAPString
-#   provinceCode - SOAP::SOAPString
-#   countryCode - SOAP::SOAPString
+# CityTarget
+# - target_Type - SOAP::SOAPString
+# - excluded - SOAP::SOAPBoolean
+# - cityName - SOAP::SOAPString
+# - provinceCode - SOAP::SOAPString
+# - countryCode - SOAP::SOAPString
 class CityTarget < GeoTarget
   attr_accessor :target_Type
   attr_accessor :excluded
@@ -259,10 +271,10 @@ class CityTarget < GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CountryTarget
-#   target_Type - SOAP::SOAPString
-#   excluded - SOAP::SOAPBoolean
-#   countryCode - SOAP::SOAPString
+# CountryTarget
+# - target_Type - SOAP::SOAPString
+# - excluded - SOAP::SOAPBoolean
+# - countryCode - SOAP::SOAPString
 class CountryTarget < GeoTarget
   attr_accessor :target_Type
   attr_accessor :excluded
@@ -275,10 +287,10 @@ class CountryTarget < GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}MetroTarget
-#   target_Type - SOAP::SOAPString
-#   excluded - SOAP::SOAPBoolean
-#   metroCode - SOAP::SOAPString
+# MetroTarget
+# - target_Type - SOAP::SOAPString
+# - excluded - SOAP::SOAPBoolean
+# - metroCode - SOAP::SOAPString
 class MetroTarget < GeoTarget
   attr_accessor :target_Type
   attr_accessor :excluded
@@ -291,10 +303,10 @@ class MetroTarget < GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}PolygonTarget
-#   target_Type - SOAP::SOAPString
-#   excluded - SOAP::SOAPBoolean
-#   vertices - AdWords::V200902::CampaignTargetService::GeoPoint
+# PolygonTarget
+# - target_Type - SOAP::SOAPString
+# - excluded - SOAP::SOAPBoolean
+# - vertices - AdWords::V200902::CampaignTargetService::GeoPoint
 class PolygonTarget < GeoTarget
   attr_accessor :target_Type
   attr_accessor :excluded
@@ -307,10 +319,10 @@ class PolygonTarget < GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ProvinceTarget
-#   target_Type - SOAP::SOAPString
-#   excluded - SOAP::SOAPBoolean
-#   provinceCode - SOAP::SOAPString
+# ProvinceTarget
+# - target_Type - SOAP::SOAPString
+# - excluded - SOAP::SOAPBoolean
+# - provinceCode - SOAP::SOAPString
 class ProvinceTarget < GeoTarget
   attr_accessor :target_Type
   attr_accessor :excluded
@@ -323,14 +335,14 @@ class ProvinceTarget < GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ProximityTarget
-#   target_Type - SOAP::SOAPString
-#   excluded - SOAP::SOAPBoolean
-#   geoPoint - AdWords::V200902::CampaignTargetService::GeoPoint
-#   radiusDistanceUnits - AdWords::V200902::CampaignTargetService::ProximityTargetDistanceUnits
-#   radiusInUnits - SOAP::SOAPDouble
-#   address - AdWords::V200902::CampaignTargetService::Address
-#   allowServiceOfAddress - SOAP::SOAPBoolean
+# ProximityTarget
+# - target_Type - SOAP::SOAPString
+# - excluded - SOAP::SOAPBoolean
+# - geoPoint - AdWords::V200902::CampaignTargetService::GeoPoint
+# - radiusDistanceUnits - AdWords::V200902::CampaignTargetService::ProximityTargetDistanceUnits
+# - radiusInUnits - SOAP::SOAPDouble
+# - address - AdWords::V200902::CampaignTargetService::Address
+# - allowServiceOfAddress - SOAP::SOAPBoolean
 class ProximityTarget < GeoTarget
   attr_accessor :target_Type
   attr_accessor :excluded
@@ -351,11 +363,11 @@ class ProximityTarget < GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ApiError
+# ApiError
 # abstract
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
 class ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -368,11 +380,11 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AuthorizationError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::AuthorizationErrorReason
+# AuthorizationError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::AuthorizationErrorReason
 class AuthorizationError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -387,11 +399,11 @@ class AuthorizationError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}BiddingError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::BiddingErrorReason
+# BiddingError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::BiddingErrorReason
 class BiddingError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -406,11 +418,11 @@ class BiddingError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::CampaignErrorReason
+# CampaignError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::CampaignErrorReason
 class CampaignError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -425,11 +437,11 @@ class CampaignError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DatabaseError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::DatabaseErrorReason
+# DatabaseError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::DatabaseErrorReason
 class DatabaseError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -444,11 +456,11 @@ class DatabaseError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DistinctError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::DistinctErrorReason
+# DistinctError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::DistinctErrorReason
 class DistinctError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -463,11 +475,30 @@ class DistinctError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotEmptyError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::NotEmptyErrorReason
+# EntityNotFound
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::EntityNotFoundReason
+class EntityNotFound < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# NotEmptyError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::NotEmptyErrorReason
 class NotEmptyError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -482,11 +513,11 @@ class NotEmptyError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotWhitelistedError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::NotWhitelistedErrorReason
+# NotWhitelistedError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::NotWhitelistedErrorReason
 class NotWhitelistedError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -501,11 +532,11 @@ class NotWhitelistedError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NullError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::NullErrorReason
+# NullError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::NullErrorReason
 class NullError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -520,11 +551,11 @@ class NullError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}OperationAccessDenied
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::OperationAccessDeniedReason
+# OperationAccessDenied
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::OperationAccessDeniedReason
 class OperationAccessDenied < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -539,11 +570,11 @@ class OperationAccessDenied < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}OperatorError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::OperatorErrorReason
+# OperatorError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::OperatorErrorReason
 class OperatorError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -558,12 +589,31 @@ class OperatorError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}QuotaError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::QuotaErrorReason
-#   limit - SOAP::SOAPInt
+# QuotaCheckError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::QuotaCheckErrorReason
+class QuotaCheckError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# QuotaError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::QuotaErrorReason
+# - limit - SOAP::SOAPInt
 class QuotaError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -580,11 +630,11 @@ class QuotaError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RangeError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::RangeErrorReason
+# RangeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::RangeErrorReason
 class C_RangeError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -599,11 +649,11 @@ class C_RangeError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RegionCodeError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::RegionCodeErrorReason
+# RegionCodeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::RegionCodeErrorReason
 class RegionCodeError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -618,11 +668,11 @@ class RegionCodeError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RequiredError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::RequiredErrorReason
+# RequiredError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::RequiredErrorReason
 class RequiredError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -637,11 +687,11 @@ class RequiredError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}StringLengthError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::StringLengthErrorReason
+# StringLengthError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::StringLengthErrorReason
 class StringLengthError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -656,11 +706,11 @@ class StringLengthError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}TargetError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignTargetService::TargetErrorReason
+# TargetError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignTargetService::TargetErrorReason
 class TargetError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -675,9 +725,9 @@ class TargetError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ApplicationException
-#   message - SOAP::SOAPString
-#   applicationException_Type - SOAP::SOAPString
+# ApplicationException
+# - message - SOAP::SOAPString
+# - applicationException_Type - SOAP::SOAPString
 class ApplicationException
   attr_accessor :message
   attr_accessor :applicationException_Type
@@ -688,10 +738,10 @@ class ApplicationException
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ApiException
-#   message - SOAP::SOAPString
-#   applicationException_Type - SOAP::SOAPString
-#   errors - AdWords::V200902::CampaignTargetService::ApiError
+# ApiException
+# - message - SOAP::SOAPString
+# - applicationException_Type - SOAP::SOAPString
+# - errors - AdWords::V200902::CampaignTargetService::ApiError
 class ApiException < ApplicationException
   attr_accessor :message
   attr_accessor :applicationException_Type
@@ -704,10 +754,10 @@ class ApiException < ApplicationException
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}TargetList
+# TargetList
 # abstract
-#   campaignId - AdWords::V200902::CampaignTargetService::CampaignId
-#   targetList_Type - SOAP::SOAPString
+# - campaignId - AdWords::V200902::CampaignTargetService::CampaignId
+# - targetList_Type - SOAP::SOAPString
 class TargetList
   attr_accessor :campaignId
   attr_accessor :targetList_Type
@@ -718,10 +768,10 @@ class TargetList
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AdScheduleTargetList
-#   campaignId - AdWords::V200902::CampaignTargetService::CampaignId
-#   targetList_Type - SOAP::SOAPString
-#   targets - AdWords::V200902::CampaignTargetService::AdScheduleTarget
+# AdScheduleTargetList
+# - campaignId - AdWords::V200902::CampaignTargetService::CampaignId
+# - targetList_Type - SOAP::SOAPString
+# - targets - AdWords::V200902::CampaignTargetService::AdScheduleTarget
 class AdScheduleTargetList < TargetList
   attr_accessor :campaignId
   attr_accessor :targetList_Type
@@ -734,10 +784,10 @@ class AdScheduleTargetList < TargetList
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DemographicTargetList
-#   campaignId - AdWords::V200902::CampaignTargetService::CampaignId
-#   targetList_Type - SOAP::SOAPString
-#   targets - AdWords::V200902::CampaignTargetService::DemographicTarget
+# DemographicTargetList
+# - campaignId - AdWords::V200902::CampaignTargetService::CampaignId
+# - targetList_Type - SOAP::SOAPString
+# - targets - AdWords::V200902::CampaignTargetService::DemographicTarget
 class DemographicTargetList < TargetList
   attr_accessor :campaignId
   attr_accessor :targetList_Type
@@ -750,10 +800,10 @@ class DemographicTargetList < TargetList
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}GeoTargetList
-#   campaignId - AdWords::V200902::CampaignTargetService::CampaignId
-#   targetList_Type - SOAP::SOAPString
-#   targets - AdWords::V200902::CampaignTargetService::GeoTarget
+# GeoTargetList
+# - campaignId - AdWords::V200902::CampaignTargetService::CampaignId
+# - targetList_Type - SOAP::SOAPString
+# - targets - AdWords::V200902::CampaignTargetService::GeoTarget
 class GeoTargetList < TargetList
   attr_accessor :campaignId
   attr_accessor :targetList_Type
@@ -766,10 +816,10 @@ class GeoTargetList < TargetList
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}LanguageTargetList
-#   campaignId - AdWords::V200902::CampaignTargetService::CampaignId
-#   targetList_Type - SOAP::SOAPString
-#   targets - AdWords::V200902::CampaignTargetService::LanguageTarget
+# LanguageTargetList
+# - campaignId - AdWords::V200902::CampaignTargetService::CampaignId
+# - targetList_Type - SOAP::SOAPString
+# - targets - AdWords::V200902::CampaignTargetService::LanguageTarget
 class LanguageTargetList < TargetList
   attr_accessor :campaignId
   attr_accessor :targetList_Type
@@ -782,10 +832,10 @@ class LanguageTargetList < TargetList
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NetworkTargetList
-#   campaignId - AdWords::V200902::CampaignTargetService::CampaignId
-#   targetList_Type - SOAP::SOAPString
-#   targets - AdWords::V200902::CampaignTargetService::NetworkTarget
+# NetworkTargetList
+# - campaignId - AdWords::V200902::CampaignTargetService::CampaignId
+# - targetList_Type - SOAP::SOAPString
+# - targets - AdWords::V200902::CampaignTargetService::NetworkTarget
 class NetworkTargetList < TargetList
   attr_accessor :campaignId
   attr_accessor :targetList_Type
@@ -798,10 +848,10 @@ class NetworkTargetList < TargetList
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}PlatformTargetList
-#   campaignId - AdWords::V200902::CampaignTargetService::CampaignId
-#   targetList_Type - SOAP::SOAPString
-#   targets - AdWords::V200902::CampaignTargetService::PlatformTarget
+# PlatformTargetList
+# - campaignId - AdWords::V200902::CampaignTargetService::CampaignId
+# - targetList_Type - SOAP::SOAPString
+# - targets - AdWords::V200902::CampaignTargetService::PlatformTarget
 class PlatformTargetList < TargetList
   attr_accessor :campaignId
   attr_accessor :targetList_Type
@@ -814,10 +864,10 @@ class PlatformTargetList < TargetList
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Operation
+# Operation
 # abstract
-#   operator - AdWords::V200902::CampaignTargetService::Operator
-#   operation_Type - SOAP::SOAPString
+# - operator - AdWords::V200902::CampaignTargetService::Operator
+# - operation_Type - SOAP::SOAPString
 class Operation
   attr_accessor :operator
   attr_accessor :operation_Type
@@ -828,10 +878,10 @@ class Operation
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignTargetOperation
-#   operator - AdWords::V200902::CampaignTargetService::Operator
-#   operation_Type - SOAP::SOAPString
-#   operand - AdWords::V200902::CampaignTargetService::TargetList
+# CampaignTargetOperation
+# - operator - AdWords::V200902::CampaignTargetService::Operator
+# - operation_Type - SOAP::SOAPString
+# - operand - AdWords::V200902::CampaignTargetService::TargetList
 class CampaignTargetOperation < Operation
   attr_accessor :operator
   attr_accessor :operation_Type
@@ -844,7 +894,7 @@ class CampaignTargetOperation < Operation
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AgeTarget.Age
+# AgeTarget.Age
 class AgeTargetAge < ::String
   AGE_0_17 = AgeTargetAge.new("AGE_0_17")
   AGE_18_24 = AgeTargetAge.new("AGE_18_24")
@@ -855,15 +905,16 @@ class AgeTargetAge < ::String
   AGE_65_PLUS = AgeTargetAge.new("AGE_65_PLUS")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AuthorizationError.Reason
+# AuthorizationError.Reason
 class AuthorizationErrorReason < ::String
   EFFECTIVE_USER_PERMISSION_DENIED = AuthorizationErrorReason.new("EFFECTIVE_USER_PERMISSION_DENIED")
   NO_ADWORDS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_ADWORDS_ACCOUNT_FOR_CUSTOMER")
+  NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER")
   UNABLE_TO_AUTHORIZE = AuthorizationErrorReason.new("UNABLE_TO_AUTHORIZE")
   USER_PERMISSION_DENIED = AuthorizationErrorReason.new("USER_PERMISSION_DENIED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}BiddingError.Reason
+# BiddingError.Reason
 class BiddingErrorReason < ::String
   ADGROUPS_DO_NOT_MATCH_CONSTRAINT = BiddingErrorReason.new("ADGROUPS_DO_NOT_MATCH_CONSTRAINT")
   AUCTION_STRATEGY_INCOMPATIBLE_WITH_PROXY_BIDDER = BiddingErrorReason.new("AUCTION_STRATEGY_INCOMPATIBLE_WITH_PROXY_BIDDER")
@@ -873,12 +924,18 @@ class BiddingErrorReason < ::String
   BID_EVENT_MISMATCH = BiddingErrorReason.new("BID_EVENT_MISMATCH")
   BID_EVENT_REQUIRED = BiddingErrorReason.new("BID_EVENT_REQUIRED")
   BID_INCOMPATIBLE_WITH_ADGROUP = BiddingErrorReason.new("BID_INCOMPATIBLE_WITH_ADGROUP")
+  BID_TOO_BIG = BiddingErrorReason.new("BID_TOO_BIG")
+  BID_TOO_HIGH_FOR_DAILY_BUDGET = BiddingErrorReason.new("BID_TOO_HIGH_FOR_DAILY_BUDGET")
+  BID_TOO_HIGH_FOR_MONTHLY_BUDGET = BiddingErrorReason.new("BID_TOO_HIGH_FOR_MONTHLY_BUDGET")
+  BID_TOO_MANY_FRACTIONAL_DIGITS = BiddingErrorReason.new("BID_TOO_MANY_FRACTIONAL_DIGITS")
+  BID_TOO_SMALL = BiddingErrorReason.new("BID_TOO_SMALL")
   BID_TO_POSITION_NOT_ENABLED = BiddingErrorReason.new("BID_TO_POSITION_NOT_ENABLED")
   BID_UNIVERSAL_CRITERIA_EXPECTED = BiddingErrorReason.new("BID_UNIVERSAL_CRITERIA_EXPECTED")
   BOTTOM_POSITION_OUT_OF_RANGE = BiddingErrorReason.new("BOTTOM_POSITION_OUT_OF_RANGE")
   CAMPAIGN_ALREADY_SET = BiddingErrorReason.new("CAMPAIGN_ALREADY_SET")
   CAMPAIGN_MUST_HAVE_A_BUDGET_TO_ENABLE_BUDGET_OPTIMIZER = BiddingErrorReason.new("CAMPAIGN_MUST_HAVE_A_BUDGET_TO_ENABLE_BUDGET_OPTIMIZER")
   CANNOT_EXCLUDE_DEFAULT = BiddingErrorReason.new("CANNOT_EXCLUDE_DEFAULT")
+  CANNOT_SET_CONTENT_BID_WITHOUT_SETTING_KEYWORD_MAX_CPC_AS_WELL = BiddingErrorReason.new("CANNOT_SET_CONTENT_BID_WITHOUT_SETTING_KEYWORD_MAX_CPC_AS_WELL")
   CANNOT_TARGET_AND_EXCLUDE = BiddingErrorReason.new("CANNOT_TARGET_AND_EXCLUDE")
   CANNOT_TARGET_UNIVERSE = BiddingErrorReason.new("CANNOT_TARGET_UNIVERSE")
   CANNOT_UPDATE_SITE_BIDS_WHILE_PROXY_BIDDING = BiddingErrorReason.new("CANNOT_UPDATE_SITE_BIDS_WHILE_PROXY_BIDDING")
@@ -906,10 +963,11 @@ class BiddingErrorReason < ::String
   UNSUPPORTED_STYLE_TRANSITION = BiddingErrorReason.new("UNSUPPORTED_STYLE_TRANSITION")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignError.Reason
+# CampaignError.Reason
 class CampaignErrorReason < ::String
   AFTER_MAXIMUM_ALLOWABLE_DATE = CampaignErrorReason.new("AFTER_MAXIMUM_ALLOWABLE_DATE")
   CANNOT_CHANGE_CAMPAIGN_TYPE = CampaignErrorReason.new("CANNOT_CHANGE_CAMPAIGN_TYPE")
+  CANNOT_CHANGE_TV_CAMPAIGN = CampaignErrorReason.new("CANNOT_CHANGE_TV_CAMPAIGN")
   CANNOT_GO_BACK_TO_INCOMPLETE = CampaignErrorReason.new("CANNOT_GO_BACK_TO_INCOMPLETE")
   CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED = CampaignErrorReason.new("CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED")
   CANNOT_SET_ACCELERATED_DELIVERY_FOR_BUDGET_OPTIMIZER_CAMPAIGN = CampaignErrorReason.new("CANNOT_SET_ACCELERATED_DELIVERY_FOR_BUDGET_OPTIMIZER_CAMPAIGN")
@@ -920,6 +978,7 @@ class CampaignErrorReason < ::String
   INCOMPATIBLE_CAMPAIGN_FIELD = CampaignErrorReason.new("INCOMPATIBLE_CAMPAIGN_FIELD")
   INVALID_AD_SERVING_OPTIMIZATION_STATUS = CampaignErrorReason.new("INVALID_AD_SERVING_OPTIMIZATION_STATUS")
   INVALID_CAMPAIGN_NAME = CampaignErrorReason.new("INVALID_CAMPAIGN_NAME")
+  INVALID_OPERATION_IF_SERVING_STATUS_HAS_ENDED = CampaignErrorReason.new("INVALID_OPERATION_IF_SERVING_STATUS_HAS_ENDED")
   KEYWORD_QUOTA_EXCEEDED = CampaignErrorReason.new("KEYWORD_QUOTA_EXCEEDED")
   MAX_IMPRESSIONS_NOT_IN_RANGE = CampaignErrorReason.new("MAX_IMPRESSIONS_NOT_IN_RANGE")
   START_DATE_AFTER_END_DATE = CampaignErrorReason.new("START_DATE_AFTER_END_DATE")
@@ -927,8 +986,9 @@ class CampaignErrorReason < ::String
   USE_BIDDING_TRANSITION_FIELD_INSTEAD_TO_SWITCH_BIDDING_STRATEGY = CampaignErrorReason.new("USE_BIDDING_TRANSITION_FIELD_INSTEAD_TO_SWITCH_BIDDING_STRATEGY")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DatabaseError.Reason
+# DatabaseError.Reason
 class DatabaseErrorReason < ::String
+  CAMPAIGN_PRODUCT_NOT_SUPPORTED = DatabaseErrorReason.new("CAMPAIGN_PRODUCT_NOT_SUPPORTED")
   CANNOT_LOAD_AD = DatabaseErrorReason.new("CANNOT_LOAD_AD")
   CANNOT_LOAD_ADGROUP = DatabaseErrorReason.new("CANNOT_LOAD_ADGROUP")
   CANNOT_LOAD_CAMPAIGN = DatabaseErrorReason.new("CANNOT_LOAD_CAMPAIGN")
@@ -938,7 +998,7 @@ class DatabaseErrorReason < ::String
   PERMISSION_DENIED = DatabaseErrorReason.new("PERMISSION_DENIED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DayOfWeek
+# DayOfWeek
 class DayOfWeek < ::String
   FRIDAY = DayOfWeek.new("FRIDAY")
   MONDAY = DayOfWeek.new("MONDAY")
@@ -949,18 +1009,23 @@ class DayOfWeek < ::String
   WEDNESDAY = DayOfWeek.new("WEDNESDAY")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DistinctError.Reason
+# DistinctError.Reason
 class DistinctErrorReason < ::String
   DUPLICATE_ELEMENT = DistinctErrorReason.new("DUPLICATE_ELEMENT")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}GenderTarget.Gender
+# EntityNotFound.Reason
+class EntityNotFoundReason < ::String
+  INVALID_ID = EntityNotFoundReason.new("INVALID_ID")
+end
+
+# GenderTarget.Gender
 class GenderTargetGender < ::String
   FEMALE = GenderTargetGender.new("FEMALE")
   MALE = GenderTargetGender.new("MALE")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}MinuteOfHour
+# MinuteOfHour
 class MinuteOfHour < ::String
   FIFTEEN = MinuteOfHour.new("FIFTEEN")
   FORTY_FIVE = MinuteOfHour.new("FORTY_FIVE")
@@ -968,7 +1033,7 @@ class MinuteOfHour < ::String
   ZERO = MinuteOfHour.new("ZERO")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NetworkCoverageType
+# NetworkCoverageType
 class NetworkCoverageType < ::String
   CONTENT_CONTEXTUAL = NetworkCoverageType.new("CONTENT_CONTEXTUAL")
   CONTENT_NETWORK = NetworkCoverageType.new("CONTENT_NETWORK")
@@ -977,22 +1042,22 @@ class NetworkCoverageType < ::String
   SEARCH_NETWORK = NetworkCoverageType.new("SEARCH_NETWORK")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotEmptyError.Reason
+# NotEmptyError.Reason
 class NotEmptyErrorReason < ::String
   EMPTY_LIST = NotEmptyErrorReason.new("EMPTY_LIST")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotWhitelistedError.Reason
+# NotWhitelistedError.Reason
 class NotWhitelistedErrorReason < ::String
   CUSTOMER_NOT_WHITELISTED_FOR_API = NotWhitelistedErrorReason.new("CUSTOMER_NOT_WHITELISTED_FOR_API")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NullError.Reason
+# NullError.Reason
 class NullErrorReason < ::String
   NULL_CONTENT = NullErrorReason.new("NULL_CONTENT")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}OperationAccessDenied.Reason
+# OperationAccessDenied.Reason
 class OperationAccessDeniedReason < ::String
   ACTION_NOT_PERMITTED = OperationAccessDeniedReason.new("ACTION_NOT_PERMITTED")
   ADD_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("ADD_OPERATION_NOT_PERMITTED")
@@ -1000,31 +1065,50 @@ class OperationAccessDeniedReason < ::String
   SET_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("SET_OPERATION_NOT_PERMITTED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Operator
+# Operator
 class Operator < ::String
   ADD = Operator.new("ADD")
   REMOVE = Operator.new("REMOVE")
   SET = Operator.new("SET")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}OperatorError.Reason
+# OperatorError.Reason
 class OperatorErrorReason < ::String
   OPERATOR_NOT_SUPPORTED = OperatorErrorReason.new("OPERATOR_NOT_SUPPORTED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}PlatformType
+# PlatformType
 class PlatformType < ::String
   DESKTOP = PlatformType.new("DESKTOP")
   HIGH_END_MOBILE = PlatformType.new("HIGH_END_MOBILE")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ProximityTarget.DistanceUnits
+# ProximityTarget.DistanceUnits
 class ProximityTargetDistanceUnits < ::String
   KILOMETERS = ProximityTargetDistanceUnits.new("KILOMETERS")
   MILES = ProximityTargetDistanceUnits.new("MILES")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}QuotaError.Reason
+# QuotaCheckError.Reason
+class QuotaCheckErrorReason < ::String
+  ACCOUNT_DELINQUENT = QuotaCheckErrorReason.new("ACCOUNT_DELINQUENT")
+  ACCOUNT_INACCESSIBLE = QuotaCheckErrorReason.new("ACCOUNT_INACCESSIBLE")
+  ACCOUNT_INACTIVE = QuotaCheckErrorReason.new("ACCOUNT_INACTIVE")
+  INCOMPLETE_SIGNUP = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP")
+  INCOMPLETE_SIGNUP_APP_INFO_MISSING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_APP_INFO_MISSING")
+  INCOMPLETE_SIGNUP_APP_INFO_PENDING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_APP_INFO_PENDING")
+  INCOMPLETE_SIGNUP_APP_INFO_REJECTED = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_APP_INFO_REJECTED")
+  INCOMPLETE_SIGNUP_LATEST_NETAPI_TNC_NOT_AGREED = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_LATEST_NETAPI_TNC_NOT_AGREED")
+  INCOMPLETE_SIGNUP_NO_BILLING_INFO = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_NO_BILLING_INFO")
+  INCOMPLETE_SIGNUP_USER_INFO_MISSING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_USER_INFO_MISSING")
+  INCOMPLETE_SIGNUP_USER_INFO_PENDING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_USER_INFO_PENDING")
+  INCOMPLETE_SIGNUP_USER_INFO_REJECTED = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_USER_INFO_REJECTED")
+  INVALID_TOKEN_HEADER = QuotaCheckErrorReason.new("INVALID_TOKEN_HEADER")
+  MONTHLY_BUDGET_REACHED = QuotaCheckErrorReason.new("MONTHLY_BUDGET_REACHED")
+  QUOTA_EXCEEDED = QuotaCheckErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# QuotaError.Reason
 class QuotaErrorReason < ::String
   TOO_MANY_ADGROUPS_PER_CAMPAIGN = QuotaErrorReason.new("TOO_MANY_ADGROUPS_PER_CAMPAIGN")
   TOO_MANY_CAMPAIGNS_PER_ACCOUNT = QuotaErrorReason.new("TOO_MANY_CAMPAIGNS_PER_ACCOUNT")
@@ -1036,29 +1120,29 @@ class QuotaErrorReason < ::String
   TOO_MANY_SITES_PER_CAMPAIGN = QuotaErrorReason.new("TOO_MANY_SITES_PER_CAMPAIGN")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RangeError.Reason
+# RangeError.Reason
 class RangeErrorReason < ::String
   TOO_HIGH = RangeErrorReason.new("TOO_HIGH")
   TOO_LOW = RangeErrorReason.new("TOO_LOW")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RegionCodeError.Reason
+# RegionCodeError.Reason
 class RegionCodeErrorReason < ::String
   INVALID_REGION_CODE = RegionCodeErrorReason.new("INVALID_REGION_CODE")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RequiredError.Reason
+# RequiredError.Reason
 class RequiredErrorReason < ::String
   REQUIRED = RequiredErrorReason.new("REQUIRED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}StringLengthError.Reason
+# StringLengthError.Reason
 class StringLengthErrorReason < ::String
   TOO_LONG = StringLengthErrorReason.new("TOO_LONG")
   TOO_SHORT = StringLengthErrorReason.new("TOO_SHORT")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}TargetError.Reason
+# TargetError.Reason
 class TargetErrorReason < ::String
   AD_SCHEDULE_ADVANCED_INCOMPATIBLE_WITH_CONVERSION_OPTIMIZER = TargetErrorReason.new("AD_SCHEDULE_ADVANCED_INCOMPATIBLE_WITH_CONVERSION_OPTIMIZER")
   AD_SCHEDULE_BID_MULTIPLIER_MALFORMED = TargetErrorReason.new("AD_SCHEDULE_BID_MULTIPLIER_MALFORMED")
@@ -1085,6 +1169,7 @@ class TargetErrorReason < ::String
   CANNOT_TARGET_COUNTRY = TargetErrorReason.new("CANNOT_TARGET_COUNTRY")
   CANNOT_TARGET_COVERAGE = TargetErrorReason.new("CANNOT_TARGET_COVERAGE")
   CANNOT_TARGET_GENDER_WITHOUT_AGE = TargetErrorReason.new("CANNOT_TARGET_GENDER_WITHOUT_AGE")
+  CANNOT_TARGET_GOOGLE_SEARCH_FOR_CPM_CAMPAIGN = TargetErrorReason.new("CANNOT_TARGET_GOOGLE_SEARCH_FOR_CPM_CAMPAIGN")
   CANNOT_TARGET_LANGUAGE = TargetErrorReason.new("CANNOT_TARGET_LANGUAGE")
   CANNOT_TARGET_METRO = TargetErrorReason.new("CANNOT_TARGET_METRO")
   CANNOT_TARGET_PROVINCE = TargetErrorReason.new("CANNOT_TARGET_PROVINCE")
@@ -1124,9 +1209,9 @@ class TargetErrorReason < ::String
   WARNING_NOW_TARGETS_CHINESE = TargetErrorReason.new("WARNING_NOW_TARGETS_CHINESE")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}get
-#   selector - AdWords::V200902::CampaignTargetService::CampaignTargetSelector
-class Get
+# get
+# - selector - AdWords::V200902::CampaignTargetService::CampaignTargetSelector
+class Get #:nodoc: all
   attr_accessor :selector
 
   def initialize(selector = nil)
@@ -1134,17 +1219,17 @@ class Get
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}getResponse
-class GetResponse < ::Array
+# getResponse
+class GetResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}mutate
-class Mutate < ::Array
+# mutate
+class Mutate < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}mutateResponse
-#   rval - AdWords::V200902::CampaignTargetService::VoidReturnValue
-class MutateResponse
+# mutateResponse
+# - rval - AdWords::V200902::CampaignTargetService::VoidReturnValue
+class MutateResponse #:nodoc: all
   attr_accessor :rval
 
   def initialize(rval = nil)

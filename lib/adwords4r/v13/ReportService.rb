@@ -3,15 +3,15 @@ require 'xsd/qname'
 module AdWords; module V13; module ReportService
 
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -34,12 +34,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::ReportService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::ReportService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -56,15 +56,15 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ReportJob
+# ReportJob
 # abstract
-#   clientEmails - SOAP::SOAPString
-#   crossClient - SOAP::SOAPBoolean
-#   endDay - SOAP::SOAPDate
-#   id - SOAP::SOAPLong
-#   name - SOAP::SOAPString
-#   startDay - SOAP::SOAPDate
-#   status - AdWords::V13::ReportService::ReportJobStatus
+# - clientEmails - SOAP::SOAPString
+# - crossClient - SOAP::SOAPBoolean
+# - endDay - SOAP::SOAPDate
+# - id - SOAP::SOAPLong
+# - name - SOAP::SOAPString
+# - startDay - SOAP::SOAPDate
+# - status - AdWords::V13::ReportService::ReportJobStatus
 class ReportJob
   attr_accessor :clientEmails
   attr_accessor :crossClient
@@ -85,26 +85,26 @@ class ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}DefinedReportJob
-#   clientEmails - SOAP::SOAPString
-#   crossClient - SOAP::SOAPBoolean
-#   endDay - SOAP::SOAPDate
-#   id - SOAP::SOAPLong
-#   name - SOAP::SOAPString
-#   startDay - SOAP::SOAPDate
-#   status - AdWords::V13::ReportService::ReportJobStatus
-#   adGroupStatuses - AdWords::V13::ReportService::AdGroupStatus
-#   adGroups - SOAP::SOAPLong
-#   adWordsType - AdWords::V13::ReportService::AdWordsType
-#   aggregationTypes - SOAP::SOAPString
-#   campaignStatuses - AdWords::V13::ReportService::CampaignStatus
-#   campaigns - SOAP::SOAPInt
-#   includeZeroImpression - SOAP::SOAPBoolean
-#   keywordStatuses - AdWords::V13::ReportService::KeywordStatus
-#   keywordType - AdWords::V13::ReportService::KeywordType
-#   keywords - SOAP::SOAPString
-#   selectedColumns - SOAP::SOAPString
-#   selectedReportType - SOAP::SOAPString
+# DefinedReportJob
+# - clientEmails - SOAP::SOAPString
+# - crossClient - SOAP::SOAPBoolean
+# - endDay - SOAP::SOAPDate
+# - id - SOAP::SOAPLong
+# - name - SOAP::SOAPString
+# - startDay - SOAP::SOAPDate
+# - status - AdWords::V13::ReportService::ReportJobStatus
+# - adGroupStatuses - AdWords::V13::ReportService::AdGroupStatus
+# - adGroups - SOAP::SOAPLong
+# - adWordsType - AdWords::V13::ReportService::AdWordsType
+# - aggregationTypes - SOAP::SOAPString
+# - campaignStatuses - AdWords::V13::ReportService::CampaignStatus
+# - campaigns - SOAP::SOAPInt
+# - includeZeroImpression - SOAP::SOAPBoolean
+# - keywordStatuses - AdWords::V13::ReportService::KeywordStatus
+# - keywordType - AdWords::V13::ReportService::KeywordType
+# - keywords - SOAP::SOAPString
+# - selectedColumns - SOAP::SOAPString
+# - selectedReportType - SOAP::SOAPString
 class DefinedReportJob < ReportJob
   attr_accessor :clientEmails
   attr_accessor :crossClient
@@ -149,20 +149,20 @@ class DefinedReportJob < ReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}AdGroupStatus
+# AdGroupStatus
 class AdGroupStatus < ::String
   Deleted = AdGroupStatus.new("Deleted")
   Enabled = AdGroupStatus.new("Enabled")
   Paused = AdGroupStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v13}AdWordsType
+# AdWordsType
 class AdWordsType < ::String
   ContentOnly = AdWordsType.new("ContentOnly")
   SearchOnly = AdWordsType.new("SearchOnly")
 end
 
-# {https://adwords.google.com/api/adwords/v13}CampaignStatus
+# CampaignStatus
 class CampaignStatus < ::String
   Active = CampaignStatus.new("Active")
   Deleted = CampaignStatus.new("Deleted")
@@ -172,7 +172,7 @@ class CampaignStatus < ::String
   Suspended = CampaignStatus.new("Suspended")
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordStatus
+# KeywordStatus
 class KeywordStatus < ::String
   Active = KeywordStatus.new("Active")
   Deleted = KeywordStatus.new("Deleted")
@@ -181,14 +181,14 @@ class KeywordStatus < ::String
   Paused = KeywordStatus.new("Paused")
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordType
+# KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v13}ReportJobStatus
+# ReportJobStatus
 class ReportJobStatus < ::String
   Completed = ReportJobStatus.new("Completed")
   Failed = ReportJobStatus.new("Failed")
@@ -196,9 +196,9 @@ class ReportJobStatus < ::String
   Pending = ReportJobStatus.new("Pending")
 end
 
-# {https://adwords.google.com/api/adwords/v13}deleteReport
-#   reportJobId - SOAP::SOAPLong
-class DeleteReport
+# deleteReport
+# - reportJobId - SOAP::SOAPLong
+class DeleteReport #:nodoc: all
   attr_accessor :reportJobId
 
   def initialize(reportJobId = nil)
@@ -206,25 +206,25 @@ class DeleteReport
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}deleteReportResponse
-class DeleteReportResponse
+# deleteReportResponse
+class DeleteReportResponse #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllJobs
-class GetAllJobs
+# getAllJobs
+class GetAllJobs #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllJobsResponse
-class GetAllJobsResponse < ::Array
+# getAllJobsResponse
+class GetAllJobsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getGzipReportDownloadUrl
-#   reportJobId - SOAP::SOAPLong
-class GetGzipReportDownloadUrl
+# getGzipReportDownloadUrl
+# - reportJobId - SOAP::SOAPLong
+class GetGzipReportDownloadUrl #:nodoc: all
   attr_accessor :reportJobId
 
   def initialize(reportJobId = nil)
@@ -232,9 +232,9 @@ class GetGzipReportDownloadUrl
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getGzipReportDownloadUrlResponse
-#   getGzipReportDownloadUrlReturn - SOAP::SOAPString
-class GetGzipReportDownloadUrlResponse
+# getGzipReportDownloadUrlResponse
+# - getGzipReportDownloadUrlReturn - SOAP::SOAPString
+class GetGzipReportDownloadUrlResponse #:nodoc: all
   attr_accessor :getGzipReportDownloadUrlReturn
 
   def initialize(getGzipReportDownloadUrlReturn = nil)
@@ -242,9 +242,9 @@ class GetGzipReportDownloadUrlResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getReportDownloadUrl
-#   reportJobId - SOAP::SOAPLong
-class GetReportDownloadUrl
+# getReportDownloadUrl
+# - reportJobId - SOAP::SOAPLong
+class GetReportDownloadUrl #:nodoc: all
   attr_accessor :reportJobId
 
   def initialize(reportJobId = nil)
@@ -252,9 +252,9 @@ class GetReportDownloadUrl
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getReportDownloadUrlResponse
-#   getReportDownloadUrlReturn - SOAP::SOAPString
-class GetReportDownloadUrlResponse
+# getReportDownloadUrlResponse
+# - getReportDownloadUrlReturn - SOAP::SOAPString
+class GetReportDownloadUrlResponse #:nodoc: all
   attr_accessor :getReportDownloadUrlReturn
 
   def initialize(getReportDownloadUrlReturn = nil)
@@ -262,9 +262,9 @@ class GetReportDownloadUrlResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getReportJobStatus
-#   reportJobId - SOAP::SOAPLong
-class GetReportJobStatus
+# getReportJobStatus
+# - reportJobId - SOAP::SOAPLong
+class GetReportJobStatus #:nodoc: all
   attr_accessor :reportJobId
 
   def initialize(reportJobId = nil)
@@ -272,9 +272,9 @@ class GetReportJobStatus
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getReportJobStatusResponse
-#   getReportJobStatusReturn - AdWords::V13::ReportService::ReportJobStatus
-class GetReportJobStatusResponse
+# getReportJobStatusResponse
+# - getReportJobStatusReturn - AdWords::V13::ReportService::ReportJobStatus
+class GetReportJobStatusResponse #:nodoc: all
   attr_accessor :getReportJobStatusReturn
 
   def initialize(getReportJobStatusReturn = nil)
@@ -282,9 +282,9 @@ class GetReportJobStatusResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}scheduleReportJob
-#   job - AdWords::V13::ReportService::ReportJob
-class ScheduleReportJob
+# scheduleReportJob
+# - job - AdWords::V13::ReportService::ReportJob
+class ScheduleReportJob #:nodoc: all
   attr_accessor :job
 
   def initialize(job = nil)
@@ -292,9 +292,9 @@ class ScheduleReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}scheduleReportJobResponse
-#   scheduleReportJobReturn - SOAP::SOAPLong
-class ScheduleReportJobResponse
+# scheduleReportJobResponse
+# - scheduleReportJobReturn - SOAP::SOAPLong
+class ScheduleReportJobResponse #:nodoc: all
   attr_accessor :scheduleReportJobReturn
 
   def initialize(scheduleReportJobReturn = nil)
@@ -302,9 +302,9 @@ class ScheduleReportJobResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}validateReportJob
-#   job - AdWords::V13::ReportService::ReportJob
-class ValidateReportJob
+# validateReportJob
+# - job - AdWords::V13::ReportService::ReportJob
+class ValidateReportJob #:nodoc: all
   attr_accessor :job
 
   def initialize(job = nil)
@@ -312,8 +312,8 @@ class ValidateReportJob
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}validateReportJobResponse
-class ValidateReportJobResponse
+# validateReportJobResponse
+class ValidateReportJobResponse #:nodoc: all
   def initialize
   end
 end

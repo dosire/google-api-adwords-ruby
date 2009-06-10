@@ -23,7 +23,9 @@ require 'net/https'
 
 module AdWords
 
-  class AuthToken
+  # Module providing the mechanism to obtain auth tokens for logging in to the
+  # AdWords API (>= v200902).
+  module AuthToken
 
     ACCOUNT_TYPE = 'GOOGLE'
     AUTH_HOSTNAME = 'www.google.com'
@@ -31,12 +33,26 @@ module AdWords
     AUTH_PORT = 443
     SERVICE = 'adwords'
 
+    # Retrieve authentication token for logging in to the AdWords API.
+    #
+    # Args:
+    # - email: the email address for the account being accessed
+    # - password: the password for the account being accessed
+    #
+    # Returns:
+    # The auth token for the account (as a string).
+    #
+    # Raises:
+    # AdWords::Error::AuthError if authentication fails.
+    #
     def self.get_token(email, password)
       email = CGI.escape(email)
       password = CGI.escape(password)
 
       http_client = Net::HTTP.new(AUTH_HOSTNAME, AUTH_PORT)
       http_client.use_ssl = true
+      # Avoid annoying warning
+      http_client.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
       data = "accountType=#{ACCOUNT_TYPE}&Email=#{email}&Passwd=#{password}" +
         "&service=#{SERVICE}"

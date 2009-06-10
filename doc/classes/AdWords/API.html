@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+    <script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::API 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/adwords4r_rb.html">lib/adwords4r.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+Wrapper class that serves as the main point of access for all the <a
+href="API.html">API</a> usage.
+</p>
+<p>
+Holds all the services, as well as login credentials.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>G</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000006">get_service</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000005">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>credentials</td>
+            <td class='attr-desc'><p>
+<a href="AdWordsCredentials.html">AdWordsCredentials</a> object used for
+authentication
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>xml_logger</td>
+            <td class='attr-desc'><p>
+<a href="AdWordsLogger.html">AdWordsLogger</a> object used for logging SOAP
+XML
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>unit_logger</td>
+            <td class='attr-desc'><p>
+<a href="AdWordsLogger.html">AdWordsLogger</a> object used for logging
+request info
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>mutex</td>
+            <td class='attr-desc'><p>
+Mutex object for controlling concurrent access to <a
+href="API.html">API</a> object data
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>last_units</td>
+            <td class='attr-desc'><p>
+Number of units spent on the last operation via this <a
+href="API.html">API</a> object
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>total_units</td>
+            <td class='attr-desc'><p>
+Number of units spent in total, via this <a href="API.html">API</a> object
+</p></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000005">
+                    
+                    <a name="M000005"></a><b>new</b>(credentials = AdWordsCredentials.new)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Constructor for <a href="API.html">API</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>credentials: <a href="AdWordsCredentials.html">AdWordsCredentials</a>
+object containing the login information
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        
+                    </p>
+                    <div id="M000005_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 63</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">credentials</span> = <span class="ruby-constant">AdWordsCredentials</span>.<span class="ruby-identifier">new</span>)
+      <span class="ruby-ivar">@credentials</span> = <span class="ruby-identifier">credentials</span>
+      <span class="ruby-ivar">@drivers</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-ivar">@wrappers</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-ivar">@total_units</span> = <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@last_units</span> = <span class="ruby-value">0</span>
+      <span class="ruby-identifier">log_to_console</span> = <span class="ruby-operator">!</span><span class="ruby-constant">ENV</span>[<span class="ruby-value str">'ADWORDS4R_DEBUG'</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span>
+          <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'ADWORDS4R_DEBUG'</span>].<span class="ruby-identifier">upcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'TRUE'</span>
+      <span class="ruby-ivar">@xml_logger</span> = <span class="ruby-constant">AdWordsLogger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'soap_xml'</span>, <span class="ruby-identifier">log_to_console</span>)
+      <span class="ruby-ivar">@unit_logger</span> = <span class="ruby-constant">AdWordsLogger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">'request_info'</span>)
+      <span class="ruby-ivar">@mutex</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-identifier">prepare_drivers</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="M000006">
+                    
+                    <a name="M000006"></a><b>get_service</b>(version, name)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Obtain an <a href="API.html">API</a> service, given a version and its name.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>version: intended <a href="API.html">API</a> version. Must be an integer.
+
+</li>
+<li>name: name for the intended service
+
+</li>
+</ul>
+<p>
+Returns: The service wrapper for the intended service.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show</a>
+                        
+                    </p>
+                    <div id="M000006_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 86</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_service</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">name</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@wrappers</span>[[<span class="ruby-identifier">version</span>, <span class="ruby-identifier">name</span>]]
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

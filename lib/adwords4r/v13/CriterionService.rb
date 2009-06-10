@@ -3,15 +3,15 @@ require 'xsd/qname'
 module AdWords; module V13; module CriterionService
 
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -34,12 +34,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::CriterionService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::CriterionService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -56,10 +56,10 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Circle
-#   latitudeMicroDegrees - SOAP::SOAPInt
-#   longitudeMicroDegrees - SOAP::SOAPInt
-#   radiusMeters - SOAP::SOAPInt
+# Circle
+# - latitudeMicroDegrees - SOAP::SOAPInt
+# - longitudeMicroDegrees - SOAP::SOAPInt
+# - radiusMeters - SOAP::SOAPInt
 class Circle
   attr_accessor :latitudeMicroDegrees
   attr_accessor :longitudeMicroDegrees
@@ -72,9 +72,9 @@ class Circle
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CityTargets
-#   cities - SOAP::SOAPString
-#   excludedCities - SOAP::SOAPString
+# CityTargets
+# - cities - SOAP::SOAPString
+# - excludedCities - SOAP::SOAPString
 class CityTargets
   attr_accessor :cities
   attr_accessor :excludedCities
@@ -85,9 +85,9 @@ class CityTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CountryTargets
-#   countries - SOAP::SOAPString
-#   excludedCountries - SOAP::SOAPString
+# CountryTargets
+# - countries - SOAP::SOAPString
+# - excludedCountries - SOAP::SOAPString
 class CountryTargets
   attr_accessor :countries
   attr_accessor :excludedCountries
@@ -98,17 +98,17 @@ class CountryTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Criterion
+# Criterion
 # abstract
-#   adGroupId - SOAP::SOAPLong
-#   criterionType - AdWords::V13::CriterionService::CriterionType
-#   destinationUrl - SOAP::SOAPString
-#   exemptionRequest - SOAP::SOAPString
-#   id - SOAP::SOAPLong
-#   language - SOAP::SOAPString
-#   negative - SOAP::SOAPBoolean
-#   paused - SOAP::SOAPBoolean
-#   status - AdWords::V13::CriterionService::CriterionStatus
+# - adGroupId - SOAP::SOAPLong
+# - criterionType - AdWords::V13::CriterionService::CriterionType
+# - destinationUrl - SOAP::SOAPString
+# - exemptionRequest - SOAP::SOAPString
+# - id - SOAP::SOAPLong
+# - language - SOAP::SOAPString
+# - negative - SOAP::SOAPBoolean
+# - paused - SOAP::SOAPBoolean
+# - status - AdWords::V13::CriterionService::CriterionStatus
 class Criterion
   attr_accessor :adGroupId
   attr_accessor :criterionType
@@ -133,22 +133,22 @@ class Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Keyword
-#   adGroupId - SOAP::SOAPLong
-#   criterionType - AdWords::V13::CriterionService::CriterionType
-#   destinationUrl - SOAP::SOAPString
-#   exemptionRequest - SOAP::SOAPString
-#   id - SOAP::SOAPLong
-#   language - SOAP::SOAPString
-#   negative - SOAP::SOAPBoolean
-#   paused - SOAP::SOAPBoolean
-#   status - AdWords::V13::CriterionService::CriterionStatus
-#   firstPageCpc - SOAP::SOAPLong
-#   maxCpc - SOAP::SOAPLong
-#   proxyMaxCpc - SOAP::SOAPLong
-#   qualityScore - SOAP::SOAPInt
-#   text - SOAP::SOAPString
-#   type - AdWords::V13::CriterionService::KeywordType
+# Keyword
+# - adGroupId - SOAP::SOAPLong
+# - criterionType - AdWords::V13::CriterionService::CriterionType
+# - destinationUrl - SOAP::SOAPString
+# - exemptionRequest - SOAP::SOAPString
+# - id - SOAP::SOAPLong
+# - language - SOAP::SOAPString
+# - negative - SOAP::SOAPBoolean
+# - paused - SOAP::SOAPBoolean
+# - status - AdWords::V13::CriterionService::CriterionStatus
+# - firstPageCpc - SOAP::SOAPLong
+# - maxCpc - SOAP::SOAPLong
+# - proxyMaxCpc - SOAP::SOAPLong
+# - qualityScore - SOAP::SOAPInt
+# - text - SOAP::SOAPString
+# - type - AdWords::V13::CriterionService::KeywordType
 class Keyword < Criterion
   attr_accessor :adGroupId
   attr_accessor :criterionType
@@ -185,19 +185,19 @@ class Keyword < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Website
-#   adGroupId - SOAP::SOAPLong
-#   criterionType - AdWords::V13::CriterionService::CriterionType
-#   destinationUrl - SOAP::SOAPString
-#   exemptionRequest - SOAP::SOAPString
-#   id - SOAP::SOAPLong
-#   language - SOAP::SOAPString
-#   negative - SOAP::SOAPBoolean
-#   paused - SOAP::SOAPBoolean
-#   status - AdWords::V13::CriterionService::CriterionStatus
-#   maxCpc - SOAP::SOAPLong
-#   maxCpm - SOAP::SOAPLong
-#   url - SOAP::SOAPString
+# Website
+# - adGroupId - SOAP::SOAPLong
+# - criterionType - AdWords::V13::CriterionService::CriterionType
+# - destinationUrl - SOAP::SOAPString
+# - exemptionRequest - SOAP::SOAPString
+# - id - SOAP::SOAPLong
+# - language - SOAP::SOAPString
+# - negative - SOAP::SOAPBoolean
+# - paused - SOAP::SOAPBoolean
+# - status - AdWords::V13::CriterionService::CriterionStatus
+# - maxCpc - SOAP::SOAPLong
+# - maxCpm - SOAP::SOAPLong
+# - url - SOAP::SOAPString
 class Website < Criterion
   attr_accessor :adGroupId
   attr_accessor :criterionType
@@ -228,13 +228,13 @@ class Website < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}GeoTarget
-#   cityTargets - AdWords::V13::CriterionService::CityTargets
-#   countryTargets - AdWords::V13::CriterionService::CountryTargets
-#   metroTargets - AdWords::V13::CriterionService::MetroTargets
-#   proximityTargets - AdWords::V13::CriterionService::ProximityTargets
-#   regionTargets - AdWords::V13::CriterionService::RegionTargets
-#   targetAll - SOAP::SOAPBoolean
+# GeoTarget
+# - cityTargets - AdWords::V13::CriterionService::CityTargets
+# - countryTargets - AdWords::V13::CriterionService::CountryTargets
+# - metroTargets - AdWords::V13::CriterionService::MetroTargets
+# - proximityTargets - AdWords::V13::CriterionService::ProximityTargets
+# - regionTargets - AdWords::V13::CriterionService::RegionTargets
+# - targetAll - SOAP::SOAPBoolean
 class GeoTarget
   attr_accessor :cityTargets
   attr_accessor :countryTargets
@@ -253,13 +253,13 @@ class GeoTarget
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}LanguageTarget
+# LanguageTarget
 class LanguageTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}MetroTargets
-#   excludedMetros - SOAP::SOAPString
-#   metros - SOAP::SOAPString
+# MetroTargets
+# - excludedMetros - SOAP::SOAPString
+# - metros - SOAP::SOAPString
 class MetroTargets
   attr_accessor :excludedMetros
   attr_accessor :metros
@@ -270,13 +270,13 @@ class MetroTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ProximityTargets
+# ProximityTargets
 class ProximityTargets < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}RegionTargets
-#   excludedRegions - SOAP::SOAPString
-#   regions - SOAP::SOAPString
+# RegionTargets
+# - excludedRegions - SOAP::SOAPString
+# - regions - SOAP::SOAPString
 class RegionTargets
   attr_accessor :excludedRegions
   attr_accessor :regions
@@ -287,14 +287,14 @@ class RegionTargets
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}StatsRecord
-#   averagePosition - SOAP::SOAPDouble
-#   clicks - SOAP::SOAPLong
-#   conversionRate - SOAP::SOAPDouble
-#   conversions - SOAP::SOAPLong
-#   cost - SOAP::SOAPLong
-#   id - SOAP::SOAPLong
-#   impressions - SOAP::SOAPLong
+# StatsRecord
+# - averagePosition - SOAP::SOAPDouble
+# - clicks - SOAP::SOAPLong
+# - conversionRate - SOAP::SOAPDouble
+# - conversions - SOAP::SOAPLong
+# - cost - SOAP::SOAPLong
+# - id - SOAP::SOAPLong
+# - impressions - SOAP::SOAPLong
 class StatsRecord
   attr_accessor :averagePosition
   attr_accessor :clicks
@@ -315,7 +315,7 @@ class StatsRecord
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}CriterionStatus
+# CriterionStatus
 class CriterionStatus < ::String
   Active = CriterionStatus.new("Active")
   Deleted = CriterionStatus.new("Deleted")
@@ -323,32 +323,32 @@ class CriterionStatus < ::String
   InActive = CriterionStatus.new("InActive")
 end
 
-# {https://adwords.google.com/api/adwords/v13}CriterionType
+# CriterionType
 class CriterionType < ::String
   Keyword = CriterionType.new("Keyword")
   Website = CriterionType.new("Website")
 end
 
-# {https://adwords.google.com/api/adwords/v13}KeywordType
+# KeywordType
 class KeywordType < ::String
   Broad = KeywordType.new("Broad")
   Exact = KeywordType.new("Exact")
   Phrase = KeywordType.new("Phrase")
 end
 
-# {https://adwords.google.com/api/adwords/v13}addCriteria
-class AddCriteria < ::Array
+# addCriteria
+class AddCriteria < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}addCriteriaResponse
-class AddCriteriaResponse < ::Array
+# addCriteriaResponse
+class AddCriteriaResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}checkCriteria
-#   criteria - AdWords::V13::CriterionService::Criterion
-#   languageTarget - AdWords::V13::CriterionService::LanguageTarget
-#   geoTarget - AdWords::V13::CriterionService::GeoTarget
-class CheckCriteria
+# checkCriteria
+# - criteria - AdWords::V13::CriterionService::Criterion
+# - languageTarget - AdWords::V13::CriterionService::LanguageTarget
+# - geoTarget - AdWords::V13::CriterionService::GeoTarget
+class CheckCriteria #:nodoc: all
   attr_accessor :criteria
   attr_accessor :languageTarget
   attr_accessor :geoTarget
@@ -360,13 +360,13 @@ class CheckCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}checkCriteriaResponse
-class CheckCriteriaResponse < ::Array
+# checkCriteriaResponse
+class CheckCriteriaResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllCriteria
-#   adGroupId - SOAP::SOAPLong
-class GetAllCriteria
+# getAllCriteria
+# - adGroupId - SOAP::SOAPLong
+class GetAllCriteria #:nodoc: all
   attr_accessor :adGroupId
 
   def initialize(adGroupId = nil)
@@ -374,13 +374,13 @@ class GetAllCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAllCriteriaResponse
-class GetAllCriteriaResponse < ::Array
+# getAllCriteriaResponse
+class GetAllCriteriaResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaignNegativeCriteria
-#   campaignId - SOAP::SOAPInt
-class GetCampaignNegativeCriteria
+# getCampaignNegativeCriteria
+# - campaignId - SOAP::SOAPInt
+class GetCampaignNegativeCriteria #:nodoc: all
   attr_accessor :campaignId
 
   def initialize(campaignId = nil)
@@ -388,14 +388,14 @@ class GetCampaignNegativeCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCampaignNegativeCriteriaResponse
-class GetCampaignNegativeCriteriaResponse < ::Array
+# getCampaignNegativeCriteriaResponse
+class GetCampaignNegativeCriteriaResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCriteria
-#   adGroupId - SOAP::SOAPLong
-#   criterionIds - SOAP::SOAPLong
-class GetCriteria
+# getCriteria
+# - adGroupId - SOAP::SOAPLong
+# - criterionIds - SOAP::SOAPLong
+class GetCriteria #:nodoc: all
   attr_accessor :adGroupId
   attr_accessor :criterionIds
 
@@ -405,16 +405,16 @@ class GetCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCriteriaResponse
-class GetCriteriaResponse < ::Array
+# getCriteriaResponse
+class GetCriteriaResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCriterionStats
-#   adGroupId - SOAP::SOAPLong
-#   criterionIds - SOAP::SOAPLong
-#   startDay - SOAP::SOAPDate
-#   endDay - SOAP::SOAPDate
-class GetCriterionStats
+# getCriterionStats
+# - adGroupId - SOAP::SOAPLong
+# - criterionIds - SOAP::SOAPLong
+# - startDay - SOAP::SOAPDate
+# - endDay - SOAP::SOAPDate
+class GetCriterionStats #:nodoc: all
   attr_accessor :adGroupId
   attr_accessor :criterionIds
   attr_accessor :startDay
@@ -428,14 +428,14 @@ class GetCriterionStats
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getCriterionStatsResponse
-class GetCriterionStatsResponse < ::Array
+# getCriterionStatsResponse
+class GetCriterionStatsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}removeCriteria
-#   adGroupId - SOAP::SOAPLong
-#   criterionIds - SOAP::SOAPLong
-class RemoveCriteria
+# removeCriteria
+# - adGroupId - SOAP::SOAPLong
+# - criterionIds - SOAP::SOAPLong
+class RemoveCriteria #:nodoc: all
   attr_accessor :adGroupId
   attr_accessor :criterionIds
 
@@ -445,16 +445,16 @@ class RemoveCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}removeCriteriaResponse
-class RemoveCriteriaResponse
+# removeCriteriaResponse
+class RemoveCriteriaResponse #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}setCampaignNegativeCriteria
-#   campaignId - SOAP::SOAPInt
-#   criteria - AdWords::V13::CriterionService::Criterion
-class SetCampaignNegativeCriteria
+# setCampaignNegativeCriteria
+# - campaignId - SOAP::SOAPInt
+# - criteria - AdWords::V13::CriterionService::Criterion
+class SetCampaignNegativeCriteria #:nodoc: all
   attr_accessor :campaignId
   attr_accessor :criteria
 
@@ -464,18 +464,18 @@ class SetCampaignNegativeCriteria
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}setCampaignNegativeCriteriaResponse
-class SetCampaignNegativeCriteriaResponse
+# setCampaignNegativeCriteriaResponse
+class SetCampaignNegativeCriteriaResponse #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateCriteria
-class UpdateCriteria < ::Array
+# updateCriteria
+class UpdateCriteria < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateCriteriaResponse
-class UpdateCriteriaResponse
+# updateCriteriaResponse
+class UpdateCriteriaResponse #:nodoc: all
   def initialize
   end
 end

@@ -3,18 +3,18 @@ require 'xsd/qname'
 module AdWords; module V13; module AccountService
 
 
-# {https://adwords.google.com/api/adwords/v13}AccountInfo
-#   billingAddress - AdWords::V13::AccountService::Address
-#   currencyCode - SOAP::SOAPString
-#   customerId - SOAP::SOAPLong
-#   defaultNetworkTargeting - AdWords::V13::AccountService::NetworkTarget
-#   descriptiveName - SOAP::SOAPString
-#   emailPromotionsPreferences - AdWords::V13::AccountService::EmailPromotionsPreferences
-#   languagePreference - SOAP::SOAPString
-#   primaryAddress - AdWords::V13::AccountService::Address
-#   primaryBusinessCategory - SOAP::SOAPString
-#   timeZoneEffectiveDate - SOAP::SOAPLong
-#   timeZoneId - SOAP::SOAPString
+# AccountInfo
+# - billingAddress - AdWords::V13::AccountService::Address
+# - currencyCode - SOAP::SOAPString
+# - customerId - SOAP::SOAPLong
+# - defaultNetworkTargeting - AdWords::V13::AccountService::NetworkTarget
+# - descriptiveName - SOAP::SOAPString
+# - emailPromotionsPreferences - AdWords::V13::AccountService::EmailPromotionsPreferences
+# - languagePreference - SOAP::SOAPString
+# - primaryAddress - AdWords::V13::AccountService::Address
+# - primaryBusinessCategory - SOAP::SOAPString
+# - timeZoneEffectiveDate - SOAP::SOAPLong
+# - timeZoneId - SOAP::SOAPString
 class AccountInfo
   attr_accessor :billingAddress
   attr_accessor :currencyCode
@@ -43,18 +43,18 @@ class AccountInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}Address
-#   addressLine1 - SOAP::SOAPString
-#   addressLine2 - SOAP::SOAPString
-#   city - SOAP::SOAPString
-#   companyName - SOAP::SOAPString
-#   countryCode - SOAP::SOAPString
-#   emailAddress - SOAP::SOAPString
-#   faxNumber - SOAP::SOAPString
-#   name - SOAP::SOAPString
-#   phoneNumber - SOAP::SOAPString
-#   postalCode - SOAP::SOAPString
-#   state - SOAP::SOAPString
+# Address
+# - addressLine1 - SOAP::SOAPString
+# - addressLine2 - SOAP::SOAPString
+# - city - SOAP::SOAPString
+# - companyName - SOAP::SOAPString
+# - countryCode - SOAP::SOAPString
+# - emailAddress - SOAP::SOAPString
+# - faxNumber - SOAP::SOAPString
+# - name - SOAP::SOAPString
+# - phoneNumber - SOAP::SOAPString
+# - postalCode - SOAP::SOAPString
+# - state - SOAP::SOAPString
 class Address
   attr_accessor :addressLine1
   attr_accessor :addressLine2
@@ -83,15 +83,15 @@ class Address
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiError
-#   code - SOAP::SOAPInt
-#   detail - SOAP::SOAPString
-#   field - SOAP::SOAPString
-#   index - SOAP::SOAPInt
-#   isExemptable - SOAP::SOAPBoolean
-#   textIndex - SOAP::SOAPInt
-#   textLength - SOAP::SOAPInt
-#   trigger - SOAP::SOAPString
+# ApiError
+# - code - SOAP::SOAPInt
+# - detail - SOAP::SOAPString
+# - field - SOAP::SOAPString
+# - index - SOAP::SOAPInt
+# - isExemptable - SOAP::SOAPBoolean
+# - textIndex - SOAP::SOAPInt
+# - textLength - SOAP::SOAPInt
+# - trigger - SOAP::SOAPString
 class ApiError
   attr_accessor :code
   attr_accessor :detail
@@ -114,12 +114,12 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ApiException
-#   code - SOAP::SOAPInt
-#   errors - AdWords::V13::AccountService::ApiError
-#   internal - SOAP::SOAPBoolean
-#   message - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
+# ApiException
+# - code - SOAP::SOAPInt
+# - errors - AdWords::V13::AccountService::ApiError
+# - internal - SOAP::SOAPBoolean
+# - message - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
 class ApiException
   attr_accessor :code
   attr_accessor :errors
@@ -136,9 +136,9 @@ class ApiException
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}ClientAccountInfo
-#   emailAddress - SOAP::SOAPString
-#   isCustomerManager - SOAP::SOAPBoolean
+# ClientAccountInfo
+# - emailAddress - SOAP::SOAPString
+# - isCustomerManager - SOAP::SOAPBoolean
 class ClientAccountInfo
   attr_accessor :emailAddress
   attr_accessor :isCustomerManager
@@ -149,12 +149,12 @@ class ClientAccountInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}EmailPromotionsPreferences
-#   accountPerformanceEnabled - SOAP::SOAPBoolean
-#   disapprovedAdsEnabled - SOAP::SOAPBoolean
-#   marketResearchEnabled - SOAP::SOAPBoolean
-#   newsletterEnabled - SOAP::SOAPBoolean
-#   promotionsEnabled - SOAP::SOAPBoolean
+# EmailPromotionsPreferences
+# - accountPerformanceEnabled - SOAP::SOAPBoolean
+# - disapprovedAdsEnabled - SOAP::SOAPBoolean
+# - marketResearchEnabled - SOAP::SOAPBoolean
+# - newsletterEnabled - SOAP::SOAPBoolean
+# - promotionsEnabled - SOAP::SOAPBoolean
 class EmailPromotionsPreferences
   attr_accessor :accountPerformanceEnabled
   attr_accessor :disapprovedAdsEnabled
@@ -171,14 +171,14 @@ class EmailPromotionsPreferences
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}MccAlert
-#   clientCompanyName - SOAP::SOAPString
-#   clientCustomerId - SOAP::SOAPLong
-#   clientLogin - SOAP::SOAPString
-#   clientName - SOAP::SOAPString
-#   priority - AdWords::V13::AccountService::MccAlertPriority
-#   triggerTime - SOAP::SOAPDateTime
-#   type - AdWords::V13::AccountService::MccAlertType
+# MccAlert
+# - clientCompanyName - SOAP::SOAPString
+# - clientCustomerId - SOAP::SOAPLong
+# - clientLogin - SOAP::SOAPString
+# - clientName - SOAP::SOAPString
+# - priority - AdWords::V13::AccountService::MccAlertPriority
+# - triggerTime - SOAP::SOAPDateTime
+# - type - AdWords::V13::AccountService::MccAlertType
 class MccAlert
   attr_accessor :clientCompanyName
   attr_accessor :clientCustomerId
@@ -199,17 +199,17 @@ class MccAlert
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}NetworkTarget
+# NetworkTarget
 class NetworkTarget < ::Array
 end
 
-# {https://adwords.google.com/api/adwords/v13}MccAlertPriority
+# MccAlertPriority
 class MccAlertPriority < ::String
   High = MccAlertPriority.new("High")
   Low = MccAlertPriority.new("Low")
 end
 
-# {https://adwords.google.com/api/adwords/v13}MccAlertType
+# MccAlertType
 class MccAlertType < ::String
   AccountBudgetBurnRate = MccAlertType.new("AccountBudgetBurnRate")
   AccountBudgetEnding = MccAlertType.new("AccountBudgetEnding")
@@ -224,22 +224,22 @@ class MccAlertType < ::String
   PaymentNotEntered = MccAlertType.new("PaymentNotEntered")
 end
 
-# {https://adwords.google.com/api/adwords/v13}NetworkType
+# NetworkType
 class NetworkType < ::String
   ContentNetwork = NetworkType.new("ContentNetwork")
   GoogleSearch = NetworkType.new("GoogleSearch")
   SearchNetwork = NetworkType.new("SearchNetwork")
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAccountInfo
-class GetAccountInfo
+# getAccountInfo
+class GetAccountInfo #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getAccountInfoResponse
-#   getAccountInfoReturn - AdWords::V13::AccountService::AccountInfo
-class GetAccountInfoResponse
+# getAccountInfoResponse
+# - getAccountInfoReturn - AdWords::V13::AccountService::AccountInfo
+class GetAccountInfoResponse #:nodoc: all
   attr_accessor :getAccountInfoReturn
 
   def initialize(getAccountInfoReturn = nil)
@@ -247,39 +247,39 @@ class GetAccountInfoResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getClientAccountInfos
-class GetClientAccountInfos
+# getClientAccountInfos
+class GetClientAccountInfos #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getClientAccountInfosResponse
-class GetClientAccountInfosResponse < ::Array
+# getClientAccountInfosResponse
+class GetClientAccountInfosResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getClientAccounts
-class GetClientAccounts
+# getClientAccounts
+class GetClientAccounts #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getClientAccountsResponse
-class GetClientAccountsResponse < ::Array
+# getClientAccountsResponse
+class GetClientAccountsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}getMccAlerts
-class GetMccAlerts
+# getMccAlerts
+class GetMccAlerts #:nodoc: all
   def initialize
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}getMccAlertsResponse
-class GetMccAlertsResponse < ::Array
+# getMccAlertsResponse
+class GetMccAlertsResponse < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateAccountInfo
-#   accountInfo - AdWords::V13::AccountService::AccountInfo
-class UpdateAccountInfo
+# updateAccountInfo
+# - accountInfo - AdWords::V13::AccountService::AccountInfo
+class UpdateAccountInfo #:nodoc: all
   attr_accessor :accountInfo
 
   def initialize(accountInfo = nil)
@@ -287,8 +287,8 @@ class UpdateAccountInfo
   end
 end
 
-# {https://adwords.google.com/api/adwords/v13}updateAccountInfoResponse
-class UpdateAccountInfoResponse
+# updateAccountInfoResponse
+class UpdateAccountInfoResponse #:nodoc: all
   def initialize
   end
 end

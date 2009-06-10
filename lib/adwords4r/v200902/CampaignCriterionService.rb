@@ -3,8 +3,8 @@ require 'xsd/qname'
 module AdWords; module V200902; module CampaignCriterionService
 
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CriterionId
-#   id - SOAP::SOAPLong
+# CriterionId
+# - id - SOAP::SOAPLong
 class CriterionId
   attr_accessor :id
 
@@ -13,9 +13,9 @@ class CriterionId
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Paging
-#   startIndex - SOAP::SOAPInt
-#   numberResults - SOAP::SOAPInt
+# Paging
+# - startIndex - SOAP::SOAPInt
+# - numberResults - SOAP::SOAPInt
 class Paging
   attr_accessor :startIndex
   attr_accessor :numberResults
@@ -26,41 +26,53 @@ class Paging
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}SoapHeader
-#   authToken - SOAP::SOAPString
-#   clientCustomerId - SOAP::SOAPString
-#   clientEmail - SOAP::SOAPString
+# SoapHeader
+# - applicationToken - SOAP::SOAPString
+# - authToken - SOAP::SOAPString
+# - clientCustomerId - SOAP::SOAPString
+# - clientEmail - SOAP::SOAPString
+# - developerToken - SOAP::SOAPString
 class SoapHeader
+  attr_accessor :applicationToken
   attr_accessor :authToken
   attr_accessor :clientCustomerId
   attr_accessor :clientEmail
+  attr_accessor :developerToken
 
-  def initialize(authToken = nil, clientCustomerId = nil, clientEmail = nil)
+  def initialize(applicationToken = nil, authToken = nil, clientCustomerId = nil, clientEmail = nil, developerToken = nil)
+    @applicationToken = applicationToken
     @authToken = authToken
     @clientCustomerId = clientCustomerId
     @clientEmail = clientEmail
+    @developerToken = developerToken
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}SoapResponseHeader
-#   requestId - SOAP::SOAPString
-#   operations - SOAP::SOAPLong
-#   responseTime - SOAP::SOAPLong
+# SoapResponseHeader
+# - requestId - SOAP::SOAPString
+# - operations - SOAP::SOAPLong
+# - responseTime - SOAP::SOAPLong
+# - callCost - SOAP::SOAPLong
+# - operationCount - SOAP::SOAPLong
 class SoapResponseHeader
   attr_accessor :requestId
   attr_accessor :operations
   attr_accessor :responseTime
+  attr_accessor :callCost
+  attr_accessor :operationCount
 
-  def initialize(requestId = nil, operations = nil, responseTime = nil)
+  def initialize(requestId = nil, operations = nil, responseTime = nil, callCost = nil, operationCount = nil)
     @requestId = requestId
     @operations = operations
     @responseTime = responseTime
+    @callCost = callCost
+    @operationCount = operationCount
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignId
-#   id - SOAP::SOAPLong
-#   campaignId_Type - SOAP::SOAPString
+# CampaignId
+# - id - SOAP::SOAPLong
+# - campaignId_Type - SOAP::SOAPString
 class CampaignId
   attr_accessor :id
   attr_accessor :campaignId_Type
@@ -71,9 +83,9 @@ class CampaignId
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Criterion
-#   id - AdWords::V200902::CampaignCriterionService::CriterionId
-#   criterion_Type - SOAP::SOAPString
+# Criterion
+# - id - AdWords::V200902::CampaignCriterionService::CriterionId
+# - criterion_Type - SOAP::SOAPString
 class Criterion
   attr_accessor :id
   attr_accessor :criterion_Type
@@ -84,10 +96,10 @@ class Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ContentLabel
-#   id - AdWords::V200902::CampaignCriterionService::CriterionId
-#   criterion_Type - SOAP::SOAPString
-#   contentLabelType - AdWords::V200902::CampaignCriterionService::ContentLabelType
+# ContentLabel
+# - id - AdWords::V200902::CampaignCriterionService::CriterionId
+# - criterion_Type - SOAP::SOAPString
+# - contentLabelType - AdWords::V200902::CampaignCriterionService::ContentLabelType
 class ContentLabel < Criterion
   attr_accessor :id
   attr_accessor :criterion_Type
@@ -100,11 +112,11 @@ class ContentLabel < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Keyword
-#   id - AdWords::V200902::CampaignCriterionService::CriterionId
-#   criterion_Type - SOAP::SOAPString
-#   text - SOAP::SOAPString
-#   matchType - AdWords::V200902::CampaignCriterionService::KeywordMatchType
+# Keyword
+# - id - AdWords::V200902::CampaignCriterionService::CriterionId
+# - criterion_Type - SOAP::SOAPString
+# - text - SOAP::SOAPString
+# - matchType - AdWords::V200902::CampaignCriterionService::KeywordMatchType
 class Keyword < Criterion
   attr_accessor :id
   attr_accessor :criterion_Type
@@ -119,10 +131,10 @@ class Keyword < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Placement
-#   id - AdWords::V200902::CampaignCriterionService::CriterionId
-#   criterion_Type - SOAP::SOAPString
-#   url - SOAP::SOAPString
+# Placement
+# - id - AdWords::V200902::CampaignCriterionService::CriterionId
+# - criterion_Type - SOAP::SOAPString
+# - url - SOAP::SOAPString
 class Placement < Criterion
   attr_accessor :id
   attr_accessor :criterion_Type
@@ -135,11 +147,11 @@ class Placement < Criterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ApiError
+# ApiError
 # abstract
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
 class ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -152,11 +164,11 @@ class ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AuthorizationError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::AuthorizationErrorReason
+# AuthorizationError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::AuthorizationErrorReason
 class AuthorizationError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -171,11 +183,11 @@ class AuthorizationError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::CampaignCriterionErrorReason
+# CampaignCriterionError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::CampaignCriterionErrorReason
 class CampaignCriterionError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -190,11 +202,11 @@ class CampaignCriterionError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DatabaseError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::DatabaseErrorReason
+# DatabaseError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::DatabaseErrorReason
 class DatabaseError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -209,11 +221,11 @@ class DatabaseError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DistinctError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::DistinctErrorReason
+# DistinctError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::DistinctErrorReason
 class DistinctError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -228,14 +240,14 @@ class DistinctError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}EntityCountLimitExceeded
+# EntityCountLimitExceeded
 # abstract
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::EntityCountLimitExceededReason
-#   enclosingId - SOAP::SOAPString
-#   limit - SOAP::SOAPInt
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::EntityCountLimitExceededReason
+# - enclosingId - SOAP::SOAPString
+# - limit - SOAP::SOAPInt
 class EntityCountLimitExceeded < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -254,14 +266,14 @@ class EntityCountLimitExceeded < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionLimitExceeded
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::EntityCountLimitExceededReason
-#   enclosingId - SOAP::SOAPString
-#   limit - SOAP::SOAPInt
-#   limitType - AdWords::V200902::CampaignCriterionService::CampaignCriterionLimitExceededCriteriaLimitType
+# CampaignCriterionLimitExceeded
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::EntityCountLimitExceededReason
+# - enclosingId - SOAP::SOAPString
+# - limit - SOAP::SOAPInt
+# - limitType - AdWords::V200902::CampaignCriterionService::CampaignCriterionLimitExceededCriteriaLimitType
 class CampaignCriterionLimitExceeded < EntityCountLimitExceeded
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -282,11 +294,30 @@ class CampaignCriterionLimitExceeded < EntityCountLimitExceeded
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NewEntityCreationError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::NewEntityCreationErrorReason
+# EntityNotFound
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::EntityNotFoundReason
+class EntityNotFound < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# NewEntityCreationError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::NewEntityCreationErrorReason
 class NewEntityCreationError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -301,11 +332,11 @@ class NewEntityCreationError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotEmptyError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::NotEmptyErrorReason
+# NotEmptyError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::NotEmptyErrorReason
 class NotEmptyError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -320,11 +351,11 @@ class NotEmptyError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotWhitelistedError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::NotWhitelistedErrorReason
+# NotWhitelistedError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::NotWhitelistedErrorReason
 class NotWhitelistedError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -339,11 +370,11 @@ class NotWhitelistedError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NullError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::NullErrorReason
+# NullError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::NullErrorReason
 class NullError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -358,11 +389,11 @@ class NullError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}OperatorError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::OperatorErrorReason
+# OperatorError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::OperatorErrorReason
 class OperatorError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -377,11 +408,30 @@ class OperatorError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ReadOnlyError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::ReadOnlyErrorReason
+# QuotaCheckError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::QuotaCheckErrorReason
+class QuotaCheckError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# ReadOnlyError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::ReadOnlyErrorReason
 class ReadOnlyError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -396,11 +446,11 @@ class ReadOnlyError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RequiredError
-#   fieldPath - SOAP::SOAPString
-#   trigger - SOAP::SOAPString
-#   apiError_Type - SOAP::SOAPString
-#   reason - AdWords::V200902::CampaignCriterionService::RequiredErrorReason
+# RequiredError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200902::CampaignCriterionService::RequiredErrorReason
 class RequiredError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
@@ -415,9 +465,9 @@ class RequiredError < ApiError
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ApplicationException
-#   message - SOAP::SOAPString
-#   applicationException_Type - SOAP::SOAPString
+# ApplicationException
+# - message - SOAP::SOAPString
+# - applicationException_Type - SOAP::SOAPString
 class ApplicationException
   attr_accessor :message
   attr_accessor :applicationException_Type
@@ -428,10 +478,10 @@ class ApplicationException
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ApiException
-#   message - SOAP::SOAPString
-#   applicationException_Type - SOAP::SOAPString
-#   errors - AdWords::V200902::CampaignCriterionService::ApiError
+# ApiException
+# - message - SOAP::SOAPString
+# - applicationException_Type - SOAP::SOAPString
+# - errors - AdWords::V200902::CampaignCriterionService::ApiError
 class ApiException < ApplicationException
   attr_accessor :message
   attr_accessor :applicationException_Type
@@ -444,10 +494,10 @@ class ApiException < ApplicationException
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterion
-#   campaignId - AdWords::V200902::CampaignCriterionService::CampaignId
-#   criterion - AdWords::V200902::CampaignCriterionService::Criterion
-#   campaignCriterion_Type - SOAP::SOAPString
+# CampaignCriterion
+# - campaignId - AdWords::V200902::CampaignCriterionService::CampaignId
+# - criterion - AdWords::V200902::CampaignCriterionService::Criterion
+# - campaignCriterion_Type - SOAP::SOAPString
 class CampaignCriterion
   attr_accessor :campaignId
   attr_accessor :criterion
@@ -460,10 +510,10 @@ class CampaignCriterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NegativeCampaignCriterion
-#   campaignId - AdWords::V200902::CampaignCriterionService::CampaignId
-#   criterion - AdWords::V200902::CampaignCriterionService::Criterion
-#   campaignCriterion_Type - SOAP::SOAPString
+# NegativeCampaignCriterion
+# - campaignId - AdWords::V200902::CampaignCriterionService::CampaignId
+# - criterion - AdWords::V200902::CampaignCriterionService::Criterion
+# - campaignCriterion_Type - SOAP::SOAPString
 class NegativeCampaignCriterion < CampaignCriterion
   attr_accessor :campaignId
   attr_accessor :criterion
@@ -476,9 +526,9 @@ class NegativeCampaignCriterion < CampaignCriterion
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionIdFilter
-#   campaignId - AdWords::V200902::CampaignCriterionService::CampaignId
-#   criterionId - AdWords::V200902::CampaignCriterionService::CriterionId
+# CampaignCriterionIdFilter
+# - campaignId - AdWords::V200902::CampaignCriterionService::CampaignId
+# - criterionId - AdWords::V200902::CampaignCriterionService::CriterionId
 class CampaignCriterionIdFilter
   attr_accessor :campaignId
   attr_accessor :criterionId
@@ -489,10 +539,10 @@ class CampaignCriterionIdFilter
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Operation
+# Operation
 # abstract
-#   operator - AdWords::V200902::CampaignCriterionService::Operator
-#   operation_Type - SOAP::SOAPString
+# - operator - AdWords::V200902::CampaignCriterionService::Operator
+# - operation_Type - SOAP::SOAPString
 class Operation
   attr_accessor :operator
   attr_accessor :operation_Type
@@ -503,10 +553,10 @@ class Operation
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionOperation
-#   operator - AdWords::V200902::CampaignCriterionService::Operator
-#   operation_Type - SOAP::SOAPString
-#   operand - AdWords::V200902::CampaignCriterionService::CampaignCriterion
+# CampaignCriterionOperation
+# - operator - AdWords::V200902::CampaignCriterionService::Operator
+# - operation_Type - SOAP::SOAPString
+# - operand - AdWords::V200902::CampaignCriterionService::CampaignCriterion
 class CampaignCriterionOperation < Operation
   attr_accessor :operator
   attr_accessor :operation_Type
@@ -519,10 +569,10 @@ class CampaignCriterionOperation < Operation
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Page
+# Page
 # abstract
-#   totalNumEntries - SOAP::SOAPInt
-#   page_Type - SOAP::SOAPString
+# - totalNumEntries - SOAP::SOAPInt
+# - page_Type - SOAP::SOAPString
 class Page
   attr_accessor :totalNumEntries
   attr_accessor :page_Type
@@ -533,10 +583,10 @@ class Page
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionPage
-#   totalNumEntries - SOAP::SOAPInt
-#   page_Type - SOAP::SOAPString
-#   entries - AdWords::V200902::CampaignCriterionService::CampaignCriterion
+# CampaignCriterionPage
+# - totalNumEntries - SOAP::SOAPInt
+# - page_Type - SOAP::SOAPString
+# - entries - AdWords::V200902::CampaignCriterionService::CampaignCriterion
 class CampaignCriterionPage < Page
   attr_accessor :totalNumEntries
   attr_accessor :page_Type
@@ -549,8 +599,8 @@ class CampaignCriterionPage < Page
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ListReturnValue
-#   listReturnValue_Type - SOAP::SOAPString
+# ListReturnValue
+# - listReturnValue_Type - SOAP::SOAPString
 class ListReturnValue
   attr_accessor :listReturnValue_Type
 
@@ -559,9 +609,9 @@ class ListReturnValue
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionReturnValue
-#   listReturnValue_Type - SOAP::SOAPString
-#   value - AdWords::V200902::CampaignCriterionService::CampaignCriterion
+# CampaignCriterionReturnValue
+# - listReturnValue_Type - SOAP::SOAPString
+# - value - AdWords::V200902::CampaignCriterionService::CampaignCriterion
 class CampaignCriterionReturnValue < ListReturnValue
   attr_accessor :listReturnValue_Type
   attr_accessor :value
@@ -572,9 +622,9 @@ class CampaignCriterionReturnValue < ListReturnValue
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionSelector
-#   idFilters - AdWords::V200902::CampaignCriterionService::CampaignCriterionIdFilter
-#   paging - AdWords::V200902::CampaignCriterionService::Paging
+# CampaignCriterionSelector
+# - idFilters - AdWords::V200902::CampaignCriterionService::CampaignCriterionIdFilter
+# - paging - AdWords::V200902::CampaignCriterionService::Paging
 class CampaignCriterionSelector
   attr_accessor :idFilters
   attr_accessor :paging
@@ -585,15 +635,16 @@ class CampaignCriterionSelector
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}AuthorizationError.Reason
+# AuthorizationError.Reason
 class AuthorizationErrorReason < ::String
   EFFECTIVE_USER_PERMISSION_DENIED = AuthorizationErrorReason.new("EFFECTIVE_USER_PERMISSION_DENIED")
   NO_ADWORDS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_ADWORDS_ACCOUNT_FOR_CUSTOMER")
+  NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER")
   UNABLE_TO_AUTHORIZE = AuthorizationErrorReason.new("UNABLE_TO_AUTHORIZE")
   USER_PERMISSION_DENIED = AuthorizationErrorReason.new("USER_PERMISSION_DENIED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionError.Reason
+# CampaignCriterionError.Reason
 class CampaignCriterionErrorReason < ::String
   CONCRETE_TYPE_REQUIRED = CampaignCriterionErrorReason.new("CONCRETE_TYPE_REQUIRED")
   CRITERIA_QUOTA_EXCEEDED = CampaignCriterionErrorReason.new("CRITERIA_QUOTA_EXCEEDED")
@@ -603,13 +654,13 @@ class CampaignCriterionErrorReason < ::String
   TOO_MANY_OPERTAIONS = CampaignCriterionErrorReason.new("TOO_MANY_OPERTAIONS")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}CampaignCriterionLimitExceeded.CriteriaLimitType
+# CampaignCriterionLimitExceeded.CriteriaLimitType
 class CampaignCriterionLimitExceededCriteriaLimitType < ::String
   CAMPAIGN_NEGATIVE_KEYWORD = CampaignCriterionLimitExceededCriteriaLimitType.new("CAMPAIGN_NEGATIVE_KEYWORD")
   CAMPAIGN_NEGATIVE_WEBSITE = CampaignCriterionLimitExceededCriteriaLimitType.new("CAMPAIGN_NEGATIVE_WEBSITE")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ContentLabelType
+# ContentLabelType
 class ContentLabelType < ::String
   ADULTISH = ContentLabelType.new("ADULTISH")
   AFE = ContentLabelType.new("AFE")
@@ -631,8 +682,9 @@ class ContentLabelType < ::String
   VIDEO = ContentLabelType.new("VIDEO")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DatabaseError.Reason
+# DatabaseError.Reason
 class DatabaseErrorReason < ::String
+  CAMPAIGN_PRODUCT_NOT_SUPPORTED = DatabaseErrorReason.new("CAMPAIGN_PRODUCT_NOT_SUPPORTED")
   CANNOT_LOAD_AD = DatabaseErrorReason.new("CANNOT_LOAD_AD")
   CANNOT_LOAD_ADGROUP = DatabaseErrorReason.new("CANNOT_LOAD_ADGROUP")
   CANNOT_LOAD_CAMPAIGN = DatabaseErrorReason.new("CANNOT_LOAD_CAMPAIGN")
@@ -642,70 +694,94 @@ class DatabaseErrorReason < ::String
   PERMISSION_DENIED = DatabaseErrorReason.new("PERMISSION_DENIED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}DistinctError.Reason
+# DistinctError.Reason
 class DistinctErrorReason < ::String
   DUPLICATE_ELEMENT = DistinctErrorReason.new("DUPLICATE_ELEMENT")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}EntityCountLimitExceeded.Reason
+# EntityCountLimitExceeded.Reason
 class EntityCountLimitExceededReason < ::String
   ACCOUNT_LIMIT = EntityCountLimitExceededReason.new("ACCOUNT_LIMIT")
   ADGROUP_LIMIT = EntityCountLimitExceededReason.new("ADGROUP_LIMIT")
   CAMPAIGN_LIMIT = EntityCountLimitExceededReason.new("CAMPAIGN_LIMIT")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}KeywordMatchType
+# EntityNotFound.Reason
+class EntityNotFoundReason < ::String
+  INVALID_ID = EntityNotFoundReason.new("INVALID_ID")
+end
+
+# KeywordMatchType
 class KeywordMatchType < ::String
   BROAD = KeywordMatchType.new("BROAD")
   EXACT = KeywordMatchType.new("EXACT")
   PHRASE = KeywordMatchType.new("PHRASE")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NewEntityCreationError.Reason
+# NewEntityCreationError.Reason
 class NewEntityCreationErrorReason < ::String
   CANNOT_SET_ID_FOR_ADD = NewEntityCreationErrorReason.new("CANNOT_SET_ID_FOR_ADD")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotEmptyError.Reason
+# NotEmptyError.Reason
 class NotEmptyErrorReason < ::String
   EMPTY_LIST = NotEmptyErrorReason.new("EMPTY_LIST")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NotWhitelistedError.Reason
+# NotWhitelistedError.Reason
 class NotWhitelistedErrorReason < ::String
   CUSTOMER_NOT_WHITELISTED_FOR_API = NotWhitelistedErrorReason.new("CUSTOMER_NOT_WHITELISTED_FOR_API")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}NullError.Reason
+# NullError.Reason
 class NullErrorReason < ::String
   NULL_CONTENT = NullErrorReason.new("NULL_CONTENT")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}Operator
+# Operator
 class Operator < ::String
   ADD = Operator.new("ADD")
   REMOVE = Operator.new("REMOVE")
   SET = Operator.new("SET")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}OperatorError.Reason
+# OperatorError.Reason
 class OperatorErrorReason < ::String
   OPERATOR_NOT_SUPPORTED = OperatorErrorReason.new("OPERATOR_NOT_SUPPORTED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}ReadOnlyError.Reason
+# QuotaCheckError.Reason
+class QuotaCheckErrorReason < ::String
+  ACCOUNT_DELINQUENT = QuotaCheckErrorReason.new("ACCOUNT_DELINQUENT")
+  ACCOUNT_INACCESSIBLE = QuotaCheckErrorReason.new("ACCOUNT_INACCESSIBLE")
+  ACCOUNT_INACTIVE = QuotaCheckErrorReason.new("ACCOUNT_INACTIVE")
+  INCOMPLETE_SIGNUP = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP")
+  INCOMPLETE_SIGNUP_APP_INFO_MISSING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_APP_INFO_MISSING")
+  INCOMPLETE_SIGNUP_APP_INFO_PENDING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_APP_INFO_PENDING")
+  INCOMPLETE_SIGNUP_APP_INFO_REJECTED = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_APP_INFO_REJECTED")
+  INCOMPLETE_SIGNUP_LATEST_NETAPI_TNC_NOT_AGREED = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_LATEST_NETAPI_TNC_NOT_AGREED")
+  INCOMPLETE_SIGNUP_NO_BILLING_INFO = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_NO_BILLING_INFO")
+  INCOMPLETE_SIGNUP_USER_INFO_MISSING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_USER_INFO_MISSING")
+  INCOMPLETE_SIGNUP_USER_INFO_PENDING = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_USER_INFO_PENDING")
+  INCOMPLETE_SIGNUP_USER_INFO_REJECTED = QuotaCheckErrorReason.new("INCOMPLETE_SIGNUP_USER_INFO_REJECTED")
+  INVALID_TOKEN_HEADER = QuotaCheckErrorReason.new("INVALID_TOKEN_HEADER")
+  MONTHLY_BUDGET_REACHED = QuotaCheckErrorReason.new("MONTHLY_BUDGET_REACHED")
+  QUOTA_EXCEEDED = QuotaCheckErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# ReadOnlyError.Reason
 class ReadOnlyErrorReason < ::String
   READ_ONLY = ReadOnlyErrorReason.new("READ_ONLY")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}RequiredError.Reason
+# RequiredError.Reason
 class RequiredErrorReason < ::String
   REQUIRED = RequiredErrorReason.new("REQUIRED")
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}get
-#   selector - AdWords::V200902::CampaignCriterionService::CampaignCriterionSelector
-class Get
+# get
+# - selector - AdWords::V200902::CampaignCriterionService::CampaignCriterionSelector
+class Get #:nodoc: all
   attr_accessor :selector
 
   def initialize(selector = nil)
@@ -713,9 +789,9 @@ class Get
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}getResponse
-#   rval - AdWords::V200902::CampaignCriterionService::CampaignCriterionPage
-class GetResponse
+# getResponse
+# - rval - AdWords::V200902::CampaignCriterionService::CampaignCriterionPage
+class GetResponse #:nodoc: all
   attr_accessor :rval
 
   def initialize(rval = nil)
@@ -723,13 +799,13 @@ class GetResponse
   end
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}mutate
-class Mutate < ::Array
+# mutate
+class Mutate < ::Array #:nodoc: all
 end
 
-# {https://adwords.google.com/api/adwords/cm/v200902}mutateResponse
-#   rval - AdWords::V200902::CampaignCriterionService::CampaignCriterionReturnValue
-class MutateResponse
+# mutateResponse
+# - rval - AdWords::V200902::CampaignCriterionService::CampaignCriterionReturnValue
+class MutateResponse #:nodoc: all
   attr_accessor :rval
 
   def initialize(rval = nil)

@@ -16,7 +16,7 @@ class AdGroupCriterionServiceInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/cm/v200902", "getResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V200902::AdGroupCriterionService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/cm/v200902"}} }
+        :faults => {"AdWords::V200902::AdGroupCriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/cm/v200902", :namespace=>nil, :use=>"literal", :name=>"ApiException", :encodingstyle=>"document"}} }
     ],
     [ "",
       "mutate",
@@ -24,7 +24,7 @@ class AdGroupCriterionServiceInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/cm/v200902", "mutateResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V200902::AdGroupCriterionService::ApiException"=>{:use=>"literal", :name=>"ApiException", :namespace=>nil, :encodingstyle=>"document", :ns=>"https://adwords.google.com/api/adwords/cm/v200902"}} }
+        :faults => {"AdWords::V200902::AdGroupCriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/cm/v200902", :namespace=>nil, :use=>"literal", :name=>"ApiException", :encodingstyle=>"document"}} }
     ]
   ]
 

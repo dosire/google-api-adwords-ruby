@@ -21,14 +21,6 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::AdExtensionId,
-    :schema_type => XSD::QName.new(NsV200902, "AdExtensionId"),
-    :schema_element => [
-      ["id", "SOAP::SOAPLong", [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::AdGroupAdCountLimitExceeded,
     :schema_type => XSD::QName.new(NsV200902, "AdGroupAdCountLimitExceeded"),
     :schema_basetype => XSD::QName.new(NsV200902, "EntityCountLimitExceeded"),
@@ -51,14 +43,6 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200902::AdGroupAdService::AdGroupAdErrorReason", [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::AdId,
-    :schema_type => XSD::QName.new(NsV200902, "AdId"),
-    :schema_element => [
-      ["id", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 
@@ -197,11 +181,35 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::DateError,
+    :schema_type => XSD::QName.new(NsV200902, "DateError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::AdGroupAdService::DateErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::DateRange,
     :schema_type => XSD::QName.new(NsV200902, "DateRange"),
     :schema_element => [
       ["min", "AdWords::V200902::AdGroupAdService::Date", [0, 1]],
       ["max", "AdWords::V200902::AdGroupAdService::Date", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::DateTime,
+    :schema_type => XSD::QName.new(NsV200902, "DateTime"),
+    :schema_element => [
+      ["date", "AdWords::V200902::AdGroupAdService::Date", [0, 1]],
+      ["hour", "SOAP::SOAPInt", [0, 1]],
+      ["minute", "SOAP::SOAPInt", [0, 1]],
+      ["second", "SOAP::SOAPInt", [0, 1]],
+      ["timeZoneID", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -223,6 +231,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200902::AdGroupAdService::DistinctErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::EntityNotFound,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::AdGroupAdService::EntityNotFoundReason", [0, 1]]
     ]
   )
 
@@ -273,6 +293,8 @@ module DefaultMappingRegistry
       ["mediaSubType", "AdWords::V200902::AdGroupAdService::MediaMediaSubType", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
       ["fileSize", "SOAP::SOAPLong", [0, 1]],
+      ["extendedCapabilities", "AdWords::V200902::AdGroupAdService::Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry[]", [0, nil]],
+      ["creationTime", "AdWords::V200902::AdGroupAdService::DateTime", [0, 1]],
       ["media_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "Media.Type")], [0, 1]],
       ["data", "SOAP::SOAPBase64", [0, 1]]
     ]
@@ -301,31 +323,6 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::LocationExtension,
-    :schema_type => XSD::QName.new(NsV200902, "LocationExtension"),
-    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
-    :schema_element => [
-      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
-      ["address", "AdWords::V200902::AdGroupAdService::Address", [0, 1]],
-      ["geoPoint", "AdWords::V200902::AdGroupAdService::GeoPoint", [0, 1]],
-      ["companyName", "SOAP::SOAPString", [0, 1]],
-      ["phoneNumber", "SOAP::SOAPString", [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::LocationSyncExtension,
-    :schema_type => XSD::QName.new(NsV200902, "LocationSyncExtension"),
-    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
-    :schema_element => [
-      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
-      ["email", "SOAP::SOAPString", [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::MediaError,
     :schema_type => XSD::QName.new(NsV200902, "MediaError"),
     :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
@@ -342,6 +339,15 @@ module DefaultMappingRegistry
     :schema_type => XSD::QName.new(NsV200902, "MediaId"),
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry,
+    :schema_type => XSD::QName.new(NsV200902, "Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry"),
+    :schema_element => [
+      ["key", "AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityType", [0, 1]],
+      ["value", "AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityState", [0, 1]]
     ]
   )
 
@@ -572,6 +578,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::QuotaCheckError,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::AdGroupAdService::QuotaCheckErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::ReadOnlyError,
     :schema_type => XSD::QName.new(NsV200902, "ReadOnlyError"),
     :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
@@ -599,9 +617,11 @@ module DefaultMappingRegistry
     :class => AdWords::V200902::AdGroupAdService::SoapHeader,
     :schema_type => XSD::QName.new(NsV200902, "SoapHeader"),
     :schema_element => [
+      ["applicationToken", "SOAP::SOAPString", [0, 1]],
       ["authToken", "SOAP::SOAPString", [0, 1]],
       ["clientCustomerId", "SOAP::SOAPString", [0, 1]],
-      ["clientEmail", "SOAP::SOAPString", [0, 1]]
+      ["clientEmail", "SOAP::SOAPString", [0, 1]],
+      ["developerToken", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -611,7 +631,9 @@ module DefaultMappingRegistry
     :schema_element => [
       ["requestId", "SOAP::SOAPString", [0, 1]],
       ["operations", "SOAP::SOAPLong", [0, 1]],
-      ["responseTime", "SOAP::SOAPLong", [0, 1]]
+      ["responseTime", "SOAP::SOAPLong", [0, 1]],
+      ["callCost", "SOAP::SOAPLong", [0, 1]],
+      ["operationCount", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 
@@ -689,11 +711,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::AdExtension,
-    :schema_type => XSD::QName.new(NsV200902, "AdExtension"),
+    :class => AdWords::V200902::AdGroupAdService::AdExtensionId,
+    :schema_type => XSD::QName.new(NsV200902, "AdExtensionId"),
     :schema_element => [
-      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]]
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["adExtensionId_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtensionId.Type")], [0, 1]]
     ]
   )
 
@@ -703,6 +725,15 @@ module DefaultMappingRegistry
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["adGroupId_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdGroupId.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::AdId,
+    :schema_type => XSD::QName.new(NsV200902, "AdId"),
+    :schema_element => [
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["adId_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdId.Type")], [0, 1]]
     ]
   )
 
@@ -724,6 +755,34 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::LocationExtension,
+    :schema_type => XSD::QName.new(NsV200902, "LocationExtension"),
+    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
+    :schema_element => [
+      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
+      ["address", "AdWords::V200902::AdGroupAdService::Address", [0, 1]],
+      ["geoPoint", "AdWords::V200902::AdGroupAdService::GeoPoint", [0, 1]],
+      ["companyName", "SOAP::SOAPString", [0, 1]],
+      ["phoneNumber", "SOAP::SOAPString", [0, 1]],
+      ["iconMediaId", "AdWords::V200902::AdGroupAdService::MediaId", [0, 1]],
+      ["imageMediaId", "AdWords::V200902::AdGroupAdService::MediaId", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::LocationSyncExtension,
+    :schema_type => XSD::QName.new(NsV200902, "LocationSyncExtension"),
+    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
+    :schema_element => [
+      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
+      ["email", "SOAP::SOAPString", [0, 1]],
+      ["iconMediaId", "AdWords::V200902::AdGroupAdService::MediaId", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::Media,
     :schema_type => XSD::QName.new(NsV200902, "Media"),
     :schema_element => [
@@ -737,6 +796,8 @@ module DefaultMappingRegistry
       ["mediaSubType", "AdWords::V200902::AdGroupAdService::MediaMediaSubType", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
       ["fileSize", "SOAP::SOAPLong", [0, 1]],
+      ["extendedCapabilities", "AdWords::V200902::AdGroupAdService::Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry[]", [0, nil]],
+      ["creationTime", "AdWords::V200902::AdGroupAdService::DateTime", [0, 1]],
       ["media_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "Media.Type")], [0, 1]]
     ]
   )
@@ -772,6 +833,15 @@ module DefaultMappingRegistry
       ["externalPolicyDescription", "SOAP::SOAPString", [0, 1]],
       ["isExemptable", "SOAP::SOAPBoolean", [0, 1]],
       ["violatingParts", "AdWords::V200902::AdGroupAdService::PolicyViolationErrorPart[]", [0, nil]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::AdExtension,
+    :schema_type => XSD::QName.new(NsV200902, "AdExtension"),
+    :schema_element => [
+      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]]
     ]
   )
 
@@ -959,6 +1029,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::DateErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "DateError.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::DayOfWeek,
     :schema_type => XSD::QName.new(NsV200902, "DayOfWeek")
   )
@@ -971,6 +1046,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::EntityCountLimitExceededReason,
     :schema_type => XSD::QName.new(NsV200902, "EntityCountLimitExceeded.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::EntityNotFoundReason,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound.Reason")
   )
 
   EncodedRegistry.register(
@@ -991,6 +1071,16 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::MarkupLanguageType,
     :schema_type => XSD::QName.new(NsV200902, "MarkupLanguageType")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityState,
+    :schema_type => XSD::QName.new(NsV200902, "Media.MediaExtendedCapabilityState")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityType,
+    :schema_type => XSD::QName.new(NsV200902, "Media.MediaExtendedCapabilityType")
   )
 
   EncodedRegistry.register(
@@ -1066,6 +1156,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::ProximityTargetDistanceUnits,
     :schema_type => XSD::QName.new(NsV200902, "ProximityTarget.DistanceUnits")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::QuotaCheckErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError.Reason")
   )
 
   EncodedRegistry.register(
@@ -1101,14 +1196,6 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::AdExtensionId,
-    :schema_type => XSD::QName.new(NsV200902, "AdExtensionId"),
-    :schema_element => [
-      ["id", "SOAP::SOAPLong", [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::AdGroupAdCountLimitExceeded,
     :schema_type => XSD::QName.new(NsV200902, "AdGroupAdCountLimitExceeded"),
     :schema_basetype => XSD::QName.new(NsV200902, "EntityCountLimitExceeded"),
@@ -1131,14 +1218,6 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200902::AdGroupAdService::AdGroupAdErrorReason", [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::AdId,
-    :schema_type => XSD::QName.new(NsV200902, "AdId"),
-    :schema_element => [
-      ["id", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 
@@ -1277,11 +1356,35 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::DateError,
+    :schema_type => XSD::QName.new(NsV200902, "DateError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::AdGroupAdService::DateErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::DateRange,
     :schema_type => XSD::QName.new(NsV200902, "DateRange"),
     :schema_element => [
       ["min", "AdWords::V200902::AdGroupAdService::Date", [0, 1]],
       ["max", "AdWords::V200902::AdGroupAdService::Date", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::DateTime,
+    :schema_type => XSD::QName.new(NsV200902, "DateTime"),
+    :schema_element => [
+      ["date", "AdWords::V200902::AdGroupAdService::Date", [0, 1]],
+      ["hour", "SOAP::SOAPInt", [0, 1]],
+      ["minute", "SOAP::SOAPInt", [0, 1]],
+      ["second", "SOAP::SOAPInt", [0, 1]],
+      ["timeZoneID", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -1303,6 +1406,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200902::AdGroupAdService::DistinctErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::EntityNotFound,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::AdGroupAdService::EntityNotFoundReason", [0, 1]]
     ]
   )
 
@@ -1353,6 +1468,8 @@ module DefaultMappingRegistry
       ["mediaSubType", "AdWords::V200902::AdGroupAdService::MediaMediaSubType", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
       ["fileSize", "SOAP::SOAPLong", [0, 1]],
+      ["extendedCapabilities", "AdWords::V200902::AdGroupAdService::Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry[]", [0, nil]],
+      ["creationTime", "AdWords::V200902::AdGroupAdService::DateTime", [0, 1]],
       ["media_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "Media.Type")], [0, 1]],
       ["data", "SOAP::SOAPBase64", [0, 1]]
     ]
@@ -1381,31 +1498,6 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::LocationExtension,
-    :schema_type => XSD::QName.new(NsV200902, "LocationExtension"),
-    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
-    :schema_element => [
-      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
-      ["address", "AdWords::V200902::AdGroupAdService::Address", [0, 1]],
-      ["geoPoint", "AdWords::V200902::AdGroupAdService::GeoPoint", [0, 1]],
-      ["companyName", "SOAP::SOAPString", [0, 1]],
-      ["phoneNumber", "SOAP::SOAPString", [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::LocationSyncExtension,
-    :schema_type => XSD::QName.new(NsV200902, "LocationSyncExtension"),
-    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
-    :schema_element => [
-      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
-      ["email", "SOAP::SOAPString", [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::MediaError,
     :schema_type => XSD::QName.new(NsV200902, "MediaError"),
     :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
@@ -1422,6 +1514,15 @@ module DefaultMappingRegistry
     :schema_type => XSD::QName.new(NsV200902, "MediaId"),
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry,
+    :schema_type => XSD::QName.new(NsV200902, "Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry"),
+    :schema_element => [
+      ["key", "AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityType", [0, 1]],
+      ["value", "AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityState", [0, 1]]
     ]
   )
 
@@ -1652,6 +1753,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::QuotaCheckError,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError"),
+    :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200902::AdGroupAdService::QuotaCheckErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::ReadOnlyError,
     :schema_type => XSD::QName.new(NsV200902, "ReadOnlyError"),
     :schema_basetype => XSD::QName.new(NsV200902, "ApiError"),
@@ -1679,9 +1792,11 @@ module DefaultMappingRegistry
     :class => AdWords::V200902::AdGroupAdService::SoapHeader,
     :schema_type => XSD::QName.new(NsV200902, "SoapHeader"),
     :schema_element => [
+      ["applicationToken", "SOAP::SOAPString", [0, 1]],
       ["authToken", "SOAP::SOAPString", [0, 1]],
       ["clientCustomerId", "SOAP::SOAPString", [0, 1]],
-      ["clientEmail", "SOAP::SOAPString", [0, 1]]
+      ["clientEmail", "SOAP::SOAPString", [0, 1]],
+      ["developerToken", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -1691,7 +1806,9 @@ module DefaultMappingRegistry
     :schema_element => [
       ["requestId", "SOAP::SOAPString", [0, 1]],
       ["operations", "SOAP::SOAPLong", [0, 1]],
-      ["responseTime", "SOAP::SOAPLong", [0, 1]]
+      ["responseTime", "SOAP::SOAPLong", [0, 1]],
+      ["callCost", "SOAP::SOAPLong", [0, 1]],
+      ["operationCount", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 
@@ -1769,11 +1886,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200902::AdGroupAdService::AdExtension,
-    :schema_type => XSD::QName.new(NsV200902, "AdExtension"),
+    :class => AdWords::V200902::AdGroupAdService::AdExtensionId,
+    :schema_type => XSD::QName.new(NsV200902, "AdExtensionId"),
     :schema_element => [
-      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]]
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["adExtensionId_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtensionId.Type")], [0, 1]]
     ]
   )
 
@@ -1783,6 +1900,15 @@ module DefaultMappingRegistry
     :schema_element => [
       ["id", "SOAP::SOAPLong", [0, 1]],
       ["adGroupId_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdGroupId.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::AdId,
+    :schema_type => XSD::QName.new(NsV200902, "AdId"),
+    :schema_element => [
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["adId_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdId.Type")], [0, 1]]
     ]
   )
 
@@ -1804,6 +1930,34 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::LocationExtension,
+    :schema_type => XSD::QName.new(NsV200902, "LocationExtension"),
+    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
+    :schema_element => [
+      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
+      ["address", "AdWords::V200902::AdGroupAdService::Address", [0, 1]],
+      ["geoPoint", "AdWords::V200902::AdGroupAdService::GeoPoint", [0, 1]],
+      ["companyName", "SOAP::SOAPString", [0, 1]],
+      ["phoneNumber", "SOAP::SOAPString", [0, 1]],
+      ["iconMediaId", "AdWords::V200902::AdGroupAdService::MediaId", [0, 1]],
+      ["imageMediaId", "AdWords::V200902::AdGroupAdService::MediaId", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::LocationSyncExtension,
+    :schema_type => XSD::QName.new(NsV200902, "LocationSyncExtension"),
+    :schema_basetype => XSD::QName.new(NsV200902, "AdExtension"),
+    :schema_element => [
+      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]],
+      ["email", "SOAP::SOAPString", [0, 1]],
+      ["iconMediaId", "AdWords::V200902::AdGroupAdService::MediaId", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::Media,
     :schema_type => XSD::QName.new(NsV200902, "Media"),
     :schema_element => [
@@ -1817,6 +1971,8 @@ module DefaultMappingRegistry
       ["mediaSubType", "AdWords::V200902::AdGroupAdService::MediaMediaSubType", [0, 1]],
       ["name", "SOAP::SOAPString", [0, 1]],
       ["fileSize", "SOAP::SOAPLong", [0, 1]],
+      ["extendedCapabilities", "AdWords::V200902::AdGroupAdService::Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry[]", [0, nil]],
+      ["creationTime", "AdWords::V200902::AdGroupAdService::DateTime", [0, 1]],
       ["media_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "Media.Type")], [0, 1]]
     ]
   )
@@ -1852,6 +2008,15 @@ module DefaultMappingRegistry
       ["externalPolicyDescription", "SOAP::SOAPString", [0, 1]],
       ["isExemptable", "SOAP::SOAPBoolean", [0, 1]],
       ["violatingParts", "AdWords::V200902::AdGroupAdService::PolicyViolationErrorPart[]", [0, nil]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::AdExtension,
+    :schema_type => XSD::QName.new(NsV200902, "AdExtension"),
+    :schema_element => [
+      ["id", "AdWords::V200902::AdGroupAdService::AdExtensionId", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200902, "AdExtension.Type")], [0, 1]]
     ]
   )
 
@@ -2039,6 +2204,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::DateErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "DateError.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::DayOfWeek,
     :schema_type => XSD::QName.new(NsV200902, "DayOfWeek")
   )
@@ -2051,6 +2221,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::EntityCountLimitExceededReason,
     :schema_type => XSD::QName.new(NsV200902, "EntityCountLimitExceeded.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::EntityNotFoundReason,
+    :schema_type => XSD::QName.new(NsV200902, "EntityNotFound.Reason")
   )
 
   LiteralRegistry.register(
@@ -2071,6 +2246,16 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::MarkupLanguageType,
     :schema_type => XSD::QName.new(NsV200902, "MarkupLanguageType")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityState,
+    :schema_type => XSD::QName.new(NsV200902, "Media.MediaExtendedCapabilityState")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::MediaMediaExtendedCapabilityType,
+    :schema_type => XSD::QName.new(NsV200902, "Media.MediaExtendedCapabilityType")
   )
 
   LiteralRegistry.register(
@@ -2146,6 +2331,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200902::AdGroupAdService::ProximityTargetDistanceUnits,
     :schema_type => XSD::QName.new(NsV200902, "ProximityTarget.DistanceUnits")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200902::AdGroupAdService::QuotaCheckErrorReason,
+    :schema_type => XSD::QName.new(NsV200902, "QuotaCheckError.Reason")
   )
 
   LiteralRegistry.register(
@@ -2214,9 +2404,11 @@ module DefaultMappingRegistry
     :class => AdWords::V200902::AdGroupAdService::SoapHeader,
     :schema_name => XSD::QName.new(NsV200902, "RequestHeader"),
     :schema_element => [
+      ["applicationToken", "SOAP::SOAPString", [0, 1]],
       ["authToken", "SOAP::SOAPString", [0, 1]],
       ["clientCustomerId", "SOAP::SOAPString", [0, 1]],
-      ["clientEmail", "SOAP::SOAPString", [0, 1]]
+      ["clientEmail", "SOAP::SOAPString", [0, 1]],
+      ["developerToken", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -2226,7 +2418,9 @@ module DefaultMappingRegistry
     :schema_element => [
       ["requestId", "SOAP::SOAPString", [0, 1]],
       ["operations", "SOAP::SOAPLong", [0, 1]],
-      ["responseTime", "SOAP::SOAPLong", [0, 1]]
+      ["responseTime", "SOAP::SOAPLong", [0, 1]],
+      ["callCost", "SOAP::SOAPLong", [0, 1]],
+      ["operationCount", "SOAP::SOAPLong", [0, 1]]
     ]
   )
 end

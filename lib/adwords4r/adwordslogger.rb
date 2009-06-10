@@ -20,8 +20,16 @@ require 'logger'
 
 module AdWords
 
+  # Wrapper class to handle logging to console and/or files.
   class AdWordsLogger
 
+    # Constructor for AdWordsLogger.
+    #
+    # Args:
+    # - filename: the filename for the log file to be written (if log_to_file is
+    #   called)
+    # - log_to_console: boolean, indicates whether or not to log to the console
+    #
     def initialize(filename, log_to_console=false)
       @filename = filename
       @loggers = []
@@ -32,24 +40,25 @@ module AdWords
       end
     end
 
-    # Enables logging to a file (path optional)
-    def log_to_file(path=".#{File::SEPARATOR}")
-      if path[-1, 1] == File::SEPARATOR
-        normalized_path = path
-      else
-        normalized_path = path + File::SEPARATOR
-      end
-      new_logger = Logger.new(normalized_path + @filename)
+    # Enables logging to a file.
+    # May be called several times to log to multiple files.
+    #
+    # Args:
+    # - path: where to write the file (defaults to current dir). Path only, do
+    #   not provide filename.
+    #
+    def log_to_file(path='.')
+      new_logger = Logger.new(File.join(path, @filename))
       new_logger.level = Logger::INFO
       @loggers << new_logger
 
       return nil
     end
 
-    # Overload << operator to perform logging
+    # Overload << operator to perform logging.
     def << (text)
       @loggers.each do |logger|
-        logger.info text
+        logger.info text.to_s
       end
     end
   end
