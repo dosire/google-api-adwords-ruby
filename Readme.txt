@@ -16,7 +16,7 @@ Documentation and comments are a work in progress.
 
 = Docs for Users
 
-== 1 - Instalation:
+== 1 - Installation:
 
 adwords4r is a ruby gem.  See http://docs.rubygems.org/read/book/1
 
@@ -56,6 +56,7 @@ You can also pass API a manually constructed AdWordsCredentials object like:
      'password' => 'PASSWORD',
      'email' => 'user@domain.com'
      'clientEmail' => 'user2@domain.com',
+     'environment' => 'PRODUCTION',
    }))
 
 Then, just specify which service you're looking to use, and which version:
@@ -72,27 +73,34 @@ please set the HTTP_PROXY environment variable. For example, from your code:
    $ ENV['HTTP_PROXY'] = 'http://myproxyserver:8080'
 
 
-=== 2.1 - Using the Sandbox:
+=== 2.1 - Using the Sandbox and other environments:
 
-In order to use the v13 sandbox, you can add a credential named alternateUrl:
-   alternateUrl=https://sandbox.google.com/api/adwords/v13/
+In order to use the v13 and v200906 sandboxes, make sure that the 'environment'
+parameter in the credentials is set to SANDBOX.
+   environment=SANDBOX
 
-As for v200902, the alternateUrl parameter is currently ignored, since only the
-sandbox is available at the moment. For this API version, all requests will be
-sent to the sandbox, using the "email" and "password" fields defined in the
-credentials for authentication, and clientEmail for specifying which client
-account to access. Developer and application tokens are ignored.
+Should you need to use an environment other than production or sandbox, you can
+add it to the list of environments in runtime:
+   AdWords::Service::add_environment('ENVIRONMENT_NAME', {
+       13 => 'URL_FOR_v13',
+       200906 => 'URL_FOR_v200906'
+   })
+and then use it normally in your code:
+   credentials.environment = 'ENVIRONMENT_NAME'
 
-This way, it's possible to access both the v13 and v200902 sandboxes
-simultaneously. Since they share a common backend storage, it is possible for
-your application to choose between v13 and v200902 services at will, mixing and
-matching them.
+
+=== 2.2 - Mixing v13 and v200906:
+
+It's possible to access both the v13 and v200906 sandboxes or production
+environments simultaneously. Since both versions share a common backend storage,
+it is possible for your application to choose between v13 and v200906 services
+at will, mixing and matching them.
 
 The multiple_versions.rb code sample shows you how to build an application using
-v13 and v200902 services simultaneously.
+v13 and v200906 services simultaneously.
 
 
-=== 2.2 - Logging:
+=== 2.3 - Logging:
 
 It is often useful to see a trace of the raw SOAP XML being sent and received.
 The quickest way of achieving this when debugging your application is by setting

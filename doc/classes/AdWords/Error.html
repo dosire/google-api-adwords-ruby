@@ -57,7 +57,7 @@ Ruby objects
         <dd>
             <ul>
                 
-                <li><a href="#M000016">create_specific_api_error</a></li>
+                <li><a href="#M000011">create_specific_api_error</a></li>
                 
             </ul>
         </dd>
@@ -104,9 +104,9 @@ Ruby objects
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000016">
+                <div class="title" id="M000011">
                     
-                    <a name="M000016"></a><b>create_specific_api_error</b>(soap_fault)
+                    <a name="M000011"></a><b>create_specific_api_error</b>(soap_fault)
                     
                 </div>
                 
@@ -135,11 +135,11 @@ href="Error/ApiError.html">ApiError</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show</a>
                         
                     </p>
-                    <div id="M000016_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 193</span>
+                    <div id="M000011_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 194</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">soap_fault</span>)
       <span class="ruby-identifier">error</span> = <span class="ruby-ivar">@@api_errors</span>[<span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">faultcode</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span>]
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">nil?</span>

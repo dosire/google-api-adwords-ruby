@@ -34,7 +34,6 @@ class TestAuthToken < Test::Unit::TestCase
     password = @adwords.credentials.credentials['password']
 
     token = nil
-
     assert_nothing_raised do
       token = AdWords::AuthToken.get_token(email, password)
     end

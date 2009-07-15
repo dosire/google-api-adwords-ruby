@@ -16,7 +16,6 @@
 #
 # Helper methods for loading and managing the available services.
 
-#
 module AdWords
 
   # Contains helper methods for loading and managing the available services.
@@ -25,8 +24,21 @@ module AdWords
     @@services = {
       13 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info",
              "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"],
-      200902 => ["AdGroupAd", "AdGroupCriterion", "AdGroup",
+      200906 => ["AdGroupAd", "AdGroupCriterion", "AdGroup",
                  "CampaignCriterion", "Campaign", "CampaignTarget"]
+    }
+
+    # Configure the different environments with the endpoint for each API
+    # version
+    @@environments = {
+      'PRODUCTION' => {
+        13 => nil,    # Use default URL from the WSDL
+        200906 => nil # Use default URL from the WSDL
+      },
+      'SANDBOX' => {
+        13 => 'https://sandbox.google.com/api/adwords/v13/',
+        200906 => 'https://adwords-sandbox.google.com/api/adwords/cm/v200906/'
+      }
     }
 
     ARRAY_CLASSNAME = 'SOAP::SOAPArray'
@@ -42,6 +54,15 @@ module AdWords
       @@services.keys
     end
 
+    # Get the latest API version.
+    #
+    # Returns:
+    # Latest version (as an integer)
+    #
+    def self.get_latest_version
+      @@services.keys.max
+    end
+
     # Get the list of service names for a given version
     #
     # Args:
@@ -52,6 +73,39 @@ module AdWords
     #
     def self.get_services(version)
       @@services[version]
+    end
+
+    # Get the available environments.
+    #
+    # Returns:
+    # List of available environments (as strings)
+    #
+    def self.get_environments
+      @@environments.keys
+    end
+
+    # Get the endpoint for a given environment and API version.
+    #
+    # Args:
+    # - environment: the service environment to be used (as a string)
+    # - version: the API version (as an integer)
+    #
+    # Returns:
+    # The endpoint URL (as a string)
+    #
+    def self.get_endpoint(environment, version)
+      @@environments[environment][version]
+    end
+
+    # Add a new environment to the list.
+    #
+    # Args:
+    # - name: the name for the new environment
+    # - endpoint_hash: a hash of endpoint URLs, indexed by version number, e.g.:
+    #    { 13 => 'URL_FOR_v13', 200906 => 'URL_FOR_v200906' }
+    #
+    def self.add_environment(name, endpoint_hash)
+      @@environments[name] = endpoint_hash
     end
 
     # Perform the loading of the necessary source files for a version

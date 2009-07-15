@@ -113,13 +113,14 @@ module AdWords
     # - the simplified wrapper generated for the driver
     #
     def prepare_driver(version, service)
-      # Set alternateurl if it has been set in credentials
-      if (@credentials.alternateUrl and version <= 13) then
-        endpointUrl = @credentials.alternateUrl + service + 'Service'
-        driver = eval("#{Service.get_interface_name(version, service)}.new" +
-                      "(\"#{endpointUrl}\")")
-      elsif
+      endpoint = Service.get_endpoint(@credentials.environment, version)
+      # Set endpoint if not using the default
+      if endpoint.nil? then
         driver = eval("#{Service.get_interface_name(version, service)}.new")
+      else
+        endpoint_url = endpoint + service + 'Service'
+        driver = eval("#{Service.get_interface_name(version, service)}.new" +
+                      "(\"#{endpoint_url}\")")
       end
       @credentials.get_handlers(version).each do |handler|
         driver.headerhandler << handler
@@ -335,34 +336,50 @@ module AdWords
       request_id = nil
 
       header = envelope.header
+      if header.key?('ResponseHeader')
+        header = header['ResponseHeader'].element
+      end
 
       @parent.mutex.synchronize do
-        unless header['units'].nil?
-          units = header['units'].element.text.to_i
-          @parent.last_units = units
-          @parent.total_units = @parent.total_units + units
+        units = parse_header(header['units'])
+        unless units.nil?
+          @parent.last_units = units.to_i
+          @parent.total_units = @parent.total_units + units.to_i
         end
 
-        unless header['operations'].nil?
-          operations = header['operations'].element.text.to_i
-        end
-
-        unless header['responseTime'].nil?
-          response_time = header['responseTime'].element.text.to_i
-        end
-
-        unless header['requestId'].nil?
-          request_id = header['requestId'].element.text.to_s
-        end
-
-        host = URI.parse(endpoint).host
-
-        data = "host=#{host} method=#{method_name} " +
-               "responseTime=#{response_time} operations=#{operations} " +
-               "units=#{units} requestId=#{request_id}"
-
-        @parent.unit_logger << data
+        operations = parse_header(header['operations'])
+        response_time = parse_header(header['responseTime'])
+        request_id = parse_header(header['requestId'])
       end
+
+      host = URI.parse(endpoint).host
+
+      data = "host=#{host} method=#{method_name} " +
+        "responseTime=#{response_time} operations=#{operations} " +
+        "units=#{units} requestId=#{request_id}"
+
+      @parent.unit_logger << data
+    end
+
+    # Parses the value contained in a SOAP response header.
+    #
+    # Args:
+    # - header: an object representing a SOAP header
+    #
+    # Returns:
+    # The value contained in the header as a string, or nil if the header is nil
+    #
+    def parse_header(header)
+      if header.nil?
+        return nil
+      end
+
+      header_element = header
+      if header.instance_variable_defined?('@element')
+        header_element = header.element
+      end
+
+      return header_element.text
     end
   end
 end

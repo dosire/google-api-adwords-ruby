@@ -49,9 +49,9 @@ class TestCredentials < Test::Unit::TestCase
         credentials.credentials['developerToken'].nil?),
         "Neither 'token' nor 'developerToken' present in credentials")
 
-    # Look for alternateUrl, should be defined for the tests anyway
-    assert_not_nil(credentials.alternateUrl,
-        "'alternateUrl' not present in credentials")
+    # Look for environment, should be defined for the tests anyway
+    assert_not_nil(credentials.environment,
+        "'environment' not defined in credentials")
   end
 
   # Test loading credentials from a hash
@@ -63,18 +63,23 @@ class TestCredentials < Test::Unit::TestCase
       'email' => 'user@domain.com',
       'clientEmail' => 'client_1+user@domain.com',
       'applicationToken' => 'IGNORED',
-      'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/'
+      'environment' => 'SANDBOX'
     }
 
     credentials = AdWords::AdWordsCredentials.new(cred_hash)
 
     cred_hash.each do |key, value|
-      # Is alternateUrl present and correct?
-      if key == 'alternateUrl'
-        assert_not_nil(credentials.alternateUrl,
-            "'#{key}' not present in credentials")
-        assert_equal(value, credentials.alternateUrl,
+      # Is environment present and correct?
+      if key == 'environment'
+        assert_not_nil(credentials.environment,
+            "'#{key}' not defined in credentials")
+        assert_equal(value, credentials.environment,
             "'#{key}' has different value in credentials")
+      # The useragent is prepended with 'adwords4r: ' so it won't be an
+      # exact match.
+      elsif key == 'useragent'
+        assert_match(/#{cred_hash[key]}$/, credentials.credentials[key],
+                     "useragent is not properly populated in credentials.")
       # Is every other key present and correct?
       else
         assert_not_nil(credentials.credentials[key],

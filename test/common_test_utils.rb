@@ -26,7 +26,7 @@ module CommonTestUtils
 
   def self.create_api_object(test)
     adwords = AdWords::API.new
-    test.assert_not_nil(adwords.credentials.alternateUrl,
+    test.assert_equal('SANDBOX', adwords.credentials.environment,
         'ERROR: Please use the sandbox environment when running unit tests')
     return adwords
   end

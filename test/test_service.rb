@@ -45,34 +45,34 @@ class TestService < Test::Unit::TestCase
 
   # Test the do_require method
   def test_do_require
-    AdWords::Service.do_require(200902)
+    AdWords::Service.do_require(200906)
     # Does the name exist after loading?
     assert_nothing_raised do
-      AdWords::V200902::CampaignService::CampaignServiceWrapper
+      AdWords::V200906::CampaignService::CampaignServiceWrapper
     end
   end
 
   # Test the get_module_name method
   def test_get_module_name
-    name = AdWords::Service.get_module_name(200902, 'Campaign')
+    name = AdWords::Service.get_module_name(200906, 'Campaign')
     # Does it match what we expect?
-    assert_equal('AdWords::V200902::CampaignService', name,
+    assert_equal('AdWords::V200906::CampaignService', name,
         'Module name does not match expected output')
   end
 
   # Test the get_interface_name method
   def test_get_interface_name
-    name = AdWords::Service.get_interface_name(200902, 'Campaign')
+    name = AdWords::Service.get_interface_name(200906, 'Campaign')
     # Does it match what we expect?
-    assert_equal('AdWords::V200902::CampaignService::CampaignServiceInterface',
+    assert_equal('AdWords::V200906::CampaignService::CampaignServiceInterface',
         name, 'Interface name does not match expected output')
   end
 
   # Test the get_wrapper_name method
   def test_get_wrapper_name
-    name = AdWords::Service.get_wrapper_name(200902, 'Campaign')
+    name = AdWords::Service.get_wrapper_name(200906, 'Campaign')
     # Does it match what we expect?
-    assert_equal('AdWords::V200902::CampaignService::CampaignServiceWrapper',
+    assert_equal('AdWords::V200906::CampaignService::CampaignServiceWrapper',
         name, 'Wrapper name does not match expected output')
   end
 end

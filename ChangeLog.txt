@@ -1,3 +1,10 @@
+16.0.0
+- Removed support for the v200902 Sandbox, which has been deco'ed.
+- Added support for the v200906 Sandbox and Production environments.
+- Changed handling of service environments in the credentials.
+  The 'alternateUrl' parameter has been replaced with the 'environment' one. This can be set to either PRODUCTION or SANDBOX.
+  It controls which environment both v13 and v200906 connect to.
+
 15.1.0
 - Added downloadCsvReport extension to the Report Service, downloads a report as CSV data.
 - Added getMethodUsage extension to the Info Service, returns a breakdown of API usage per method.

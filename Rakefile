@@ -18,7 +18,7 @@
 
 # A little trick so we can load things from the lib/ directory without having
 # to patch the "require" statements in the files
-$LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
+$:.unshift File.join(File.dirname(__FILE__), 'lib')
 
 require 'fileutils'
 require 'net/https'
@@ -36,7 +36,7 @@ require 'adwords4r/services'
 require 'adwords4r/apiextensions'
 
 # Configure some constants and built-in tasks
-CURRENT_VERSION = '15.1.0'
+CURRENT_VERSION = '16.0.0'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 WSDLDIR = 'wsdl'
@@ -76,7 +76,7 @@ task :getwsdl do
                      "/api/adwords/#{version_name}/#{service}Service?wsdl"),
              get_wsdl_file_name(version_name, service))
       else
-        save(getfile("adwords-sandbox.google.com",
+        save(getfile("adwords.google.com",
                      "/api/adwords/cm/#{version_name}/#{service}Service?wsdl"),
              get_wsdl_file_name(version_name, service))
       end
@@ -286,7 +286,7 @@ else
 Adwords4r provides an easy to use way to access the AdWords API in Ruby.
 Currently the following AdWords API versions are supported:
   * V13
-  * V200902 (sandbox)
+  * V200906
     EOS
 
     # Files and dependencies

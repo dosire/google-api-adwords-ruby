@@ -30,10 +30,6 @@ def main()
     # ENV['HOME']/adwords.properties when called without parameters.
     # The latest versioned release of the API will be assumed.
     #
-    # Credentials for this example must be for the Sandbox environment.
-    # Sandbox environment credentials overview:
-    # http://www.google.com/apis/adwords/developer/adwords_api_sandbox.html
-    #
     # Instead of reading them from a file, the credentials can be
     # specified inline as a hash:
     #
@@ -44,36 +40,28 @@ def main()
     #     'email' => 'user@domain.com',
     #     'clientEmail' => 'client_1+user@domain.com',
     #     'applicationToken' => 'IGNORED',
-    #     'alternateUrl' => 'https://sandbox.google.com/api/adwords/v13/',
+    #     'environment' => 'SANDBOX',
     # }
     # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds))
     adwords = AdWords::API.new
 
-    # Get the v200902 campaign service and the v13 report service
-    campaign_srv = adwords.get_service(200902, 'Campaign')
+    # Get the v200906 campaign service and the v13 report service
+    campaign_srv = adwords.get_service(200906, 'Campaign')
     report_srv = adwords.get_service(13, 'Report')
 
-    # Retrieve list of all campaigns with their stats for this year, via v200902
-    selector = AdWords::V200902::CampaignService::CampaignSelector.new
+    # Retrieve list of all campaigns with their stats for this year, via v200906
+    selector = AdWords::V200906::CampaignService::CampaignSelector.new
     stats_selector = {
       :dateRange => {
-        :min => {
-          :day => 1,
-          :month => 1,
-          :year => Time.new.year
-        },
-        :max => {
-          :day => 31,
-          :month => 12,
-          :year => Time.new.year
-        }
+        :min => Time.new.strftime('%Y0101'),
+        :max => Time.new.strftime('%Y1231'),
       }
     }
     selector.statsSelector = stats_selector
     response = campaign_srv.get(selector)
     campaigns = response.rval.entries
     campaigns.each do |campaign|
-      puts 'Campaign id %d was successfully retrieved.' % campaign.id.id
+      puts 'Campaign id %d was successfully retrieved.' % campaign.id
     end
 
     # Schedule yearly campaign report for all campaigns with less than 10
@@ -88,7 +76,7 @@ def main()
     job.endDay = Time.new.year.to_s + '-01-31'
     campaign_ids = []
     campaigns.each do |campaign|
-      campaign_ids << campaign.id.id if campaign.stats.impressions < 10
+      campaign_ids << campaign.id if campaign.stats.impressions < 10
     end
     job.campaigns = campaign_ids
 
