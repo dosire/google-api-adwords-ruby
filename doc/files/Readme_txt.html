@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>Readme.txt</li>
-            <li>Last modified: Wed Jul 15 11:27:14 +0100 2009</li>
+            <li>Last modified: Wed Oct 14 15:52:29 +0100 2009</li>
         </ul>
     </div>
 
@@ -155,7 +155,7 @@ your code:
 </pre>
 <h3>2.1 - Using the Sandbox and other environments:</h3>
 <p>
-In order to use the v13 and v200906 sandboxes, make sure that the
+In order to use the v13 and v2009 sandboxes, make sure that the
 &#8216;environment&#8217; parameter in the credentials is set to SANDBOX.
 </p>
 <pre>
@@ -177,16 +177,27 @@ and then use it normally in your code:
 <pre>
    credentials.environment = 'ENVIRONMENT_NAME'
 </pre>
-<h3>2.2 - Mixing v13 and v200906:</h3>
 <p>
-It&#8217;s possible to access both the v13 and v200906 sandboxes or
+Make sure you only include the base URL, that is, the URL up until the
+&#8220;adwords&#8221; part, leaving the version and group out. Here&#8217;s
+an example:
+</p>
+<pre>
+   AdWords::Service::add_environment('SANDBOX', {
+       13 =&gt; 'https://sandbox.google.com/api/adwords/',
+       200906 =&gt; 'https://adwords-sandbox.google.com/api/adwords/'
+   }
+</pre>
+<h3>2.2 - Mixing v13 and v2009:</h3>
+<p>
+It&#8217;s possible to access both the v13 and v2009 sandboxes or
 production environments simultaneously. Since both versions share a common
 backend storage, it is possible for your application to choose between v13
-and v200906 services at will, mixing and matching them.
+and v2009 services at will, mixing and matching them.
 </p>
 <p>
 The multiple_versions.rb code sample shows you how to build an application
-using v13 and v200906 services simultaneously.
+using v13 and v2009 services simultaneously.
 </p>
 <h3>2.3 - Logging:</h3>
 <p>

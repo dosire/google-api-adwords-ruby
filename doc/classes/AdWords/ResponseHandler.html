@@ -57,7 +57,7 @@ unit usage and statistics information.
         <dd>
             <ul>
                 
-                <li><a href="#M000019">new</a></li>
+                <li><a href="#M000026">new</a></li>
                 
             </ul>
         </dd>
@@ -66,7 +66,7 @@ unit usage and statistics information.
         <dd>
             <ul>
                 
-                <li><a href="#M000020">on_callback</a></li>
+                <li><a href="#M000028">on_callback</a></li>
                 
             </ul>
         </dd>
@@ -75,7 +75,7 @@ unit usage and statistics information.
         <dd>
             <ul>
                 
-                <li><a href="#M000021">parse_header</a></li>
+                <li><a href="#M000029">parse_header</a></li>
                 
             </ul>
         </dd>
@@ -97,9 +97,9 @@ unit usage and statistics information.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000019">
+                <div class="title" id="M000026">
                     
-                    <a name="M000019"></a><b>new</b>(parent)
+                    <a name="M000026"></a><b>new</b>(parent)
                     
                 </div>
                 
@@ -124,11 +124,11 @@ href="ResponseHandler.html">ResponseHandler</a> should be tied
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show</a>
                         
                     </p>
-                    <div id="M000019_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 320</span>
+                    <div id="M000026_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 437</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">parent</span>)
       <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">parent</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -140,9 +140,9 @@ href="ResponseHandler.html">ResponseHandler</a> should be tied
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000020">
+                <div class="title" id="M000028">
                     
-                    <a name="M000020"></a><b>on_callback</b>(method_name, endpoint, envelope)
+                    <a name="M000028"></a><b>on_callback</b>(method_name, endpoint, envelope, params)
                     
                 </div>
                 
@@ -163,6 +163,9 @@ Args:
 <li>envelope: the envelope for the SOAP response that was received
 
 </li>
+<li>params: the parameters that were passed to the method
+
+</li>
 </ul>
 
                 </div>
@@ -172,16 +175,47 @@ Args:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show</a>
                         
                     </p>
-                    <div id="M000020_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 332</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_callback</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">envelope</span>)
+                    <div id="M000028_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 450</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_callback</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">envelope</span>, <span class="ruby-identifier">params</span>)
       <span class="ruby-identifier">units</span> = <span class="ruby-keyword kw">nil</span>
       <span class="ruby-identifier">operations</span> = <span class="ruby-keyword kw">nil</span>
       <span class="ruby-identifier">response_time</span> = <span class="ruby-keyword kw">nil</span>
       <span class="ruby-identifier">request_id</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">operators</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">operator_count</span> = <span class="ruby-keyword kw">nil</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/.*::Mutate/</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">operators</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+          <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">operation</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">operation</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">operation</span>[<span class="ruby-identifier">:operator</span>]
+              <span class="ruby-identifier">operators</span>[<span class="ruby-identifier">operation</span>[<span class="ruby-identifier">:operator</span>].<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">operation</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">operation</span>[<span class="ruby-value str">'operator'</span>]
+              <span class="ruby-identifier">operators</span>[<span class="ruby-identifier">operation</span>[<span class="ruby-value str">'operator'</span>].<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">operation</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value str">'operator'</span>
+              <span class="ruby-identifier">operators</span>[<span class="ruby-identifier">operation</span>.<span class="ruby-identifier">operator</span>.<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-identifier">operators</span>[<span class="ruby-value str">'?'</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>][<span class="ruby-identifier">:operator</span>]
+            <span class="ruby-identifier">operators</span>[<span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>][<span class="ruby-identifier">:operator</span>].<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>][<span class="ruby-value str">'operator'</span>]
+            <span class="ruby-identifier">operators</span>[<span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>][<span class="ruby-value str">'operator'</span>].<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">respond_to?</span> <span class="ruby-value str">'operator'</span>
+            <span class="ruby-identifier">operators</span>[<span class="ruby-identifier">params</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">operator</span>.<span class="ruby-identifier">to_s</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">operators</span>
+        <span class="ruby-identifier">operator_count</span> = <span class="ruby-identifier">operators</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">op</span>, <span class="ruby-identifier">num</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{op}: #{num}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)
+      <span class="ruby-keyword kw">end</span>
 
       <span class="ruby-identifier">header</span> = <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">header</span>
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">header</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value str">'ResponseHeader'</span>)
@@ -203,8 +237,11 @@ Args:
       <span class="ruby-identifier">host</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">endpoint</span>).<span class="ruby-identifier">host</span>
 
       <span class="ruby-identifier">data</span> = <span class="ruby-node">&quot;host=#{host} method=#{method_name} &quot;</span> <span class="ruby-operator">+</span>
-        <span class="ruby-node">&quot;responseTime=#{response_time} operations=#{operations} &quot;</span> <span class="ruby-operator">+</span>
-        <span class="ruby-node">&quot;units=#{units} requestId=#{request_id}&quot;</span>
+        <span class="ruby-node">&quot;responseTime=#{response_time} operations=#{operations} &quot;</span>
+
+      <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;operators={#{operator_count}} &quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">operator_count</span>
+
+      <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;units=#{units} requestId=#{request_id}&quot;</span>
 
       <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">unit_logger</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -214,9 +251,9 @@ Args:
             </div>
             
             <div class="method">
-                <div class="title" id="M000021">
+                <div class="title" id="M000029">
                     
-                    <a name="M000021"></a><b>parse_header</b>(header)
+                    <a name="M000029"></a><b>parse_header</b>(header)
                     
                 </div>
                 
@@ -244,11 +281,11 @@ header is nil
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show</a>
                         
                     </p>
-                    <div id="M000021_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 372</span>
+                    <div id="M000029_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 524</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">header</span>.<span class="ruby-identifier">nil?</span>
         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>

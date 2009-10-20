@@ -136,11 +136,14 @@ end
 
 # StatsSelector
 # - dateRange - AdWords::V200906::AdGroupCriterionService::DateRange
+# - statsSelector_Type - SOAP::SOAPString
 class StatsSelector
   attr_accessor :dateRange
+  attr_accessor :statsSelector_Type
 
-  def initialize(dateRange = nil)
+  def initialize(dateRange = nil, statsSelector_Type = nil)
     @dateRange = dateRange
+    @statsSelector_Type = statsSelector_Type
   end
 end
 
@@ -263,6 +266,64 @@ class ExemptionRequest
   end
 end
 
+# Stats
+# - startDate - SOAP::SOAPString
+# - endDate - SOAP::SOAPString
+# - network - AdWords::V200906::AdGroupCriterionService::StatsNetwork
+# - clicks - SOAP::SOAPLong
+# - impressions - SOAP::SOAPLong
+# - cost - AdWords::V200906::AdGroupCriterionService::Money
+# - averagePosition - SOAP::SOAPDouble
+# - averageCpc - AdWords::V200906::AdGroupCriterionService::Money
+# - averageCpm - AdWords::V200906::AdGroupCriterionService::Money
+# - ctr - SOAP::SOAPDouble
+# - conversions - SOAP::SOAPLong
+# - conversionRate - SOAP::SOAPDouble
+# - costPerConversion - AdWords::V200906::AdGroupCriterionService::Money
+# - conversionsManyPerClick - SOAP::SOAPLong
+# - conversionRateManyPerClick - SOAP::SOAPDouble
+# - costPerConversionManyPerClick - AdWords::V200906::AdGroupCriterionService::Money
+# - stats_Type - SOAP::SOAPString
+class Stats
+  attr_accessor :startDate
+  attr_accessor :endDate
+  attr_accessor :network
+  attr_accessor :clicks
+  attr_accessor :impressions
+  attr_accessor :cost
+  attr_accessor :averagePosition
+  attr_accessor :averageCpc
+  attr_accessor :averageCpm
+  attr_accessor :ctr
+  attr_accessor :conversions
+  attr_accessor :conversionRate
+  attr_accessor :costPerConversion
+  attr_accessor :conversionsManyPerClick
+  attr_accessor :conversionRateManyPerClick
+  attr_accessor :costPerConversionManyPerClick
+  attr_accessor :stats_Type
+
+  def initialize(startDate = nil, endDate = nil, network = nil, clicks = nil, impressions = nil, cost = nil, averagePosition = nil, averageCpc = nil, averageCpm = nil, ctr = nil, conversions = nil, conversionRate = nil, costPerConversion = nil, conversionsManyPerClick = nil, conversionRateManyPerClick = nil, costPerConversionManyPerClick = nil, stats_Type = nil)
+    @startDate = startDate
+    @endDate = endDate
+    @network = network
+    @clicks = clicks
+    @impressions = impressions
+    @cost = cost
+    @averagePosition = averagePosition
+    @averageCpc = averageCpc
+    @averageCpm = averageCpm
+    @ctr = ctr
+    @conversions = conversions
+    @conversionRate = conversionRate
+    @costPerConversion = costPerConversion
+    @conversionsManyPerClick = conversionsManyPerClick
+    @conversionRateManyPerClick = conversionRateManyPerClick
+    @costPerConversionManyPerClick = costPerConversionManyPerClick
+    @stats_Type = stats_Type
+  end
+end
+
 # ApiError
 # abstract
 # - fieldPath - SOAP::SOAPString
@@ -286,6 +347,25 @@ end
 # - apiError_Type - SOAP::SOAPString
 # - reason - AdWords::V200906::AdGroupCriterionService::AdGroupCriterionErrorReason
 class AdGroupCriterionError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# AuthenticationError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::AdGroupCriterionService::AuthenticationErrorReason
+class AuthenticationError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
   attr_accessor :apiError_Type
@@ -524,25 +604,6 @@ class InternalApiError < ApiError
   end
 end
 
-# LoasAuthenticationError
-# - fieldPath - SOAP::SOAPString
-# - trigger - SOAP::SOAPString
-# - apiError_Type - SOAP::SOAPString
-# - reason - AdWords::V200906::AdGroupCriterionService::LoasAuthenticationErrorReason
-class LoasAuthenticationError < ApiError
-  attr_accessor :fieldPath
-  attr_accessor :trigger
-  attr_accessor :apiError_Type
-  attr_accessor :reason
-
-  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
-    @fieldPath = fieldPath
-    @trigger = trigger
-    @apiError_Type = apiError_Type
-    @reason = reason
-  end
-end
-
 # NewEntityCreationError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -663,6 +724,25 @@ end
 # - apiError_Type - SOAP::SOAPString
 # - reason - AdWords::V200906::AdGroupCriterionService::QuotaCheckErrorReason
 class QuotaCheckError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# QuotaExceededError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::AdGroupCriterionService::QuotaExceededErrorReason
+class QuotaExceededError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
   attr_accessor :apiError_Type
@@ -987,6 +1067,7 @@ end
 # - bids - AdWords::V200906::AdGroupCriterionService::AdGroupCriterionBids
 # - firstPageCpc - AdWords::V200906::AdGroupCriterionService::Bid
 # - qualityInfo - AdWords::V200906::AdGroupCriterionService::QualityInfo
+# - stats - AdWords::V200906::AdGroupCriterionService::Stats
 class BiddableAdGroupCriterion < AdGroupCriterion
   attr_accessor :adGroupId
   attr_accessor :criterion
@@ -998,8 +1079,9 @@ class BiddableAdGroupCriterion < AdGroupCriterion
   attr_accessor :bids
   attr_accessor :firstPageCpc
   attr_accessor :qualityInfo
+  attr_accessor :stats
 
-  def initialize(adGroupId = nil, criterion = nil, adGroupCriterion_Type = nil, userStatus = nil, systemServingStatus = nil, approvalStatus = nil, destinationUrl = nil, bids = nil, firstPageCpc = nil, qualityInfo = nil)
+  def initialize(adGroupId = nil, criterion = nil, adGroupCriterion_Type = nil, userStatus = nil, systemServingStatus = nil, approvalStatus = nil, destinationUrl = nil, bids = nil, firstPageCpc = nil, qualityInfo = nil, stats = nil)
     @adGroupId = adGroupId
     @criterion = criterion
     @adGroupCriterion_Type = adGroupCriterion_Type
@@ -1010,6 +1092,7 @@ class BiddableAdGroupCriterion < AdGroupCriterion
     @bids = bids
     @firstPageCpc = firstPageCpc
     @qualityInfo = qualityInfo
+    @stats = stats
   end
 end
 
@@ -1137,6 +1220,7 @@ class AdGroupCriterionErrorReason < ::String
   INVALID_ID_FILTER_TYPE = AdGroupCriterionErrorReason.new("INVALID_ID_FILTER_TYPE")
   INVALID_KEYWORD_TEXT = AdGroupCriterionErrorReason.new("INVALID_KEYWORD_TEXT")
   INVALID_USER_STATUS = AdGroupCriterionErrorReason.new("INVALID_USER_STATUS")
+  KEYWORD_LEVEL_BID_NOT_SUPPORTED_FOR_MANUALCPM = AdGroupCriterionErrorReason.new("KEYWORD_LEVEL_BID_NOT_SUPPORTED_FOR_MANUALCPM")
   NETWORK_NOT_OVERRIDABLE = AdGroupCriterionErrorReason.new("NETWORK_NOT_OVERRIDABLE")
   NO_EFFECTIVE_BID_FOR_THIS_CRITERION = AdGroupCriterionErrorReason.new("NO_EFFECTIVE_BID_FOR_THIS_CRITERION")
   TOO_MANY_OPERTAIONS = AdGroupCriterionErrorReason.new("TOO_MANY_OPERTAIONS")
@@ -1157,11 +1241,31 @@ class ApprovalStatus < ::String
   UNDER_REVIEW = ApprovalStatus.new("UNDER_REVIEW")
 end
 
+# AuthenticationError.Reason
+class AuthenticationErrorReason < ::String
+  AUTHENTICATION_FAILED = AuthenticationErrorReason.new("AUTHENTICATION_FAILED")
+  CLIENT_CUSTOMER_ID_INVALID = AuthenticationErrorReason.new("CLIENT_CUSTOMER_ID_INVALID")
+  CLIENT_CUSTOMER_ID_IS_REQUIRED = AuthenticationErrorReason.new("CLIENT_CUSTOMER_ID_IS_REQUIRED")
+  CLIENT_EMAIL_FAILED_TO_AUTHENTICATE = AuthenticationErrorReason.new("CLIENT_EMAIL_FAILED_TO_AUTHENTICATE")
+  CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
+  CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
+  CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
+  LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
+  NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")
+  OAUTH_TOKEN_DISABLED = AuthenticationErrorReason.new("OAUTH_TOKEN_DISABLED")
+  OAUTH_TOKEN_EXPIRED = AuthenticationErrorReason.new("OAUTH_TOKEN_EXPIRED")
+  OAUTH_TOKEN_HEADER_INVALID = AuthenticationErrorReason.new("OAUTH_TOKEN_HEADER_INVALID")
+  OAUTH_TOKEN_INVALID = AuthenticationErrorReason.new("OAUTH_TOKEN_INVALID")
+  OAUTH_TOKEN_REVOKED = AuthenticationErrorReason.new("OAUTH_TOKEN_REVOKED")
+  USER_ID_INVALID = AuthenticationErrorReason.new("USER_ID_INVALID")
+end
+
 # AuthorizationError.Reason
 class AuthorizationErrorReason < ::String
   EFFECTIVE_USER_PERMISSION_DENIED = AuthorizationErrorReason.new("EFFECTIVE_USER_PERMISSION_DENIED")
   NO_ADWORDS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_ADWORDS_ACCOUNT_FOR_CUSTOMER")
-  NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER")
+  NO_CUSTOMER_FOUND = AuthorizationErrorReason.new("NO_CUSTOMER_FOUND")
   UNABLE_TO_AUTHORIZE = AuthorizationErrorReason.new("UNABLE_TO_AUTHORIZE")
   USER_HAS_READONLY_PERMISSION = AuthorizationErrorReason.new("USER_HAS_READONLY_PERMISSION")
   USER_PERMISSION_DENIED = AuthorizationErrorReason.new("USER_PERMISSION_DENIED")
@@ -1235,11 +1339,6 @@ end
 # DatabaseError.Reason
 class DatabaseErrorReason < ::String
   CAMPAIGN_PRODUCT_NOT_SUPPORTED = DatabaseErrorReason.new("CAMPAIGN_PRODUCT_NOT_SUPPORTED")
-  CANNOT_LOAD_AD = DatabaseErrorReason.new("CANNOT_LOAD_AD")
-  CANNOT_LOAD_ADGROUP = DatabaseErrorReason.new("CANNOT_LOAD_ADGROUP")
-  CANNOT_LOAD_CAMPAIGN = DatabaseErrorReason.new("CANNOT_LOAD_CAMPAIGN")
-  CANNOT_LOAD_CRITERION = DatabaseErrorReason.new("CANNOT_LOAD_CRITERION")
-  CANNOT_LOAD_MEDIA = DatabaseErrorReason.new("CANNOT_LOAD_MEDIA")
   CONCURRENT_MODIFICATION = DatabaseErrorReason.new("CONCURRENT_MODIFICATION")
   PERMISSION_DENIED = DatabaseErrorReason.new("PERMISSION_DENIED")
 end
@@ -1289,15 +1388,6 @@ class KeywordMatchType < ::String
   BROAD = KeywordMatchType.new("BROAD")
   EXACT = KeywordMatchType.new("EXACT")
   PHRASE = KeywordMatchType.new("PHRASE")
-end
-
-# LoasAuthenticationError.Reason
-class LoasAuthenticationErrorReason < ::String
-  ADS_USER_NOT_FOUND = LoasAuthenticationErrorReason.new("ADS_USER_NOT_FOUND")
-  CLIENT_NOT_AUTHORIZED = LoasAuthenticationErrorReason.new("CLIENT_NOT_AUTHORIZED")
-  NOT_INTERNAL_USER = LoasAuthenticationErrorReason.new("NOT_INTERNAL_USER")
-  PROTOCOL_MISMATCH = LoasAuthenticationErrorReason.new("PROTOCOL_MISMATCH")
-  SECURITY_LEVEL_MISMATCH = LoasAuthenticationErrorReason.new("SECURITY_LEVEL_MISMATCH")
 end
 
 # NewEntityCreationError.Reason
@@ -1360,6 +1450,11 @@ class QuotaCheckErrorReason < ::String
   QUOTA_EXCEEDED = QuotaCheckErrorReason.new("QUOTA_EXCEEDED")
 end
 
+# QuotaExceededError.Reason
+class QuotaExceededErrorReason < ::String
+  QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
+end
+
 # ReadOnlyError.Reason
 class ReadOnlyErrorReason < ::String
   READ_ONLY = ReadOnlyErrorReason.new("READ_ONLY")
@@ -1374,6 +1469,17 @@ end
 class SizeLimitErrorReason < ::String
   REQUEST_SIZE_LIMIT_EXCEEDED = SizeLimitErrorReason.new("REQUEST_SIZE_LIMIT_EXCEEDED")
   RESPONSE_SIZE_LIMIT_EXCEEDED = SizeLimitErrorReason.new("RESPONSE_SIZE_LIMIT_EXCEEDED")
+end
+
+# Stats.Network
+class StatsNetwork < ::String
+  ALL = StatsNetwork.new("ALL")
+  CONTENT = StatsNetwork.new("CONTENT")
+  CONTENT_KEYWORD_BID = StatsNetwork.new("CONTENT_KEYWORD_BID")
+  CONTENT_PLACEMENT_BID = StatsNetwork.new("CONTENT_PLACEMENT_BID")
+  GOOGLE_SEARCH = StatsNetwork.new("GOOGLE_SEARCH")
+  SEARCH = StatsNetwork.new("SEARCH")
+  SEARCH_NETWORK = StatsNetwork.new("SEARCH_NETWORK")
 end
 
 # StatsQueryError.Reason

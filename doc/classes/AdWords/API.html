@@ -60,7 +60,7 @@ Holds all the services, as well as login credentials.
         <dd>
             <ul>
                 
-                <li><a href="#M000001">get_service</a></li>
+                <li><a href="#M000007">get_service</a></li>
                 
             </ul>
         </dd>
@@ -70,6 +70,37 @@ Holds all the services, as well as login credentials.
             <ul>
                 
                 <li><a href="#M000000">new</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>S</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000008">service</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>U</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000001">use_mcc</a>,</li>
+                
+                <li><a href="#M000002">use_mcc=</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>V</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#M000003">validate_only</a>,</li>
+                
+                <li><a href="#M000005">validate_only=</a></li>
                 
             </ul>
         </dd>
@@ -192,9 +223,13 @@ object containing the login information
                         
                     </p>
                     <div id="M000000_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 63</span>
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 69</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">credentials</span> = <span class="ruby-constant">AdWordsCredentials</span>.<span class="ruby-identifier">new</span>)
       <span class="ruby-ivar">@credentials</span> = <span class="ruby-identifier">credentials</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">environments</span>.<span class="ruby-identifier">include?</span> <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">environment</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>,
+            <span class="ruby-node">&quot;Unknown environment #{@credentials.environment}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
       <span class="ruby-ivar">@drivers</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
       <span class="ruby-ivar">@wrappers</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
       <span class="ruby-ivar">@total_units</span> = <span class="ruby-value">0</span>
@@ -214,9 +249,9 @@ object containing the login information
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000001">
+                <div class="title" id="M000007">
                     
-                    <a name="M000001"></a><b>get_service</b>(version, name)
+                    <a name="M000007"></a><b>get_service</b>(name, version = nil)
                     
                 </div>
                 
@@ -228,15 +263,122 @@ Obtain an <a href="API.html">API</a> service, given a version and its name.
 Args:
 </p>
 <ul>
-<li>version: intended <a href="API.html">API</a> version. Must be an integer.
+<li>name: name for the intended service
 
 </li>
-<li>name: name for the intended service
+<li>version: intended <a href="API.html">API</a> version. Must be an integer.
 
 </li>
 </ul>
 <p>
-Returns: The service wrapper for the intended service.
+Returns:
+</p>
+<ul>
+<li>the service wrapper for the intended service.
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                <div class="aka">
+                    This method is also aliased as
+                    
+                    <a href="API.html#M000008">service</a>
+                    
+                </div>
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000007_source')" id="l_M000007_source">show</a>
+                        
+                    </p>
+                    <div id="M000007_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 166</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_service</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>
+        <span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span> = <span class="ruby-identifier">version</span>, <span class="ruby-identifier">name</span>
+        <span class="ruby-identifier">warn</span>(<span class="ruby-value str">&quot;This parameter order is deprecated. &quot;</span> <span class="ruby-operator">+</span>
+             <span class="ruby-value str">&quot;Please use get_service(name, version) from now on.&quot;</span>)
+      <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>
+        <span class="ruby-comment cmt"># Do nothing</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Wrong arguments. &quot;</span> <span class="ruby-operator">+</span>
+            <span class="ruby-value str">&quot;Expected: get_service(name, version = nil)&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">version</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span><span class="ruby-operator">::</span><span class="ruby-identifier">get_default_version</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">version</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-comment cmt"># Check if version exists</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">get_versions</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">version</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;Unknown version '#{version}'. Please &quot;</span> <span class="ruby-operator">+</span>
+              <span class="ruby-value str">&quot;note that version numbers should be numeric, not strings&quot;</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;Unknown version #{version}&quot;</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># Check if the current environment supports the requested version</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">environment_has_version</span>(<span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">environment</span>,
+          <span class="ruby-identifier">version</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;Environment #{@credentials.environment}&quot;</span> <span class="ruby-operator">+</span>
+            <span class="ruby-node">&quot; does not support version #{version}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># Check if the specified version has the requested service</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">version_has_service</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">name</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;Version #{version} does not contain &quot;</span> <span class="ruby-operator">+</span>
+          <span class="ruby-node">&quot;service #{name}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@wrappers</span>[[<span class="ruby-identifier">version</span>, <span class="ruby-identifier">name</span>]]
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000008">
+                    
+                    <a name="M000008"></a><b>service</b>(name, version = nil)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Alias for <a href="API.html#M000007">get_service</a>
+</p>
+
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000001">
+                    
+                    <a name="M000001"></a><b>use_mcc</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Helper method to provide a simple way of doing an MCC-level operation
+without the need to change credentials. Executes a block of code as an
+MCC-level operation and/or returns the current status of the property.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>accepts a block, which it will execute as an MCC-level operation.
+
+</li>
+</ul>
+<p>
+Returns: Boolean indicating whether MCC-level operations are currently
+enabled or disabled
 </p>
 
                 </div>
@@ -250,9 +392,157 @@ Returns: The service wrapper for the intended service.
                         
                     </p>
                     <div id="M000001_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 86</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_service</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">name</span>)
-      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@wrappers</span>[[<span class="ruby-identifier">version</span>, <span class="ruby-identifier">name</span>]]
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 98</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">use_mcc</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-identifier">previous</span> = <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">use_mcc</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">use_mcc</span> = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">yield</span>
+        <span class="ruby-keyword kw">ensure</span>
+          <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">use_mcc</span> = <span class="ruby-identifier">previous</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">use_mcc</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000002">
+                    
+                    <a name="M000002"></a><b>use_mcc=</b>(value)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Helper method to provide a simple way of doing an MCC-level operation
+without the need to change credentials. Sets the value of the property that
+controls whether MCC-level operations are enabled or disabled.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>value: the new value for the property (boolean)
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show</a>
+                        
+                    </p>
+                    <div id="M000002_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 118</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">use_mcc=</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">use_mcc</span> = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000003">
+                    
+                    <a name="M000003"></a><b>validate_only</b>()
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Helper method to provide a simple way of doing a validate-only operation
+without the need to change credentials. Executes a block of code as an
+validate-only operation and/or returns the current status of the property.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>accepts a block, which it will execute as a validate-only operation.
+
+</li>
+</ul>
+<p>
+Returns: Boolean indicating whether validate-only operations are currently
+enabled or disabled
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show</a>
+                        
+                    </p>
+                    <div id="M000003_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 133</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_only</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+        <span class="ruby-identifier">previous</span> = <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">validate_only</span>
+        <span class="ruby-keyword kw">begin</span>
+          <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">validate_only</span> = <span class="ruby-keyword kw">true</span>
+          <span class="ruby-keyword kw">yield</span>
+        <span class="ruby-keyword kw">ensure</span>
+          <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">validate_only</span> = <span class="ruby-identifier">previous</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">validate_only</span>
+    <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="method">
+                <div class="title" id="M000005">
+                    
+                    <a name="M000005"></a><b>validate_only=</b>(value)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Helper method to provide a simple way of performing validate-only
+operations. Sets the value of the property that controls whether
+validate-only operations are enabled or disabled.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li>value: the new value for the property (boolean)
+
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show</a>
+                        
+                    </p>
+                    <div id="M000005_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 153</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_only=</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-ivar">@credentials</span>.<span class="ruby-identifier">validate_only</span> = <span class="ruby-identifier">value</span>
     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>

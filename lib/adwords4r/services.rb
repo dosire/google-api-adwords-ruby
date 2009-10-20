@@ -1,18 +1,24 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Authors:: sgomes@google.com (Sérgio Gomes)
+#           jeffy@google.com (Jeffrey Posnick)
+#           chanezon@google.com (Patrick Chanezon)
+#           leavengood@gmail.com (Ryan Leavengood)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # Helper methods for loading and managing the available services.
 
@@ -21,27 +27,78 @@ module AdWords
   # Contains helper methods for loading and managing the available services.
   module Service
 
+    # Set defaults
+    DEFAULT_VERSION = 13
+    DEFAULT_ENVIRONMENT = 'PRODUCTION'
+
+    # Configure the services available to each version
     @@services = {
-      13 => ["Account", "AdGroup", "Ad", "Campaign", "Criterion", "Info",
-             "KeywordTool", "Report", "SiteSuggestion", "TrafficEstimator"],
-      200906 => ["AdGroupAd", "AdGroupCriterion", "AdGroup",
-                 "CampaignCriterion", "Campaign", "CampaignTarget"]
+      13 => ['Account', 'AdGroup', 'Ad', 'Campaign', 'Criterion', 'Info',
+             'KeywordTool', 'Report', 'SiteSuggestion', 'TrafficEstimator'],
+      200906 => ['AdGroupAd', 'AdGroupCriterion', 'AdGroup',
+                 'CampaignCriterion', 'Campaign', 'CampaignTarget'],
+      200909 => ['AdExtensionOverride', 'AdGroupAd', 'AdGroupCriterion',
+                 'AdGroup', 'BulkMutateJob', 'CampaignAdExtension',
+                 'CampaignCriterion', 'Campaign', 'CampaignTarget',
+                 'GeoLocation', 'Info', 'TargetingIdea']
     }
 
-    # Configure the different environments with the endpoint for each API
-    # version
+    # Configure the different environments, with the base URL for each one
     @@environments = {
       'PRODUCTION' => {
-        13 => nil,    # Use default URL from the WSDL
-        200906 => nil # Use default URL from the WSDL
+        13 => 'https://adwords.google.com/api/adwords/',
+        200906 => 'https://adwords.google.com/api/adwords/',
+        200909 => 'https://adwords.google.com/api/adwords/'
       },
       'SANDBOX' => {
-        13 => 'https://sandbox.google.com/api/adwords/v13/',
-        200906 => 'https://adwords-sandbox.google.com/api/adwords/cm/v200906/'
+        13 => 'https://sandbox.google.com/api/adwords/',
+        200906 => 'https://adwords-sandbox.google.com/api/adwords/',
+        200909 => 'https://adwords-sandbox.google.com/api/adwords/'
       }
     }
 
-    ARRAY_CLASSNAME = 'SOAP::SOAPArray'
+    # Configure the subdirectories for each version / service pair.
+    # A missing pair means that only the base URL is used.
+    @@subdirs = {
+      # v13
+      [13, 'Account'] => 'v13/',
+      [13, 'AdGroup'] => 'v13/',
+      [13, 'Ad'] => 'v13/',
+      [13, 'Campaign'] => 'v13/',
+      [13, 'Criterion'] => 'v13/',
+      [13, 'Info'] => 'v13/',
+      [13, 'KeywordTool'] => 'v13/',
+      [13, 'Report'] => 'v13/',
+      [13, 'SiteSuggestion'] => 'v13/',
+      [13, 'TrafficEstimator'] => 'v13/',
+      # v200906
+      [200906, 'AdGroupAd'] => 'cm/v200906/',
+      [200906, 'AdGroupCriterion'] => 'cm/v200906/',
+      [200906, 'AdGroup'] => 'cm/v200906/',
+      [200906, 'CampaignCriterion'] => 'cm/v200906/',
+      [200906, 'Campaign'] => 'cm/v200906/',
+      [200906, 'CampaignTarget'] => 'cm/v200906/',
+      # v200909
+      [200909, 'AdExtensionOverride'] => 'cm/v200909/',
+      [200909, 'AdGroupAd'] => 'cm/v200909/',
+      [200909, 'AdGroupCriterion'] => 'cm/v200909/',
+      [200909, 'AdGroup'] => 'cm/v200909/',
+      [200909, 'BulkMutateJob'] => 'job/v200909/',
+      [200909, 'CampaignAdExtension'] => 'cm/v200909/',
+      [200909, 'CampaignCriterion'] => 'cm/v200909/',
+      [200909, 'Campaign'] => 'cm/v200909/',
+      [200909, 'CampaignTarget'] => 'cm/v200909/',
+      [200909, 'GeoLocation'] => 'cm/v200909/',
+      [200909, 'Info'] => 'info/v200909/',
+      [200909, 'TargetingIdea'] => 'o/v200909/'
+    }
+
+    # Configure the auth servers to use for each environment
+    # The tuplet should be (hostname, port, use_ssl?)
+    @@auth_servers = {
+      'PRODUCTION' => ['www.google.com', 443, true],
+      'SANDBOX' => ['www.google.com', 443, true]
+    }
 
     public
 
@@ -60,7 +117,38 @@ module AdWords
     # Latest version (as an integer)
     #
     def self.get_latest_version
-      @@services.keys.max
+      @@services.keys.select { |service| service.is_a? Integer }.max
+    end
+
+    # Does the given environment exist and contain the given version?
+    #
+    # Returns:
+    # Boolean indicating whether the given environment exists and contains the
+    # given version
+    #
+    def self.environment_has_version(environment, version)
+      return (!@@environments[environment].nil? and
+              !@@environments[environment][version].nil?)
+    end
+
+    # Does the given version exist and contain the given service?
+    #
+    # Returns:
+    # Boolean indicating whether the given version exists and contains the
+    # given service
+    #
+    def self.version_has_service(version, service)
+      return (!@@services[version].nil? and
+              @@services[version].include?(service))
+    end
+
+    # Get the default API version.
+    #
+    # Returns:
+    # Default version (as an integer)
+    #
+    def self.get_default_version
+      return DEFAULT_VERSION
     end
 
     # Get the list of service names for a given version
@@ -84,24 +172,71 @@ module AdWords
       @@environments.keys
     end
 
-    # Get the endpoint for a given environment and API version.
+    # Get the default environment.
+    #
+    # Returns:
+    # Default environment (as a string)
+    #
+    def self.get_default_environment
+      return DEFAULT_ENVIRONMENT
+    end
+
+    # Get the endpoint for a service on a given environment and API version.
     #
     # Args:
     # - environment: the service environment to be used (as a string)
     # - version: the API version (as an integer)
+    # - service: the name of the API service (as a string)
     #
     # Returns:
     # The endpoint URL (as a string)
     #
-    def self.get_endpoint(environment, version)
-      @@environments[environment][version]
+    def self.get_endpoint(environment, version, service)
+      base = @@environments[environment][version]
+      path = @@subdirs[[version, service]]
+      return base.to_s + path.to_s if base
+    end
+
+    # Get the subdirectory for a service, for a given API version.
+    #
+    # Args:
+    # - version: the API version (as an integer)
+    # - service: the name of the API service (as a string)
+    #
+    # Returns:
+    # The endpoint URL (as a string)
+    #
+    def self.get_subdir(version, service)
+      return @@subdirs[[version, service]]
+    end
+
+    # Get the authentication server details for an environment
+    #
+    # Args:
+    # - environment: the service environment to be used (as a string)
+    #
+    # Returns:
+    # Array containing
+    # - the hostname for the auth server (as a string)
+    # - the port for the auth server (as an integer)
+    # - whether to use SSL or not (as a boolean)
+    #
+    def self.get_auth_server(environment)
+      # If we don't have an entry for this environment, we just return the
+      # default server (the same one being used for the default environment)
+      if @@auth_servers[environment].nil?
+        return @@auth_servers[DEFAULT_ENVIRONMENT]
+      end
+
+      return @@auth_servers[environment]
     end
 
     # Add a new environment to the list.
     #
     # Args:
     # - name: the name for the new environment
-    # - endpoint_hash: a hash of endpoint URLs, indexed by version number, e.g.:
+    # - endpoint_hash: a hash of base endpoint URLs, indexed by version number,
+    #   e.g.:
     #    { 13 => 'URL_FOR_v13', 200906 => 'URL_FOR_v200906' }
     #
     def self.add_environment(name, endpoint_hash)
@@ -117,208 +252,6 @@ module AdWords
       get_services(version).each do |service|
         eval("require 'adwords4r/v#{version}/#{service}ServiceWrapper.rb'")
       end
-    end
-
-    # Generate the wrapper class for a given service.
-    # These classes make it easier to invoke the API methods, by removing the
-    # need to instance a <MethodName> object, instead allowing passing of the
-    # call parameters directly.
-    # Here is an example of a generated wrapper class, with one API method and
-    # one extension:
-    #  class SampleServiceWrapper
-    #
-    #    attr_reader :api
-    #
-    #    def initialize(driver, api)
-    #      @driver = driver
-    #      @api = api
-    #    end
-    #
-    #    def getSomething(par1, par2)
-    #      begin
-    #        AdWords::Service.validate_param('par1', par1, SOAP::SOAPArray)
-    #        AdWords::Service.validate_param('par2', par2, SOAP::SOAPInt)
-    #        # Construct request object and make API call
-    #        obj = AdWords::V13::GetSomething.new(par1, par2)
-    #        return @driver.getSomething(obj)
-    #      rescue SOAP::FaultError => fault
-    #        raise(AdWords::Error::create_specific_api_error(fault),
-    #            "getSomething Call Failed: " + fault.faultstring.to_s, caller)
-    #      end
-    #    end
-    #
-    #    def doSomethingElseExtension(par1, par2)
-    #      return AdWords::Extensions.doSomethingElseExtension(self, par1, par2)
-    #    end
-    #  end
-    #
-    # Args:
-    # - version: the API version (as an integer)
-    # - service: the service name (as a string)
-    #
-    # Returns:
-    # The Ruby code for the class, as a string.
-    #
-    def self.generate_wrapper_class(version, service)
-      wrapper = service + "ServiceWrapper"
-      module_name = get_module_name(version, service)
-      driver = get_interface_name(version, service)
-      driver_class = eval(driver)
-
-      registry = eval("#{module_name}::DefaultMappingRegistry::LiteralRegistry")
-
-      class_def = <<-EOS
-# This file was automatically generated during the "rake generate" step of the
-# library setup.
-require 'adwords4r/v#{version}/#{service}ServiceDriver.rb'
-
-module AdWords
-  module V#{version}
-    module #{service}Service
-
-      # Wrapper class for the v#{version.to_s} #{service} service.
-      # This class is automatically generated.
-      class #{wrapper}
-
-        # Holds the AdWords::API object to which the wrapper belongs
-        attr_reader :api
-
-        public
-
-        # Constructor for #{wrapper}.
-        #
-        # Args:
-        # - driver: SOAP::RPC::Driver object with the remote SOAP methods for
-        #   this service
-        # - api: the AdWords::API object to which the wrapper belongs
-        #
-        def initialize(driver, api)
-          @driver = driver
-          @api = api
-        end
-
-      EOS
-
-      # Add service methods
-      methods = driver_class::Methods
-      module_name = get_module_name(version, service)
-      methods.each do |method|
-        name = method[1]
-        doc_link = get_doc_link(version, service, name)
-        method_def = <<-EOS
-        # Calls the {#{name}}[#{doc_link}] method of the #{service} service.
-        # Check {the online documentation for this method}[#{doc_link}].
-        EOS
-
-        method_class = eval("#{module_name}::#{fix_case_up(name)}")
-        arguments = registry.schema_definition_from_class(method_class).elements
-
-        if arguments.size > 0
-          method_def += <<-EOS
-        #
-        # Args:
-          EOS
-        end
-
-        # Add list of arguments to the RDoc comment
-        arguments.each_with_index do |elem, index|
-          if get_type(elem) == ARRAY_CLASSNAME
-            method_def += <<-EOS
-        # - #{elem.varname}: #{get_type(elem)} of #{elem.mapped_class}
-            EOS
-          else
-            method_def += <<-EOS
-        # - #{elem.varname}: #{get_type(elem)}
-            EOS
-          end
-        end
-
-        response_class = eval("#{module_name}::#{fix_case_up(name)}Response")
-        returns = registry.schema_definition_from_class(response_class).elements
-
-        if returns.size > 0
-          method_def += <<-EOS
-        #
-        # Returns:
-          EOS
-        end
-
-        # Add list of returns to the RDoc comment
-        returns.each_with_index do |elem, index|
-          if get_type(elem) == ARRAY_CLASSNAME
-            method_def += <<-EOS
-        # - #{elem.varname}: #{get_type(elem)} of #{elem.mapped_class}
-            EOS
-          else
-            method_def += <<-EOS
-        # - #{elem.varname}: #{get_type(elem)}
-            EOS
-          end
-        end
-
-        arg_names = []
-        arguments.each do |elem|
-          arg_names << elem.varname
-        end
-        arg_list = arg_names.join(', ')
-
-        method_def += <<-EOS
-        #
-        # Raises:
-        # Error::ApiError (or a subclass thereof) if a SOAP fault occurs.
-        #
-        def #{name}(#{arg_list})
-          begin
-        EOS
-
-        # Add validation for every argument
-        arguments.each_with_index do |elem, index|
-          method_def += <<-EOS
-            AdWords::Service.validate_param('#{elem.varname}',
-                #{arg_names[index]}, #{get_type(elem)})
-          EOS
-        end
-
-        method_def += <<-EOS
-            # Construct request object and make API call
-            obj = #{module_name}::#{fix_case_up(name)}.new(#{arg_list})
-            return @driver.#{name}(obj)
-          rescue SOAP::FaultError => fault
-            raise(AdWords::Error::create_specific_api_error(fault),
-                "#{name} Call Failed: " + fault.faultstring.to_s, caller)
-          end
-        end
-
-        EOS
-        class_def += method_def
-      end
-
-      # Add extension methods, if any
-      extensions = AdWords::Extensions::extensions[[version, service]]
-      unless extensions.nil?
-        extensions.each do |ext|
-          params = AdWords::Extensions::methods[ext].join(', ')
-          arglist = 'self'
-          arglist += ", #{params}" if params != ''
-          method_def = <<-EOS
-        # <i>Extension method</i> -- Calls the AdWords::Extensions.#{ext} method
-        # with +self+ as the first parameter.
-        def #{ext}(#{params})
-          return AdWords::Extensions.#{ext}(#{arglist})
-        end
-
-          EOS
-          class_def += method_def
-        end
-      end
-
-      class_def += <<-EOS
-      end
-    end
-  end
-end
-      EOS
-      return class_def
     end
 
     # Returns the full module name for a given service
@@ -344,7 +277,7 @@ end
     # The full interface class name for the given service (as a string)
     #
     def self.get_interface_name(version, service)
-      if (version <= 13)
+      if version.is_a? Integer and version <= 13
         return get_module_name(version, service) + "::#{service}Interface"
       else
         return get_module_name(version, service) +
@@ -363,6 +296,23 @@ end
     #
     def self.get_wrapper_name(version, service)
       return get_module_name(version, service) + "::#{service}ServiceWrapper"
+    end
+
+    # Returns the namespace for a version and service
+    #
+    # Args:
+    # - driver: the service driver
+    #
+    # Returns:
+    # String with the namespace
+    def self.get_namespace_v2009(driver)
+      # This is a huge hack to get the correct namespace for a given service,
+      # but short from configuring it ourselves there seems to be no other
+      # option. This accesses one of the fields in the description of the
+      # service's methods, which indicates the namespace.
+      # Thankfully, since it's a constant and checked as part of our unit tests,
+      # it should always work.
+      return driver.class::Methods[0][2][0][2][1]
     end
 
     # Validates whether a parameter is of the correct type
@@ -392,62 +342,22 @@ end
       return nil
     end
 
-    private
-
-    # Helper method to fix a method name from camelCase to CamelCase.
-    #
-    # Args:
-    # - name: the method name
-    #
-    # Returns:
-    # The fixed name.
-    #
-    def self.fix_case_up(name)
-      return name[0, 1].upcase + name[1..-1]
+    # Create a bunch of aliases for the static methods
+    class << Service
+      alias versions get_versions
+      alias latest_version get_latest_version
+      alias default_version get_default_version
+      alias services get_services
+      alias environments get_environments
+      alias default_environment get_default_environment
+      alias endpoint get_endpoint
+      alias subdir get_subdir
+      alias auth_server get_auth_server
+      alias module_name get_module_name
+      alias interface_name get_interface_name
+      alias wrapper_name get_wrapper_name
+      alias namespace_v2009 get_namespace_v2009
     end
 
-    # Helper method to create a link to a method's entry in the API online docs.
-    #
-    # Args:
-    # - version: the API version (as an integer)
-    # - service: the service name (as a string)
-    # - method: the method name (as a string)
-    #
-    # Returns:
-    # The URL to the method's entry in the documentation (as a string).
-    # +nil+ if none.
-    #
-    def self.get_doc_link(version, service, method)
-      if version <= 13
-        base = 'http://code.google.com/apis/adwords/docs/developer/'
-        url = base + service + 'Service.html#' + method
-        return url
-      elsif version >= 200902
-        base = 'http://code.google.com/apis/adwords/v2009/docs/reference/'
-        url = base + service + 'Service.html#' + method
-        return url
-      else
-        return nil
-      end
-    end
-
-    # Helper method to return the expected type for a parameter, given the
-    # SchemaElementDefinition.
-    #
-    # Args:
-    # - element: SOAP::Mapping::SchemaElementDefinition element for the
-    #   parameter (taken from the schema definition of the class)
-    #
-    # Returns:
-    # The full name for the expected parameter type (as a String)
-    #
-    def self.get_type(element)
-      # Check if it's an array
-      if element.as_array?
-        return ARRAY_CLASSNAME
-      else
-        return element.mapped_class
-      end
-    end
   end
 end

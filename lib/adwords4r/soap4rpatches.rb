@@ -1,18 +1,22 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Authors:: sgomes@google.com (Sérgio Gomes)
+#           jeffy@google.com (Jeffrey Posnick)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # Collection of small patches to soap4r, used in the client library.
 
@@ -42,6 +46,31 @@ module SOAP
     end
   end
 
+  # Fix an issue with base64 encoded items in responses, which causes them to
+  # be encoded twice
+  module Mapping
+    class LiteralRegistry
+      def base2obj(value, klass)
+        v = if value.respond_to?(:data)
+              value.data
+            elsif value.respond_to?(:text)
+              value.text
+            else
+              nil
+            end
+        ### Patch starts here ###
+        if klass.to_s == 'SOAP::SOAPBase64'
+          v
+        ### Patch ends here ###
+        elsif value.is_a?(klass)
+          v
+        else
+          klass.to_data(v)
+        end
+      end
+    end
+  end
+
   # Monkey-patching soap4r to add a callback at the Proxy level. Not exactly the
   # prettiest way of doing things, but other callback levels in soap4r don't
   # provide all the information we need to log.
@@ -63,6 +92,23 @@ module SOAP
       # for the property with the same name in the Proxy object contained
       # within driver (@proxy).
       __attr_proxy :callbackhandler, true
+
+    end
+
+    class SubDriver < Driver
+
+      def invoke(headers, body)
+        if headers and !headers.is_a?(SOAPHeader)
+          headers = create_header(headers)
+        end
+        set_wiredump_file_base(body.elename.name)
+        env = @proxy.invoke(headers, body)
+        if env.nil?
+          return nil, nil
+        else
+          return env.header, env.body
+        end
+      end
     end
 
     class Proxy
@@ -113,7 +159,7 @@ module SOAP
 
         ### Patch starts here ###
         if (!callbackhandler.nil?)
-          callbackhandler.on_callback(name, @endpoint_url, env)
+          callbackhandler.on_callback(name, @endpoint_url, env, params)
         end
         ### Patch ends here ###
 

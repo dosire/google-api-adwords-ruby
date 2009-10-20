@@ -57,7 +57,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000073">addAds</a></li>
+                <li><a href="#M000089">addAds</a></li>
                 
             </ul>
         </dd>
@@ -66,7 +66,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000076">checkAds</a></li>
+                <li><a href="#M000090">checkAds</a></li>
                 
             </ul>
         </dd>
@@ -75,7 +75,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000077">findBusinesses</a></li>
+                <li><a href="#M000092">findBusinesses</a></li>
                 
             </ul>
         </dd>
@@ -84,17 +84,17 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000080">getActiveAds</a>,</li>
+                <li><a href="#M000094">getActiveAds</a>,</li>
                 
-                <li><a href="#M000081">getAd</a>,</li>
+                <li><a href="#M000097">getAd</a>,</li>
                 
-                <li><a href="#M000083">getAdStats</a>,</li>
+                <li><a href="#M000098">getAdStats</a>,</li>
                 
-                <li><a href="#M000084">getAllAds</a>,</li>
+                <li><a href="#M000099">getAllAds</a>,</li>
                 
-                <li><a href="#M000085">getMyBusinesses</a>,</li>
+                <li><a href="#M000100">getMyBusinesses</a>,</li>
                 
-                <li><a href="#M000086">getMyVideos</a></li>
+                <li><a href="#M000102">getMyVideos</a></li>
                 
             </ul>
         </dd>
@@ -103,7 +103,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000072">new</a></li>
+                <li><a href="#M000087">new</a></li>
                 
             </ul>
         </dd>
@@ -112,7 +112,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000089">updateAds</a></li>
+                <li><a href="#M000104">updateAds</a></li>
                 
             </ul>
         </dd>
@@ -139,7 +139,31 @@ automatically generated.
             <td class='attr-name'>api</td>
             <td class='attr-desc'><p>
 Holds the <a href="../../API.html">AdWords::API</a> object to which the
-wrapper belongs
+wrapper belongs.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>module</td>
+            <td class='attr-desc'><p>
+Holds a shortcut to the parent module. Use this to avoid typing the full
+class name when creating classes belonging to this service, e.g.
+</p>
+<pre>
+ service_object.module::ClassName
+</pre>
+<p>
+instead of
+</p>
+<pre>
+ AdWords::V13::AdService::ClassName
+</pre>
+<p>
+This will make it easier to migrate your code between <a
+href="../../API.html">API</a> versions.
 </p></td>
         </tr>
         
@@ -150,9 +174,9 @@ wrapper belongs
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000072">
+                <div class="title" id="M000087">
                     
-                    <a name="M000072"></a><b>new</b>(driver, api)
+                    <a name="M000087"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -181,14 +205,15 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000072_source')" id="l_M000072_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000087_source')" id="l_M000087_source">show</a>
                         
                     </p>
-                    <div id="M000072_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 25</span>
+                    <div id="M000087_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 34</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">AdService</span>
         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -198,9 +223,9 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000073">
+                <div class="title" id="M000089">
                     
-                    <a name="M000073"></a><b>addAds</b>(ads)
+                    <a name="M000089"></a><b>addAds</b>(ads)
                     
                 </div>
                 
@@ -241,11 +266,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000073_source')" id="l_M000073_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000089_source')" id="l_M000089_source">show</a>
                         
                     </p>
-                    <div id="M000073_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 42</span>
+                    <div id="M000089_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 52</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">addAds</span>(<span class="ruby-identifier">ads</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'ads'</span>,
@@ -264,9 +289,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000076">
+                <div class="title" id="M000090">
                     
-                    <a name="M000076"></a><b>checkAds</b>(ads, languageTarget, geoTarget)
+                    <a name="M000090"></a><b>checkAds</b>(ads, languageTarget, geoTarget)
                     
                 </div>
                 
@@ -314,11 +339,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000076_source')" id="l_M000076_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000090_source')" id="l_M000090_source">show</a>
                         
                     </p>
-                    <div id="M000076_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 69</span>
+                    <div id="M000090_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 79</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkAds</span>(<span class="ruby-identifier">ads</span>, <span class="ruby-identifier">languageTarget</span>, <span class="ruby-identifier">geoTarget</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'ads'</span>,
@@ -341,9 +366,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000077">
+                <div class="title" id="M000092">
                     
-                    <a name="M000077"></a><b>findBusinesses</b>(name, address, countryCode)
+                    <a name="M000092"></a><b>findBusinesses</b>(name, address, countryCode)
                     
                 </div>
                 
@@ -390,11 +415,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000077_source')" id="l_M000077_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000092_source')" id="l_M000092_source">show</a>
                         
                     </p>
-                    <div id="M000077_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 100</span>
+                    <div id="M000092_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 110</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">findBusinesses</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">address</span>, <span class="ruby-identifier">countryCode</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'name'</span>,
@@ -417,9 +442,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000080">
+                <div class="title" id="M000094">
                     
-                    <a name="M000080"></a><b>getActiveAds</b>(adGroupIds)
+                    <a name="M000094"></a><b>getActiveAds</b>(adGroupIds)
                     
                 </div>
                 
@@ -460,11 +485,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000080_source')" id="l_M000080_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000094_source')" id="l_M000094_source">show</a>
                         
                     </p>
-                    <div id="M000080_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 129</span>
+                    <div id="M000094_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 139</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getActiveAds</span>(<span class="ruby-identifier">adGroupIds</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupIds'</span>,
@@ -483,9 +508,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000081">
+                <div class="title" id="M000097">
                     
-                    <a name="M000081"></a><b>getAd</b>(adGroupId, adId)
+                    <a name="M000097"></a><b>getAd</b>(adGroupId, adId)
                     
                 </div>
                 
@@ -528,11 +553,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000081_source')" id="l_M000081_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000097_source')" id="l_M000097_source">show</a>
                         
                     </p>
-                    <div id="M000081_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 155</span>
+                    <div id="M000097_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 165</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAd</span>(<span class="ruby-identifier">adGroupId</span>, <span class="ruby-identifier">adId</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupId'</span>,
@@ -553,9 +578,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000083">
+                <div class="title" id="M000098">
                     
-                    <a name="M000083"></a><b>getAdStats</b>(adGroupId, adIds, startDay, endDay)
+                    <a name="M000098"></a><b>getAdStats</b>(adGroupId, adIds, startDay, endDay)
                     
                 </div>
                 
@@ -605,11 +630,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000083_source')" id="l_M000083_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000098_source')" id="l_M000098_source">show</a>
                         
                     </p>
-                    <div id="M000083_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 185</span>
+                    <div id="M000098_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 195</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAdStats</span>(<span class="ruby-identifier">adGroupId</span>, <span class="ruby-identifier">adIds</span>, <span class="ruby-identifier">startDay</span>, <span class="ruby-identifier">endDay</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupId'</span>,
@@ -634,9 +659,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000084">
+                <div class="title" id="M000099">
                     
-                    <a name="M000084"></a><b>getAllAds</b>(adGroupIds)
+                    <a name="M000099"></a><b>getAllAds</b>(adGroupIds)
                     
                 </div>
                 
@@ -677,11 +702,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000084_source')" id="l_M000084_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000099_source')" id="l_M000099_source">show</a>
                         
                     </p>
-                    <div id="M000084_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 216</span>
+                    <div id="M000099_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 226</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAllAds</span>(<span class="ruby-identifier">adGroupIds</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupIds'</span>,
@@ -700,9 +725,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000085">
+                <div class="title" id="M000100">
                     
-                    <a name="M000085"></a><b>getMyBusinesses</b>()
+                    <a name="M000100"></a><b>getMyBusinesses</b>()
                     
                 </div>
                 
@@ -735,11 +760,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000085_source')" id="l_M000085_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000100_source')" id="l_M000100_source">show</a>
                         
                     </p>
-                    <div id="M000085_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 238</span>
+                    <div id="M000100_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 248</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getMyBusinesses</span>()
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-comment cmt"># Construct request object and make API call</span>
@@ -756,9 +781,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000086">
+                <div class="title" id="M000102">
                     
-                    <a name="M000086"></a><b>getMyVideos</b>()
+                    <a name="M000102"></a><b>getMyVideos</b>()
                     
                 </div>
                 
@@ -791,11 +816,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000086_source')" id="l_M000086_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000102_source')" id="l_M000102_source">show</a>
                         
                     </p>
-                    <div id="M000086_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 258</span>
+                    <div id="M000102_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 268</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getMyVideos</span>()
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-comment cmt"># Construct request object and make API call</span>
@@ -812,9 +837,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000089">
+                <div class="title" id="M000104">
                     
-                    <a name="M000089"></a><b>updateAds</b>(ads)
+                    <a name="M000104"></a><b>updateAds</b>(ads)
                     
                 </div>
                 
@@ -846,11 +871,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000089_source')" id="l_M000089_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000104_source')" id="l_M000104_source">show</a>
                         
                     </p>
-                    <div id="M000089_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 278</span>
+                    <div id="M000104_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/AdServiceWrapper.rb, line 288</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">updateAds</span>(<span class="ruby-identifier">ads</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'ads'</span>,

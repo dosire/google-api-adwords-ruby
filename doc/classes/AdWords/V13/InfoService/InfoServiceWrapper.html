@@ -57,25 +57,25 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000126">getClientUnitsUsage</a>,</li>
+                <li><a href="#M000141">getClientUnitsUsage</a>,</li>
                 
-                <li><a href="#M000114">getFreeUsageQuotaThisMonth</a>,</li>
+                <li><a href="#M000129">getFreeUsageQuotaThisMonth</a>,</li>
                 
-                <li><a href="#M000115">getMethodCost</a>,</li>
+                <li><a href="#M000131">getMethodCost</a>,</li>
                 
-                <li><a href="#M000125">getMethodUsage</a>,</li>
+                <li><a href="#M000140">getMethodUsage</a>,</li>
                 
-                <li><a href="#M000117">getOperationCount</a>,</li>
+                <li><a href="#M000133">getOperationCount</a>,</li>
                 
-                <li><a href="#M000119">getOperationsQuotaThisMonth</a>,</li>
+                <li><a href="#M000134">getOperationsQuotaThisMonth</a>,</li>
                 
-                <li><a href="#M000120">getUnitCount</a>,</li>
+                <li><a href="#M000136">getUnitCount</a>,</li>
                 
-                <li><a href="#M000122">getUnitCountForClients</a>,</li>
+                <li><a href="#M000137">getUnitCountForClients</a>,</li>
                 
-                <li><a href="#M000123">getUnitCountForMethod</a>,</li>
+                <li><a href="#M000138">getUnitCountForMethod</a>,</li>
                 
-                <li><a href="#M000124">getUsageQuotaThisMonth</a></li>
+                <li><a href="#M000139">getUsageQuotaThisMonth</a></li>
                 
             </ul>
         </dd>
@@ -84,7 +84,7 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000113">new</a></li>
+                <li><a href="#M000128">new</a></li>
                 
             </ul>
         </dd>
@@ -111,7 +111,31 @@ generated.
             <td class='attr-name'>api</td>
             <td class='attr-desc'><p>
 Holds the <a href="../../API.html">AdWords::API</a> object to which the
-wrapper belongs
+wrapper belongs.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>module</td>
+            <td class='attr-desc'><p>
+Holds a shortcut to the parent module. Use this to avoid typing the full
+class name when creating classes belonging to this service, e.g.
+</p>
+<pre>
+ service_object.module::ClassName
+</pre>
+<p>
+instead of
+</p>
+<pre>
+ AdWords::V13::InfoService::ClassName
+</pre>
+<p>
+This will make it easier to migrate your code between <a
+href="../../API.html">API</a> versions.
 </p></td>
         </tr>
         
@@ -122,9 +146,9 @@ wrapper belongs
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000113">
+                <div class="title" id="M000128">
                     
-                    <a name="M000113"></a><b>new</b>(driver, api)
+                    <a name="M000128"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -153,14 +177,15 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000113_source')" id="l_M000113_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000128_source')" id="l_M000128_source">show</a>
                         
                     </p>
-                    <div id="M000113_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 25</span>
+                    <div id="M000128_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 34</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">InfoService</span>
         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -170,16 +195,16 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000126">
+                <div class="title" id="M000141">
                     
-                    <a name="M000126"></a><b>getClientUnitsUsage</b>(start_date, end_date)
+                    <a name="M000141"></a><b>getClientUnitsUsage</b>(start_date, end_date)
                     
                 </div>
                 
                 <div class="description">
                   <p>
 <em>Extension method</em> &#8212; Calls the <a
-href="../../Extensions.html#M000046">AdWords::Extensions.getClientUnitsUsage</a>
+href="../../Extensions.html#M000056">AdWords::Extensions.getClientUnitsUsage</a>
 method with <tt>self</tt> as the first parameter.
 </p>
 
@@ -190,11 +215,11 @@ method with <tt>self</tt> as the first parameter.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000126_source')" id="l_M000126_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000141_source')" id="l_M000141_source">show</a>
                         
                     </p>
-                    <div id="M000126_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 250</span>
+                    <div id="M000141_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 260</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getClientUnitsUsage</span>(<span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>)
           <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">getClientUnitsUsage</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>)
         <span class="ruby-keyword kw">end</span></pre>
@@ -204,9 +229,9 @@ method with <tt>self</tt> as the first parameter.
             </div>
             
             <div class="method">
-                <div class="title" id="M000114">
+                <div class="title" id="M000129">
                     
-                    <a name="M000114"></a><b>getFreeUsageQuotaThisMonth</b>()
+                    <a name="M000129"></a><b>getFreeUsageQuotaThisMonth</b>()
                     
                 </div>
                 
@@ -238,11 +263,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000114_source')" id="l_M000114_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000129_source')" id="l_M000129_source">show</a>
                         
                     </p>
-                    <div id="M000114_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 39</span>
+                    <div id="M000129_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 49</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getFreeUsageQuotaThisMonth</span>()
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-comment cmt"># Construct request object and make API call</span>
@@ -259,9 +284,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000115">
+                <div class="title" id="M000131">
                     
-                    <a name="M000115"></a><b>getMethodCost</b>(service, method, date)
+                    <a name="M000131"></a><b>getMethodCost</b>(service, method, date)
                     
                 </div>
                 
@@ -307,11 +332,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000115_source')" id="l_M000115_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000131_source')" id="l_M000131_source">show</a>
                         
                     </p>
-                    <div id="M000115_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 64</span>
+                    <div id="M000131_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 74</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getMethodCost</span>(<span class="ruby-identifier">service</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">date</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'service'</span>,
@@ -334,16 +359,16 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000125">
+                <div class="title" id="M000140">
                     
-                    <a name="M000125"></a><b>getMethodUsage</b>(start_date, end_date)
+                    <a name="M000140"></a><b>getMethodUsage</b>(start_date, end_date)
                     
                 </div>
                 
                 <div class="description">
                   <p>
 <em>Extension method</em> &#8212; Calls the <a
-href="../../Extensions.html#M000044">AdWords::Extensions.getMethodUsage</a>
+href="../../Extensions.html#M000055">AdWords::Extensions.getMethodUsage</a>
 method with <tt>self</tt> as the first parameter.
 </p>
 
@@ -354,11 +379,11 @@ method with <tt>self</tt> as the first parameter.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000125_source')" id="l_M000125_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000140_source')" id="l_M000140_source">show</a>
                         
                     </p>
-                    <div id="M000125_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 244</span>
+                    <div id="M000140_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 254</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getMethodUsage</span>(<span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>)
           <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">getMethodUsage</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>)
         <span class="ruby-keyword kw">end</span></pre>
@@ -368,9 +393,9 @@ method with <tt>self</tt> as the first parameter.
             </div>
             
             <div class="method">
-                <div class="title" id="M000117">
+                <div class="title" id="M000133">
                     
-                    <a name="M000117"></a><b>getOperationCount</b>(startDate, endDate)
+                    <a name="M000133"></a><b>getOperationCount</b>(startDate, endDate)
                     
                 </div>
                 
@@ -413,11 +438,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000117_source')" id="l_M000117_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000133_source')" id="l_M000133_source">show</a>
                         
                     </p>
-                    <div id="M000117_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 94</span>
+                    <div id="M000133_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 104</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getOperationCount</span>(<span class="ruby-identifier">startDate</span>, <span class="ruby-identifier">endDate</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'startDate'</span>,
@@ -438,9 +463,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000119">
+                <div class="title" id="M000134">
                     
-                    <a name="M000119"></a><b>getOperationsQuotaThisMonth</b>()
+                    <a name="M000134"></a><b>getOperationsQuotaThisMonth</b>()
                     
                 </div>
                 
@@ -472,11 +497,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000119_source')" id="l_M000119_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000134_source')" id="l_M000134_source">show</a>
                         
                     </p>
-                    <div id="M000119_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 118</span>
+                    <div id="M000134_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 128</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getOperationsQuotaThisMonth</span>()
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-comment cmt"># Construct request object and make API call</span>
@@ -493,9 +518,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000120">
+                <div class="title" id="M000136">
                     
-                    <a name="M000120"></a><b>getUnitCount</b>(startDate, endDate)
+                    <a name="M000136"></a><b>getUnitCount</b>(startDate, endDate)
                     
                 </div>
                 
@@ -538,11 +563,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000120_source')" id="l_M000120_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000136_source')" id="l_M000136_source">show</a>
                         
                     </p>
-                    <div id="M000120_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 142</span>
+                    <div id="M000136_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 152</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getUnitCount</span>(<span class="ruby-identifier">startDate</span>, <span class="ruby-identifier">endDate</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'startDate'</span>,
@@ -563,9 +588,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000122">
+                <div class="title" id="M000137">
                     
-                    <a name="M000122"></a><b>getUnitCountForClients</b>(clientEmails, startDate, endDate)
+                    <a name="M000137"></a><b>getUnitCountForClients</b>(clientEmails, startDate, endDate)
                     
                 </div>
                 
@@ -612,11 +637,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000122_source')" id="l_M000122_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000137_source')" id="l_M000137_source">show</a>
                         
                     </p>
-                    <div id="M000122_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 171</span>
+                    <div id="M000137_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 181</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getUnitCountForClients</span>(<span class="ruby-identifier">clientEmails</span>, <span class="ruby-identifier">startDate</span>, <span class="ruby-identifier">endDate</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'clientEmails'</span>,
@@ -639,9 +664,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000123">
+                <div class="title" id="M000138">
                     
-                    <a name="M000123"></a><b>getUnitCountForMethod</b>(service, method, startDate, endDate)
+                    <a name="M000138"></a><b>getUnitCountForMethod</b>(service, method, startDate, endDate)
                     
                 </div>
                 
@@ -690,11 +715,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000123_source')" id="l_M000123_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000138_source')" id="l_M000138_source">show</a>
                         
                     </p>
-                    <div id="M000123_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 203</span>
+                    <div id="M000138_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 213</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getUnitCountForMethod</span>(<span class="ruby-identifier">service</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">startDate</span>, <span class="ruby-identifier">endDate</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'service'</span>,
@@ -719,9 +744,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000124">
+                <div class="title" id="M000139">
                     
-                    <a name="M000124"></a><b>getUsageQuotaThisMonth</b>()
+                    <a name="M000139"></a><b>getUsageQuotaThisMonth</b>()
                     
                 </div>
                 
@@ -753,11 +778,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000124_source')" id="l_M000124_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000139_source')" id="l_M000139_source">show</a>
                         
                     </p>
-                    <div id="M000124_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 231</span>
+                    <div id="M000139_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/InfoServiceWrapper.rb, line 241</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getUsageQuotaThisMonth</span>()
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-comment cmt"># Construct request object and make API call</span>

@@ -74,7 +74,7 @@ Wrapper class to handle logging to console and/or files.
         <dd>
             <ul>
                 
-                <li><a href="#M000029">new</a></li>
+                <li><a href="#M000030">new</a></li>
                 
             </ul>
         </dd>
@@ -96,9 +96,9 @@ Wrapper class to handle logging to console and/or files.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000029">
+                <div class="title" id="M000030">
                     
-                    <a name="M000029"></a><b>new</b>(filename, log_to_console=false)
+                    <a name="M000030"></a><b>new</b>(filename, log_to_console=false)
                     
                 </div>
                 
@@ -126,11 +126,11 @@ href="AdWordsLogger.html#M000031">log_to_file</a> is called)
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
                         
                     </p>
-                    <div id="M000029_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 33</span>
+                    <div id="M000030_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 36</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">log_to_console</span>=<span class="ruby-keyword kw">false</span>)
       <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
       <span class="ruby-ivar">@loggers</span> = []
@@ -170,7 +170,7 @@ Overload << operator to perform logging.
                         
                     </p>
                     <div id="M000032_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 59</span>
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 62</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">text</span>)
       <span class="ruby-ivar">@loggers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">logger</span><span class="ruby-operator">|</span>
         <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
@@ -214,7 +214,7 @@ provide filename.
                         
                     </p>
                     <div id="M000031_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 50</span>
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 53</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log_to_file</span>(<span class="ruby-identifier">path</span>=<span class="ruby-value str">'.'</span>)
       <span class="ruby-identifier">new_logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-ivar">@filename</span>))
       <span class="ruby-identifier">new_logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>

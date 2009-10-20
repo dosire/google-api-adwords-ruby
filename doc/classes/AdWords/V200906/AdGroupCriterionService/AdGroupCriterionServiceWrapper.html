@@ -58,7 +58,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000153">get</a></li>
+                <li><a href="#M000167">get</a></li>
                 
             </ul>
         </dd>
@@ -67,7 +67,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000155">mutate</a></li>
+                <li><a href="#M000170">mutate</a></li>
                 
             </ul>
         </dd>
@@ -76,7 +76,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000151">new</a></li>
+                <li><a href="#M000165">new</a></li>
                 
             </ul>
         </dd>
@@ -103,7 +103,31 @@ automatically generated.
             <td class='attr-name'>api</td>
             <td class='attr-desc'><p>
 Holds the <a href="../../API.html">AdWords::API</a> object to which the
-wrapper belongs
+wrapper belongs.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>module</td>
+            <td class='attr-desc'><p>
+Holds a shortcut to the parent module. Use this to avoid typing the full
+class name when creating classes belonging to this service, e.g.
+</p>
+<pre>
+ service_object.module::ClassName
+</pre>
+<p>
+instead of
+</p>
+<pre>
+ AdWords::V200906::AdGroupCriterionService::ClassName
+</pre>
+<p>
+This will make it easier to migrate your code between <a
+href="../../API.html">API</a> versions.
 </p></td>
         </tr>
         
@@ -114,9 +138,9 @@ wrapper belongs
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000151">
+                <div class="title" id="M000165">
                     
-                    <a name="M000151"></a><b>new</b>(driver, api)
+                    <a name="M000165"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -146,14 +170,15 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000151_source')" id="l_M000151_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000165_source')" id="l_M000165_source">show</a>
                         
                     </p>
-                    <div id="M000151_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionServiceWrapper.rb, line 25</span>
+                    <div id="M000165_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionServiceWrapper.rb, line 34</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200906</span><span class="ruby-operator">::</span><span class="ruby-constant">AdGroupCriterionService</span>
         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -163,9 +188,9 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000153">
+                <div class="title" id="M000167">
                     
-                    <a name="M000153"></a><b>get</b>(selector)
+                    <a name="M000167"></a><b>get</b>(selector)
                     
                 </div>
                 
@@ -208,11 +233,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000153_source')" id="l_M000153_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000167_source')" id="l_M000167_source">show</a>
                         
                     </p>
-                    <div id="M000153_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionServiceWrapper.rb, line 42</span>
+                    <div id="M000167_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionServiceWrapper.rb, line 52</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">selector</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'selector'</span>,
@@ -231,9 +256,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000155">
+                <div class="title" id="M000170">
                     
-                    <a name="M000155"></a><b>mutate</b>(operations)
+                    <a name="M000170"></a><b>mutate</b>(operations)
                     
                 </div>
                 
@@ -276,11 +301,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000155_source')" id="l_M000155_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000170_source')" id="l_M000170_source">show</a>
                         
                     </p>
-                    <div id="M000155_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionServiceWrapper.rb, line 67</span>
+                    <div id="M000170_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionServiceWrapper.rb, line 77</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mutate</span>(<span class="ruby-identifier">operations</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'operations'</span>,

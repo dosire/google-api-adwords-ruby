@@ -78,6 +78,10 @@ href="Bid.html">AdWords::V200906::AdGroupCriterionService::Bid</a>
 href="QualityInfo.html">AdWords::V200906::AdGroupCriterionService::QualityInfo</a>
 
 </li>
+<li>stats - <a
+href="Stats.html">AdWords::V200906::AdGroupCriterionService::Stats</a>
+
+</li>
 </ul>
 
     </div>
@@ -97,7 +101,7 @@ href="QualityInfo.html">AdWords::V200906::AdGroupCriterionService::QualityInfo</
         <dd>
             <ul>
                 
-                <li><a href="#M000375">new</a></li>
+                <li><a href="#M000423">new</a></li>
                 
             </ul>
         </dd>
@@ -197,6 +201,14 @@ href="QualityInfo.html">AdWords::V200906::AdGroupCriterionService::QualityInfo</
             <td class='attr-desc'></td>
         </tr>
         
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>stats</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
     </table>
     
 
@@ -204,9 +216,9 @@ href="QualityInfo.html">AdWords::V200906::AdGroupCriterionService::QualityInfo</
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000375">
+                <div class="title" id="M000423">
                     
-                    <a name="M000375"></a><b>new</b>(adGroupId = nil, criterion = nil, adGroupCriterion_Type = nil, userStatus = nil, systemServingStatus = nil, approvalStatus = nil, destinationUrl = nil, bids = nil, firstPageCpc = nil, qualityInfo = nil)
+                    <a name="M000423"></a><b>new</b>(adGroupId = nil, criterion = nil, adGroupCriterion_Type = nil, userStatus = nil, systemServingStatus = nil, approvalStatus = nil, destinationUrl = nil, bids = nil, firstPageCpc = nil, qualityInfo = nil, stats = nil)
                     
                 </div>
                 
@@ -215,12 +227,12 @@ href="QualityInfo.html">AdWords::V200906::AdGroupCriterionService::QualityInfo</
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000375_source')" id="l_M000375_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000423_source')" id="l_M000423_source">show</a>
                         
                     </p>
-                    <div id="M000375_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionService.rb, line 1002</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">adGroupId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">criterion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupCriterion_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">userStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">systemServingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">approvalStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">destinationUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">bids</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">firstPageCpc</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">qualityInfo</span> = <span class="ruby-keyword kw">nil</span>)
+                    <div id="M000423_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/AdGroupCriterionService.rb, line 1084</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">adGroupId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">criterion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupCriterion_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">userStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">systemServingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">approvalStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">destinationUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">bids</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">firstPageCpc</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">qualityInfo</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats</span> = <span class="ruby-keyword kw">nil</span>)
     <span class="ruby-ivar">@adGroupId</span> = <span class="ruby-identifier">adGroupId</span>
     <span class="ruby-ivar">@criterion</span> = <span class="ruby-identifier">criterion</span>
     <span class="ruby-ivar">@adGroupCriterion_Type</span> = <span class="ruby-identifier">adGroupCriterion_Type</span>
@@ -231,6 +243,7 @@ href="QualityInfo.html">AdWords::V200906::AdGroupCriterionService::QualityInfo</
     <span class="ruby-ivar">@bids</span> = <span class="ruby-identifier">bids</span>
     <span class="ruby-ivar">@firstPageCpc</span> = <span class="ruby-identifier">firstPageCpc</span>
     <span class="ruby-ivar">@qualityInfo</span> = <span class="ruby-identifier">qualityInfo</span>
+    <span class="ruby-ivar">@stats</span> = <span class="ruby-identifier">stats</span>
   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>

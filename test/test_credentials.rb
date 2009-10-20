@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Author:: sgomes@google.com (Sérgio Gomes)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # Tests AdWords::AdWordsCredentials and associated classes
 
@@ -87,6 +90,118 @@ class TestCredentials < Test::Unit::TestCase
         assert_equal(value, credentials.credentials[key],
             "'#{key}' has different value in credentials")
       end
+    end
+  end
+
+  # Test errors when trying to use sandbox credentials in production
+  def test_sandbox_credentials_in_production
+    cred_hash = {
+      'developerToken' => 'user@domain.com++USD',
+      'useragent' => 'Sample User Agent',
+      'password' => 'password',
+      'email' => 'user@domain.com',
+      'clientEmail' => 'client_1+user@domain.com',
+      'applicationToken' => 'IGNORED',
+      'environment' => 'PRODUCTION'
+    }
+
+    # This should raise an error, because the developer token is wrong.
+    assert_raise(AdWords::Error::EnvironmentMismatchError) do
+      credentials = AdWords::AdWordsCredentials.new(cred_hash)
+    end
+
+    cred_hash = {
+      'developerToken' => 'user@domain.com++USD',
+      'useragent' => 'Sample User Agent',
+      'password' => 'password',
+      'email' => 'user@domain.com',
+      'clientEmail' => 'user_2@domain.com',
+      'applicationToken' => 'IGNORED',
+      'environment' => 'PRODUCTION'
+    }
+
+    # This should raise an error, because the developer token is wrong.
+    assert_raise(AdWords::Error::EnvironmentMismatchError) do
+      credentials = AdWords::AdWordsCredentials.new(cred_hash)
+    end
+
+    cred_hash = {
+      'developerToken' => 'xxxxxxxxxxx',
+      'useragent' => 'Sample User Agent',
+      'password' => 'password',
+      'email' => 'user@domain.com',
+      'clientEmail' => 'client_1+user@domain.com',
+      'applicationToken' => 'IGNORED',
+      'environment' => 'PRODUCTION'
+    }
+
+    # This should NOT raise an error, because it could be a valid client email.
+    assert_nothing_raised do
+      credentials = AdWords::AdWordsCredentials.new(cred_hash)
+    end
+  end
+
+  # Test errors when trying to use production credentials in the sandbox
+  def test_production_credentials_in_sandbox
+    cred_hash = {
+      'developerToken' => 'xxxxxxxxxxx',
+      'useragent' => 'Sample User Agent',
+      'password' => 'password',
+      'email' => 'user@domain.com',
+      'clientEmail' => 'user_2@domain.com',
+      'applicationToken' => 'IGNORED',
+      'environment' => 'SANDBOX'
+    }
+
+    # This should raise an error because the developer token and client email
+    # are wrong.
+    assert_raise(AdWords::Error::EnvironmentMismatchError) do
+      credentials = AdWords::AdWordsCredentials.new(cred_hash)
+    end
+
+    cred_hash = {
+      'developerToken' => 'xxxxxxxxxxx',
+      'useragent' => 'Sample User Agent',
+      'password' => 'password',
+      'email' => 'user@domain.com',
+      'clientEmail' => 'client_1+user@domain.com',
+      'applicationToken' => 'IGNORED',
+      'environment' => 'SANDBOX'
+    }
+
+    # This should raise an error because the developer token is wrong.
+    assert_raise(AdWords::Error::EnvironmentMismatchError) do
+      credentials = AdWords::AdWordsCredentials.new(cred_hash)
+    end
+
+    cred_hash = {
+      'developerToken' => 'user@domain.com++USD',
+      'useragent' => 'Sample User Agent',
+      'password' => 'password',
+      'email' => 'user@domain.com',
+      'clientEmail' => 'user_2@domain.com',
+      'applicationToken' => 'IGNORED',
+      'environment' => 'SANDBOX'
+    }
+
+    # This should raise an error because the client email is wrong.
+    assert_raise(AdWords::Error::EnvironmentMismatchError) do
+      credentials = AdWords::AdWordsCredentials.new(cred_hash)
+    end
+
+    cred_hash = {
+      'developerToken' => 'user@domain.com++USD',
+      'useragent' => 'Sample User Agent',
+      'password' => 'password',
+      'email' => 'user@domain.com',
+      'clientEmail' => '',
+      'applicationToken' => 'IGNORED',
+      'environment' => 'SANDBOX'
+    }
+
+    # This should NOT raise an error, as they're valid credentials.
+    assert_nothing_raised do
+      credentials = AdWords::AdWordsCredentials.new(cred_hash)
     end
   end
 end

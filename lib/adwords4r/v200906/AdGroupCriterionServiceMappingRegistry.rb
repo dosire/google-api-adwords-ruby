@@ -46,6 +46,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::AuthenticationError,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::AdGroupCriterionService::AuthenticationErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::AuthorizationError,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -207,18 +219,6 @@ module DefaultMappingRegistry
       ["criterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "Criterion.Type")], [0, 1]],
       ["text", "SOAP::SOAPString", [0, 1]],
       ["matchType", "AdWords::V200906::AdGroupCriterionService::KeywordMatchType", [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
-    :class => AdWords::V200906::AdGroupCriterionService::LoasAuthenticationError,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError"),
-    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
-    :schema_element => [
-      ["fieldPath", "SOAP::SOAPString", [0, 1]],
-      ["trigger", "SOAP::SOAPString", [0, 1]],
-      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
-      ["reason", "AdWords::V200906::AdGroupCriterionService::LoasAuthenticationErrorReason", [0, 1]]
     ]
   )
 
@@ -387,6 +387,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::QuotaExceededError,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::AdGroupCriterionService::QuotaExceededErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::ReadOnlyError,
     :schema_type => XSD::QName.new(NsV200906, "ReadOnlyError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -462,7 +474,8 @@ module DefaultMappingRegistry
     :class => AdWords::V200906::AdGroupCriterionService::StatsSelector,
     :schema_type => XSD::QName.new(NsV200906, "StatsSelector"),
     :schema_element => [
-      ["dateRange", "AdWords::V200906::AdGroupCriterionService::DateRange", [0, 1]]
+      ["dateRange", "AdWords::V200906::AdGroupCriterionService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "StatsSelector.Type")], [0, 1]]
     ]
   )
 
@@ -497,6 +510,30 @@ module DefaultMappingRegistry
       ["externalPolicyDescription", "SOAP::SOAPString", [0, 1]],
       ["isExemptable", "SOAP::SOAPBoolean", [0, 1]],
       ["violatingParts", "AdWords::V200906::AdGroupCriterionService::PolicyViolationErrorPart[]", [0, nil]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::Stats,
+    :schema_type => XSD::QName.new(NsV200906, "Stats"),
+    :schema_element => [
+      ["startDate", "SOAP::SOAPString", [0, 1]],
+      ["endDate", "SOAP::SOAPString", [0, 1]],
+      ["network", "AdWords::V200906::AdGroupCriterionService::StatsNetwork", [0, 1]],
+      ["clicks", "SOAP::SOAPLong", [0, 1]],
+      ["impressions", "SOAP::SOAPLong", [0, 1]],
+      ["cost", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["averagePosition", "SOAP::SOAPDouble", [0, 1]],
+      ["averageCpc", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["averageCpm", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["ctr", "SOAP::SOAPDouble", [0, 1]],
+      ["conversions", "SOAP::SOAPLong", [0, 1]],
+      ["conversionRate", "SOAP::SOAPDouble", [0, 1]],
+      ["costPerConversion", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["conversionsManyPerClick", "SOAP::SOAPLong", [0, 1]],
+      ["conversionRateManyPerClick", "SOAP::SOAPDouble", [0, 1]],
+      ["costPerConversionManyPerClick", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["stats_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "Stats.Type")], [0, 1]]
     ]
   )
 
@@ -585,7 +622,8 @@ module DefaultMappingRegistry
       ["destinationUrl", "SOAP::SOAPString", [0, 1]],
       ["bids", "AdWords::V200906::AdGroupCriterionService::AdGroupCriterionBids", [0, 1]],
       ["firstPageCpc", "AdWords::V200906::AdGroupCriterionService::Bid", [0, 1]],
-      ["qualityInfo", "AdWords::V200906::AdGroupCriterionService::QualityInfo", [0, 1]]
+      ["qualityInfo", "AdWords::V200906::AdGroupCriterionService::QualityInfo", [0, 1]],
+      ["stats", "AdWords::V200906::AdGroupCriterionService::Stats", [0, 1]]
     ]
   )
 
@@ -660,6 +698,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::AuthenticationErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::AuthorizationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError.Reason")
   )
@@ -725,11 +768,6 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200906::AdGroupCriterionService::LoasAuthenticationErrorReason,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError.Reason")
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::NewEntityCreationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "NewEntityCreationError.Reason")
   )
@@ -770,6 +808,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::QuotaExceededErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::ReadOnlyErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "ReadOnlyError.Reason")
   )
@@ -782,6 +825,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::SizeLimitErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "SizeLimitError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::StatsNetwork,
+    :schema_type => XSD::QName.new(NsV200906, "Stats.Network")
   )
 
   EncodedRegistry.register(
@@ -837,6 +885,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::AuthenticationError,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::AdGroupCriterionService::AuthenticationErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::AuthorizationError,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -998,18 +1058,6 @@ module DefaultMappingRegistry
       ["criterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "Criterion.Type")], [0, 1]],
       ["text", "SOAP::SOAPString", [0, 1]],
       ["matchType", "AdWords::V200906::AdGroupCriterionService::KeywordMatchType", [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
-    :class => AdWords::V200906::AdGroupCriterionService::LoasAuthenticationError,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError"),
-    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
-    :schema_element => [
-      ["fieldPath", "SOAP::SOAPString", [0, 1]],
-      ["trigger", "SOAP::SOAPString", [0, 1]],
-      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
-      ["reason", "AdWords::V200906::AdGroupCriterionService::LoasAuthenticationErrorReason", [0, 1]]
     ]
   )
 
@@ -1178,6 +1226,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::QuotaExceededError,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::AdGroupCriterionService::QuotaExceededErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::ReadOnlyError,
     :schema_type => XSD::QName.new(NsV200906, "ReadOnlyError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -1253,7 +1313,8 @@ module DefaultMappingRegistry
     :class => AdWords::V200906::AdGroupCriterionService::StatsSelector,
     :schema_type => XSD::QName.new(NsV200906, "StatsSelector"),
     :schema_element => [
-      ["dateRange", "AdWords::V200906::AdGroupCriterionService::DateRange", [0, 1]]
+      ["dateRange", "AdWords::V200906::AdGroupCriterionService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "StatsSelector.Type")], [0, 1]]
     ]
   )
 
@@ -1288,6 +1349,30 @@ module DefaultMappingRegistry
       ["externalPolicyDescription", "SOAP::SOAPString", [0, 1]],
       ["isExemptable", "SOAP::SOAPBoolean", [0, 1]],
       ["violatingParts", "AdWords::V200906::AdGroupCriterionService::PolicyViolationErrorPart[]", [0, nil]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::Stats,
+    :schema_type => XSD::QName.new(NsV200906, "Stats"),
+    :schema_element => [
+      ["startDate", "SOAP::SOAPString", [0, 1]],
+      ["endDate", "SOAP::SOAPString", [0, 1]],
+      ["network", "AdWords::V200906::AdGroupCriterionService::StatsNetwork", [0, 1]],
+      ["clicks", "SOAP::SOAPLong", [0, 1]],
+      ["impressions", "SOAP::SOAPLong", [0, 1]],
+      ["cost", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["averagePosition", "SOAP::SOAPDouble", [0, 1]],
+      ["averageCpc", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["averageCpm", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["ctr", "SOAP::SOAPDouble", [0, 1]],
+      ["conversions", "SOAP::SOAPLong", [0, 1]],
+      ["conversionRate", "SOAP::SOAPDouble", [0, 1]],
+      ["costPerConversion", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["conversionsManyPerClick", "SOAP::SOAPLong", [0, 1]],
+      ["conversionRateManyPerClick", "SOAP::SOAPDouble", [0, 1]],
+      ["costPerConversionManyPerClick", "AdWords::V200906::AdGroupCriterionService::Money", [0, 1]],
+      ["stats_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "Stats.Type")], [0, 1]]
     ]
   )
 
@@ -1376,7 +1461,8 @@ module DefaultMappingRegistry
       ["destinationUrl", "SOAP::SOAPString", [0, 1]],
       ["bids", "AdWords::V200906::AdGroupCriterionService::AdGroupCriterionBids", [0, 1]],
       ["firstPageCpc", "AdWords::V200906::AdGroupCriterionService::Bid", [0, 1]],
-      ["qualityInfo", "AdWords::V200906::AdGroupCriterionService::QualityInfo", [0, 1]]
+      ["qualityInfo", "AdWords::V200906::AdGroupCriterionService::QualityInfo", [0, 1]],
+      ["stats", "AdWords::V200906::AdGroupCriterionService::Stats", [0, 1]]
     ]
   )
 
@@ -1451,6 +1537,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::AuthenticationErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::AuthorizationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError.Reason")
   )
@@ -1516,11 +1607,6 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200906::AdGroupCriterionService::LoasAuthenticationErrorReason,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError.Reason")
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::NewEntityCreationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "NewEntityCreationError.Reason")
   )
@@ -1561,6 +1647,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::QuotaExceededErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::ReadOnlyErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "ReadOnlyError.Reason")
   )
@@ -1573,6 +1664,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200906::AdGroupCriterionService::SizeLimitErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "SizeLimitError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200906::AdGroupCriterionService::StatsNetwork,
+    :schema_type => XSD::QName.new(NsV200906, "Stats.Network")
   )
 
   LiteralRegistry.register(

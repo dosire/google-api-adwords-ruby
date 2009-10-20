@@ -92,67 +92,6 @@ end
 class CampaignTargetSelector < ::Array
 end
 
-# ComparableValue
-# abstract
-# - comparableValue_Type - SOAP::SOAPString
-class ComparableValue
-  attr_accessor :comparableValue_Type
-
-  def initialize(comparableValue_Type = nil)
-    @comparableValue_Type = comparableValue_Type
-  end
-end
-
-# Money
-# - comparableValue_Type - SOAP::SOAPString
-# - microAmount - SOAP::SOAPLong
-class Money < ComparableValue
-  attr_accessor :comparableValue_Type
-  attr_accessor :microAmount
-
-  def initialize(comparableValue_Type = nil, microAmount = nil)
-    @comparableValue_Type = comparableValue_Type
-    @microAmount = microAmount
-  end
-end
-
-# NumberValue
-# abstract
-# - comparableValue_Type - SOAP::SOAPString
-class NumberValue < ComparableValue
-  attr_accessor :comparableValue_Type
-
-  def initialize(comparableValue_Type = nil)
-    @comparableValue_Type = comparableValue_Type
-  end
-end
-
-# DoubleValue
-# - comparableValue_Type - SOAP::SOAPString
-# - number - SOAP::SOAPDouble
-class DoubleValue < NumberValue
-  attr_accessor :comparableValue_Type
-  attr_accessor :number
-
-  def initialize(comparableValue_Type = nil, number = nil)
-    @comparableValue_Type = comparableValue_Type
-    @number = number
-  end
-end
-
-# LongValue
-# - comparableValue_Type - SOAP::SOAPString
-# - number - SOAP::SOAPLong
-class LongValue < NumberValue
-  attr_accessor :comparableValue_Type
-  attr_accessor :number
-
-  def initialize(comparableValue_Type = nil, number = nil)
-    @comparableValue_Type = comparableValue_Type
-    @number = number
-  end
-end
-
 # Target
 # abstract
 # - target_Type - SOAP::SOAPString
@@ -422,6 +361,25 @@ class ApiError
   end
 end
 
+# AuthenticationError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::CampaignTargetService::AuthenticationErrorReason
+class AuthenticationError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # AuthorizationError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -574,25 +532,6 @@ class InternalApiError < ApiError
   end
 end
 
-# LoasAuthenticationError
-# - fieldPath - SOAP::SOAPString
-# - trigger - SOAP::SOAPString
-# - apiError_Type - SOAP::SOAPString
-# - reason - AdWords::V200906::CampaignTargetService::LoasAuthenticationErrorReason
-class LoasAuthenticationError < ApiError
-  attr_accessor :fieldPath
-  attr_accessor :trigger
-  attr_accessor :apiError_Type
-  attr_accessor :reason
-
-  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
-    @fieldPath = fieldPath
-    @trigger = trigger
-    @apiError_Type = apiError_Type
-    @reason = reason
-  end
-end
-
 # NotEmptyError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -726,6 +665,25 @@ class QuotaError < ApiError
     @apiError_Type = apiError_Type
     @reason = reason
     @limit = limit
+  end
+end
+
+# QuotaExceededError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::CampaignTargetService::QuotaExceededErrorReason
+class QuotaExceededError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
   end
 end
 
@@ -1077,11 +1035,31 @@ class AgeTargetAge < ::String
   AGE_65_PLUS = AgeTargetAge.new("AGE_65_PLUS")
 end
 
+# AuthenticationError.Reason
+class AuthenticationErrorReason < ::String
+  AUTHENTICATION_FAILED = AuthenticationErrorReason.new("AUTHENTICATION_FAILED")
+  CLIENT_CUSTOMER_ID_INVALID = AuthenticationErrorReason.new("CLIENT_CUSTOMER_ID_INVALID")
+  CLIENT_CUSTOMER_ID_IS_REQUIRED = AuthenticationErrorReason.new("CLIENT_CUSTOMER_ID_IS_REQUIRED")
+  CLIENT_EMAIL_FAILED_TO_AUTHENTICATE = AuthenticationErrorReason.new("CLIENT_EMAIL_FAILED_TO_AUTHENTICATE")
+  CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
+  CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
+  CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
+  LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
+  NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")
+  OAUTH_TOKEN_DISABLED = AuthenticationErrorReason.new("OAUTH_TOKEN_DISABLED")
+  OAUTH_TOKEN_EXPIRED = AuthenticationErrorReason.new("OAUTH_TOKEN_EXPIRED")
+  OAUTH_TOKEN_HEADER_INVALID = AuthenticationErrorReason.new("OAUTH_TOKEN_HEADER_INVALID")
+  OAUTH_TOKEN_INVALID = AuthenticationErrorReason.new("OAUTH_TOKEN_INVALID")
+  OAUTH_TOKEN_REVOKED = AuthenticationErrorReason.new("OAUTH_TOKEN_REVOKED")
+  USER_ID_INVALID = AuthenticationErrorReason.new("USER_ID_INVALID")
+end
+
 # AuthorizationError.Reason
 class AuthorizationErrorReason < ::String
   EFFECTIVE_USER_PERMISSION_DENIED = AuthorizationErrorReason.new("EFFECTIVE_USER_PERMISSION_DENIED")
   NO_ADWORDS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_ADWORDS_ACCOUNT_FOR_CUSTOMER")
-  NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER")
+  NO_CUSTOMER_FOUND = AuthorizationErrorReason.new("NO_CUSTOMER_FOUND")
   UNABLE_TO_AUTHORIZE = AuthorizationErrorReason.new("UNABLE_TO_AUTHORIZE")
   USER_HAS_READONLY_PERMISSION = AuthorizationErrorReason.new("USER_HAS_READONLY_PERMISSION")
   USER_PERMISSION_DENIED = AuthorizationErrorReason.new("USER_PERMISSION_DENIED")
@@ -1166,11 +1144,6 @@ end
 # DatabaseError.Reason
 class DatabaseErrorReason < ::String
   CAMPAIGN_PRODUCT_NOT_SUPPORTED = DatabaseErrorReason.new("CAMPAIGN_PRODUCT_NOT_SUPPORTED")
-  CANNOT_LOAD_AD = DatabaseErrorReason.new("CANNOT_LOAD_AD")
-  CANNOT_LOAD_ADGROUP = DatabaseErrorReason.new("CANNOT_LOAD_ADGROUP")
-  CANNOT_LOAD_CAMPAIGN = DatabaseErrorReason.new("CANNOT_LOAD_CAMPAIGN")
-  CANNOT_LOAD_CRITERION = DatabaseErrorReason.new("CANNOT_LOAD_CRITERION")
-  CANNOT_LOAD_MEDIA = DatabaseErrorReason.new("CANNOT_LOAD_MEDIA")
   CONCURRENT_MODIFICATION = DatabaseErrorReason.new("CONCURRENT_MODIFICATION")
   PERMISSION_DENIED = DatabaseErrorReason.new("PERMISSION_DENIED")
 end
@@ -1205,15 +1178,6 @@ end
 # InternalApiError.Reason
 class InternalApiErrorReason < ::String
   UNEXPECTED_INTERNAL_API_ERROR = InternalApiErrorReason.new("UNEXPECTED_INTERNAL_API_ERROR")
-end
-
-# LoasAuthenticationError.Reason
-class LoasAuthenticationErrorReason < ::String
-  ADS_USER_NOT_FOUND = LoasAuthenticationErrorReason.new("ADS_USER_NOT_FOUND")
-  CLIENT_NOT_AUTHORIZED = LoasAuthenticationErrorReason.new("CLIENT_NOT_AUTHORIZED")
-  NOT_INTERNAL_USER = LoasAuthenticationErrorReason.new("NOT_INTERNAL_USER")
-  PROTOCOL_MISMATCH = LoasAuthenticationErrorReason.new("PROTOCOL_MISMATCH")
-  SECURITY_LEVEL_MISMATCH = LoasAuthenticationErrorReason.new("SECURITY_LEVEL_MISMATCH")
 end
 
 # MinuteOfHour
@@ -1309,6 +1273,11 @@ class QuotaErrorReason < ::String
   TOO_MANY_KEYWORDS_PER_CUSTOMER = QuotaErrorReason.new("TOO_MANY_KEYWORDS_PER_CUSTOMER")
   TOO_MANY_SITES_PER_ADGROUP = QuotaErrorReason.new("TOO_MANY_SITES_PER_ADGROUP")
   TOO_MANY_SITES_PER_CAMPAIGN = QuotaErrorReason.new("TOO_MANY_SITES_PER_CAMPAIGN")
+end
+
+# QuotaExceededError.Reason
+class QuotaExceededErrorReason < ::String
+  QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
 end
 
 # RangeError.Reason

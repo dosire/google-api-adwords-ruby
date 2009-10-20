@@ -1,4 +1,4 @@
-# This file was automatically generated during the "rake generate" step of the
+# This file was automatically generated during the "rake generate" step of
 # library setup.
 require 'adwords4r/v13/CriterionServiceDriver.rb'
 
@@ -10,8 +10,17 @@ module AdWords
       # This class is automatically generated.
       class CriterionServiceWrapper
 
-        # Holds the AdWords::API object to which the wrapper belongs
+        # Holds the AdWords::API object to which the wrapper belongs.
         attr_reader :api
+
+        # Holds a shortcut to the parent module.
+        # Use this to avoid typing the full class name when creating classes
+        # belonging to this service, e.g.
+        #  service_object.module::ClassName
+        # instead of
+        #  AdWords::V13::CriterionService::ClassName
+        # This will make it easier to migrate your code between API versions.
+        attr_reader :module
 
         public
 
@@ -25,6 +34,7 @@ module AdWords
         def initialize(driver, api)
           @driver = driver
           @api = api
+          @module = AdWords::V13::CriterionService
         end
 
         # Calls the {addCriteria}[http://code.google.com/apis/adwords/docs/developer/CriterionService.html#addCriteria] method of the Criterion service.

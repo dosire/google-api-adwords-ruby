@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Author:: sgomes@google.com (Sérgio Gomes)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # Tests the various API extensions
 
@@ -31,7 +34,7 @@ class TestApiExtensions < Test::Unit::TestCase
 
   # Test downloadXmlReport extension method
   def test_downloadXmlReport
-    report_srv = @adwords.get_service(13, 'Report')
+    report_srv = @adwords.get_service('Report', 13)
 
     # First we schedule a report
     job = AdWords::V13::ReportService::DefinedReportJob.new
@@ -75,7 +78,7 @@ class TestApiExtensions < Test::Unit::TestCase
 
   # Test getMethodUsage extension method
   def test_getMethodUsage
-    info_srv = @adwords.get_service(13, 'Info')
+    info_srv = @adwords.get_service('Info', 13)
     start_day = Date.new(Date.today.year, 1, 1)
     end_day = Date.today
     usage_map = info_srv.getMethodUsage(start_day, end_day)
@@ -89,16 +92,18 @@ class TestApiExtensions < Test::Unit::TestCase
 
     # Check if the operations in the rates match the operations in the usage map
     op_rates.each do |line|
-      service, name = line
-      operation = "#{service}.#{name}"
-      assert_not_nil(usage_map[operation],
-          "Operation missing from usage map: #{operation}")
+      version, service, name = line
+      if version == 13
+        operation = "#{service}.#{name}"
+        assert_not_nil(usage_map[operation],
+            "Operation missing from usage map: #{operation}")
+      end
     end
   end
 
   # Test getClientUnitsUsage extension method
   def test_getClientUnitsUsage
-    info_srv = @adwords.get_service(13, 'Info')
+    info_srv = @adwords.get_service('Info', 13)
     start_day = Date.new(Date.today.year, 1, 1)
     end_day = Date.today
     usage_map, doubles = info_srv.getClientUnitsUsage(start_day, end_day)

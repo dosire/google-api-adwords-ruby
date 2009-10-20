@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Author:: jeffy@google.com (Jeffrey Posnick)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # This code sample illustrates how to create a new campaign, ad group, text ad,
 # keywords, and website criteria, all in one fell swoop.
@@ -26,7 +29,6 @@ def main()
   begin
     # AdWords::AdWordsCredentials.new will read a credentials file from
     # ENV['HOME']/adwords.properties when called without parameters.
-    # The latest versioned release of the API will be assumed.
     #
     # Credentials can be either for the production or Sandbox environments.
     # Production environment credentials overview:
@@ -62,7 +64,7 @@ def main()
         # Default geo and network targeting will be used.
     }
 
-    campaign_srv = adwords.get_service(13, 'Campaign')
+    campaign_srv = adwords.get_service('Campaign', 13)
     campaign  = campaign_srv.addCampaign(campaign_data).addCampaignReturn
     puts 'Campaign id %d was successfully added.' % campaign.id
 
@@ -72,7 +74,7 @@ def main()
         :siteMaxCpc => 100000, # 100000 micros = 0.1 unit of currency.
     }
 
-    ad_group_srv = adwords.get_service(13, 'AdGroup')
+    ad_group_srv = adwords.get_service('AdGroup', 13)
     ad_group =
         ad_group_srv.addAdGroup(campaign.id, ad_group_data).addAdGroupReturn
     puts 'Ad group id %d was successfully added.' % ad_group.id
@@ -87,7 +89,7 @@ def main()
         :displayUrl => 'http://code.google.com/',
     }
 
-    ad_srv = adwords.get_service(13, 'Ad')
+    ad_srv = adwords.get_service('Ad', 13)
     ad = ad_srv.addAds([ad_data])[0]
     puts 'Text ad id %d was successfully added.' % ad.id
 
@@ -106,7 +108,7 @@ def main()
         # Default ad destination URL and ad group CPC values will be used.
     }
 
-    criterion_srv = adwords.get_service(13, 'Criterion')
+    criterion_srv = adwords.get_service('Criterion', 13)
     criteria = criterion_srv.addCriteria([keyword_data, website_data])
     criteria.each do |criterion|
       puts 'Criterion id %d was successfully added.' % criterion.id
@@ -154,7 +156,7 @@ end
 if __FILE__ == $0
   # The adwords4r library can log all SOAP requests and responses to files.
   # This is often useful for debugging purposes.
-  # To enable this, set the ADWORDS4R_DEBUG environement varaible to 'true'.
+  # To enable this, set the ADWORDS4R_DEBUG environement variable to 'true'.
   # This can be done either from your operating system environment or via
   # code, as done below.
   ENV['ADWORDS4R_DEBUG'] = 'false'

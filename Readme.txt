@@ -75,7 +75,7 @@ please set the HTTP_PROXY environment variable. For example, from your code:
 
 === 2.1 - Using the Sandbox and other environments:
 
-In order to use the v13 and v200906 sandboxes, make sure that the 'environment'
+In order to use the v13 and v2009 sandboxes, make sure that the 'environment'
 parameter in the credentials is set to SANDBOX.
    environment=SANDBOX
 
@@ -88,16 +88,23 @@ add it to the list of environments in runtime:
 and then use it normally in your code:
    credentials.environment = 'ENVIRONMENT_NAME'
 
+Make sure you only include the base URL, that is, the URL up until the "adwords"
+part, leaving the version and group out. Here's an example:
+   AdWords::Service::add_environment('SANDBOX', {
+       13 => 'https://sandbox.google.com/api/adwords/',
+       200906 => 'https://adwords-sandbox.google.com/api/adwords/'
+   }
 
-=== 2.2 - Mixing v13 and v200906:
 
-It's possible to access both the v13 and v200906 sandboxes or production
+=== 2.2 - Mixing v13 and v2009:
+
+It's possible to access both the v13 and v2009 sandboxes or production
 environments simultaneously. Since both versions share a common backend storage,
-it is possible for your application to choose between v13 and v200906 services
+it is possible for your application to choose between v13 and v2009 services
 at will, mixing and matching them.
 
 The multiple_versions.rb code sample shows you how to build an application using
-v13 and v200906 services simultaneously.
+v13 and v2009 services simultaneously.
 
 
 === 2.3 - Logging:

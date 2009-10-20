@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Author:: jeffy@google.com (Jeffrey Posnick)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # This code sample illustrates how to get keyword variations for seed keyword(s)
 # and then estimate the traffic that the "top" variations might receive.
@@ -26,7 +29,6 @@ def main()
   begin
     # AdWords::AdWordsCredentials.new will read a credentials file from
     # ENV['HOME']/adwords.properties when called without parameters.
-    # The latest versioned release of the API will be assumed.
     #
     # Credentials can be either for the production or Sandbox environments.
     # Production environment credentials overview:
@@ -49,6 +51,8 @@ def main()
     # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds))
     adwords = AdWords::API.new
 
+    kwdtool_srv = adwords.get_service('KeywordTool', 13)
+
     # Modify the following values to set the seed keywords, language,
     # country targeting, and synonyms options.
     keywords = ['new york']
@@ -58,13 +62,17 @@ def main()
 
     seed_keywords = []
     keywords.each do |keyword|
-      seed_keyword = AdWords::V13::KeywordToolService::SeedKeyword.new
+      # The 'module' method being called here provides a shortcut to the
+      # module containing the classes for this service. This helps us avoid
+      # typing the full class name every time we need to create an object, e.g.
+      # AdWords::V13::KeywordToolService::SeedKeyword
+      # It also makes it easier to migrate code between API versions.
+      seed_keyword = kwdtool_srv.module::SeedKeyword.new
       seed_keyword.text = keyword
       seed_keyword.type = 'Broad'  # Or 'Phrase' or 'Exact' if desired.
       seed_keywords << seed_keyword
     end
 
-    kwdtool_srv = adwords.get_service(13, 'KeywordTool')
     variations =
         kwdtool_srv.getKeywordVariations(seed_keywords, use_synonyms, languages,
                                          countries).getKeywordVariationsReturn
@@ -94,29 +102,28 @@ def main()
       keywords_to_estimate << variation_object.text
     end
 
-    ad_group_request = AdWords::V13::TrafficEstimatorService::AdGroupRequest.new
+    traffic_est_srv = adwords.get_service('TrafficEstimator', 13)
+
+    ad_group_request = traffic_est_srv.module::AdGroupRequest.new
     ad_group_request.maxCpc = 1000000
     keywords_to_estimate.each do |keyword_to_estimate|
-      keyword_request =
-          AdWords::V13::TrafficEstimatorService::KeywordRequest.new
+      keyword_request = traffic_est_srv.module::KeywordRequest.new
       keyword_request.text = keyword_to_estimate
       keyword_request.type = 'Broad'  # Or 'Phrase' or 'Exact' if desired.
       ad_group_request.keywordRequests << keyword_request
     end
 
-    geo_targeting = AdWords::V13::TrafficEstimatorService::GeoTarget.new
-    countryTargets = AdWords::V13::TrafficEstimatorService::CountryTargets.new
+    geo_targeting = traffic_est_srv.module::GeoTarget.new
+    countryTargets = traffic_est_srv.module::CountryTargets.new
     countryTargets.countries = countries
     geo_targeting.countryTargets = countryTargets
 
-    campaign_request =
-        AdWords::V13::TrafficEstimatorService::CampaignRequest.new
+    campaign_request = traffic_est_srv.module::CampaignRequest.new
     campaign_request.adGroupRequests = ad_group_request
     campaign_request.geoTargeting = geo_targeting
     campaign_request.languageTargeting = languages
     campaign_request.networkTargeting = %w{SearchNetwork ContentNetwork}
 
-    traffic_est_srv = adwords.get_service(13, 'TrafficEstimator')
     campaign_estimate =
         traffic_est_srv.estimateCampaignList([campaign_request]).first
     ad_group_estimate = campaign_estimate.adGroupEstimates.first
@@ -173,7 +180,7 @@ end
 if __FILE__ == $0
   # The adwords4r library can log all SOAP requests and responses to files.
   # This is often useful for debugging purposes.
-  # To enable this, set the ADWORDS4R_DEBUG environement varaible to 'true'.
+  # To enable this, set the ADWORDS4R_DEBUG environement variable to 'true'.
   # This can be done either from your operating system environment or via
   # code, as done below.
   ENV['ADWORDS4R_DEBUG'] = 'false'

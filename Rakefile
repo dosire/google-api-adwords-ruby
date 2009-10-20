@@ -1,18 +1,24 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Authors:: sgomes@google.com (Sérgio Gomes)
+#           jeffy@google.com (Jeffrey Posnick)
+#           chanezon@google.com (Patrick Chanezon)
+#           leavengood@gmail.com (Ryan Leavengood)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # Rakefile for adwords4r.
 
@@ -34,9 +40,10 @@ require 'wsdl/soap/wsdl2ruby'
 require 'xsd/codegen/classdef'
 require 'adwords4r/services'
 require 'adwords4r/apiextensions'
+require 'adwords4r/generator'
 
 # Configure some constants and built-in tasks
-CURRENT_VERSION = '16.0.0'
+CURRENT_VERSION = '17.0.0'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 WSDLDIR = 'wsdl'
@@ -71,13 +78,10 @@ task :getwsdl do
     version_name = "v#{version}"
     mkdir_p File.join(WSDLDIR, version_name)
     AdWords::Service.get_services(version).each do |service|
-      if version <= 13
+      if version.is_a? Integer
+        subdir = AdWords::Service.get_subdir(version, service)
         save(getfile("adwords.google.com",
-                     "/api/adwords/#{version_name}/#{service}Service?wsdl"),
-             get_wsdl_file_name(version_name, service))
-      else
-        save(getfile("adwords.google.com",
-                     "/api/adwords/cm/#{version_name}/#{service}Service?wsdl"),
+                     "/api/adwords/#{subdir}#{service}Service?wsdl"),
              get_wsdl_file_name(version_name, service))
       end
     end
@@ -155,7 +159,7 @@ task :generate do
       eval("require '#{File.join(gendir, "#{service_name}Driver.rb")}'")
       wrapper_file = File.join(gendir, "#{service_name}Wrapper.rb")
       File.open(wrapper_file, 'w') do |file|
-        file.write(AdWords::Service.generate_wrapper_class(version, service))
+        file.write(AdWords::Generator.generate_wrapper_class(version, service))
       end
       puts "Generated #{version_name} #{service_name} wrapper: #{wrapper_file}"
     end
@@ -282,12 +286,13 @@ else
     s.name = 'adwords4r'
     s.version = PKG_VERSION
     s.summary = 'Client library for the AdWords API.'
-    s.description = <<-EOS
-Adwords4r provides an easy to use way to access the AdWords API in Ruby.
-Currently the following AdWords API versions are supported:
-  * V13
-  * V200906
-    EOS
+    description = "Adwords4r provides an easy to use way to access the " +
+        "AdWords API in Ruby.\nCurrently the following AdWords API versions " +
+        "are supported:"
+    AdWords::Service.get_versions.each do |version|
+      description += "\n  * V#{version}"
+    end
+    s.description = description
 
     # Files and dependencies
     s.files = PKG_FILES.to_a

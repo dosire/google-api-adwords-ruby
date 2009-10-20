@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Authors:: sgomes@google.com (Sérgio Gomes)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # This code sample illustrates how to access services from multiple API versions
 # simultaneously. It gets a list of all campaigns with stats using v2009, and
@@ -28,7 +31,6 @@ def main()
   begin
     # AdWords::AdWordsCredentials.new will read a credentials file from
     # ENV['HOME']/adwords.properties when called without parameters.
-    # The latest versioned release of the API will be assumed.
     #
     # Instead of reading them from a file, the credentials can be
     # specified inline as a hash:
@@ -45,12 +47,19 @@ def main()
     # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds))
     adwords = AdWords::API.new
 
-    # Get the v200906 campaign service and the v13 report service
-    campaign_srv = adwords.get_service(200906, 'Campaign')
-    report_srv = adwords.get_service(13, 'Report')
+    # Get the latest campaign service and the v13 report service
+    latest = AdWords::Service.latest_version
+    campaign_srv = adwords.get_service('Campaign', latest)
+    report_srv = adwords.get_service('Report', 13)
 
-    # Retrieve list of all campaigns with their stats for this year, via v200906
-    selector = AdWords::V200906::CampaignService::CampaignSelector.new
+    # Retrieve list of all campaigns with their stats for this year, via v2009
+    #
+    # The 'module' method being called here provides a shortcut to the
+    # module containing the classes for this service. This helps us avoid typing
+    # the full class name every time we need to create an object, e.g.
+    # AdWords::V200906::CampaignService::CampaignSelector
+    # It also makes it easier to migrate code between API versions.
+    selector = campaign_srv.module::CampaignSelector.new
     stats_selector = {
       :dateRange => {
         :min => Time.new.strftime('%Y0101'),
@@ -67,7 +76,7 @@ def main()
     # Schedule yearly campaign report for all campaigns with less than 10
     # impressions, using v13
     report_name = 'Campaign Report-%s' % DateTime.now.to_s
-    job = AdWords::V13::ReportService::DefinedReportJob.new
+    job = report_srv.module::DefinedReportJob.new
     job.selectedReportType = 'Campaign'
     job.aggregationTypes = 'Yearly'
     job.name = report_name
@@ -147,7 +156,7 @@ end
 if __FILE__ == $0
   # The adwords4r library can log all SOAP requests and responses to files.
   # This is often useful for debugging purposes.
-  # To enable this, set the ADWORDS4R_DEBUG environement varaible to 'true'.
+  # To enable this, set the ADWORDS4R_DEBUG environement variable to 'true'.
   # This can be done either from your operating system environment or via
   # code, as done below.
   ENV['ADWORDS4R_DEBUG'] = 'false'

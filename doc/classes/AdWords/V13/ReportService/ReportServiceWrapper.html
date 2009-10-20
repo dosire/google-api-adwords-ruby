@@ -57,11 +57,11 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000128">deleteReport</a>,</li>
+                <li><a href="#M000143">deleteReport</a>,</li>
                 
-                <li><a href="#M000140">downloadCsvReport</a>,</li>
+                <li><a href="#M000155">downloadCsvReport</a>,</li>
                 
-                <li><a href="#M000139">downloadXmlReport</a></li>
+                <li><a href="#M000154">downloadXmlReport</a></li>
                 
             </ul>
         </dd>
@@ -70,13 +70,13 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000129">getAllJobs</a>,</li>
+                <li><a href="#M000144">getAllJobs</a>,</li>
                 
-                <li><a href="#M000130">getGzipReportDownloadUrl</a>,</li>
+                <li><a href="#M000145">getGzipReportDownloadUrl</a>,</li>
                 
-                <li><a href="#M000131">getReportDownloadUrl</a>,</li>
+                <li><a href="#M000146">getReportDownloadUrl</a>,</li>
                 
-                <li><a href="#M000134">getReportJobStatus</a></li>
+                <li><a href="#M000148">getReportJobStatus</a></li>
                 
             </ul>
         </dd>
@@ -85,7 +85,7 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000127">new</a></li>
+                <li><a href="#M000142">new</a></li>
                 
             </ul>
         </dd>
@@ -94,7 +94,7 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000135">scheduleReportJob</a></li>
+                <li><a href="#M000150">scheduleReportJob</a></li>
                 
             </ul>
         </dd>
@@ -103,7 +103,7 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000137">validateReportJob</a></li>
+                <li><a href="#M000152">validateReportJob</a></li>
                 
             </ul>
         </dd>
@@ -130,7 +130,31 @@ generated.
             <td class='attr-name'>api</td>
             <td class='attr-desc'><p>
 Holds the <a href="../../API.html">AdWords::API</a> object to which the
-wrapper belongs
+wrapper belongs.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>module</td>
+            <td class='attr-desc'><p>
+Holds a shortcut to the parent module. Use this to avoid typing the full
+class name when creating classes belonging to this service, e.g.
+</p>
+<pre>
+ service_object.module::ClassName
+</pre>
+<p>
+instead of
+</p>
+<pre>
+ AdWords::V13::ReportService::ClassName
+</pre>
+<p>
+This will make it easier to migrate your code between <a
+href="../../API.html">API</a> versions.
 </p></td>
         </tr>
         
@@ -141,9 +165,9 @@ wrapper belongs
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000127">
+                <div class="title" id="M000142">
                     
-                    <a name="M000127"></a><b>new</b>(driver, api)
+                    <a name="M000142"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -173,14 +197,15 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000127_source')" id="l_M000127_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000142_source')" id="l_M000142_source">show</a>
                         
                     </p>
-                    <div id="M000127_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 25</span>
+                    <div id="M000142_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 34</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span>
         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -190,9 +215,9 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000128">
+                <div class="title" id="M000143">
                     
-                    <a name="M000128"></a><b>deleteReport</b>(reportJobId)
+                    <a name="M000143"></a><b>deleteReport</b>(reportJobId)
                     
                 </div>
                 
@@ -224,11 +249,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000128_source')" id="l_M000128_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000143_source')" id="l_M000143_source">show</a>
                         
                     </p>
-                    <div id="M000128_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 39</span>
+                    <div id="M000143_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 49</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deleteReport</span>(<span class="ruby-identifier">reportJobId</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
@@ -247,16 +272,16 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000140">
+                <div class="title" id="M000155">
                     
-                    <a name="M000140"></a><b>downloadCsvReport</b>(job_id)
+                    <a name="M000155"></a><b>downloadCsvReport</b>(job_id)
                     
                 </div>
                 
                 <div class="description">
                   <p>
 <em>Extension method</em> &#8212; Calls the <a
-href="../../Extensions.html#M000043">AdWords::Extensions.downloadCsvReport</a>
+href="../../Extensions.html#M000054">AdWords::Extensions.downloadCsvReport</a>
 method with <tt>self</tt> as the first parameter.
 </p>
 
@@ -267,11 +292,11 @@ method with <tt>self</tt> as the first parameter.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000140_source')" id="l_M000140_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000155_source')" id="l_M000155_source">show</a>
                         
                     </p>
-                    <div id="M000140_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 202</span>
+                    <div id="M000155_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 212</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">downloadCsvReport</span>(<span class="ruby-identifier">job_id</span>)
           <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">downloadCsvReport</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">job_id</span>)
         <span class="ruby-keyword kw">end</span></pre>
@@ -281,16 +306,16 @@ method with <tt>self</tt> as the first parameter.
             </div>
             
             <div class="method">
-                <div class="title" id="M000139">
+                <div class="title" id="M000154">
                     
-                    <a name="M000139"></a><b>downloadXmlReport</b>(job_id)
+                    <a name="M000154"></a><b>downloadXmlReport</b>(job_id)
                     
                 </div>
                 
                 <div class="description">
                   <p>
 <em>Extension method</em> &#8212; Calls the <a
-href="../../Extensions.html#M000041">AdWords::Extensions.downloadXmlReport</a>
+href="../../Extensions.html#M000050">AdWords::Extensions.downloadXmlReport</a>
 method with <tt>self</tt> as the first parameter.
 </p>
 
@@ -301,11 +326,11 @@ method with <tt>self</tt> as the first parameter.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000139_source')" id="l_M000139_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000154_source')" id="l_M000154_source">show</a>
                         
                     </p>
-                    <div id="M000139_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 196</span>
+                    <div id="M000154_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 206</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-identifier">job_id</span>)
           <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">job_id</span>)
         <span class="ruby-keyword kw">end</span></pre>
@@ -315,9 +340,9 @@ method with <tt>self</tt> as the first parameter.
             </div>
             
             <div class="method">
-                <div class="title" id="M000129">
+                <div class="title" id="M000144">
                     
-                    <a name="M000129"></a><b>getAllJobs</b>()
+                    <a name="M000144"></a><b>getAllJobs</b>()
                     
                 </div>
                 
@@ -350,11 +375,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000129_source')" id="l_M000129_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000144_source')" id="l_M000144_source">show</a>
                         
                     </p>
-                    <div id="M000129_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 61</span>
+                    <div id="M000144_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 71</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAllJobs</span>()
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-comment cmt"># Construct request object and make API call</span>
@@ -371,9 +396,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000130">
+                <div class="title" id="M000145">
                     
-                    <a name="M000130"></a><b>getGzipReportDownloadUrl</b>(reportJobId)
+                    <a name="M000145"></a><b>getGzipReportDownloadUrl</b>(reportJobId)
                     
                 </div>
                 
@@ -413,11 +438,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000130_source')" id="l_M000130_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000145_source')" id="l_M000145_source">show</a>
                         
                     </p>
-                    <div id="M000130_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 84</span>
+                    <div id="M000145_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 94</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getGzipReportDownloadUrl</span>(<span class="ruby-identifier">reportJobId</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
@@ -436,9 +461,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000131">
+                <div class="title" id="M000146">
                     
-                    <a name="M000131"></a><b>getReportDownloadUrl</b>(reportJobId)
+                    <a name="M000146"></a><b>getReportDownloadUrl</b>(reportJobId)
                     
                 </div>
                 
@@ -478,11 +503,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000131_source')" id="l_M000131_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000146_source')" id="l_M000146_source">show</a>
                         
                     </p>
-                    <div id="M000131_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 109</span>
+                    <div id="M000146_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 119</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getReportDownloadUrl</span>(<span class="ruby-identifier">reportJobId</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
@@ -501,9 +526,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000134">
+                <div class="title" id="M000148">
                     
-                    <a name="M000134"></a><b>getReportJobStatus</b>(reportJobId)
+                    <a name="M000148"></a><b>getReportJobStatus</b>(reportJobId)
                     
                 </div>
                 
@@ -544,11 +569,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000134_source')" id="l_M000134_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000148_source')" id="l_M000148_source">show</a>
                         
                     </p>
-                    <div id="M000134_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 134</span>
+                    <div id="M000148_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 144</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getReportJobStatus</span>(<span class="ruby-identifier">reportJobId</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
@@ -567,9 +592,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000135">
+                <div class="title" id="M000150">
                     
-                    <a name="M000135"></a><b>scheduleReportJob</b>(job)
+                    <a name="M000150"></a><b>scheduleReportJob</b>(job)
                     
                 </div>
                 
@@ -609,11 +634,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000135_source')" id="l_M000135_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000150_source')" id="l_M000150_source">show</a>
                         
                     </p>
-                    <div id="M000135_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 159</span>
+                    <div id="M000150_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 169</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">scheduleReportJob</span>(<span class="ruby-identifier">job</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'job'</span>,
@@ -632,9 +657,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000137">
+                <div class="title" id="M000152">
                     
-                    <a name="M000137"></a><b>validateReportJob</b>(job)
+                    <a name="M000152"></a><b>validateReportJob</b>(job)
                     
                 </div>
                 
@@ -666,11 +691,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000137_source')" id="l_M000137_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000152_source')" id="l_M000152_source">show</a>
                         
                     </p>
-                    <div id="M000137_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 181</span>
+                    <div id="M000152_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 191</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validateReportJob</span>(<span class="ruby-identifier">job</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'job'</span>,

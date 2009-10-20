@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Author:: jeffy@google.com (Jeffrey Posnick)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # This code sample illustrates how to fetch all the client accounts under an
 # MCC account, and then iteratively retrieves information about each account.
@@ -26,7 +29,6 @@ def main()
   begin
     # AdWords::AdWordsCredentials.new will read a credentials file from
     # ENV['HOME']/adwords.properties when called without parameters.
-    # The latest versioned release of the API will be assumed.
     #
     # Credentials can be either for the production or Sandbox environments.
     # Production environment credentials overview:
@@ -49,11 +51,10 @@ def main()
     # adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(creds))
     adwords = AdWords::API.new
 
-    # Clear out the clientEmail header temporarily so that we run under the
-    # context of the MCC user.
-    adwords.credentials.set_header('clientEmail', '')
+    # Run under the context of the MCC user, not any clients.
+    adwords.use_mcc = true
 
-    account_srv = adwords.get_service(13, 'Account')
+    account_srv = adwords.get_service('Account', 13)
     client_accounts = account_srv.getClientAccounts
 
     if client_accounts.length > 0 then
@@ -116,7 +117,7 @@ end
 if __FILE__ == $0
   # The adwords4r library can log all SOAP requests and responses to files.
   # This is often useful for debugging purposes.
-  # To enable this, set the ADWORDS4R_DEBUG environement varaible to 'true'.
+  # To enable this, set the ADWORDS4R_DEBUG environement variable to 'true'.
   # This can be done either from your operating system environment or via
   # code, as done below.
   ENV['ADWORDS4R_DEBUG'] = 'false'

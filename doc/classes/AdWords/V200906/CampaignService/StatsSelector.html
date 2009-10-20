@@ -43,6 +43,10 @@
 href="DateRange.html">AdWords::V200906::CampaignService::DateRange</a>
 
 </li>
+<li><a href="StatsSelector.html#statsSelector_Type">statsSelector_Type</a> -
+SOAP::SOAPString
+
+</li>
 </ul>
 
     </div>
@@ -62,7 +66,7 @@ href="DateRange.html">AdWords::V200906::CampaignService::DateRange</a>
         <dd>
             <ul>
                 
-                <li><a href="#M000514">new</a></li>
+                <li><a href="#M000557">new</a></li>
                 
             </ul>
         </dd>
@@ -90,6 +94,14 @@ href="DateRange.html">AdWords::V200906::CampaignService::DateRange</a>
             <td class='attr-desc'></td>
         </tr>
         
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>statsSelector_Type</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
     </table>
     
 
@@ -97,9 +109,9 @@ href="DateRange.html">AdWords::V200906::CampaignService::DateRange</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000514">
+                <div class="title" id="M000557">
                     
-                    <a name="M000514"></a><b>new</b>(dateRange = nil)
+                    <a name="M000557"></a><b>new</b>(dateRange = nil, statsSelector_Type = nil)
                     
                 </div>
                 
@@ -108,13 +120,14 @@ href="DateRange.html">AdWords::V200906::CampaignService::DateRange</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000514_source')" id="l_M000514_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000557_source')" id="l_M000557_source">show</a>
                         
                     </p>
-                    <div id="M000514_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/CampaignService.rb, line 97</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">dateRange</span> = <span class="ruby-keyword kw">nil</span>)
+                    <div id="M000557_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200906/CampaignService.rb, line 99</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">dateRange</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">statsSelector_Type</span> = <span class="ruby-keyword kw">nil</span>)
     <span class="ruby-ivar">@dateRange</span> = <span class="ruby-identifier">dateRange</span>
+    <span class="ruby-ivar">@statsSelector_Type</span> = <span class="ruby-identifier">statsSelector_Type</span>
   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>

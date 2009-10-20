@@ -1,18 +1,24 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Authors:: sgomes@google.com (Sérgio Gomes)
+#           jeffy@google.com (Jeffrey Posnick)
+#           chanezon@google.com (Patrick Chanezon)
+#           leavengood@gmail.com (Ryan Leavengood)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # Contains the main classes for the client library.
 
@@ -62,6 +68,10 @@ module AdWords
     #
     def initialize(credentials = AdWordsCredentials.new)
       @credentials = credentials
+      if !AdWords::Service.environments.include? @credentials.environment
+        raise AdWords::Error::Error,
+            "Unknown environment #{@credentials.environment}"
+      end
       @drivers = Hash.new
       @wrappers = Hash.new
       @total_units = 0
@@ -74,18 +84,120 @@ module AdWords
       prepare_drivers
     end
 
+    # Helper method to provide a simple way of doing an MCC-level operation
+    # without the need to change credentials. Executes a block of code as an
+    # MCC-level operation and/or returns the current status of the property.
+    #
+    # Args:
+    # - accepts a block, which it will execute as an MCC-level operation.
+    #
+    # Returns:
+    # Boolean indicating whether MCC-level operations are currently enabled or
+    # disabled
+    #
+    def use_mcc
+      if block_given?
+        previous = @credentials.use_mcc
+        begin
+          @credentials.use_mcc = true
+          yield
+        ensure
+          @credentials.use_mcc = previous
+        end
+      end
+      return @credentials.use_mcc
+    end
+
+    # Helper method to provide a simple way of doing an MCC-level operation
+    # without the need to change credentials. Sets the value of the property
+    # that controls whether MCC-level operations are enabled or disabled.
+    #
+    # Args:
+    # - value: the new value for the property (boolean)
+    #
+    def use_mcc=(value)
+      @credentials.use_mcc = value
+    end
+
+    # Helper method to provide a simple way of doing a validate-only operation
+    # without the need to change credentials. Executes a block of code as an
+    # validate-only operation and/or returns the current status of the property.
+    #
+    # Args:
+    # - accepts a block, which it will execute as a validate-only operation.
+    #
+    # Returns:
+    # Boolean indicating whether validate-only operations are currently enabled
+    # or disabled
+    #
+    def validate_only
+      if block_given?
+        previous = @credentials.validate_only
+        begin
+          @credentials.validate_only = true
+          yield
+        ensure
+          @credentials.validate_only = previous
+        end
+      end
+      return @credentials.validate_only
+    end
+
+    # Helper method to provide a simple way of performing validate-only
+    # operations. Sets the value of the property
+    # that controls whether validate-only operations are enabled or disabled.
+    #
+    # Args:
+    # - value: the new value for the property (boolean)
+    #
+    def validate_only=(value)
+      @credentials.validate_only = value
+    end
+
     # Obtain an API service, given a version and its name.
     #
     # Args:
-    # - version: intended API version. Must be an integer.
     # - name: name for the intended service
+    # - version: intended API version. Must be an integer.
     #
     # Returns:
-    # The service wrapper for the intended service.
+    # - the service wrapper for the intended service.
     #
-    def get_service(version, name)
+    def get_service(name, version = nil)
+      if name.is_a? Integer and version.is_a? String
+        name, version = version, name
+        warn("This parameter order is deprecated. " +
+             "Please use get_service(name, version) from now on.")
+      elsif name.is_a? String
+        # Do nothing
+      else
+        raise ArgumentError, "Wrong arguments. " +
+            "Expected: get_service(name, version = nil)"
+      end
+      version = AdWords::Service::get_default_version if version == nil
+      # Check if version exists
+      if !AdWords::Service.get_versions.include?(version)
+        if version.is_a? String
+          raise AdWords::Error::Error, "Unknown version '#{version}'. Please " +
+              "note that version numbers should be numeric, not strings"
+        else
+          raise AdWords::Error::Error, "Unknown version #{version}"
+        end
+      end
+      # Check if the current environment supports the requested version
+      if !AdWords::Service.environment_has_version(@credentials.environment,
+          version)
+        raise AdWords::Error::Error, "Environment #{@credentials.environment}" +
+            " does not support version #{version}"
+      end
+      # Check if the specified version has the requested service
+      if !AdWords::Service.version_has_service(version, name)
+        raise AdWords::Error::Error, "Version #{version} does not contain " +
+          "service #{name}"
+      end
       return @wrappers[[version, name]]
     end
+    alias service get_service
 
     private
 
@@ -113,7 +225,8 @@ module AdWords
     # - the simplified wrapper generated for the driver
     #
     def prepare_driver(version, service)
-      endpoint = Service.get_endpoint(@credentials.environment, version)
+      endpoint = Service.get_endpoint(@credentials.environment, version,
+          service)
       # Set endpoint if not using the default
       if endpoint.nil? then
         driver = eval("#{Service.get_interface_name(version, service)}.new")
@@ -122,7 +235,7 @@ module AdWords
         driver = eval("#{Service.get_interface_name(version, service)}.new" +
                       "(\"#{endpoint_url}\")")
       end
-      @credentials.get_handlers(version).each do |handler|
+      @credentials.get_handlers(version, driver).each do |handler|
         driver.headerhandler << handler
       end
 
@@ -214,6 +327,10 @@ module AdWords
     # Raised if an attempt is made to authenticate in >= v200902 with missing or
     # wrong information
     class AuthError < Error; end
+
+    # Raised if an attempt is made to connect to the sandbox with production
+    # credentials or vice-versa
+    class EnvironmentMismatchError < Error; end
 
     # Raised if a call returns with a SOAP error,
     # gives you easy access to adwords error fields
@@ -328,12 +445,44 @@ module AdWords
     # - method_name: name for the operation that was invoked
     # - endpoint: the enodpoint URL the request was sent to
     # - envelope: the envelope for the SOAP response that was received
+    # - params: the parameters that were passed to the method
     #
-    def on_callback(method_name, endpoint, envelope)
+    def on_callback(method_name, endpoint, envelope, params)
       units = nil
       operations = nil
       response_time = nil
       request_id = nil
+      operators = nil
+      operator_count = nil
+
+      if params and params[0] and params[0].class.to_s =~ /.*::Mutate/
+        if params[0].is_a?(Array) and params[0].size >= 1
+          operators = Hash.new(0)
+          params[0].each do |operation|
+            if operation.is_a? Hash and operation[:operator]
+              operators[operation[:operator].to_s] += 1
+            elsif operation.is_a? Hash and operation['operator']
+              operators[operation['operator'].to_s] += 1
+            elsif operation.respond_to? 'operator'
+              operators[operation.operator.to_s] += 1
+            else
+              operators['?'] += 1
+            end
+          end
+        else
+          if params[0].is_a? Hash and params[0][:operator]
+            operators[params[0][:operator].to_s] += 1
+          elsif params[0].is_a? Hash and params[0]['operator']
+            operators[params[0]['operator'].to_s] += 1
+          elsif params[0].respond_to? 'operator'
+            operators[params[0].operator.to_s] += 1
+          end
+        end
+      end
+
+      if operators
+        operator_count = operators.map { |op, num| "#{op}: #{num}" }.join(', ')
+      end
 
       header = envelope.header
       if header.key?('ResponseHeader')
@@ -355,8 +504,11 @@ module AdWords
       host = URI.parse(endpoint).host
 
       data = "host=#{host} method=#{method_name} " +
-        "responseTime=#{response_time} operations=#{operations} " +
-        "units=#{units} requestId=#{request_id}"
+        "responseTime=#{response_time} operations=#{operations} "
+
+      data += "operators={#{operator_count}} " if operator_count
+
+      data += "units=#{units} requestId=#{request_id}"
 
       @parent.unit_logger << data
     end

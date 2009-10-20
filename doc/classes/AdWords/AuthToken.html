@@ -52,7 +52,7 @@ v200902).
         <dd>
             <ul>
                 
-                <li><a href="#M000045">get_token</a></li>
+                <li><a href="#M000057">get_token</a></li>
                 
             </ul>
         </dd>
@@ -78,23 +78,9 @@ v200902).
         
         
         <tr valign='top'>
-            <td class="attr-name">AUTH_HOSTNAME</td>
-            <td>=</td>
-            <td class="attr-value">'www.google.com'</td>
-        </tr>
-        
-        
-        <tr valign='top'>
             <td class="attr-name">AUTH_PATH</td>
             <td>=</td>
             <td class="attr-value">'/accounts/ClientLogin'</td>
-        </tr>
-        
-        
-        <tr valign='top'>
-            <td class="attr-name">AUTH_PORT</td>
-            <td>=</td>
-            <td class="attr-value">443</td>
         </tr>
         
         
@@ -114,9 +100,9 @@ v200902).
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000045">
+                <div class="title" id="M000057">
                     
-                    <a name="M000045"></a><b>get_token</b>(email, password)
+                    <a name="M000057"></a><b>get_token</b>(email, password, hostname, port, use_ssl)
                     
                 </div>
                 
@@ -135,6 +121,15 @@ Args:
 <li>password: the password for the account being accessed
 
 </li>
+<li>hostname: the hostname to connect to
+
+</li>
+<li>port: the port to connect to
+
+</li>
+<li>use_ssl: boolean indicating whether to use SSL or not
+
+</li>
 </ul>
 <p>
 Returns: The auth token for the account (as a string).
@@ -151,17 +146,17 @@ authentication fails.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000045_source')" id="l_M000045_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000057_source')" id="l_M000057_source">show</a>
                         
                     </p>
-                    <div id="M000045_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/authtoken.rb, line 48</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_token</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">password</span>)
+                    <div id="M000057_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/authtoken.rb, line 53</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_token</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">use_ssl</span>)
       <span class="ruby-identifier">email</span> = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">email</span>)
       <span class="ruby-identifier">password</span> = <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">password</span>)
 
-      <span class="ruby-identifier">http_client</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">AUTH_HOSTNAME</span>, <span class="ruby-constant">AUTH_PORT</span>)
-      <span class="ruby-identifier">http_client</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-keyword kw">true</span>
+      <span class="ruby-identifier">http_client</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">port</span>)
+      <span class="ruby-identifier">http_client</span>.<span class="ruby-identifier">use_ssl</span> = <span class="ruby-identifier">use_ssl</span>
       <span class="ruby-comment cmt"># Avoid annoying warning</span>
       <span class="ruby-identifier">http_client</span>.<span class="ruby-identifier">verify_mode</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">VERIFY_NONE</span>
 

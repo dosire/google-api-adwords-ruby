@@ -1,3 +1,24 @@
+17.0.0
+- Changed the parameter order in API.get_service (aka API.service) to be get_service(name, version).
+  The old ordering is still supported but deprecated. The version parameter is now optional and defaults to 13.
+- Added 'module' method to all the services.
+  This returns a reference to the module containing all the classes for the service, so the full class name isn't necessary.
+  For example, service_object.module::ClassName instead of AdWords::V13::SomeService::ClassName
+  Using this will also make it easier to upgrade between API versions, since it removes the need for hardcoded numbers.
+- Added 'use_mcc' property to the API object to make it easier to make requests at the MCC level.
+  Setting it to true will make all requests be sent with no clientEmail or clientCustomerId.
+  It's also possible to invoke the 'use_mcc' method with a block, and only that block will be executed at the MCC level.
+- Added 'validateOnly' property to the API object to make it easier to send requests with the 'validateOnly' header in v2009.
+  This header makes it possible to check a request for validity without executing it.
+- Changes in handling 'alternateUrl'; now it only errors out if there's no 'environment' defined.
+- CSV data updated for operation rates, now has an extra column at the beginning for API version.
+- Added several tests
+- Moved wrapper generation to its own file, generator.rb. This cleans up services.rb.
+- Added logging of the "operator" for v2009 mutate requests.
+- Fixed sample adwords.properties to use 'environment'.
+- Fixed problem with empty lines in adwords.properties.
+- Fixed problem making Production the default environment.
+
 16.0.0
 - Removed support for the v200902 Sandbox, which has been deco'ed.
 - Added support for the v200906 Sandbox and Production environments.

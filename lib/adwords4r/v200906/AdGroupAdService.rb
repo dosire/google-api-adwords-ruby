@@ -218,120 +218,6 @@ class AdStatsSelector < StatsSelector
   end
 end
 
-# AdExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-class AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-
-  def initialize(id = nil, adExtension_Type = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-  end
-end
-
-# LocationExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-# - address - AdWords::V200906::AdGroupAdService::Address
-# - geoPoint - AdWords::V200906::AdGroupAdService::GeoPoint
-# - companyName - SOAP::SOAPString
-# - phoneNumber - SOAP::SOAPString
-# - iconMediaId - SOAP::SOAPLong
-# - imageMediaId - SOAP::SOAPLong
-class LocationExtension < AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-  attr_accessor :address
-  attr_accessor :geoPoint
-  attr_accessor :companyName
-  attr_accessor :phoneNumber
-  attr_accessor :iconMediaId
-  attr_accessor :imageMediaId
-
-  def initialize(id = nil, adExtension_Type = nil, address = nil, geoPoint = nil, companyName = nil, phoneNumber = nil, iconMediaId = nil, imageMediaId = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-    @address = address
-    @geoPoint = geoPoint
-    @companyName = companyName
-    @phoneNumber = phoneNumber
-    @iconMediaId = iconMediaId
-    @imageMediaId = imageMediaId
-  end
-end
-
-# LocationSyncExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-# - email - SOAP::SOAPString
-# - iconMediaId - SOAP::SOAPLong
-class LocationSyncExtension < AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-  attr_accessor :email
-  attr_accessor :iconMediaId
-
-  def initialize(id = nil, adExtension_Type = nil, email = nil, iconMediaId = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-    @email = email
-    @iconMediaId = iconMediaId
-  end
-end
-
-# MobileExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-# - phoneNumber - SOAP::SOAPString
-class MobileExtension < AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-  attr_accessor :phoneNumber
-
-  def initialize(id = nil, adExtension_Type = nil, phoneNumber = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-    @phoneNumber = phoneNumber
-  end
-end
-
-# ProductExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-# - googleBaseCustomerId - SOAP::SOAPInt
-# - advertiserName - SOAP::SOAPString
-class ProductExtension < AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-  attr_accessor :googleBaseCustomerId
-  attr_accessor :advertiserName
-
-  def initialize(id = nil, adExtension_Type = nil, googleBaseCustomerId = nil, advertiserName = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-    @googleBaseCustomerId = googleBaseCustomerId
-    @advertiserName = advertiserName
-  end
-end
-
-# StoreLocatorExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-# - localSearchClusterId - SOAP::SOAPLong
-class StoreLocatorExtension < AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-  attr_accessor :localSearchClusterId
-
-  def initialize(id = nil, adExtension_Type = nil, localSearchClusterId = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-    @localSearchClusterId = localSearchClusterId
-  end
-end
-
 # ComparableValue
 # abstract
 # - comparableValue_Type - SOAP::SOAPString
@@ -515,6 +401,8 @@ end
 # - durationMillis - SOAP::SOAPLong
 # - streamingUrl - SOAP::SOAPString
 # - readyToPlayOnTheWeb - SOAP::SOAPBoolean
+# - industryStandardCommercialIdentifier - SOAP::SOAPString
+# - advertisingId - SOAP::SOAPString
 class Video < Media
   attr_accessor :mediaId
   attr_accessor :mediaTypeDb
@@ -532,8 +420,10 @@ class Video < Media
   attr_accessor :durationMillis
   attr_accessor :streamingUrl
   attr_accessor :readyToPlayOnTheWeb
+  attr_accessor :industryStandardCommercialIdentifier
+  attr_accessor :advertisingId
 
-  def initialize(mediaId = nil, mediaTypeDb = nil, referenceId = nil, dimensions = [], urls = [], mimeType = nil, sourceUrl = nil, mediaSubType = nil, name = nil, fileSize = nil, extendedCapabilities = [], creationTime = nil, media_Type = nil, durationMillis = nil, streamingUrl = nil, readyToPlayOnTheWeb = nil)
+  def initialize(mediaId = nil, mediaTypeDb = nil, referenceId = nil, dimensions = [], urls = [], mimeType = nil, sourceUrl = nil, mediaSubType = nil, name = nil, fileSize = nil, extendedCapabilities = [], creationTime = nil, media_Type = nil, durationMillis = nil, streamingUrl = nil, readyToPlayOnTheWeb = nil, industryStandardCommercialIdentifier = nil, advertisingId = nil)
     @mediaId = mediaId
     @mediaTypeDb = mediaTypeDb
     @referenceId = referenceId
@@ -550,6 +440,8 @@ class Video < Media
     @durationMillis = durationMillis
     @streamingUrl = streamingUrl
     @readyToPlayOnTheWeb = readyToPlayOnTheWeb
+    @industryStandardCommercialIdentifier = industryStandardCommercialIdentifier
+    @advertisingId = advertisingId
   end
 end
 
@@ -1037,6 +929,25 @@ class AdGroupAdError < ApiError
   end
 end
 
+# AuthenticationError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::AdGroupAdService::AuthenticationErrorReason
+class AuthenticationError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # AuthorizationError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -1259,25 +1170,6 @@ class InternalApiError < ApiError
   end
 end
 
-# LoasAuthenticationError
-# - fieldPath - SOAP::SOAPString
-# - trigger - SOAP::SOAPString
-# - apiError_Type - SOAP::SOAPString
-# - reason - AdWords::V200906::AdGroupAdService::LoasAuthenticationErrorReason
-class LoasAuthenticationError < ApiError
-  attr_accessor :fieldPath
-  attr_accessor :trigger
-  attr_accessor :apiError_Type
-  attr_accessor :reason
-
-  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
-    @fieldPath = fieldPath
-    @trigger = trigger
-    @apiError_Type = apiError_Type
-    @reason = reason
-  end
-end
-
 # MediaError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -1417,6 +1309,25 @@ end
 # - apiError_Type - SOAP::SOAPString
 # - reason - AdWords::V200906::AdGroupAdService::QuotaCheckErrorReason
 class QuotaCheckError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# QuotaExceededError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::AdGroupAdService::QuotaExceededErrorReason
+class QuotaExceededError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
   attr_accessor :apiError_Type
@@ -2024,11 +1935,31 @@ class AgeTargetAge < ::String
   AGE_65_PLUS = AgeTargetAge.new("AGE_65_PLUS")
 end
 
+# AuthenticationError.Reason
+class AuthenticationErrorReason < ::String
+  AUTHENTICATION_FAILED = AuthenticationErrorReason.new("AUTHENTICATION_FAILED")
+  CLIENT_CUSTOMER_ID_INVALID = AuthenticationErrorReason.new("CLIENT_CUSTOMER_ID_INVALID")
+  CLIENT_CUSTOMER_ID_IS_REQUIRED = AuthenticationErrorReason.new("CLIENT_CUSTOMER_ID_IS_REQUIRED")
+  CLIENT_EMAIL_FAILED_TO_AUTHENTICATE = AuthenticationErrorReason.new("CLIENT_EMAIL_FAILED_TO_AUTHENTICATE")
+  CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
+  CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
+  CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
+  LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
+  NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")
+  OAUTH_TOKEN_DISABLED = AuthenticationErrorReason.new("OAUTH_TOKEN_DISABLED")
+  OAUTH_TOKEN_EXPIRED = AuthenticationErrorReason.new("OAUTH_TOKEN_EXPIRED")
+  OAUTH_TOKEN_HEADER_INVALID = AuthenticationErrorReason.new("OAUTH_TOKEN_HEADER_INVALID")
+  OAUTH_TOKEN_INVALID = AuthenticationErrorReason.new("OAUTH_TOKEN_INVALID")
+  OAUTH_TOKEN_REVOKED = AuthenticationErrorReason.new("OAUTH_TOKEN_REVOKED")
+  USER_ID_INVALID = AuthenticationErrorReason.new("USER_ID_INVALID")
+end
+
 # AuthorizationError.Reason
 class AuthorizationErrorReason < ::String
   EFFECTIVE_USER_PERMISSION_DENIED = AuthorizationErrorReason.new("EFFECTIVE_USER_PERMISSION_DENIED")
   NO_ADWORDS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_ADWORDS_ACCOUNT_FOR_CUSTOMER")
-  NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER = AuthorizationErrorReason.new("NO_SIMPLEADS_ACCOUNT_FOR_CUSTOMER")
+  NO_CUSTOMER_FOUND = AuthorizationErrorReason.new("NO_CUSTOMER_FOUND")
   UNABLE_TO_AUTHORIZE = AuthorizationErrorReason.new("UNABLE_TO_AUTHORIZE")
   USER_HAS_READONLY_PERMISSION = AuthorizationErrorReason.new("USER_HAS_READONLY_PERMISSION")
   USER_PERMISSION_DENIED = AuthorizationErrorReason.new("USER_PERMISSION_DENIED")
@@ -2042,11 +1973,6 @@ end
 # DatabaseError.Reason
 class DatabaseErrorReason < ::String
   CAMPAIGN_PRODUCT_NOT_SUPPORTED = DatabaseErrorReason.new("CAMPAIGN_PRODUCT_NOT_SUPPORTED")
-  CANNOT_LOAD_AD = DatabaseErrorReason.new("CANNOT_LOAD_AD")
-  CANNOT_LOAD_ADGROUP = DatabaseErrorReason.new("CANNOT_LOAD_ADGROUP")
-  CANNOT_LOAD_CAMPAIGN = DatabaseErrorReason.new("CANNOT_LOAD_CAMPAIGN")
-  CANNOT_LOAD_CRITERION = DatabaseErrorReason.new("CANNOT_LOAD_CRITERION")
-  CANNOT_LOAD_MEDIA = DatabaseErrorReason.new("CANNOT_LOAD_MEDIA")
   CONCURRENT_MODIFICATION = DatabaseErrorReason.new("CONCURRENT_MODIFICATION")
   PERMISSION_DENIED = DatabaseErrorReason.new("PERMISSION_DENIED")
 end
@@ -2140,15 +2066,6 @@ class InternalApiErrorReason < ::String
   UNEXPECTED_INTERNAL_API_ERROR = InternalApiErrorReason.new("UNEXPECTED_INTERNAL_API_ERROR")
 end
 
-# LoasAuthenticationError.Reason
-class LoasAuthenticationErrorReason < ::String
-  ADS_USER_NOT_FOUND = LoasAuthenticationErrorReason.new("ADS_USER_NOT_FOUND")
-  CLIENT_NOT_AUTHORIZED = LoasAuthenticationErrorReason.new("CLIENT_NOT_AUTHORIZED")
-  NOT_INTERNAL_USER = LoasAuthenticationErrorReason.new("NOT_INTERNAL_USER")
-  PROTOCOL_MISMATCH = LoasAuthenticationErrorReason.new("PROTOCOL_MISMATCH")
-  SECURITY_LEVEL_MISMATCH = LoasAuthenticationErrorReason.new("SECURITY_LEVEL_MISMATCH")
-end
-
 # MarkupLanguageType
 class MarkupLanguageType < ::String
   CHTML = MarkupLanguageType.new("CHTML")
@@ -2226,11 +2143,13 @@ class MediaErrorReason < ::String
   DUPLICATE_MEDIA = MediaErrorReason.new("DUPLICATE_MEDIA")
   EMPTY_FIELD = MediaErrorReason.new("EMPTY_FIELD")
   ENTITY_REFERENCED_IN_MULTIPLE_OPS = MediaErrorReason.new("ENTITY_REFERENCED_IN_MULTIPLE_OPS")
+  FIELD_NOT_SUPPORTED_FOR_MEDIA_SUB_TYPE = MediaErrorReason.new("FIELD_NOT_SUPPORTED_FOR_MEDIA_SUB_TYPE")
   INVALID_MEDIA_ID = MediaErrorReason.new("INVALID_MEDIA_ID")
-  INVALID_MEDIA_SUBTYPE = MediaErrorReason.new("INVALID_MEDIA_SUBTYPE")
+  INVALID_MEDIA_SUB_TYPE = MediaErrorReason.new("INVALID_MEDIA_SUB_TYPE")
   INVALID_MEDIA_TYPE = MediaErrorReason.new("INVALID_MEDIA_TYPE")
   INVALID_REFERENCE_ID = MediaErrorReason.new("INVALID_REFERENCE_ID")
   MEDIA_TYPE_DOES_NOT_MATCH_OBJECT_TYPE = MediaErrorReason.new("MEDIA_TYPE_DOES_NOT_MATCH_OBJECT_TYPE")
+  NO_FIELDS_SPECIFIED = MediaErrorReason.new("NO_FIELDS_SPECIFIED")
   NULL_REFERENCE_ID_AND_MEDIA_ID = MediaErrorReason.new("NULL_REFERENCE_ID_AND_MEDIA_ID")
   TOO_LONG = MediaErrorReason.new("TOO_LONG")
   UNSUPPORTED_OPERATION = MediaErrorReason.new("UNSUPPORTED_OPERATION")
@@ -2324,6 +2243,11 @@ class QuotaCheckErrorReason < ::String
   INVALID_TOKEN_HEADER = QuotaCheckErrorReason.new("INVALID_TOKEN_HEADER")
   MONTHLY_BUDGET_REACHED = QuotaCheckErrorReason.new("MONTHLY_BUDGET_REACHED")
   QUOTA_EXCEEDED = QuotaCheckErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# QuotaExceededError.Reason
+class QuotaExceededErrorReason < ::String
+  QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
 end
 
 # ReadOnlyError.Reason

@@ -57,7 +57,7 @@ adwords error fields
         <dd>
             <ul>
                 
-                <li><a href="#M000016">new</a></li>
+                <li><a href="#M000020">new</a></li>
                 
             </ul>
         </dd>
@@ -226,9 +226,9 @@ backward compatibility; hopefully this isn&#8217;t too confusing!
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000016">
+                <div class="title" id="M000020">
                     
-                    <a name="M000016"></a><b>new</b>(soap_fault)
+                    <a name="M000020"></a><b>new</b>(soap_fault)
                     
                 </div>
                 
@@ -252,11 +252,11 @@ Args:
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show</a>
                         
                     </p>
-                    <div id="M000016_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 252</span>
+                    <div id="M000020_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 369</span>
       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">soap_fault</span>)
         <span class="ruby-ivar">@soap_faultcode</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">faultcode</span> }
         <span class="ruby-ivar">@soap_faultcode_ex</span> = <span class="ruby-identifier">protect</span> { <span class="ruby-identifier">soap_fault</span>.<span class="ruby-identifier">faultcode</span>.<span class="ruby-identifier">text</span> }

@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 #
-# Copyright 2009, Google Inc. All Rights Reserved.
+# Author:: sgomes@google.com (Sérgio Gomes)
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+# License:: Licensed under the Apache License, Version 2.0 (the "License");
+#           you may not use this file except in compliance with the License.
+#           You may obtain a copy of the License at
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#           http://www.apache.org/licenses/LICENSE-2.0
+#
+#           Unless required by applicable law or agreed to in writing, software
+#           distributed under the License is distributed on an "AS IS" BASIS,
+#           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+#           implied.
+#           See the License for the specific language governing permissions and
+#           limitations under the License.
 #
 # Contains extensions to the API, that is, service helper methods provided in
 # client-side by the client library.
@@ -178,9 +181,11 @@ module AdWords
       usage = {}
 
       op_rates.each do |op|
-        service, method = op
-        usage[service + '.' + method] = wrapper.getUnitCountForMethod(service,
-            method, start_date, end_date).getUnitCountForMethodReturn
+        version, service, method = op
+        if version == 'v13'
+          usage[service + '.' + method] = wrapper.getUnitCountForMethod(service,
+              method, start_date, end_date).getUnitCountForMethodReturn
+        end
       end
 
       return usage
@@ -239,7 +244,7 @@ module AdWords
     # - List of double counted children (account emails)
     #
     def self.client_unit_adder(adwords, start_date, end_date)
-      account_srv = adwords.get_service(13, 'Account')
+      account_srv = adwords.get_service('Account', 13)
       if adwords.credentials.credentials['clientEmail'] == ''
         account_email = adwords.credentials.credentials['email']
       else
@@ -252,7 +257,7 @@ module AdWords
       clients = accounts.select { |account| !account.isCustomerManager }
       managers = accounts.select { |account| account.isCustomerManager }
       client_emails = clients.map { |account| account.emailAddress }
-      info_srv = adwords.get_service(13, 'Info')
+      info_srv = adwords.get_service('Info', 13)
 
       # Get usage for clients
       client_usage =

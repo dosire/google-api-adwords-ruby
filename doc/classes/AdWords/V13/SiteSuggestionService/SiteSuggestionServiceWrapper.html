@@ -57,13 +57,13 @@ service. This class is automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000133">getSitesByCategoryName</a>,</li>
+                <li><a href="#M000149">getSitesByCategoryName</a>,</li>
                 
-                <li><a href="#M000136">getSitesByDemographics</a>,</li>
+                <li><a href="#M000151">getSitesByDemographics</a>,</li>
                 
-                <li><a href="#M000138">getSitesByTopics</a>,</li>
+                <li><a href="#M000153">getSitesByTopics</a>,</li>
                 
-                <li><a href="#M000141">getSitesByUrls</a></li>
+                <li><a href="#M000156">getSitesByUrls</a></li>
                 
             </ul>
         </dd>
@@ -72,7 +72,7 @@ service. This class is automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000132">new</a></li>
+                <li><a href="#M000147">new</a></li>
                 
             </ul>
         </dd>
@@ -99,7 +99,31 @@ service. This class is automatically generated.
             <td class='attr-name'>api</td>
             <td class='attr-desc'><p>
 Holds the <a href="../../API.html">AdWords::API</a> object to which the
-wrapper belongs
+wrapper belongs.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>module</td>
+            <td class='attr-desc'><p>
+Holds a shortcut to the parent module. Use this to avoid typing the full
+class name when creating classes belonging to this service, e.g.
+</p>
+<pre>
+ service_object.module::ClassName
+</pre>
+<p>
+instead of
+</p>
+<pre>
+ AdWords::V13::SiteSuggestionService::ClassName
+</pre>
+<p>
+This will make it easier to migrate your code between <a
+href="../../API.html">API</a> versions.
 </p></td>
         </tr>
         
@@ -110,9 +134,9 @@ wrapper belongs
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000132">
+                <div class="title" id="M000147">
                     
-                    <a name="M000132"></a><b>new</b>(driver, api)
+                    <a name="M000147"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -142,14 +166,15 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000132_source')" id="l_M000132_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000147_source')" id="l_M000147_source">show</a>
                         
                     </p>
-                    <div id="M000132_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 25</span>
+                    <div id="M000147_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 34</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">SiteSuggestionService</span>
         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
@@ -159,9 +184,9 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000133">
+                <div class="title" id="M000149">
                     
-                    <a name="M000133"></a><b>getSitesByCategoryName</b>(categoryName, targeting)
+                    <a name="M000149"></a><b>getSitesByCategoryName</b>(categoryName, targeting)
                     
                 </div>
                 
@@ -207,11 +232,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000133_source')" id="l_M000133_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000149_source')" id="l_M000149_source">show</a>
                         
                     </p>
-                    <div id="M000133_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 43</span>
+                    <div id="M000149_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 53</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getSitesByCategoryName</span>(<span class="ruby-identifier">categoryName</span>, <span class="ruby-identifier">targeting</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'categoryName'</span>,
@@ -232,9 +257,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000136">
+                <div class="title" id="M000151">
                     
-                    <a name="M000136"></a><b>getSitesByDemographics</b>(demo, targeting)
+                    <a name="M000151"></a><b>getSitesByDemographics</b>(demo, targeting)
                     
                 </div>
                 
@@ -281,11 +306,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000136_source')" id="l_M000136_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000151_source')" id="l_M000151_source">show</a>
                         
                     </p>
-                    <div id="M000136_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 71</span>
+                    <div id="M000151_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 81</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getSitesByDemographics</span>(<span class="ruby-identifier">demo</span>, <span class="ruby-identifier">targeting</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'demo'</span>,
@@ -306,9 +331,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000138">
+                <div class="title" id="M000153">
                     
-                    <a name="M000138"></a><b>getSitesByTopics</b>(topics, targeting)
+                    <a name="M000153"></a><b>getSitesByTopics</b>(topics, targeting)
                     
                 </div>
                 
@@ -354,11 +379,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000138_source')" id="l_M000138_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000153_source')" id="l_M000153_source">show</a>
                         
                     </p>
-                    <div id="M000138_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 99</span>
+                    <div id="M000153_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 109</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getSitesByTopics</span>(<span class="ruby-identifier">topics</span>, <span class="ruby-identifier">targeting</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'topics'</span>,
@@ -379,9 +404,9 @@ subclass thereof) if a SOAP fault occurs.
             </div>
             
             <div class="method">
-                <div class="title" id="M000141">
+                <div class="title" id="M000156">
                     
-                    <a name="M000141"></a><b>getSitesByUrls</b>(urls, targeting)
+                    <a name="M000156"></a><b>getSitesByUrls</b>(urls, targeting)
                     
                 </div>
                 
@@ -427,11 +452,11 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000141_source')" id="l_M000141_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000156_source')" id="l_M000156_source">show</a>
                         
                     </p>
-                    <div id="M000141_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 127</span>
+                    <div id="M000156_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/SiteSuggestionServiceWrapper.rb, line 137</span>
         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getSitesByUrls</span>(<span class="ruby-identifier">urls</span>, <span class="ruby-identifier">targeting</span>)
           <span class="ruby-keyword kw">begin</span>
             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'urls'</span>,

@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>ChangeLog.txt</li>
-            <li>Last modified: Wed Jul 15 11:27:14 +0100 2009</li>
+            <li>Last modified: Wed Oct 14 15:56:53 +0100 2009</li>
         </ul>
     </div>
 
@@ -28,6 +28,65 @@
     
     <div class="description">
         <p>
+17.0.0
+</p>
+<ul>
+<li>Changed the parameter order in API.get_service (aka API.service) to be
+get_service(name, version). The old ordering is still supported but
+deprecated. The version parameter is now optional and defaults to 13.
+
+</li>
+<li>Added &#8216;module&#8217; method to all the services. This returns a
+reference to the module containing all the classes for the service, so the
+full class name isn&#8217;t necessary. For example,
+service_object.module::ClassName instead of
+AdWords::V13::SomeService::ClassName Using this will also make it easier to
+upgrade between API versions, since it removes the need for hardcoded
+numbers.
+
+</li>
+<li>Added &#8216;use_mcc&#8217; property to the API object to make it easier to
+make requests at the MCC level. Setting it to true will make all requests
+be sent with no clientEmail or clientCustomerId. It&#8217;s also possible
+to invoke the &#8216;use_mcc&#8217; method with a block, and only that
+block will be executed at the MCC level.
+
+</li>
+<li>Added &#8216;validateOnly&#8217; property to the API object to make it
+easier to send requests with the &#8216;validateOnly&#8217; header in
+v2009. This header makes it possible to check a request for validity
+without executing it.
+
+</li>
+<li>Changes in handling &#8216;alternateUrl&#8217;; now it only errors out if
+there&#8217;s no &#8216;environment&#8217; defined.
+
+</li>
+<li>CSV data updated for operation rates, now has an extra column at the
+beginning for API version.
+
+</li>
+<li>Added several tests
+
+</li>
+<li>Moved wrapper generation to its own file, generator.rb. This cleans up
+services.rb.
+
+</li>
+<li>Added logging of the &#8220;operator&#8221; for v2009 mutate requests.
+
+</li>
+<li>Fixed sample adwords.properties to use &#8216;environment&#8217;.
+
+</li>
+<li>Fixed problem with empty lines in adwords.properties.
+
+</li>
+<li>Fixed problem making Production the default environment.
+
+</li>
+</ul>
+<p>
 16.0.0
 </p>
 <ul>

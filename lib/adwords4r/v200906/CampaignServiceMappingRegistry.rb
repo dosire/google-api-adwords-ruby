@@ -9,6 +9,18 @@ module DefaultMappingRegistry
   NsV200906 = "https://adwords.google.com/api/adwords/cm/v200906"
 
   EncodedRegistry.register(
+    :class => AdWords::V200906::CampaignService::AuthenticationError,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::CampaignService::AuthenticationErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200906::CampaignService::AuthorizationError,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -192,18 +204,6 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200906::CampaignService::LoasAuthenticationError,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError"),
-    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
-    :schema_element => [
-      ["fieldPath", "SOAP::SOAPString", [0, 1]],
-      ["trigger", "SOAP::SOAPString", [0, 1]],
-      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
-      ["reason", "AdWords::V200906::CampaignService::LoasAuthenticationErrorReason", [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200906::CampaignService::LongValue,
     :schema_type => XSD::QName.new(NsV200906, "LongValue"),
     :schema_basetype => XSD::QName.new(NsV200906, "NumberValue"),
@@ -348,6 +348,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200906::CampaignService::QuotaExceededError,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::CampaignService::QuotaExceededErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200906::CampaignService::C_RangeError,
     :schema_type => XSD::QName.new(NsV200906, "RangeError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -435,7 +447,8 @@ module DefaultMappingRegistry
     :class => AdWords::V200906::CampaignService::StatsSelector,
     :schema_type => XSD::QName.new(NsV200906, "StatsSelector"),
     :schema_element => [
-      ["dateRange", "AdWords::V200906::CampaignService::DateRange", [0, 1]]
+      ["dateRange", "AdWords::V200906::CampaignService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "StatsSelector.Type")], [0, 1]]
     ]
   )
 
@@ -646,6 +659,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200906::CampaignService::AuthenticationErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200906::CampaignService::AuthorizationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError.Reason")
   )
@@ -726,11 +744,6 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200906::CampaignService::LoasAuthenticationErrorReason,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError.Reason")
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200906::CampaignService::NewEntityCreationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "NewEntityCreationError.Reason")
   )
@@ -778,6 +791,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200906::CampaignService::QuotaErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "QuotaError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200906::CampaignService::QuotaExceededErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError.Reason")
   )
 
   EncodedRegistry.register(
@@ -826,6 +844,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200906::CampaignService::AuthenticationError,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::CampaignService::AuthenticationErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200906::CampaignService::AuthorizationError,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -1009,18 +1039,6 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200906::CampaignService::LoasAuthenticationError,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError"),
-    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
-    :schema_element => [
-      ["fieldPath", "SOAP::SOAPString", [0, 1]],
-      ["trigger", "SOAP::SOAPString", [0, 1]],
-      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
-      ["reason", "AdWords::V200906::CampaignService::LoasAuthenticationErrorReason", [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200906::CampaignService::LongValue,
     :schema_type => XSD::QName.new(NsV200906, "LongValue"),
     :schema_basetype => XSD::QName.new(NsV200906, "NumberValue"),
@@ -1165,6 +1183,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200906::CampaignService::QuotaExceededError,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError"),
+    :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200906::CampaignService::QuotaExceededErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200906::CampaignService::C_RangeError,
     :schema_type => XSD::QName.new(NsV200906, "RangeError"),
     :schema_basetype => XSD::QName.new(NsV200906, "ApiError"),
@@ -1252,7 +1282,8 @@ module DefaultMappingRegistry
     :class => AdWords::V200906::CampaignService::StatsSelector,
     :schema_type => XSD::QName.new(NsV200906, "StatsSelector"),
     :schema_element => [
-      ["dateRange", "AdWords::V200906::CampaignService::DateRange", [0, 1]]
+      ["dateRange", "AdWords::V200906::CampaignService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200906, "StatsSelector.Type")], [0, 1]]
     ]
   )
 
@@ -1463,6 +1494,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200906::CampaignService::AuthenticationErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "AuthenticationError.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200906::CampaignService::AuthorizationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "AuthorizationError.Reason")
   )
@@ -1543,11 +1579,6 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200906::CampaignService::LoasAuthenticationErrorReason,
-    :schema_type => XSD::QName.new(NsV200906, "LoasAuthenticationError.Reason")
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200906::CampaignService::NewEntityCreationErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "NewEntityCreationError.Reason")
   )
@@ -1595,6 +1626,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200906::CampaignService::QuotaErrorReason,
     :schema_type => XSD::QName.new(NsV200906, "QuotaError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200906::CampaignService::QuotaExceededErrorReason,
+    :schema_type => XSD::QName.new(NsV200906, "QuotaExceededError.Reason")
   )
 
   LiteralRegistry.register(
