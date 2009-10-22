@@ -484,21 +484,23 @@ module AdWords
         operator_count = operators.map { |op, num| "#{op}: #{num}" }.join(', ')
       end
 
-      header = envelope.header
-      if header.key?('ResponseHeader')
+      header = envelope.header if envelope
+      if header and header.key?('ResponseHeader')
         header = header['ResponseHeader'].element
       end
 
-      @parent.mutex.synchronize do
-        units = parse_header(header['units'])
-        unless units.nil?
-          @parent.last_units = units.to_i
-          @parent.total_units = @parent.total_units + units.to_i
-        end
+      if header
+        @parent.mutex.synchronize do
+          units = parse_header(header['units'])
+          unless units.nil?
+            @parent.last_units = units.to_i
+            @parent.total_units = @parent.total_units + units.to_i
+          end
 
-        operations = parse_header(header['operations'])
-        response_time = parse_header(header['responseTime'])
-        request_id = parse_header(header['requestId'])
+          operations = parse_header(header['operations'])
+          response_time = parse_header(header['responseTime'])
+          request_id = parse_header(header['requestId'])
+        end
       end
 
       host = URI.parse(endpoint).host

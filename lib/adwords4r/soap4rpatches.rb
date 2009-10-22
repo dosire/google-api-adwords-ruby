@@ -95,22 +95,6 @@ module SOAP
 
     end
 
-    class SubDriver < Driver
-
-      def invoke(headers, body)
-        if headers and !headers.is_a?(SOAPHeader)
-          headers = create_header(headers)
-        end
-        set_wiredump_file_base(body.elename.name)
-        env = @proxy.invoke(headers, body)
-        if env.nil?
-          return nil, nil
-        else
-          return env.header, env.body
-        end
-      end
-    end
-
     class Proxy
 
       attr_accessor :callbackhandler
@@ -146,6 +130,11 @@ module SOAP
           resopt[:generate_explicit_type] = (op_info.response_use == :encoded)
         end
         env = route(req_header, req_body, reqopt, resopt)
+        ### Patch starts here ###
+        unless callbackhandler.nil?
+          callbackhandler.on_callback(name, @endpoint_url, env, params)
+        end
+        ### Patch ends here ###
         if op_info.response_use.nil?
           return nil
         end
@@ -156,12 +145,6 @@ module SOAP
         rescue ::SOAP::FaultError => e
           op_info.raise_fault(e, @mapping_registry, @literal_mapping_registry)
         end
-
-        ### Patch starts here ###
-        if (!callbackhandler.nil?)
-          callbackhandler.on_callback(name, @endpoint_url, env, params)
-        end
-        ### Patch ends here ###
 
         if @return_response_as_xml
           resopt[:response_as_xml]
