@@ -1,4 +1,9 @@
+17.0.1
+- Fixed unit tracking for failed requests.
+  Issue 13, http://code.google.com/p/google-api-adwords-ruby/issues/detail?id=13
+
 17.0.0
+- Added support for v200909.
 - Changed the parameter order in API.get_service (aka API.service) to be get_service(name, version).
   The old ordering is still supported but deprecated. The version parameter is now optional and defaults to 13.
 - Added 'module' method to all the services.
