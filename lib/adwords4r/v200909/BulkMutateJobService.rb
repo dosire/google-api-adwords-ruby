@@ -910,6 +910,25 @@ class BulkMutateJobError < ApiError
   end
 end
 
+# CampaignCriterionError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason
+class CampaignCriterionError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # CampaignError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -1084,6 +1103,34 @@ end
 # - limit - SOAP::SOAPInt
 # - limitType - AdWords::V200909::BulkMutateJobService::AdGroupCriterionLimitExceededCriteriaLimitType
 class AdGroupCriterionLimitExceeded < EntityCountLimitExceeded
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+  attr_accessor :enclosingId
+  attr_accessor :limit
+  attr_accessor :limitType
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil, enclosingId = nil, limit = nil, limitType = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+    @enclosingId = enclosingId
+    @limit = limit
+    @limitType = limitType
+  end
+end
+
+# CampaignCriterionLimitExceeded
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::BulkMutateJobService::EntityCountLimitExceededReason
+# - enclosingId - SOAP::SOAPString
+# - limit - SOAP::SOAPInt
+# - limitType - AdWords::V200909::BulkMutateJobService::CampaignCriterionLimitExceededCriteriaLimitType
+class CampaignCriterionLimitExceeded < EntityCountLimitExceeded
   attr_accessor :fieldPath
   attr_accessor :trigger
   attr_accessor :apiError_Type
@@ -1641,6 +1688,7 @@ end
 # - biddingTransitionErrorReason - AdWords::V200909::BulkMutateJobService::BiddingTransitionErrorReason
 # - budgetErrorReason - AdWords::V200909::BulkMutateJobService::BudgetErrorReason
 # - bulkMutateJobErrorReason - AdWords::V200909::BulkMutateJobService::BulkMutateJobErrorReason
+# - campaignCriterionErrorReason - AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason
 # - campaignErrorReason - AdWords::V200909::BulkMutateJobService::CampaignErrorReason
 # - clientTermsErrorReason - AdWords::V200909::BulkMutateJobService::ClientTermsErrorReason
 # - databaseErrorReason - AdWords::V200909::BulkMutateJobService::DatabaseErrorReason
@@ -1685,6 +1733,7 @@ class ApiErrorReason
   attr_accessor :biddingTransitionErrorReason
   attr_accessor :budgetErrorReason
   attr_accessor :bulkMutateJobErrorReason
+  attr_accessor :campaignCriterionErrorReason
   attr_accessor :campaignErrorReason
   attr_accessor :clientTermsErrorReason
   attr_accessor :databaseErrorReason
@@ -1719,7 +1768,7 @@ class ApiErrorReason
   attr_accessor :stringLengthErrorReason
   attr_accessor :targetErrorReason
 
-  def initialize(adErrorReason = nil, adGroupAdErrorReason = nil, adGroupCriterionErrorReason = nil, adGroupServiceErrorReason = nil, authenticationErrorReason = nil, authorizationErrorReason = nil, biddingErrorReason = nil, biddingTransitionErrorReason = nil, budgetErrorReason = nil, bulkMutateJobErrorReason = nil, campaignErrorReason = nil, clientTermsErrorReason = nil, databaseErrorReason = nil, dateErrorReason = nil, distinctErrorReason = nil, entityAccessDeniedReason = nil, entityCountLimitExceededReason = nil, entityNotFoundReason = nil, idErrorReason = nil, imageErrorReason = nil, internalApiErrorReason = nil, jobErrorReason = nil, loasAuthenticationErrorReason = nil, mediaErrorReason = nil, newEntityCreationErrorReason = nil, notEmptyErrorReason = nil, notWhitelistedErrorReason = nil, nullErrorReason = nil, operationAccessDeniedReason = nil, operatorErrorReason = nil, pagingErrorReason = nil, policyViolationErrorReason = nil, quotaCheckErrorReason = nil, quotaErrorReason = nil, quotaExceededErrorReason = nil, rangeErrorReason = nil, readOnlyErrorReason = nil, regionCodeErrorReason = nil, requiredErrorReason = nil, sizeLimitErrorReason = nil, statsQueryErrorReason = nil, stringLengthErrorReason = nil, targetErrorReason = nil)
+  def initialize(adErrorReason = nil, adGroupAdErrorReason = nil, adGroupCriterionErrorReason = nil, adGroupServiceErrorReason = nil, authenticationErrorReason = nil, authorizationErrorReason = nil, biddingErrorReason = nil, biddingTransitionErrorReason = nil, budgetErrorReason = nil, bulkMutateJobErrorReason = nil, campaignCriterionErrorReason = nil, campaignErrorReason = nil, clientTermsErrorReason = nil, databaseErrorReason = nil, dateErrorReason = nil, distinctErrorReason = nil, entityAccessDeniedReason = nil, entityCountLimitExceededReason = nil, entityNotFoundReason = nil, idErrorReason = nil, imageErrorReason = nil, internalApiErrorReason = nil, jobErrorReason = nil, loasAuthenticationErrorReason = nil, mediaErrorReason = nil, newEntityCreationErrorReason = nil, notEmptyErrorReason = nil, notWhitelistedErrorReason = nil, nullErrorReason = nil, operationAccessDeniedReason = nil, operatorErrorReason = nil, pagingErrorReason = nil, policyViolationErrorReason = nil, quotaCheckErrorReason = nil, quotaErrorReason = nil, quotaExceededErrorReason = nil, rangeErrorReason = nil, readOnlyErrorReason = nil, regionCodeErrorReason = nil, requiredErrorReason = nil, sizeLimitErrorReason = nil, statsQueryErrorReason = nil, stringLengthErrorReason = nil, targetErrorReason = nil)
     @adErrorReason = adErrorReason
     @adGroupAdErrorReason = adGroupAdErrorReason
     @adGroupCriterionErrorReason = adGroupCriterionErrorReason
@@ -1730,6 +1779,7 @@ class ApiErrorReason
     @biddingTransitionErrorReason = biddingTransitionErrorReason
     @budgetErrorReason = budgetErrorReason
     @bulkMutateJobErrorReason = bulkMutateJobErrorReason
+    @campaignCriterionErrorReason = campaignCriterionErrorReason
     @campaignErrorReason = campaignErrorReason
     @clientTermsErrorReason = clientTermsErrorReason
     @databaseErrorReason = databaseErrorReason
@@ -1999,6 +2049,38 @@ class Campaign
   end
 end
 
+# CampaignCriterion
+# - campaignId - SOAP::SOAPLong
+# - criterion - AdWords::V200909::BulkMutateJobService::Criterion
+# - campaignCriterion_Type - SOAP::SOAPString
+class CampaignCriterion
+  attr_accessor :campaignId
+  attr_accessor :criterion
+  attr_accessor :campaignCriterion_Type
+
+  def initialize(campaignId = nil, criterion = nil, campaignCriterion_Type = nil)
+    @campaignId = campaignId
+    @criterion = criterion
+    @campaignCriterion_Type = campaignCriterion_Type
+  end
+end
+
+# NegativeCampaignCriterion
+# - campaignId - SOAP::SOAPLong
+# - criterion - AdWords::V200909::BulkMutateJobService::Criterion
+# - campaignCriterion_Type - SOAP::SOAPString
+class NegativeCampaignCriterion < CampaignCriterion
+  attr_accessor :campaignId
+  attr_accessor :criterion
+  attr_accessor :campaignCriterion_Type
+
+  def initialize(campaignId = nil, criterion = nil, campaignCriterion_Type = nil)
+    @campaignId = campaignId
+    @criterion = criterion
+    @campaignCriterion_Type = campaignCriterion_Type
+  end
+end
+
 # ComparableValue
 # abstract
 # - comparableValue_Type - SOAP::SOAPString
@@ -2070,6 +2152,22 @@ class Criterion
   def initialize(id = nil, criterion_Type = nil)
     @id = id
     @criterion_Type = criterion_Type
+  end
+end
+
+# ContentLabel
+# - id - SOAP::SOAPLong
+# - criterion_Type - SOAP::SOAPString
+# - contentLabelType - AdWords::V200909::BulkMutateJobService::ContentLabelType
+class ContentLabel < Criterion
+  attr_accessor :id
+  attr_accessor :criterion_Type
+  attr_accessor :contentLabelType
+
+  def initialize(id = nil, criterion_Type = nil, contentLabelType = nil)
+    @id = id
+    @criterion_Type = criterion_Type
+    @contentLabelType = contentLabelType
   end
 end
 
@@ -2655,6 +2753,7 @@ end
 # - adGroupCriterion - AdWords::V200909::BulkMutateJobService::AdGroupCriterion
 # - adGroup - AdWords::V200909::BulkMutateJobService::AdGroup
 # - ad - AdWords::V200909::BulkMutateJobService::Ad
+# - campaignCriterion - AdWords::V200909::BulkMutateJobService::CampaignCriterion
 # - campaign - AdWords::V200909::BulkMutateJobService::Campaign
 # - job - AdWords::V200909::BulkMutateJobService::Job
 # - media - AdWords::V200909::BulkMutateJobService::Media
@@ -2666,18 +2765,20 @@ class Operand
   attr_accessor :adGroupCriterion
   attr_accessor :adGroup
   attr_accessor :ad
+  attr_accessor :campaignCriterion
   attr_accessor :campaign
   attr_accessor :job
   attr_accessor :media
   attr_accessor :targetList
   attr_accessor :target
 
-  def initialize(adExtensionOverride = nil, adGroupAd = nil, adGroupCriterion = nil, adGroup = nil, ad = nil, campaign = nil, job = nil, media = nil, targetList = nil, target = nil)
+  def initialize(adExtensionOverride = nil, adGroupAd = nil, adGroupCriterion = nil, adGroup = nil, ad = nil, campaignCriterion = nil, campaign = nil, job = nil, media = nil, targetList = nil, target = nil)
     @adExtensionOverride = adExtensionOverride
     @adGroupAd = adGroupAd
     @adGroupCriterion = adGroupCriterion
     @adGroup = adGroup
     @ad = ad
+    @campaignCriterion = campaignCriterion
     @campaign = campaign
     @job = job
     @media = media
@@ -2743,6 +2844,22 @@ end
 # - operation_Type - SOAP::SOAPString
 # - operand - AdWords::V200909::BulkMutateJobService::AdGroup
 class AdGroupOperation < Operation
+  attr_accessor :operator
+  attr_accessor :operation_Type
+  attr_accessor :operand
+
+  def initialize(operator = nil, operation_Type = nil, operand = nil)
+    @operator = operator
+    @operation_Type = operation_Type
+    @operand = operand
+  end
+end
+
+# CampaignCriterionOperation
+# - operator - AdWords::V200909::BulkMutateJobService::Operator
+# - operation_Type - SOAP::SOAPString
+# - operand - AdWords::V200909::BulkMutateJobService::CampaignCriterion
+class CampaignCriterionOperation < Operation
   attr_accessor :operator
   attr_accessor :operation_Type
   attr_accessor :operand
@@ -3584,15 +3701,10 @@ end
 # Ad.ApprovalStatus
 class AdApprovalStatus < ::String
   APPROVED = AdApprovalStatus.new("APPROVED")
-  AUTO_GENERATED = AdApprovalStatus.new("AUTO_GENERATED")
-  DISABLED = AdApprovalStatus.new("DISABLED")
   DISAPPROVED = AdApprovalStatus.new("DISAPPROVED")
   FAMILY_SAFE = AdApprovalStatus.new("FAMILY_SAFE")
-  FORBIDDEN = AdApprovalStatus.new("FORBIDDEN")
   NON_FAMILY_SAFE = AdApprovalStatus.new("NON_FAMILY_SAFE")
-  NOT_READY_FOR_APPROVAL = AdApprovalStatus.new("NOT_READY_FOR_APPROVAL")
   PORN = AdApprovalStatus.new("PORN")
-  SUSPICIOUS = AdApprovalStatus.new("SUSPICIOUS")
   UNCHECKED = AdApprovalStatus.new("UNCHECKED")
 end
 
@@ -3813,6 +3925,11 @@ class AuthenticationErrorReason < ::String
   CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
   CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
   CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT = AuthenticationErrorReason.new("FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT")
+  FAILED_TO_RETRIEVE_LOGIN_COOKIE = AuthenticationErrorReason.new("FAILED_TO_RETRIEVE_LOGIN_COOKIE")
+  GOOGLE_ACCOUNT_COOKIE_INVALID = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_COOKIE_INVALID")
+  GOOGLE_ACCOUNT_DELETED = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_DELETED")
+  GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH")
   LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
   LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
   NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")
@@ -3975,6 +4092,23 @@ class BulkMutateJobErrorReason < ::String
   TOO_MANY_SCOPING_ENTITIES = BulkMutateJobErrorReason.new("TOO_MANY_SCOPING_ENTITIES")
 end
 
+# CampaignCriterionError.Reason
+class CampaignCriterionErrorReason < ::String
+  CONCRETE_TYPE_REQUIRED = CampaignCriterionErrorReason.new("CONCRETE_TYPE_REQUIRED")
+  CRITERIA_QUOTA_EXCEEDED = CampaignCriterionErrorReason.new("CRITERIA_QUOTA_EXCEEDED")
+  ID_FILTERS_HAVE_DIFF_FIELDS_SET = CampaignCriterionErrorReason.new("ID_FILTERS_HAVE_DIFF_FIELDS_SET")
+  INVALID_EXCLUDED_CATEGORY = CampaignCriterionErrorReason.new("INVALID_EXCLUDED_CATEGORY")
+  INVALID_KEYWORD_TEXT = CampaignCriterionErrorReason.new("INVALID_KEYWORD_TEXT")
+  INVALID_PLACEMENT_URL = CampaignCriterionErrorReason.new("INVALID_PLACEMENT_URL")
+  TOO_MANY_OPERTAIONS = CampaignCriterionErrorReason.new("TOO_MANY_OPERTAIONS")
+end
+
+# CampaignCriterionLimitExceeded.CriteriaLimitType
+class CampaignCriterionLimitExceededCriteriaLimitType < ::String
+  CAMPAIGN_NEGATIVE_KEYWORD = CampaignCriterionLimitExceededCriteriaLimitType.new("CAMPAIGN_NEGATIVE_KEYWORD")
+  CAMPAIGN_NEGATIVE_WEBSITE = CampaignCriterionLimitExceededCriteriaLimitType.new("CAMPAIGN_NEGATIVE_WEBSITE")
+end
+
 # CampaignError.Reason
 class CampaignErrorReason < ::String
   AFTER_MAXIMUM_ALLOWABLE_DATE = CampaignErrorReason.new("AFTER_MAXIMUM_ALLOWABLE_DATE")
@@ -4009,6 +4143,29 @@ end
 # ClientTermsError.Reason
 class ClientTermsErrorReason < ::String
   INCOMPLETE_SIGNUP_CURRENT_ADWORDS_TNC_NOT_AGREED = ClientTermsErrorReason.new("INCOMPLETE_SIGNUP_CURRENT_ADWORDS_TNC_NOT_AGREED")
+end
+
+# ContentLabelType
+class ContentLabelType < ::String
+  ADULTISH = ContentLabelType.new("ADULTISH")
+  AFE = ContentLabelType.new("AFE")
+  CONFLICT = ContentLabelType.new("CONFLICT")
+  CONFLICT_TRAGEDY = ContentLabelType.new("CONFLICT_TRAGEDY")
+  DP = ContentLabelType.new("DP")
+  EDGY = ContentLabelType.new("EDGY")
+  EMBEDDED_VIDEO = ContentLabelType.new("EMBEDDED_VIDEO")
+  GAMES = ContentLabelType.new("GAMES")
+  JACKASS = ContentLabelType.new("JACKASS")
+  PROFANITY = ContentLabelType.new("PROFANITY")
+  SENSITIVE = ContentLabelType.new("SENSITIVE")
+  SIRENS = ContentLabelType.new("SIRENS")
+  TRAGEDY = ContentLabelType.new("TRAGEDY")
+  UGC = ContentLabelType.new("UGC")
+  UGC_FORUMS = ContentLabelType.new("UGC_FORUMS")
+  UGC_IMAGES = ContentLabelType.new("UGC_IMAGES")
+  UGC_SOCIAL = ContentLabelType.new("UGC_SOCIAL")
+  UGC_VIDEOS = ContentLabelType.new("UGC_VIDEOS")
+  VIDEO = ContentLabelType.new("VIDEO")
 end
 
 # DatabaseError.Reason

@@ -71,6 +71,16 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionStatsSelector"),
+    :schema_basetype => XSD::QName.new(NsV200909, "StatsSelector"),
+    :schema_element => [
+      ["dateRange", "AdWords::V200909::CampaignAdExtensionService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "StatsSelector.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::ClientTermsError,
     :schema_type => XSD::QName.new(NsV200909, "ClientTermsError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -91,6 +101,15 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::CampaignAdExtensionService::DatabaseErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::DateRange,
+    :schema_type => XSD::QName.new(NsV200909, "DateRange"),
+    :schema_element => [
+      ["min", "SOAP::SOAPString", [0, 1]],
+      ["max", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -335,6 +354,15 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::StatsSelector,
+    :schema_type => XSD::QName.new(NsV200909, "StatsSelector"),
+    :schema_element => [
+      ["dateRange", "AdWords::V200909::CampaignAdExtensionService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "StatsSelector.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::StringLengthError,
     :schema_type => XSD::QName.new(NsV200909, "StringLengthError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -422,6 +450,7 @@ module DefaultMappingRegistry
     :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionSelector,
     :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionSelector"),
     :schema_element => [
+      ["statsSelector", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector", [0, 1]],
       ["campaignIds", "SOAP::SOAPLong[]", [0, nil]],
       ["statuses", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus[]", [0, nil]],
       ["paging", "AdWords::V200909::CampaignAdExtensionService::Paging", [0, 1]]
@@ -616,6 +645,16 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionStatsSelector"),
+    :schema_basetype => XSD::QName.new(NsV200909, "StatsSelector"),
+    :schema_element => [
+      ["dateRange", "AdWords::V200909::CampaignAdExtensionService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "StatsSelector.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::ClientTermsError,
     :schema_type => XSD::QName.new(NsV200909, "ClientTermsError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -636,6 +675,15 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::CampaignAdExtensionService::DatabaseErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::DateRange,
+    :schema_type => XSD::QName.new(NsV200909, "DateRange"),
+    :schema_element => [
+      ["min", "SOAP::SOAPString", [0, 1]],
+      ["max", "SOAP::SOAPString", [0, 1]]
     ]
   )
 
@@ -880,6 +928,15 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::StatsSelector,
+    :schema_type => XSD::QName.new(NsV200909, "StatsSelector"),
+    :schema_element => [
+      ["dateRange", "AdWords::V200909::CampaignAdExtensionService::DateRange", [0, 1]],
+      ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "StatsSelector.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::StringLengthError,
     :schema_type => XSD::QName.new(NsV200909, "StringLengthError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -967,6 +1024,7 @@ module DefaultMappingRegistry
     :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionSelector,
     :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionSelector"),
     :schema_element => [
+      ["statsSelector", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector", [0, 1]],
       ["campaignIds", "SOAP::SOAPLong[]", [0, nil]],
       ["statuses", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus[]", [0, nil]],
       ["paging", "AdWords::V200909::CampaignAdExtensionService::Paging", [0, 1]]

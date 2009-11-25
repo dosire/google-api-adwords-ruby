@@ -38,7 +38,7 @@ module AdWords
       200906 => ['AdGroupAd', 'AdGroupCriterion', 'AdGroup',
                  'CampaignCriterion', 'Campaign', 'CampaignTarget'],
       200909 => ['AdExtensionOverride', 'AdGroupAd', 'AdGroupCriterion',
-                 'AdGroup', 'BulkMutateJob', 'CampaignAdExtension',
+                 'AdGroup', 'AdParam', 'BulkMutateJob', 'CampaignAdExtension',
                  'CampaignCriterion', 'Campaign', 'CampaignTarget',
                  'GeoLocation', 'Info', 'TargetingIdea']
     }
@@ -83,6 +83,7 @@ module AdWords
       [200909, 'AdGroupAd'] => 'cm/v200909/',
       [200909, 'AdGroupCriterion'] => 'cm/v200909/',
       [200909, 'AdGroup'] => 'cm/v200909/',
+      [200909, 'AdParam'] => 'cm/v200909/',
       [200909, 'BulkMutateJob'] => 'job/v200909/',
       [200909, 'CampaignAdExtension'] => 'cm/v200909/',
       [200909, 'CampaignCriterion'] => 'cm/v200909/',

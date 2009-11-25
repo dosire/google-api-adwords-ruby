@@ -24,7 +24,7 @@ require 'adwords4r/services'
 
 module AdWords
 
-  # Contains helper methods for loading and managing the available services.
+  # Contains the methods that handle wrapper code generation.
   module Generator
     ARRAY_CLASSNAME = 'SOAP::SOAPArray'
 
@@ -300,3 +300,4 @@ end
 
   end
 end
+

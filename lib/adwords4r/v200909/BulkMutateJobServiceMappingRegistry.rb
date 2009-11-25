@@ -315,6 +315,7 @@ module DefaultMappingRegistry
       ["biddingTransitionErrorReason", ["AdWords::V200909::BulkMutateJobService::BiddingTransitionErrorReason", XSD::QName.new(NsV200909, "BiddingTransitionErrorReason")]],
       ["budgetErrorReason", ["AdWords::V200909::BulkMutateJobService::BudgetErrorReason", XSD::QName.new(NsV200909, "BudgetErrorReason")]],
       ["bulkMutateJobErrorReason", ["AdWords::V200909::BulkMutateJobService::BulkMutateJobErrorReason", XSD::QName.new(NsV200909, "BulkMutateJobErrorReason")]],
+      ["campaignCriterionErrorReason", ["AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason", XSD::QName.new(NsV200909, "CampaignCriterionErrorReason")]],
       ["campaignErrorReason", ["AdWords::V200909::BulkMutateJobService::CampaignErrorReason", XSD::QName.new(NsV200909, "CampaignErrorReason")]],
       ["clientTermsErrorReason", ["AdWords::V200909::BulkMutateJobService::ClientTermsErrorReason", XSD::QName.new(NsV200909, "ClientTermsErrorReason")]],
       ["databaseErrorReason", ["AdWords::V200909::BulkMutateJobService::DatabaseErrorReason", XSD::QName.new(NsV200909, "DatabaseErrorReason")]],
@@ -673,6 +674,54 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterion,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterion"),
+    :schema_element => [
+      ["campaignId", "SOAP::SOAPLong", [0, 1]],
+      ["criterion", "AdWords::V200909::BulkMutateJobService::Criterion", [0, 1]],
+      ["campaignCriterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "CampaignCriterion.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionError,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionLimitExceeded,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionLimitExceeded"),
+    :schema_basetype => XSD::QName.new(NsV200909, "EntityCountLimitExceeded"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::BulkMutateJobService::EntityCountLimitExceededReason", [0, 1]],
+      ["enclosingId", "SOAP::SOAPString", [0, 1]],
+      ["limit", "SOAP::SOAPInt", [0, 1]],
+      ["limitType", "AdWords::V200909::BulkMutateJobService::CampaignCriterionLimitExceededCriteriaLimitType", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionOperation,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionOperation"),
+    :schema_basetype => XSD::QName.new(NsV200909, "Operation"),
+    :schema_element => [
+      ["operator", "AdWords::V200909::BulkMutateJobService::Operator", [0, 1]],
+      ["operation_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "Operation.Type")], [0, 1]],
+      ["operand", "AdWords::V200909::BulkMutateJobService::CampaignCriterion", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::CampaignError,
     :schema_type => XSD::QName.new(NsV200909, "CampaignError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -729,6 +778,17 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::BulkMutateJobService::ClientTermsErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::ContentLabel,
+    :schema_type => XSD::QName.new(NsV200909, "ContentLabel"),
+    :schema_basetype => XSD::QName.new(NsV200909, "Criterion"),
+    :schema_element => [
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["criterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "Criterion.Type")], [0, 1]],
+      ["contentLabelType", "AdWords::V200909::BulkMutateJobService::ContentLabelType", [0, 1]]
     ]
   )
 
@@ -1401,6 +1461,17 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::NegativeCampaignCriterion,
+    :schema_type => XSD::QName.new(NsV200909, "NegativeCampaignCriterion"),
+    :schema_basetype => XSD::QName.new(NsV200909, "CampaignCriterion"),
+    :schema_element => [
+      ["campaignId", "SOAP::SOAPLong", [0, 1]],
+      ["criterion", "AdWords::V200909::BulkMutateJobService::Criterion", [0, 1]],
+      ["campaignCriterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "CampaignCriterion.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::NetworkTarget,
     :schema_type => XSD::QName.new(NsV200909, "NetworkTarget"),
     :schema_basetype => XSD::QName.new(NsV200909, "Target"),
@@ -1478,6 +1549,7 @@ module DefaultMappingRegistry
       ["adGroupCriterion", ["AdWords::V200909::BulkMutateJobService::AdGroupCriterion", XSD::QName.new(NsV200909, "AdGroupCriterion")]],
       ["adGroup", ["AdWords::V200909::BulkMutateJobService::AdGroup", XSD::QName.new(NsV200909, "AdGroup")]],
       ["ad", ["AdWords::V200909::BulkMutateJobService::Ad", XSD::QName.new(NsV200909, "Ad")]],
+      ["campaignCriterion", ["AdWords::V200909::BulkMutateJobService::CampaignCriterion", XSD::QName.new(NsV200909, "CampaignCriterion")]],
       ["campaign", ["AdWords::V200909::BulkMutateJobService::Campaign", XSD::QName.new(NsV200909, "Campaign")]],
       ["job", ["AdWords::V200909::BulkMutateJobService::Job", XSD::QName.new(NsV200909, "Job")]],
       ["media", ["AdWords::V200909::BulkMutateJobService::Media", XSD::QName.new(NsV200909, "Media")]],
@@ -2087,6 +2159,16 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionLimitExceededCriteriaLimitType,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionLimitExceeded.CriteriaLimitType")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::CampaignErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "CampaignError.Reason")
   )
@@ -2099,6 +2181,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::ClientTermsErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "ClientTermsError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::ContentLabelType,
+    :schema_type => XSD::QName.new(NsV200909, "ContentLabelType")
   )
 
   EncodedRegistry.register(
@@ -2698,6 +2785,7 @@ module DefaultMappingRegistry
       ["biddingTransitionErrorReason", ["AdWords::V200909::BulkMutateJobService::BiddingTransitionErrorReason", XSD::QName.new(NsV200909, "BiddingTransitionErrorReason")]],
       ["budgetErrorReason", ["AdWords::V200909::BulkMutateJobService::BudgetErrorReason", XSD::QName.new(NsV200909, "BudgetErrorReason")]],
       ["bulkMutateJobErrorReason", ["AdWords::V200909::BulkMutateJobService::BulkMutateJobErrorReason", XSD::QName.new(NsV200909, "BulkMutateJobErrorReason")]],
+      ["campaignCriterionErrorReason", ["AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason", XSD::QName.new(NsV200909, "CampaignCriterionErrorReason")]],
       ["campaignErrorReason", ["AdWords::V200909::BulkMutateJobService::CampaignErrorReason", XSD::QName.new(NsV200909, "CampaignErrorReason")]],
       ["clientTermsErrorReason", ["AdWords::V200909::BulkMutateJobService::ClientTermsErrorReason", XSD::QName.new(NsV200909, "ClientTermsErrorReason")]],
       ["databaseErrorReason", ["AdWords::V200909::BulkMutateJobService::DatabaseErrorReason", XSD::QName.new(NsV200909, "DatabaseErrorReason")]],
@@ -3056,6 +3144,54 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterion,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterion"),
+    :schema_element => [
+      ["campaignId", "SOAP::SOAPLong", [0, 1]],
+      ["criterion", "AdWords::V200909::BulkMutateJobService::Criterion", [0, 1]],
+      ["campaignCriterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "CampaignCriterion.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionError,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionLimitExceeded,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionLimitExceeded"),
+    :schema_basetype => XSD::QName.new(NsV200909, "EntityCountLimitExceeded"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::BulkMutateJobService::EntityCountLimitExceededReason", [0, 1]],
+      ["enclosingId", "SOAP::SOAPString", [0, 1]],
+      ["limit", "SOAP::SOAPInt", [0, 1]],
+      ["limitType", "AdWords::V200909::BulkMutateJobService::CampaignCriterionLimitExceededCriteriaLimitType", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionOperation,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionOperation"),
+    :schema_basetype => XSD::QName.new(NsV200909, "Operation"),
+    :schema_element => [
+      ["operator", "AdWords::V200909::BulkMutateJobService::Operator", [0, 1]],
+      ["operation_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "Operation.Type")], [0, 1]],
+      ["operand", "AdWords::V200909::BulkMutateJobService::CampaignCriterion", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::CampaignError,
     :schema_type => XSD::QName.new(NsV200909, "CampaignError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -3112,6 +3248,17 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::BulkMutateJobService::ClientTermsErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::ContentLabel,
+    :schema_type => XSD::QName.new(NsV200909, "ContentLabel"),
+    :schema_basetype => XSD::QName.new(NsV200909, "Criterion"),
+    :schema_element => [
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["criterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "Criterion.Type")], [0, 1]],
+      ["contentLabelType", "AdWords::V200909::BulkMutateJobService::ContentLabelType", [0, 1]]
     ]
   )
 
@@ -3784,6 +3931,17 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::NegativeCampaignCriterion,
+    :schema_type => XSD::QName.new(NsV200909, "NegativeCampaignCriterion"),
+    :schema_basetype => XSD::QName.new(NsV200909, "CampaignCriterion"),
+    :schema_element => [
+      ["campaignId", "SOAP::SOAPLong", [0, 1]],
+      ["criterion", "AdWords::V200909::BulkMutateJobService::Criterion", [0, 1]],
+      ["campaignCriterion_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "CampaignCriterion.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::NetworkTarget,
     :schema_type => XSD::QName.new(NsV200909, "NetworkTarget"),
     :schema_basetype => XSD::QName.new(NsV200909, "Target"),
@@ -3861,6 +4019,7 @@ module DefaultMappingRegistry
       ["adGroupCriterion", ["AdWords::V200909::BulkMutateJobService::AdGroupCriterion", XSD::QName.new(NsV200909, "AdGroupCriterion")]],
       ["adGroup", ["AdWords::V200909::BulkMutateJobService::AdGroup", XSD::QName.new(NsV200909, "AdGroup")]],
       ["ad", ["AdWords::V200909::BulkMutateJobService::Ad", XSD::QName.new(NsV200909, "Ad")]],
+      ["campaignCriterion", ["AdWords::V200909::BulkMutateJobService::CampaignCriterion", XSD::QName.new(NsV200909, "CampaignCriterion")]],
       ["campaign", ["AdWords::V200909::BulkMutateJobService::Campaign", XSD::QName.new(NsV200909, "Campaign")]],
       ["job", ["AdWords::V200909::BulkMutateJobService::Job", XSD::QName.new(NsV200909, "Job")]],
       ["media", ["AdWords::V200909::BulkMutateJobService::Media", XSD::QName.new(NsV200909, "Media")]],
@@ -4470,6 +4629,16 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::CampaignCriterionLimitExceededCriteriaLimitType,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignCriterionLimitExceeded.CriteriaLimitType")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::CampaignErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "CampaignError.Reason")
   )
@@ -4482,6 +4651,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::ClientTermsErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "ClientTermsError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::ContentLabelType,
+    :schema_type => XSD::QName.new(NsV200909, "ContentLabelType")
   )
 
   LiteralRegistry.register(

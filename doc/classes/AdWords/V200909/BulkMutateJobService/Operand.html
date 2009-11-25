@@ -58,6 +58,10 @@ href="AdGroup.html">AdWords::V200909::BulkMutateJobService::AdGroup</a>
 <li>ad - <a href="Ad.html">AdWords::V200909::BulkMutateJobService::Ad</a>
 
 </li>
+<li>campaign<a href="Criterion.html">Criterion</a> - <a
+href="CampaignCriterion.html">AdWords::V200909::BulkMutateJobService::CampaignCriterion</a>
+
+</li>
 <li>campaign - <a
 href="Campaign.html">AdWords::V200909::BulkMutateJobService::Campaign</a>
 
@@ -96,7 +100,7 @@ href="Target.html">AdWords::V200909::BulkMutateJobService::Target</a>
         <dd>
             <ul>
                 
-                <li><a href="#M001127">new</a></li>
+                <li><a href="#M001139">new</a></li>
                 
             </ul>
         </dd>
@@ -160,6 +164,14 @@ href="Target.html">AdWords::V200909::BulkMutateJobService::Target</a>
             <td class='attr-rw'>
                 [RW]
             </td>
+            <td class='attr-name'>campaignCriterion</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
             <td class='attr-name'>campaign</td>
             <td class='attr-desc'></td>
         </tr>
@@ -203,9 +215,9 @@ href="Target.html">AdWords::V200909::BulkMutateJobService::Target</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M001127">
+                <div class="title" id="M001139">
                     
-                    <a name="M001127"></a><b>new</b>(adExtensionOverride = nil, adGroupAd = nil, adGroupCriterion = nil, adGroup = nil, ad = nil, campaign = nil, job = nil, media = nil, targetList = nil, target = nil)
+                    <a name="M001139"></a><b>new</b>(adExtensionOverride = nil, adGroupAd = nil, adGroupCriterion = nil, adGroup = nil, ad = nil, campaignCriterion = nil, campaign = nil, job = nil, media = nil, targetList = nil, target = nil)
                     
                 </div>
                 
@@ -214,17 +226,18 @@ href="Target.html">AdWords::V200909::BulkMutateJobService::Target</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M001127_source')" id="l_M001127_source">show</a>
+                        Source: <a href="javascript:toggleSource('M001139_source')" id="l_M001139_source">show</a>
                         
                     </p>
-                    <div id="M001127_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2675</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">adExtensionOverride</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupAd</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupCriterion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroup</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">ad</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">campaign</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">job</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">media</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">targetList</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">target</span> = <span class="ruby-keyword kw">nil</span>)
+                    <div id="M001139_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2775</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">adExtensionOverride</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupAd</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupCriterion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroup</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">ad</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">campaignCriterion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">campaign</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">job</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">media</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">targetList</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">target</span> = <span class="ruby-keyword kw">nil</span>)
     <span class="ruby-ivar">@adExtensionOverride</span> = <span class="ruby-identifier">adExtensionOverride</span>
     <span class="ruby-ivar">@adGroupAd</span> = <span class="ruby-identifier">adGroupAd</span>
     <span class="ruby-ivar">@adGroupCriterion</span> = <span class="ruby-identifier">adGroupCriterion</span>
     <span class="ruby-ivar">@adGroup</span> = <span class="ruby-identifier">adGroup</span>
     <span class="ruby-ivar">@ad</span> = <span class="ruby-identifier">ad</span>
+    <span class="ruby-ivar">@campaignCriterion</span> = <span class="ruby-identifier">campaignCriterion</span>
     <span class="ruby-ivar">@campaign</span> = <span class="ruby-identifier">campaign</span>
     <span class="ruby-ivar">@job</span> = <span class="ruby-identifier">job</span>
     <span class="ruby-ivar">@media</span> = <span class="ruby-identifier">media</span>

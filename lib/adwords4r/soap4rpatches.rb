@@ -131,20 +131,35 @@ module SOAP
         end
         env = route(req_header, req_body, reqopt, resopt)
         ### Patch starts here ###
-        unless callbackhandler.nil?
-          callbackhandler.on_callback(name, @endpoint_url, env, params)
-        end
-        ### Patch ends here ###
         if op_info.response_use.nil?
+          unless callbackhandler.nil?
+            callbackhandler.on_callback(name, @endpoint_url, env, params)
+          end
           return nil
         end
-        raise EmptyResponseError unless env
-        receive_headers(env.header)
+        fault = false
+        fault_message = nil
         begin
-          check_fault(env.body)
-        rescue ::SOAP::FaultError => e
-          op_info.raise_fault(e, @mapping_registry, @literal_mapping_registry)
+          unless env
+            fault = true
+            fault_message = 'Empty SOAP response'
+            raise EmptyResponseError
+          end
+          receive_headers(env.header)
+          begin
+            check_fault(env.body)
+          rescue ::SOAP::FaultError => e
+            fault = true
+            fault_message = e.to_s
+            op_info.raise_fault(e, @mapping_registry, @literal_mapping_registry)
+          end
+        ensure
+          unless callbackhandler.nil?
+            callbackhandler.on_callback(name, @endpoint_url, env, params, fault,
+                fault_message)
+          end
         end
+        ### Patch ends here ###
 
         if @return_response_as_xml
           resopt[:response_as_xml]

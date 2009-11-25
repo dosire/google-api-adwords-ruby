@@ -31,6 +31,19 @@ class Address
   end
 end
 
+# DateRange
+# - min - SOAP::SOAPString
+# - max - SOAP::SOAPString
+class DateRange
+  attr_accessor :min
+  attr_accessor :max
+
+  def initialize(min = nil, max = nil)
+    @min = min
+    @max = max
+  end
+end
+
 # GeoPoint
 # - latitudeInMicroDegrees - SOAP::SOAPInt
 # - longitudeInMicroDegrees - SOAP::SOAPInt
@@ -123,6 +136,32 @@ class SoapResponseHeader
     @operations = operations
     @responseTime = responseTime
     @units = units
+  end
+end
+
+# StatsSelector
+# - dateRange - AdWords::V200909::CampaignAdExtensionService::DateRange
+# - statsSelector_Type - SOAP::SOAPString
+class StatsSelector
+  attr_accessor :dateRange
+  attr_accessor :statsSelector_Type
+
+  def initialize(dateRange = nil, statsSelector_Type = nil)
+    @dateRange = dateRange
+    @statsSelector_Type = statsSelector_Type
+  end
+end
+
+# CampaignAdExtensionStatsSelector
+# - dateRange - AdWords::V200909::CampaignAdExtensionService::DateRange
+# - statsSelector_Type - SOAP::SOAPString
+class CampaignAdExtensionStatsSelector < StatsSelector
+  attr_accessor :dateRange
+  attr_accessor :statsSelector_Type
+
+  def initialize(dateRange = nil, statsSelector_Type = nil)
+    @dateRange = dateRange
+    @statsSelector_Type = statsSelector_Type
   end
 end
 
@@ -622,15 +661,18 @@ class CampaignAdExtension
 end
 
 # CampaignAdExtensionSelector
+# - statsSelector - AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector
 # - campaignIds - SOAP::SOAPLong
 # - statuses - AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus
 # - paging - AdWords::V200909::CampaignAdExtensionService::Paging
 class CampaignAdExtensionSelector
+  attr_accessor :statsSelector
   attr_accessor :campaignIds
   attr_accessor :statuses
   attr_accessor :paging
 
-  def initialize(campaignIds = [], statuses = [], paging = nil)
+  def initialize(statsSelector = nil, campaignIds = [], statuses = [], paging = nil)
+    @statsSelector = statsSelector
     @campaignIds = campaignIds
     @statuses = statuses
     @paging = paging
@@ -773,6 +815,11 @@ class AuthenticationErrorReason < ::String
   CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
   CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
   CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT = AuthenticationErrorReason.new("FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT")
+  FAILED_TO_RETRIEVE_LOGIN_COOKIE = AuthenticationErrorReason.new("FAILED_TO_RETRIEVE_LOGIN_COOKIE")
+  GOOGLE_ACCOUNT_COOKIE_INVALID = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_COOKIE_INVALID")
+  GOOGLE_ACCOUNT_DELETED = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_DELETED")
+  GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH")
   LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
   LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
   NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")

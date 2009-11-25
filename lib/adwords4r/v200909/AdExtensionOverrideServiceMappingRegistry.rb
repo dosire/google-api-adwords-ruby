@@ -324,6 +324,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::StringLengthError,
+    :schema_type => XSD::QName.new(NsV200909, "StringLengthError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::StringLengthErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::AdExtension,
     :schema_type => XSD::QName.new(NsV200909, "AdExtension"),
     :schema_element => [
@@ -531,6 +543,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::StatsNetwork,
     :schema_type => XSD::QName.new(NsV200909, "Stats.Network")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::StringLengthErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "StringLengthError.Reason")
   )
 
   LiteralRegistry.register(
@@ -849,6 +866,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::StringLengthError,
+    :schema_type => XSD::QName.new(NsV200909, "StringLengthError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::StringLengthErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::AdExtension,
     :schema_type => XSD::QName.new(NsV200909, "AdExtension"),
     :schema_element => [
@@ -1056,6 +1085,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::StatsNetwork,
     :schema_type => XSD::QName.new(NsV200909, "Stats.Network")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::StringLengthErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "StringLengthError.Reason")
   )
 
   LiteralRegistry.register(

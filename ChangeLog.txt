@@ -1,3 +1,8 @@
+17.1.0
+- Added support for AdParamService in v200909.
+- Improved request logging, by adding isFault and faultMessage.
+  isFault indicates whether the request was a fault, and faultMessage contains the error message, if any.
+
 17.0.1
 - Fixed unit tracking for failed requests.
   Issue 13, http://code.google.com/p/google-api-adwords-ruby/issues/detail?id=13

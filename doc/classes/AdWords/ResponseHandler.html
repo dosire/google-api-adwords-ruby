@@ -57,7 +57,7 @@ unit usage and statistics information.
         <dd>
             <ul>
                 
-                <li><a href="#M000026">new</a></li>
+                <li><a href="#M000027">new</a></li>
                 
             </ul>
         </dd>
@@ -97,9 +97,9 @@ unit usage and statistics information.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000026">
+                <div class="title" id="M000027">
                     
-                    <a name="M000026"></a><b>new</b>(parent)
+                    <a name="M000027"></a><b>new</b>(parent)
                     
                 </div>
                 
@@ -124,10 +124,10 @@ href="ResponseHandler.html">ResponseHandler</a> should be tied
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show</a>
                         
                     </p>
-                    <div id="M000026_source" class="dyn-source">
+                    <div id="M000027_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 437</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">parent</span>)
       <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">parent</span>
@@ -142,7 +142,7 @@ href="ResponseHandler.html">ResponseHandler</a> should be tied
             <div class="method">
                 <div class="title" id="M000028">
                     
-                    <a name="M000028"></a><b>on_callback</b>(method_name, endpoint, envelope, params)
+                    <a name="M000028"></a><b>on_callback</b>(method_name, endpoint, envelope, params, fault = false, fault_msg = nil)
                     
                 </div>
                 
@@ -166,6 +166,12 @@ Args:
 <li>params: the parameters that were passed to the method
 
 </li>
+<li>fault: whether the request resulted in a fault or not
+
+</li>
+<li>fault_msg: the fault message in case of a fault (nil if none)
+
+</li>
 </ul>
 
                 </div>
@@ -179,8 +185,9 @@ Args:
                         
                     </p>
                     <div id="M000028_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 450</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_callback</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">envelope</span>, <span class="ruby-identifier">params</span>)
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 452</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_callback</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">envelope</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">fault</span> = <span class="ruby-keyword kw">false</span>,
+        <span class="ruby-identifier">fault_msg</span> = <span class="ruby-keyword kw">nil</span>)
       <span class="ruby-identifier">units</span> = <span class="ruby-keyword kw">nil</span>
       <span class="ruby-identifier">operations</span> = <span class="ruby-keyword kw">nil</span>
       <span class="ruby-identifier">response_time</span> = <span class="ruby-keyword kw">nil</span>
@@ -217,21 +224,23 @@ Args:
         <span class="ruby-identifier">operator_count</span> = <span class="ruby-identifier">operators</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">op</span>, <span class="ruby-identifier">num</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{op}: #{num}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)
       <span class="ruby-keyword kw">end</span>
 
-      <span class="ruby-identifier">header</span> = <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">header</span>
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">header</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value str">'ResponseHeader'</span>)
+      <span class="ruby-identifier">header</span> = <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">header</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">envelope</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">header</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">header</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value str">'ResponseHeader'</span>)
         <span class="ruby-identifier">header</span> = <span class="ruby-identifier">header</span>[<span class="ruby-value str">'ResponseHeader'</span>].<span class="ruby-identifier">element</span>
       <span class="ruby-keyword kw">end</span>
 
-      <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">units</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'units'</span>])
-        <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">units</span>.<span class="ruby-identifier">nil?</span>
-          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">last_units</span> = <span class="ruby-identifier">units</span>.<span class="ruby-identifier">to_i</span>
-          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">total_units</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">total_units</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">units</span>.<span class="ruby-identifier">to_i</span>
-        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">header</span>
+        <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword kw">do</span>
+          <span class="ruby-identifier">units</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'units'</span>])
+          <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">units</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">last_units</span> = <span class="ruby-identifier">units</span>.<span class="ruby-identifier">to_i</span>
+            <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">total_units</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">total_units</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">units</span>.<span class="ruby-identifier">to_i</span>
+          <span class="ruby-keyword kw">end</span>
 
-        <span class="ruby-identifier">operations</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'operations'</span>])
-        <span class="ruby-identifier">response_time</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'responseTime'</span>])
-        <span class="ruby-identifier">request_id</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'requestId'</span>])
+          <span class="ruby-identifier">operations</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'operations'</span>])
+          <span class="ruby-identifier">response_time</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'responseTime'</span>])
+          <span class="ruby-identifier">request_id</span> = <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value str">'requestId'</span>])
+        <span class="ruby-keyword kw">end</span>
       <span class="ruby-keyword kw">end</span>
 
       <span class="ruby-identifier">host</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">endpoint</span>).<span class="ruby-identifier">host</span>
@@ -241,7 +250,15 @@ Args:
 
       <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;operators={#{operator_count}} &quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">operator_count</span>
 
-      <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;units=#{units} requestId=#{request_id}&quot;</span>
+      <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;units=#{units} requestId=#{request_id} &quot;</span>
+
+      <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;isFault=#{(!!fault).to_s} &quot;</span>
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">fault_msg</span>
+        <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;faultMessage=\&quot;#{fault_msg}\&quot;&quot;</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">data</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;faultMessage=none&quot;</span>
+      <span class="ruby-keyword kw">end</span>
 
       <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">unit_logger</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -285,7 +302,7 @@ header is nil
                         
                     </p>
                     <div id="M000029_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 524</span>
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r.rb, line 537</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_header</span>(<span class="ruby-identifier">header</span>)
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">header</span>.<span class="ruby-identifier">nil?</span>
         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>

@@ -56,7 +56,7 @@ Wrapper class to handle logging to console and/or files.
         <dd>
             <ul>
                 
-                <li><a href="#M000032"><<</a></li>
+                <li><a href="#M000043"><<</a></li>
                 
             </ul>
         </dd>
@@ -65,7 +65,7 @@ Wrapper class to handle logging to console and/or files.
         <dd>
             <ul>
                 
-                <li><a href="#M000031">log_to_file</a></li>
+                <li><a href="#M000040">log_to_file</a></li>
                 
             </ul>
         </dd>
@@ -74,7 +74,7 @@ Wrapper class to handle logging to console and/or files.
         <dd>
             <ul>
                 
-                <li><a href="#M000030">new</a></li>
+                <li><a href="#M000039">new</a></li>
                 
             </ul>
         </dd>
@@ -96,9 +96,9 @@ Wrapper class to handle logging to console and/or files.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000030">
+                <div class="title" id="M000039">
                     
-                    <a name="M000030"></a><b>new</b>(filename, log_to_console=false)
+                    <a name="M000039"></a><b>new</b>(filename, log_to_console=false)
                     
                 </div>
                 
@@ -111,7 +111,7 @@ Args:
 </p>
 <ul>
 <li>filename: the filename for the log file to be written (if <a
-href="AdWordsLogger.html#M000031">log_to_file</a> is called)
+href="AdWordsLogger.html#M000040">log_to_file</a> is called)
 
 </li>
 <li>log_to_console: boolean, indicates whether or not to log to the console
@@ -126,10 +126,10 @@ href="AdWordsLogger.html#M000031">log_to_file</a> is called)
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000039_source')" id="l_M000039_source">show</a>
                         
                     </p>
-                    <div id="M000030_source" class="dyn-source">
+                    <div id="M000039_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 36</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">log_to_console</span>=<span class="ruby-keyword kw">false</span>)
       <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
@@ -148,9 +148,9 @@ href="AdWordsLogger.html#M000031">log_to_file</a> is called)
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000032">
+                <div class="title" id="M000043">
                     
-                    <a name="M000032"></a><b>&lt;&lt;</b>(text)
+                    <a name="M000043"></a><b>&lt;&lt;</b>(text)
                     
                 </div>
                 
@@ -166,10 +166,10 @@ Overload << operator to perform logging.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000032_source')" id="l_M000032_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000043_source')" id="l_M000043_source">show</a>
                         
                     </p>
-                    <div id="M000032_source" class="dyn-source">
+                    <div id="M000043_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 62</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">text</span>)
       <span class="ruby-ivar">@loggers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">logger</span><span class="ruby-operator">|</span>
@@ -182,9 +182,9 @@ Overload << operator to perform logging.
             </div>
             
             <div class="method">
-                <div class="title" id="M000031">
+                <div class="title" id="M000040">
                     
-                    <a name="M000031"></a><b>log_to_file</b>(path='.')
+                    <a name="M000040"></a><b>log_to_file</b>(path='.')
                     
                 </div>
                 
@@ -210,10 +210,10 @@ provide filename.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000040_source')" id="l_M000040_source">show</a>
                         
                     </p>
-                    <div id="M000031_source" class="dyn-source">
+                    <div id="M000040_source" class="dyn-source">
                         <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 53</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log_to_file</span>(<span class="ruby-identifier">path</span>=<span class="ruby-value str">'.'</span>)
       <span class="ruby-identifier">new_logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-ivar">@filename</span>))

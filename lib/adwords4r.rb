@@ -446,8 +446,11 @@ module AdWords
     # - endpoint: the enodpoint URL the request was sent to
     # - envelope: the envelope for the SOAP response that was received
     # - params: the parameters that were passed to the method
+    # - fault: whether the request resulted in a fault or not
+    # - fault_msg: the fault message in case of a fault (nil if none)
     #
-    def on_callback(method_name, endpoint, envelope, params)
+    def on_callback(method_name, endpoint, envelope, params, fault = false,
+        fault_msg = nil)
       units = nil
       operations = nil
       response_time = nil
@@ -510,7 +513,15 @@ module AdWords
 
       data += "operators={#{operator_count}} " if operator_count
 
-      data += "units=#{units} requestId=#{request_id}"
+      data += "units=#{units} requestId=#{request_id} "
+
+      data += "isFault=#{(!!fault).to_s} "
+
+      if fault_msg
+        data += "faultMessage=\"#{fault_msg}\""
+      else
+        data += "faultMessage=none"
+      end
 
       @parent.unit_logger << data
     end

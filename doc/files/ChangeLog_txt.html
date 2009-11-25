@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>ChangeLog.txt</li>
-            <li>Last modified: Wed Oct 14 15:56:53 +0100 2009</li>
+            <li>Last modified: Fri Nov 20 00:13:33 +0000 2009</li>
         </ul>
     </div>
 
@@ -28,9 +28,34 @@
     
     <div class="description">
         <p>
+17.1.0
+</p>
+<ul>
+<li>Added support for AdParamService in v200909.
+
+</li>
+<li>Improved request logging, by adding isFault and faultMessage. isFault
+indicates whether the request was a fault, and faultMessage contains the
+error message, if any.
+
+</li>
+</ul>
+<p>
+17.0.1
+</p>
+<ul>
+<li>Fixed unit tracking for failed requests. Issue 13, <a
+href="http://code.google.com/p/google-api-adwords-ruby/issues/detail?id=13">code.google.com/p/google-api-adwords-ruby/issues/detail?id=13</a>
+
+</li>
+</ul>
+<p>
 17.0.0
 </p>
 <ul>
+<li>Added support for v200909.
+
+</li>
 <li>Changed the parameter order in API.get_service (aka API.service) to be
 get_service(name, version). The old ordering is still supported but
 deprecated. The version parameter is now optional and defaults to 13.

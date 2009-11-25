@@ -2038,15 +2038,10 @@ end
 # Ad.ApprovalStatus
 class AdApprovalStatus < ::String
   APPROVED = AdApprovalStatus.new("APPROVED")
-  AUTO_GENERATED = AdApprovalStatus.new("AUTO_GENERATED")
-  DISABLED = AdApprovalStatus.new("DISABLED")
   DISAPPROVED = AdApprovalStatus.new("DISAPPROVED")
   FAMILY_SAFE = AdApprovalStatus.new("FAMILY_SAFE")
-  FORBIDDEN = AdApprovalStatus.new("FORBIDDEN")
   NON_FAMILY_SAFE = AdApprovalStatus.new("NON_FAMILY_SAFE")
-  NOT_READY_FOR_APPROVAL = AdApprovalStatus.new("NOT_READY_FOR_APPROVAL")
   PORN = AdApprovalStatus.new("PORN")
-  SUSPICIOUS = AdApprovalStatus.new("SUSPICIOUS")
   UNCHECKED = AdApprovalStatus.new("UNCHECKED")
 end
 
@@ -2167,6 +2162,11 @@ class AuthenticationErrorReason < ::String
   CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
   CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
   CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT = AuthenticationErrorReason.new("FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT")
+  FAILED_TO_RETRIEVE_LOGIN_COOKIE = AuthenticationErrorReason.new("FAILED_TO_RETRIEVE_LOGIN_COOKIE")
+  GOOGLE_ACCOUNT_COOKIE_INVALID = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_COOKIE_INVALID")
+  GOOGLE_ACCOUNT_DELETED = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_DELETED")
+  GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH")
   LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
   LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
   NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")
