@@ -759,6 +759,25 @@ class QuotaExceededError < ApiError
   end
 end
 
+# RangeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::AdGroupCriterionService::RangeErrorReason
+class C_RangeError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # ReadOnlyError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -1303,6 +1322,7 @@ class BiddingErrorReason < ::String
   BOTTOM_POSITION_OUT_OF_RANGE = BiddingErrorReason.new("BOTTOM_POSITION_OUT_OF_RANGE")
   CAMPAIGN_ALREADY_SET = BiddingErrorReason.new("CAMPAIGN_ALREADY_SET")
   CAMPAIGN_MUST_HAVE_A_BUDGET_TO_ENABLE_BUDGET_OPTIMIZER = BiddingErrorReason.new("CAMPAIGN_MUST_HAVE_A_BUDGET_TO_ENABLE_BUDGET_OPTIMIZER")
+  CANNOT_CREATE_CAMPAIGN_WITH_CONVERSION_OPTIMIZER = BiddingErrorReason.new("CANNOT_CREATE_CAMPAIGN_WITH_CONVERSION_OPTIMIZER")
   CANNOT_EXCLUDE_DEFAULT = BiddingErrorReason.new("CANNOT_EXCLUDE_DEFAULT")
   CANNOT_SET_CONTENT_BID_WITHOUT_SETTING_KEYWORD_MAX_CPC_AS_WELL = BiddingErrorReason.new("CANNOT_SET_CONTENT_BID_WITHOUT_SETTING_KEYWORD_MAX_CPC_AS_WELL")
   CANNOT_TARGET_AND_EXCLUDE = BiddingErrorReason.new("CANNOT_TARGET_AND_EXCLUDE")
@@ -1461,6 +1481,12 @@ end
 # QuotaExceededError.Reason
 class QuotaExceededErrorReason < ::String
   QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# RangeError.Reason
+class RangeErrorReason < ::String
+  TOO_HIGH = RangeErrorReason.new("TOO_HIGH")
+  TOO_LOW = RangeErrorReason.new("TOO_LOW")
 end
 
 # ReadOnlyError.Reason

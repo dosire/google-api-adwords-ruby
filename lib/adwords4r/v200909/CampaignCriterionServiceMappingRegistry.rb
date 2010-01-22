@@ -211,6 +211,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::OperationAccessDenied,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignCriterionService::OperationAccessDeniedReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::CampaignCriterionService::OperatorError,
     :schema_type => XSD::QName.new(NsV200909, "OperatorError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -275,6 +287,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::CampaignCriterionService::QuotaExceededErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::C_RangeError,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignCriterionService::RangeErrorReason", [0, 1]]
     ]
   )
 
@@ -500,6 +524,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::OperationAccessDeniedReason,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::CampaignCriterionService::Operator,
     :schema_type => XSD::QName.new(NsV200909, "Operator")
   )
@@ -522,6 +551,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::CampaignCriterionService::QuotaExceededErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "QuotaExceededError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::RangeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError.Reason")
   )
 
   EncodedRegistry.register(
@@ -742,6 +776,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::OperationAccessDenied,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignCriterionService::OperationAccessDeniedReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::CampaignCriterionService::OperatorError,
     :schema_type => XSD::QName.new(NsV200909, "OperatorError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -806,6 +852,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::CampaignCriterionService::QuotaExceededErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::C_RangeError,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignCriterionService::RangeErrorReason", [0, 1]]
     ]
   )
 
@@ -1031,6 +1089,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::OperationAccessDeniedReason,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::CampaignCriterionService::Operator,
     :schema_type => XSD::QName.new(NsV200909, "Operator")
   )
@@ -1053,6 +1116,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::CampaignCriterionService::QuotaExceededErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "QuotaExceededError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignCriterionService::RangeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError.Reason")
   )
 
   LiteralRegistry.register(

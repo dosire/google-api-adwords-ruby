@@ -16,7 +16,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "addCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "checkCriteria",
@@ -24,7 +24,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "checkCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getAllCriteria",
@@ -32,7 +32,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getAllCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getCampaignNegativeCriteria",
@@ -40,7 +40,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getCampaignNegativeCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getCriteria",
@@ -48,7 +48,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getCriterionStats",
@@ -56,7 +56,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getCriterionStatsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "removeCriteria",
@@ -64,7 +64,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "removeCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "setCampaignNegativeCriteria",
@@ -72,7 +72,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "setCampaignNegativeCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "updateCriteria",
@@ -80,7 +80,7 @@ class CriterionInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "updateCriteriaResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::CriterionService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ]
   ]
 

@@ -372,7 +372,7 @@ module AdWords
             'Attempting to connect to the sandbox with malformatted ' +
             'credentials. Please check ' +
             'http://code.google.com/apis/adwords/docs/developer/' +
-            'adwords_api_sandbox.html/#requestheaders for details.'
+            'adwords_api_sandbox.html#requestheaders for details.'
       end
     end
   end

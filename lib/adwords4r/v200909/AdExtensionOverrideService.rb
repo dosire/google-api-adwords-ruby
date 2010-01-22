@@ -513,6 +513,25 @@ class DistinctError < ApiError
   end
 end
 
+# EntityNotFound
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::AdExtensionOverrideService::EntityNotFoundReason
+class EntityNotFound < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # InternalApiError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -576,6 +595,25 @@ end
 # - apiError_Type - SOAP::SOAPString
 # - reason - AdWords::V200909::AdExtensionOverrideService::NullErrorReason
 class NullError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# OperatorError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::AdExtensionOverrideService::OperatorErrorReason
+class OperatorError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
   attr_accessor :apiError_Type
@@ -892,6 +930,11 @@ class DistinctErrorReason < ::String
   DUPLICATE_ELEMENT = DistinctErrorReason.new("DUPLICATE_ELEMENT")
 end
 
+# EntityNotFound.Reason
+class EntityNotFoundReason < ::String
+  INVALID_ID = EntityNotFoundReason.new("INVALID_ID")
+end
+
 # InternalApiError.Reason
 class InternalApiErrorReason < ::String
   UNEXPECTED_INTERNAL_API_ERROR = InternalApiErrorReason.new("UNEXPECTED_INTERNAL_API_ERROR")
@@ -929,6 +972,11 @@ class Operator < ::String
   ADD = Operator.new("ADD")
   REMOVE = Operator.new("REMOVE")
   SET = Operator.new("SET")
+end
+
+# OperatorError.Reason
+class OperatorErrorReason < ::String
+  OPERATOR_NOT_SUPPORTED = OperatorErrorReason.new("OPERATOR_NOT_SUPPORTED")
 end
 
 # QuotaCheckError.Reason

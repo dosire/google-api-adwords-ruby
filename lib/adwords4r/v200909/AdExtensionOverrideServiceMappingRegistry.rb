@@ -118,6 +118,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::EntityNotFound,
+    :schema_type => XSD::QName.new(NsV200909, "EntityNotFound"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::EntityNotFoundReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::GeoPoint,
     :schema_type => XSD::QName.new(NsV200909, "GeoPoint"),
     :schema_element => [
@@ -218,6 +230,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::AdExtensionOverrideService::NullErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::OperatorError,
+    :schema_type => XSD::QName.new(NsV200909, "OperatorError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::OperatorErrorReason", [0, 1]]
     ]
   )
 
@@ -481,6 +505,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::EntityNotFoundReason,
+    :schema_type => XSD::QName.new(NsV200909, "EntityNotFound.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::InternalApiErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "InternalApiError.Reason")
   )
@@ -513,6 +542,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::Operator,
     :schema_type => XSD::QName.new(NsV200909, "Operator")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::OperatorErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "OperatorError.Reason")
   )
 
   EncodedRegistry.register(
@@ -660,6 +694,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::EntityNotFound,
+    :schema_type => XSD::QName.new(NsV200909, "EntityNotFound"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::EntityNotFoundReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::GeoPoint,
     :schema_type => XSD::QName.new(NsV200909, "GeoPoint"),
     :schema_element => [
@@ -760,6 +806,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::AdExtensionOverrideService::NullErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::OperatorError,
+    :schema_type => XSD::QName.new(NsV200909, "OperatorError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::OperatorErrorReason", [0, 1]]
     ]
   )
 
@@ -1023,6 +1081,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::EntityNotFoundReason,
+    :schema_type => XSD::QName.new(NsV200909, "EntityNotFound.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::InternalApiErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "InternalApiError.Reason")
   )
@@ -1055,6 +1118,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::Operator,
     :schema_type => XSD::QName.new(NsV200909, "Operator")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::OperatorErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "OperatorError.Reason")
   )
 
   LiteralRegistry.register(

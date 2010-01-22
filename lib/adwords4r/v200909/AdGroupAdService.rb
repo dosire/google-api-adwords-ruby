@@ -1444,6 +1444,25 @@ class QuotaExceededError < ApiError
   end
 end
 
+# RangeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::AdGroupAdService::RangeErrorReason
+class C_RangeError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # ReadOnlyError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -2069,6 +2088,7 @@ class AdErrorReason < ::String
   INCONSISTENT_STATUS_IN_TEMPLATE_UNION = AdErrorReason.new("INCONSISTENT_STATUS_IN_TEMPLATE_UNION")
   INCORRECT_LENGTH = AdErrorReason.new("INCORRECT_LENGTH")
   INVALID_AD_ADDRESS_CAMPAIGN_TARGET = AdErrorReason.new("INVALID_AD_ADDRESS_CAMPAIGN_TARGET")
+  INVALID_AD_TYPE = AdErrorReason.new("INVALID_AD_TYPE")
   INVALID_ATTRIBUTES_FOR_MOBILE_IMAGE = AdErrorReason.new("INVALID_ATTRIBUTES_FOR_MOBILE_IMAGE")
   INVALID_ATTRIBUTES_FOR_MOBILE_TEXT = AdErrorReason.new("INVALID_ATTRIBUTES_FOR_MOBILE_TEXT")
   INVALID_COUNTRY_CODE = AdErrorReason.new("INVALID_COUNTRY_CODE")
@@ -2087,6 +2107,7 @@ class AdErrorReason < ::String
   MARKUP_LANGUAGES_PRESENT = AdErrorReason.new("MARKUP_LANGUAGES_PRESENT")
   MISSING_ADDRESS_COMPONENT = AdErrorReason.new("MISSING_ADDRESS_COMPONENT")
   MISSING_ADVERTISEMENT_NAME = AdErrorReason.new("MISSING_ADVERTISEMENT_NAME")
+  MISSING_BUSINESS_NAME = AdErrorReason.new("MISSING_BUSINESS_NAME")
   MISSING_DESCRIPTION1 = AdErrorReason.new("MISSING_DESCRIPTION1")
   MISSING_DESCRIPTION2 = AdErrorReason.new("MISSING_DESCRIPTION2")
   MISSING_DESTINATION_URL = AdErrorReason.new("MISSING_DESTINATION_URL")
@@ -2486,6 +2507,12 @@ end
 # QuotaExceededError.Reason
 class QuotaExceededErrorReason < ::String
   QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# RangeError.Reason
+class RangeErrorReason < ::String
+  TOO_HIGH = RangeErrorReason.new("TOO_HIGH")
+  TOO_LOW = RangeErrorReason.new("TOO_LOW")
 end
 
 # ReadOnlyError.Reason

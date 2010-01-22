@@ -16,7 +16,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "addAdsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "checkAds",
@@ -24,7 +24,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "checkAdsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "findBusinesses",
@@ -32,7 +32,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "findBusinessesResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getActiveAds",
@@ -40,7 +40,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getActiveAdsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getAd",
@@ -48,7 +48,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getAdResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getAdStats",
@@ -56,7 +56,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getAdStatsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getAllAds",
@@ -64,7 +64,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getAllAdsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getMyBusinesses",
@@ -72,7 +72,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getMyBusinessesResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "getMyVideos",
@@ -80,7 +80,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "getMyVideosResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ],
     [ "",
       "updateAds",
@@ -88,7 +88,7 @@ class AdInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/v13", "updateAdsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V13::AdService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/v13", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V13::AdService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/v13"}} }
     ]
   ]
 

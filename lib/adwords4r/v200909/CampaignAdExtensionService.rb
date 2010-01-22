@@ -460,6 +460,25 @@ class NullError < ApiError
   end
 end
 
+# OperationAccessDenied
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::CampaignAdExtensionService::OperationAccessDeniedReason
+class OperationAccessDenied < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # OperatorError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -542,6 +561,25 @@ end
 # - apiError_Type - SOAP::SOAPString
 # - reason - AdWords::V200909::CampaignAdExtensionService::ReadOnlyErrorReason
 class ReadOnlyError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# RegionCodeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::CampaignAdExtensionService::RegionCodeErrorReason
+class RegionCodeError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
   attr_accessor :apiError_Type
@@ -641,25 +679,6 @@ class ApiException < ApplicationException
   end
 end
 
-# CampaignAdExtension
-# - campaignId - SOAP::SOAPLong
-# - adExtension - AdWords::V200909::CampaignAdExtensionService::AdExtension
-# - status - AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus
-# - approvalStatus - AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionApprovalStatus
-class CampaignAdExtension
-  attr_accessor :campaignId
-  attr_accessor :adExtension
-  attr_accessor :status
-  attr_accessor :approvalStatus
-
-  def initialize(campaignId = nil, adExtension = nil, status = nil, approvalStatus = nil)
-    @campaignId = campaignId
-    @adExtension = adExtension
-    @status = status
-    @approvalStatus = approvalStatus
-  end
-end
-
 # CampaignAdExtensionSelector
 # - statsSelector - AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector
 # - campaignIds - SOAP::SOAPLong
@@ -676,6 +695,25 @@ class CampaignAdExtensionSelector
     @campaignIds = campaignIds
     @statuses = statuses
     @paging = paging
+  end
+end
+
+# CampaignAdExtension
+# - campaignId - SOAP::SOAPLong
+# - adExtension - AdWords::V200909::CampaignAdExtensionService::AdExtension
+# - status - AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus
+# - approvalStatus - AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionApprovalStatus
+class CampaignAdExtension
+  attr_accessor :campaignId
+  attr_accessor :adExtension
+  attr_accessor :status
+  attr_accessor :approvalStatus
+
+  def initialize(campaignId = nil, adExtension = nil, status = nil, approvalStatus = nil)
+    @campaignId = campaignId
+    @adExtension = adExtension
+    @status = status
+    @approvalStatus = approvalStatus
   end
 end
 
@@ -920,6 +958,14 @@ class NullErrorReason < ::String
   NULL_CONTENT = NullErrorReason.new("NULL_CONTENT")
 end
 
+# OperationAccessDenied.Reason
+class OperationAccessDeniedReason < ::String
+  ACTION_NOT_PERMITTED = OperationAccessDeniedReason.new("ACTION_NOT_PERMITTED")
+  ADD_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("ADD_OPERATION_NOT_PERMITTED")
+  REMOVE_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("REMOVE_OPERATION_NOT_PERMITTED")
+  SET_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("SET_OPERATION_NOT_PERMITTED")
+end
+
 # Operator
 class Operator < ::String
   ADD = Operator.new("ADD")
@@ -965,6 +1011,11 @@ end
 # ReadOnlyError.Reason
 class ReadOnlyErrorReason < ::String
   READ_ONLY = ReadOnlyErrorReason.new("READ_ONLY")
+end
+
+# RegionCodeError.Reason
+class RegionCodeErrorReason < ::String
+  INVALID_REGION_CODE = RegionCodeErrorReason.new("INVALID_REGION_CODE")
 end
 
 # RequiredError.Reason

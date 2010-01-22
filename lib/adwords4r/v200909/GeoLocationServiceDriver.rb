@@ -16,7 +16,7 @@ class GeoLocationServiceInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/cm/v200909", "getResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V200909::GeoLocationService::ApiException"=>{:ns=>"https://adwords.google.com/api/adwords/cm/v200909", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V200909::GeoLocationService::ApiException"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/cm/v200909"}} }
     ]
   ]
 

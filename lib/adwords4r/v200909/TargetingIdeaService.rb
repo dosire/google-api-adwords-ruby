@@ -679,6 +679,60 @@ class DistinctError < ApiError
   end
 end
 
+# EntityCountLimitExceeded
+# abstract
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::TargetingIdeaService::EntityCountLimitExceededReason
+# - enclosingId - SOAP::SOAPString
+# - limit - SOAP::SOAPInt
+class EntityCountLimitExceeded < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+  attr_accessor :enclosingId
+  attr_accessor :limit
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil, enclosingId = nil, limit = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+    @enclosingId = enclosingId
+    @limit = limit
+  end
+end
+
+# AdGroupCriterionLimitExceeded
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::TargetingIdeaService::EntityCountLimitExceededReason
+# - enclosingId - SOAP::SOAPString
+# - limit - SOAP::SOAPInt
+# - limitType - AdWords::V200909::TargetingIdeaService::AdGroupCriterionLimitExceededCriteriaLimitType
+class AdGroupCriterionLimitExceeded < EntityCountLimitExceeded
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+  attr_accessor :enclosingId
+  attr_accessor :limit
+  attr_accessor :limitType
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil, enclosingId = nil, limit = nil, limitType = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+    @enclosingId = enclosingId
+    @limit = limit
+    @limitType = limitType
+  end
+end
+
 # EntityNotFound
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -1669,6 +1723,12 @@ class AdGroupCriterionErrorReason < ::String
   TYPE_MISMATCH = AdGroupCriterionErrorReason.new("TYPE_MISMATCH")
 end
 
+# AdGroupCriterionLimitExceeded.CriteriaLimitType
+class AdGroupCriterionLimitExceededCriteriaLimitType < ::String
+  ADGROUP_KEYWORD = AdGroupCriterionLimitExceededCriteriaLimitType.new("ADGROUP_KEYWORD")
+  ADGROUP_WEBSITE = AdGroupCriterionLimitExceededCriteriaLimitType.new("ADGROUP_WEBSITE")
+end
+
 # AgeTarget.Age
 class AgeTargetAge < ::String
   AGE_0_17 = AgeTargetAge.new("AGE_0_17")
@@ -1733,6 +1793,7 @@ class BiddingErrorReason < ::String
   BOTTOM_POSITION_OUT_OF_RANGE = BiddingErrorReason.new("BOTTOM_POSITION_OUT_OF_RANGE")
   CAMPAIGN_ALREADY_SET = BiddingErrorReason.new("CAMPAIGN_ALREADY_SET")
   CAMPAIGN_MUST_HAVE_A_BUDGET_TO_ENABLE_BUDGET_OPTIMIZER = BiddingErrorReason.new("CAMPAIGN_MUST_HAVE_A_BUDGET_TO_ENABLE_BUDGET_OPTIMIZER")
+  CANNOT_CREATE_CAMPAIGN_WITH_CONVERSION_OPTIMIZER = BiddingErrorReason.new("CANNOT_CREATE_CAMPAIGN_WITH_CONVERSION_OPTIMIZER")
   CANNOT_EXCLUDE_DEFAULT = BiddingErrorReason.new("CANNOT_EXCLUDE_DEFAULT")
   CANNOT_SET_CONTENT_BID_WITHOUT_SETTING_KEYWORD_MAX_CPC_AS_WELL = BiddingErrorReason.new("CANNOT_SET_CONTENT_BID_WITHOUT_SETTING_KEYWORD_MAX_CPC_AS_WELL")
   CANNOT_TARGET_AND_EXCLUDE = BiddingErrorReason.new("CANNOT_TARGET_AND_EXCLUDE")
@@ -1815,6 +1876,13 @@ end
 # DistinctError.Reason
 class DistinctErrorReason < ::String
   DUPLICATE_ELEMENT = DistinctErrorReason.new("DUPLICATE_ELEMENT")
+end
+
+# EntityCountLimitExceeded.Reason
+class EntityCountLimitExceededReason < ::String
+  ACCOUNT_LIMIT = EntityCountLimitExceededReason.new("ACCOUNT_LIMIT")
+  ADGROUP_LIMIT = EntityCountLimitExceededReason.new("ADGROUP_LIMIT")
+  CAMPAIGN_LIMIT = EntityCountLimitExceededReason.new("CAMPAIGN_LIMIT")
 end
 
 # EntityNotFound.Reason

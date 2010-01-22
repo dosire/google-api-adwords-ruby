@@ -1,3 +1,6 @@
+17.3.0
+- Added functionality tests for v2009 CampaignService and AdGroupService.
+
 17.2.0
 - Added new set of code samples for v200909.
 

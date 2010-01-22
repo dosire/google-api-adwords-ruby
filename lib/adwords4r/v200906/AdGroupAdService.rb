@@ -1341,6 +1341,25 @@ class QuotaExceededError < ApiError
   end
 end
 
+# RangeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::AdGroupAdService::RangeErrorReason
+class C_RangeError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # ReadOnlyError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -1848,15 +1867,10 @@ end
 # Ad.ApprovalStatus
 class AdApprovalStatus < ::String
   APPROVED = AdApprovalStatus.new("APPROVED")
-  AUTO_GENERATED = AdApprovalStatus.new("AUTO_GENERATED")
-  DISABLED = AdApprovalStatus.new("DISABLED")
   DISAPPROVED = AdApprovalStatus.new("DISAPPROVED")
   FAMILY_SAFE = AdApprovalStatus.new("FAMILY_SAFE")
-  FORBIDDEN = AdApprovalStatus.new("FORBIDDEN")
   NON_FAMILY_SAFE = AdApprovalStatus.new("NON_FAMILY_SAFE")
-  NOT_READY_FOR_APPROVAL = AdApprovalStatus.new("NOT_READY_FOR_APPROVAL")
   PORN = AdApprovalStatus.new("PORN")
-  SUSPICIOUS = AdApprovalStatus.new("SUSPICIOUS")
   UNCHECKED = AdApprovalStatus.new("UNCHECKED")
 end
 
@@ -1944,6 +1958,11 @@ class AuthenticationErrorReason < ::String
   CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
   CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
   CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT = AuthenticationErrorReason.new("FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT")
+  FAILED_TO_RETRIEVE_LOGIN_COOKIE = AuthenticationErrorReason.new("FAILED_TO_RETRIEVE_LOGIN_COOKIE")
+  GOOGLE_ACCOUNT_COOKIE_INVALID = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_COOKIE_INVALID")
+  GOOGLE_ACCOUNT_DELETED = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_DELETED")
+  GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH")
   LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
   LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
   NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")
@@ -2248,6 +2267,12 @@ end
 # QuotaExceededError.Reason
 class QuotaExceededErrorReason < ::String
   QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# RangeError.Reason
+class RangeErrorReason < ::String
+  TOO_HIGH = RangeErrorReason.new("TOO_HIGH")
+  TOO_LOW = RangeErrorReason.new("TOO_LOW")
 end
 
 # ReadOnlyError.Reason

@@ -17,9 +17,9 @@
 #           See the License for the specific language governing permissions and
 #           limitations under the License.
 #
-# This example illustrates how to create a ad extension for a campaign, and
-# then override it for a specific ad, by creating an ad extension override. To
-# create a campaign, run add_campaign.rb. To create an ad, run add_ads.rb.
+# This example illustrates override an ad extension for a specific ad, by
+# creating an ad extension override. To create a campaign, run add_campaign.rb.
+# To create an ad, run add_ads.rb.
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
@@ -32,45 +32,27 @@ def add_ad_extension_override()
 
   # Use the latest version for all services
   latest = AdWords::Service.latest_version
-  geo_location_srv = adwords.get_service('GeoLocation', latest)
   ad_ext_override_srv = adwords.get_service('AdExtensionOverride', latest)
 
   ad_id = 'INSERT_AD_ID_HERE'.to_i
   campaign_ad_extension_id = 'INSERT_CAMPAIGN_AD_EXTENSION_ID_HERE'.to_i
 
-  address = {
-    :streetAddress => '1600 Amphitheatre Parkway',
-    :cityName => 'Mountain View',
-    :provinceCode => 'CA',
-    :postalCode => '94043',
-    :countryCode => 'US'
-  }
-
-  # Get the address information from the GeoLocationService.
+  # Prepare for adding ad extension override.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
   # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::GeoLocationService::GeoLocationSelector
-  selector = geo_location_srv.module::GeoLocationSelector.new
-  selector << address
-  response = geo_location_srv.get(selector)
-  geo_location = response.entries.first
+  # e.g. AdWords::V200909::AdExtensionOverrideService::AdExtensionOverride
+  override = ad_ext_override_srv.module::AdExtensionOverride.new
+  override.adId = ad_id
 
-  # Prepare for adding ad extension override.
-  override = ad_ext_override_srv.module::LocationExtension.new
-  override.id = campaign_ad_extension_id
-  override.address = geo_location.address
-  override.geoPoint = geo_location.geoPoint
-  override.encodedLocation = geo_location.encodedLocation
-  override.source = 'ADWORDS_FRONTEND'
+  # Create an AdExtension object based on an existing id.
+  ad_extension = ad_ext_override_srv.module::AdExtension.new
+  ad_extension.id = campaign_ad_extension_id
+  override.adExtension = ad_extension
 
-  # Change the phone number.
-  override.phoneNumber = '1-800-555-5556'
+  # Create operation.
   operation = {
-    :operand => {
-      :adId => ad_id,
-      :adExtension => override
-    },
+    :operand => override,
     :operator => 'ADD'
   }
 

@@ -16,7 +16,7 @@ class TargetingIdeaServiceInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/o/v200909", "getResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V200909::TargetingIdeaService::ApiException_"=>{:ns=>"https://adwords.google.com/api/adwords/o/v200909", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V200909::TargetingIdeaService::ApiException_"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/o/v200909"}} }
     ],
     [ "",
       "getBulkKeywordIdeas",
@@ -24,7 +24,7 @@ class TargetingIdeaServiceInterface < ::SOAP::RPC::Driver
         ["out", "parameters", ["::SOAP::SOAPElement", "https://adwords.google.com/api/adwords/o/v200909", "getBulkKeywordIdeasResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
-        :faults => {"AdWords::V200909::TargetingIdeaService::ApiException_"=>{:ns=>"https://adwords.google.com/api/adwords/o/v200909", :encodingstyle=>"document", :namespace=>nil, :name=>"ApiException", :use=>"literal"}} }
+        :faults => {"AdWords::V200909::TargetingIdeaService::ApiException_"=>{:encodingstyle=>"document", :name=>"ApiException", :namespace=>nil, :use=>"literal", :ns=>"https://adwords.google.com/api/adwords/o/v200909"}} }
     ]
   ]
 

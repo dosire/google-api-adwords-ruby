@@ -236,6 +236,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::OperationAccessDenied,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignAdExtensionService::OperationAccessDeniedReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::OperatorError,
     :schema_type => XSD::QName.new(NsV200909, "OperatorError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -301,6 +313,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::CampaignAdExtensionService::ReadOnlyErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::RegionCodeError,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignAdExtensionService::RegionCodeErrorReason", [0, 1]]
     ]
   )
 
@@ -404,6 +428,17 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionSelector,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionSelector"),
+    :schema_element => [
+      ["statsSelector", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector", [0, 1]],
+      ["campaignIds", "SOAP::SOAPLong[]", [0, nil]],
+      ["statuses", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus[]", [0, nil]],
+      ["paging", "AdWords::V200909::CampaignAdExtensionService::Paging", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtension,
     :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtension"),
     :schema_element => [
@@ -443,17 +478,6 @@ module DefaultMappingRegistry
     :schema_element => [
       ["listReturnValue_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ListReturnValue.Type")], [0, 1]],
       ["value", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtension[]", [0, nil]]
-    ]
-  )
-
-  EncodedRegistry.register(
-    :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionSelector,
-    :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionSelector"),
-    :schema_element => [
-      ["statsSelector", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector", [0, 1]],
-      ["campaignIds", "SOAP::SOAPLong[]", [0, nil]],
-      ["statuses", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus[]", [0, nil]],
-      ["paging", "AdWords::V200909::CampaignAdExtensionService::Paging", [0, 1]]
     ]
   )
 
@@ -538,6 +562,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::OperationAccessDeniedReason,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::Operator,
     :schema_type => XSD::QName.new(NsV200909, "Operator")
   )
@@ -565,6 +594,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::ReadOnlyErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "ReadOnlyError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::RegionCodeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError.Reason")
   )
 
   EncodedRegistry.register(
@@ -810,6 +844,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::OperationAccessDenied,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignAdExtensionService::OperationAccessDeniedReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::OperatorError,
     :schema_type => XSD::QName.new(NsV200909, "OperatorError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -875,6 +921,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::CampaignAdExtensionService::ReadOnlyErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::RegionCodeError,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::CampaignAdExtensionService::RegionCodeErrorReason", [0, 1]]
     ]
   )
 
@@ -978,6 +1036,17 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionSelector,
+    :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionSelector"),
+    :schema_element => [
+      ["statsSelector", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector", [0, 1]],
+      ["campaignIds", "SOAP::SOAPLong[]", [0, nil]],
+      ["statuses", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus[]", [0, nil]],
+      ["paging", "AdWords::V200909::CampaignAdExtensionService::Paging", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtension,
     :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtension"),
     :schema_element => [
@@ -1017,17 +1086,6 @@ module DefaultMappingRegistry
     :schema_element => [
       ["listReturnValue_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ListReturnValue.Type")], [0, 1]],
       ["value", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtension[]", [0, nil]]
-    ]
-  )
-
-  LiteralRegistry.register(
-    :class => AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionSelector,
-    :schema_type => XSD::QName.new(NsV200909, "CampaignAdExtensionSelector"),
-    :schema_element => [
-      ["statsSelector", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatsSelector", [0, 1]],
-      ["campaignIds", "SOAP::SOAPLong[]", [0, nil]],
-      ["statuses", "AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionStatus[]", [0, nil]],
-      ["paging", "AdWords::V200909::CampaignAdExtensionService::Paging", [0, 1]]
     ]
   )
 
@@ -1112,6 +1170,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::OperationAccessDeniedReason,
+    :schema_type => XSD::QName.new(NsV200909, "OperationAccessDenied.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::Operator,
     :schema_type => XSD::QName.new(NsV200909, "Operator")
   )
@@ -1139,6 +1202,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::CampaignAdExtensionService::ReadOnlyErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "ReadOnlyError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::CampaignAdExtensionService::RegionCodeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError.Reason")
   )
 
   LiteralRegistry.register(

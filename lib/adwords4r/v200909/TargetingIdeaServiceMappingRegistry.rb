@@ -22,6 +22,21 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::AdGroupCriterionLimitExceeded,
+    :schema_type => XSD::QName.new(NsV200909, "AdGroupCriterionLimitExceeded"),
+    :schema_basetype => XSD::QName.new(NsV200909, "EntityCountLimitExceeded"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::TargetingIdeaService::EntityCountLimitExceededReason", [0, 1]],
+      ["enclosingId", "SOAP::SOAPString", [0, 1]],
+      ["limit", "SOAP::SOAPInt", [0, 1]],
+      ["limitType", "AdWords::V200909::TargetingIdeaService::AdGroupCriterionLimitExceededCriteriaLimitType", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::AdScheduleTarget,
     :schema_type => XSD::QName.new(NsV200909, "AdScheduleTarget"),
     :schema_basetype => XSD::QName.new(NsV200909, "Target"),
@@ -1051,6 +1066,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::AdGroupCriterionLimitExceededCriteriaLimitType,
+    :schema_type => XSD::QName.new(NsV200909, "AdGroupCriterionLimitExceeded.CriteriaLimitType")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::AgeTargetAge,
     :schema_type => XSD::QName.new(NsV200909, "AgeTarget.Age")
   )
@@ -1098,6 +1118,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::DistinctErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "DistinctError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::EntityCountLimitExceededReason,
+    :schema_type => XSD::QName.new(NsV200909, "EntityCountLimitExceeded.Reason")
   )
 
   EncodedRegistry.register(
@@ -1253,6 +1278,21 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::AdGroupCriterionLimitExceeded,
+    :schema_type => XSD::QName.new(NsV200909, "AdGroupCriterionLimitExceeded"),
+    :schema_basetype => XSD::QName.new(NsV200909, "EntityCountLimitExceeded"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::TargetingIdeaService::EntityCountLimitExceededReason", [0, 1]],
+      ["enclosingId", "SOAP::SOAPString", [0, 1]],
+      ["limit", "SOAP::SOAPInt", [0, 1]],
+      ["limitType", "AdWords::V200909::TargetingIdeaService::AdGroupCriterionLimitExceededCriteriaLimitType", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::AdScheduleTarget,
     :schema_type => XSD::QName.new(NsV200909, "AdScheduleTarget"),
     :schema_basetype => XSD::QName.new(NsV200909, "Target"),
@@ -2282,6 +2322,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::AdGroupCriterionLimitExceededCriteriaLimitType,
+    :schema_type => XSD::QName.new(NsV200909, "AdGroupCriterionLimitExceeded.CriteriaLimitType")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::AgeTargetAge,
     :schema_type => XSD::QName.new(NsV200909, "AgeTarget.Age")
   )
@@ -2329,6 +2374,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::DistinctErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "DistinctError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::EntityCountLimitExceededReason,
+    :schema_type => XSD::QName.new(NsV200909, "EntityCountLimitExceeded.Reason")
   )
 
   LiteralRegistry.register(

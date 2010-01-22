@@ -436,6 +436,25 @@ class NullError < ApiError
   end
 end
 
+# OperationAccessDenied
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::CampaignCriterionService::OperationAccessDeniedReason
+class OperationAccessDenied < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # OperatorError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -499,6 +518,25 @@ end
 # - apiError_Type - SOAP::SOAPString
 # - reason - AdWords::V200906::CampaignCriterionService::QuotaExceededErrorReason
 class QuotaExceededError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
+# RangeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200906::CampaignCriterionService::RangeErrorReason
+class C_RangeError < ApiError
   attr_accessor :fieldPath
   attr_accessor :trigger
   attr_accessor :apiError_Type
@@ -736,6 +774,11 @@ class AuthenticationErrorReason < ::String
   CLIENT_EMAIL_INVALID = AuthenticationErrorReason.new("CLIENT_EMAIL_INVALID")
   CLIENT_EMAIL_REQUIRED = AuthenticationErrorReason.new("CLIENT_EMAIL_REQUIRED")
   CUSTOMER_NOT_FOUND = AuthenticationErrorReason.new("CUSTOMER_NOT_FOUND")
+  FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT = AuthenticationErrorReason.new("FAILED_TO_AUTHENTICATE_GOOGLE_ACCOUNT")
+  FAILED_TO_RETRIEVE_LOGIN_COOKIE = AuthenticationErrorReason.new("FAILED_TO_RETRIEVE_LOGIN_COOKIE")
+  GOOGLE_ACCOUNT_COOKIE_INVALID = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_COOKIE_INVALID")
+  GOOGLE_ACCOUNT_DELETED = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_DELETED")
+  GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH = AuthenticationErrorReason.new("GOOGLE_ACCOUNT_USER_AND_ADS_USER_MISMATCH")
   LOGIN_COOKIE_INVALID = AuthenticationErrorReason.new("LOGIN_COOKIE_INVALID")
   LOGIN_COOKIE_REQUIRED = AuthenticationErrorReason.new("LOGIN_COOKIE_REQUIRED")
   NOT_ADS_USER = AuthenticationErrorReason.new("NOT_ADS_USER")
@@ -788,6 +831,7 @@ class ContentLabelType < ::String
   DP = ContentLabelType.new("DP")
   EDGY = ContentLabelType.new("EDGY")
   EMBEDDED_VIDEO = ContentLabelType.new("EMBEDDED_VIDEO")
+  GAMES = ContentLabelType.new("GAMES")
   JACKASS = ContentLabelType.new("JACKASS")
   PROFANITY = ContentLabelType.new("PROFANITY")
   SENSITIVE = ContentLabelType.new("SENSITIVE")
@@ -857,6 +901,14 @@ class NullErrorReason < ::String
   NULL_CONTENT = NullErrorReason.new("NULL_CONTENT")
 end
 
+# OperationAccessDenied.Reason
+class OperationAccessDeniedReason < ::String
+  ACTION_NOT_PERMITTED = OperationAccessDeniedReason.new("ACTION_NOT_PERMITTED")
+  ADD_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("ADD_OPERATION_NOT_PERMITTED")
+  REMOVE_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("REMOVE_OPERATION_NOT_PERMITTED")
+  SET_OPERATION_NOT_PERMITTED = OperationAccessDeniedReason.new("SET_OPERATION_NOT_PERMITTED")
+end
+
 # Operator
 class Operator < ::String
   ADD = Operator.new("ADD")
@@ -897,6 +949,12 @@ end
 # QuotaExceededError.Reason
 class QuotaExceededErrorReason < ::String
   QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# RangeError.Reason
+class RangeErrorReason < ::String
+  TOO_HIGH = RangeErrorReason.new("TOO_HIGH")
+  TOO_LOW = RangeErrorReason.new("TOO_LOW")
 end
 
 # ReadOnlyError.Reason
