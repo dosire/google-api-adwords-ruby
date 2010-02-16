@@ -164,14 +164,17 @@ Handles callback.
           <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">auth_token</span>)
       <span class="ruby-identifier">user_agent</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'userAgent'</span>),
           <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'userAgent'</span>])
-      <span class="ruby-identifier">app_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'applicationToken'</span>),
-          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'applicationToken'</span>])
       <span class="ruby-identifier">dev_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'developerToken'</span>),
           <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'developerToken'</span>])
       <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">auth_token</span>)
       <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">user_agent</span>)
-      <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">app_token</span>)
       <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">dev_token</span>)
+
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'applicationToken'</span>]
+        <span class="ruby-identifier">app_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>,
+            <span class="ruby-value str">'applicationToken'</span>), <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'applicationToken'</span>])
+        <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">app_token</span>)
+      <span class="ruby-keyword kw">end</span>
 
       <span class="ruby-identifier">client_email_value</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">client_email</span>
       <span class="ruby-identifier">client_cid_value</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">client_customer_id</span>

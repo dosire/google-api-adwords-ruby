@@ -53,14 +53,17 @@ module AdWords
           @parent.auth_token)
       user_agent = SOAP::SOAPElement.new(XSD::QName.new(ns, 'userAgent'),
           @parent.credentials['userAgent'])
-      app_token = SOAP::SOAPElement.new(XSD::QName.new(ns, 'applicationToken'),
-          @parent.credentials['applicationToken'])
       dev_token = SOAP::SOAPElement.new(XSD::QName.new(ns, 'developerToken'),
           @parent.credentials['developerToken'])
       header.add(auth_token)
       header.add(user_agent)
-      header.add(app_token)
       header.add(dev_token)
+
+      if @parent.credentials['applicationToken']
+        app_token = SOAP::SOAPElement.new(XSD::QName.new(ns,
+            'applicationToken'), @parent.credentials['applicationToken'])
+        header.add(app_token)
+      end
 
       client_email_value = @parent.client_email
       client_cid_value = @parent.client_customer_id

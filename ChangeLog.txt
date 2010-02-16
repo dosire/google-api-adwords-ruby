@@ -1,3 +1,7 @@
+18.0.0
+- Removed support for v200906, which has been deco'ed.
+- Made the application token optional, since it's been deco'ed.
+
 17.3.0
 - Added functionality tests for v2009 CampaignService and AdGroupService.
 
