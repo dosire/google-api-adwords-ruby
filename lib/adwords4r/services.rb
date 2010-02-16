@@ -35,8 +35,6 @@ module AdWords
     @@services = {
       13 => ['Account', 'AdGroup', 'Ad', 'Campaign', 'Criterion', 'Info',
              'KeywordTool', 'Report', 'SiteSuggestion', 'TrafficEstimator'],
-      200906 => ['AdGroupAd', 'AdGroupCriterion', 'AdGroup',
-                 'CampaignCriterion', 'Campaign', 'CampaignTarget'],
       200909 => ['AdExtensionOverride', 'AdGroupAd', 'AdGroupCriterion',
                  'AdGroup', 'AdParam', 'BulkMutateJob', 'CampaignAdExtension',
                  'CampaignCriterion', 'Campaign', 'CampaignTarget',
@@ -47,12 +45,10 @@ module AdWords
     @@environments = {
       'PRODUCTION' => {
         13 => 'https://adwords.google.com/api/adwords/',
-        200906 => 'https://adwords.google.com/api/adwords/',
         200909 => 'https://adwords.google.com/api/adwords/'
       },
       'SANDBOX' => {
         13 => 'https://sandbox.google.com/api/adwords/',
-        200906 => 'https://adwords-sandbox.google.com/api/adwords/',
         200909 => 'https://adwords-sandbox.google.com/api/adwords/'
       }
     }
@@ -71,13 +67,6 @@ module AdWords
       [13, 'Report'] => 'v13/',
       [13, 'SiteSuggestion'] => 'v13/',
       [13, 'TrafficEstimator'] => 'v13/',
-      # v200906
-      [200906, 'AdGroupAd'] => 'cm/v200906/',
-      [200906, 'AdGroupCriterion'] => 'cm/v200906/',
-      [200906, 'AdGroup'] => 'cm/v200906/',
-      [200906, 'CampaignCriterion'] => 'cm/v200906/',
-      [200906, 'Campaign'] => 'cm/v200906/',
-      [200906, 'CampaignTarget'] => 'cm/v200906/',
       # v200909
       [200909, 'AdExtensionOverride'] => 'cm/v200909/',
       [200909, 'AdGroupAd'] => 'cm/v200909/',
