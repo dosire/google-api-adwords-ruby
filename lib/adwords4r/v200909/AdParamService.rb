@@ -260,6 +260,25 @@ class ClientTermsError < ApiError
   end
 end
 
+# DatabaseError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::AdParamService::DatabaseErrorReason
+class DatabaseError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # InternalApiError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -614,6 +633,13 @@ end
 # ClientTermsError.Reason
 class ClientTermsErrorReason < ::String
   INCOMPLETE_SIGNUP_CURRENT_ADWORDS_TNC_NOT_AGREED = ClientTermsErrorReason.new("INCOMPLETE_SIGNUP_CURRENT_ADWORDS_TNC_NOT_AGREED")
+end
+
+# DatabaseError.Reason
+class DatabaseErrorReason < ::String
+  CAMPAIGN_PRODUCT_NOT_SUPPORTED = DatabaseErrorReason.new("CAMPAIGN_PRODUCT_NOT_SUPPORTED")
+  CONCURRENT_MODIFICATION = DatabaseErrorReason.new("CONCURRENT_MODIFICATION")
+  PERMISSION_DENIED = DatabaseErrorReason.new("PERMISSION_DENIED")
 end
 
 # InternalApiError.Reason

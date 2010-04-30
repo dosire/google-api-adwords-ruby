@@ -43,9 +43,9 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000055">downloadCsvReport</a>,</li>
+                <li><a href="#M000072">downloadCsvReport</a>,</li>
                 
-                <li><a href="#M000053">downloadXmlReport</a></li>
+                <li><a href="#M000070">downloadXmlReport</a></li>
                 
             </ul>
         </dd>
@@ -54,18 +54,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000051">extensions</a></li>
-                
-            </ul>
-        </dd>
-    
-        <dt>G</dt>
-        <dd>
-            <ul>
-                
-                <li><a href="#M000057">getClientUnitsUsage</a>,</li>
-                
-                <li><a href="#M000056">getMethodUsage</a></li>
+                <li><a href="#M000066">extensions</a></li>
                 
             </ul>
         </dd>
@@ -74,7 +63,7 @@
         <dd>
             <ul>
                 
-                <li><a href="#M000052">methods</a></li>
+                <li><a href="#M000067">methods</a></li>
                 
             </ul>
         </dd>
@@ -96,9 +85,9 @@
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000055">
+                <div class="title" id="M000072">
                     
-                    <a name="M000055"></a><b>downloadCsvReport</b>(wrapper, job_id, report_xml=nil)
+                    <a name="M000072"></a><b>downloadCsvReport</b>(wrapper, job_id, report_xml=nil)
                     
                 </div>
                 
@@ -136,11 +125,11 @@ Returns: The CSV data for the report (as a string)
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000055_source')" id="l_M000055_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000072_source')" id="l_M000072_source">show</a>
                         
                     </p>
-                    <div id="M000055_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 121</span>
+                    <div id="M000072_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 118</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">downloadCsvReport</span>(<span class="ruby-identifier">wrapper</span>, <span class="ruby-identifier">job_id</span>, <span class="ruby-identifier">report_xml</span>=<span class="ruby-keyword kw">nil</span>)
       <span class="ruby-comment cmt"># Get XML report data.</span>
       <span class="ruby-identifier">report_xml</span> = <span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-identifier">wrapper</span>, <span class="ruby-identifier">job_id</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">report_xml</span>.<span class="ruby-identifier">nil?</span>
@@ -186,9 +175,9 @@ Returns: The CSV data for the report (as a string)
             </div>
             
             <div class="method">
-                <div class="title" id="M000053">
+                <div class="title" id="M000070">
                     
-                    <a name="M000053"></a><b>downloadXmlReport</b>(wrapper, job_id)
+                    <a name="M000070"></a><b>downloadXmlReport</b>(wrapper, job_id)
                     
                 </div>
                 
@@ -223,11 +212,11 @@ Returns: The xml for the report (as a string)
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000070_source')" id="l_M000070_source">show</a>
                         
                     </p>
-                    <div id="M000053_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 74</span>
+                    <div id="M000070_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 71</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-identifier">wrapper</span>, <span class="ruby-identifier">job_id</span>)
       <span class="ruby-identifier">sleep_interval</span> = <span class="ruby-value">30</span>
 
@@ -267,9 +256,9 @@ Returns: The xml for the report (as a string)
             </div>
             
             <div class="method">
-                <div class="title" id="M000051">
+                <div class="title" id="M000066">
                     
-                    <a name="M000051"></a><b>extensions</b>()
+                    <a name="M000066"></a><b>extensions</b>()
                     
                 </div>
                 
@@ -285,11 +274,11 @@ Return list of all extension methods, indexed by version and service.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000066_source')" id="l_M000066_source">show</a>
                         
                     </p>
-                    <div id="M000051_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 46</span>
+                    <div id="M000066_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 43</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">extensions</span>
       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@@extensions</span>
     <span class="ruby-keyword kw">end</span></pre>
@@ -299,165 +288,9 @@ Return list of all extension methods, indexed by version and service.
             </div>
             
             <div class="method">
-                <div class="title" id="M000057">
+                <div class="title" id="M000067">
                     
-                    <a name="M000057"></a><b>getClientUnitsUsage</b>(wrapper, start_date, end_date)
-                    
-                </div>
-                
-                <div class="description">
-                  <p>
-<em>Extension method</em> &#8212; Gets the quota usage per child of the
-entire account tree below the root user. That is, for each child that is a
-client manager, all units below that client manager are summed upwards. The
-result is very useful for invoicing sub-MCCs that may have many clients
-that units may be spent on.
-</p>
-<p>
-<b>Note</b>: unit data is not available in real time.
-</p>
-<p>
-Args:
-</p>
-<ul>
-<li>wrapper: the service wrapper object for any <a href="API.html">API</a>
-methods that need to be called
-
-</li>
-<li>start_date: starting date for unit spend count (as a Date)
-
-</li>
-<li>end_date: starting date for unit spend count (as a Date)
-
-</li>
-</ul>
-<p>
-Returns:
-</p>
-<ul>
-<li>Hash of account to unit usage,
-
-</li>
-</ul>
-<pre>
- { 'account1@domain.tld' =&gt; 10,
-   'account2@domain.tld' =&gt; 0, ...}
-</pre>
-<ul>
-<li>List of double counted children (account emails)
-
-</li>
-</ul>
-
-                </div>
-                
-                
-                
-                
-                <div class="sourcecode">
-                    <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000057_source')" id="l_M000057_source">show</a>
-                        
-                    </p>
-                    <div id="M000057_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 214</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">getClientUnitsUsage</span>(<span class="ruby-identifier">wrapper</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>)
-      <span class="ruby-comment cmt"># Create a new AdWords::API object to ensure thread-safety (we'll need to</span>
-      <span class="ruby-comment cmt"># change the clientEmail)</span>
-      <span class="ruby-identifier">adwords</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">API</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">wrapper</span>.<span class="ruby-identifier">api</span>.<span class="ruby-identifier">credentials</span>.<span class="ruby-identifier">dup</span>)
-      <span class="ruby-identifier">adwords</span>.<span class="ruby-identifier">credentials</span>.<span class="ruby-identifier">set_header</span>(<span class="ruby-value str">'clientEmail'</span>, <span class="ruby-value str">''</span>)
-      <span class="ruby-comment cmt"># Call unit_adder on the main user</span>
-      <span class="ruby-identifier">unit_map</span> = <span class="ruby-identifier">client_unit_adder</span>(<span class="ruby-identifier">adwords</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>)
-      <span class="ruby-comment cmt"># Pass back the spent unit information to the main AdWords::API object</span>
-      <span class="ruby-identifier">wrapper</span>.<span class="ruby-identifier">api</span>.<span class="ruby-identifier">mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword kw">do</span>
-        <span class="ruby-identifier">wrapper</span>.<span class="ruby-identifier">api</span>.<span class="ruby-identifier">last_units</span> = <span class="ruby-identifier">adwords</span>.<span class="ruby-identifier">total_units</span>
-        <span class="ruby-identifier">wrapper</span>.<span class="ruby-identifier">api</span>.<span class="ruby-identifier">total_units</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">adwords</span>.<span class="ruby-identifier">total_units</span>
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">unit_map</span>
-    <span class="ruby-keyword kw">end</span></pre>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="method">
-                <div class="title" id="M000056">
-                    
-                    <a name="M000056"></a><b>getMethodUsage</b>(wrapper, start_date, end_date)
-                    
-                </div>
-                
-                <div class="description">
-                  <p>
-<em>Extension method</em> &#8212; Get a mapping between <a
-href="API.html">API</a> methods and the number of units used through them
-for a given amount of time.
-</p>
-<p>
-Running this helper method will consume 71 units.
-</p>
-<p>
-<b>Note</b>: unit data is not available in real time.
-</p>
-<p>
-Args:
-</p>
-<ul>
-<li>wrapper: the service wrapper object for any <a href="API.html">API</a>
-methods that need to be called
-
-</li>
-<li>start_date: starting date for unit spend count (as a Date)
-
-</li>
-<li>end_date: starting date for unit spend count (as a Date)
-
-</li>
-</ul>
-<p>
-Returns: Hash of <em>service</em>.<em>method</em> to the number of units
-used, e.g.,
-</p>
-<pre>
- { 'AccountService.getAccountInfo' =&gt; 10,
-   'AccountService.getClientAccountInfos' =&gt; 0, ...}
-</pre>
-
-                </div>
-                
-                
-                
-                
-                <div class="sourcecode">
-                    <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000056_source')" id="l_M000056_source">show</a>
-                        
-                    </p>
-                    <div id="M000056_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 179</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">getMethodUsage</span>(<span class="ruby-identifier">wrapper</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>)
-      <span class="ruby-identifier">op_rates</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">get_operation_rates</span>
-      <span class="ruby-identifier">usage</span> = {}
-
-      <span class="ruby-identifier">op_rates</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">op</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>, <span class="ruby-identifier">method</span> = <span class="ruby-identifier">op</span>
-        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">version</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'v13'</span>
-          <span class="ruby-identifier">usage</span>[<span class="ruby-identifier">service</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">method</span>] = <span class="ruby-identifier">wrapper</span>.<span class="ruby-identifier">getUnitCountForMethod</span>(<span class="ruby-identifier">service</span>,
-              <span class="ruby-identifier">method</span>, <span class="ruby-identifier">start_date</span>, <span class="ruby-identifier">end_date</span>).<span class="ruby-identifier">getUnitCountForMethodReturn</span>
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
-
-      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">usage</span>
-    <span class="ruby-keyword kw">end</span></pre>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="method">
-                <div class="title" id="M000052">
-                    
-                    <a name="M000052"></a><b>methods</b>()
+                    <a name="M000067"></a><b>methods</b>()
                     
                 </div>
                 
@@ -473,11 +306,11 @@ Return the parameter list for every extension method.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show</a>
+                        Source: <a href="javascript:toggleSource('M000067_source')" id="l_M000067_source">show</a>
                         
                     </p>
-                    <div id="M000052_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 51</span>
+                    <div id="M000067_source" class="dyn-source">
+                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/apiextensions.rb, line 48</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">methods</span>
       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@@methods</span>
     <span class="ruby-keyword kw">end</span></pre>

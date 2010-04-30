@@ -2,7 +2,7 @@
 #
 # Author:: sgomes@google.com (Sérgio Gomes)
 #
-# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
+# Copyright:: Copyright 2010, Google Inc. All Rights Reserved.
 #
 # License:: Licensed under the Apache License, Version 2.0 (the "License");
 #           you may not use this file except in compliance with the License.
@@ -74,56 +74,5 @@ class TestApiExtensions < Test::Unit::TestCase
     # Check if the CSV matches the expected output
     assert_equal(expected_csv.strip, generated_csv.strip,
         'Generated CSV does not match expected output')
-  end
-
-  # Test getMethodUsage extension method
-  def test_getMethodUsage
-    info_srv = @adwords.get_service('Info', 13)
-    start_day = Date.new(Date.today.year, 1, 1)
-    end_day = Date.today
-    usage_map = info_srv.getMethodUsage(start_day, end_day)
-
-    # Did we get back a hash?
-    assert_instance_of(Hash, usage_map,
-        "Unexpected object type returned: #{usage_map.class}")
-
-    # Retrieve list of all operation rates
-    op_rates = AdWords::Utils.get_operation_rates
-
-    # Check if the operations in the rates match the operations in the usage map
-    op_rates.each do |line|
-      version, service, name = line
-      if version == 13
-        operation = "#{service}.#{name}"
-        assert_not_nil(usage_map[operation],
-            "Operation missing from usage map: #{operation}")
-      end
-    end
-  end
-
-  # Test getClientUnitsUsage extension method
-  def test_getClientUnitsUsage
-    info_srv = @adwords.get_service('Info', 13)
-    start_day = Date.new(Date.today.year, 1, 1)
-    end_day = Date.today
-    usage_map, doubles = info_srv.getClientUnitsUsage(start_day, end_day)
-
-    # Did we get back a hash and an array?
-    assert_instance_of(Hash, usage_map,
-        "Unexpected object type returned: #{usage_map.class}")
-    assert_instance_of(Array, doubles,
-        "Unexpected object type returned: #{doubles.class}")
-
-    email = @adwords.credentials.credentials['email']
-
-    # There should be 6 items in there, one for the main MCC and one for each
-    # of the 5 client accounts
-    assert_not_nil(usage_map[email],
-        'Root MCC account was not present in usage map')
-    1.upto(5) do |index|
-      assert_not_nil(usage_map["client_#{index}+#{email}"],
-        "Client account #{index} was not present in usage map")
-    end
-    assert_equal(usage_map.size, 6, 'Unexpected number of entries returned')
   end
 end

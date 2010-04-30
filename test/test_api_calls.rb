@@ -2,7 +2,7 @@
 #
 # Author:: sgomes@google.com (Sérgio Gomes)
 #
-# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
+# Copyright:: Copyright 2010, Google Inc. All Rights Reserved.
 #
 # License:: Licensed under the Apache License, Version 2.0 (the "License");
 #           you may not use this file except in compliance with the License.
@@ -58,9 +58,11 @@ class TestApiCalls < Test::Unit::TestCase
     adwords = AdWords::API.new(AdWords::AdWordsCredentials.new(cred_hash))
 
     # See if we get the right error back from the v13 sandbox
-    campaign_srv_v13 = adwords.get_service('Campaign', 13)
+    account_srv_v13 = adwords.get_service('Account', 13)
     assert_raise(AdWords::Error::GoogleInternalError) do
-      campaign_srv_v13.getAllAdWordsCampaigns(0)
+      adwords.use_mcc do
+        account_srv_v13.getClientAccounts()
+      end
     end
   end
 
@@ -138,19 +140,11 @@ class TestApiCalls < Test::Unit::TestCase
     end
   end
 
-  # Test making an API call with wrong parameter types
-  def test_wrong_type
-    campaign_srv_v13 = @adwords.get_service('Campaign', 13)
-    assert_raise(ArgumentError) do
-      result = campaign_srv_v13.getAllAdWordsCampaigns('Invalid')
-    end
-  end
-
   # Test making an API call with wrong number of parameters
   def test_wrong_number
-    campaign_srv_v13 = @adwords.get_service('Campaign', 13)
+    campaign_srv = @adwords.get_service('Campaign', @latest_version)
     assert_raise(ArgumentError) do
-      result = campaign_srv_v13.getAllAdWordsCampaigns(0, 0)
+      result = campaign_srv.get(0, 0)
     end
   end
 end

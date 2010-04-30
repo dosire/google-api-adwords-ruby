@@ -2,7 +2,7 @@
 #
 # Author:: sgomes@google.com (Sérgio Gomes)
 #
-# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
+# Copyright:: Copyright 2010, Google Inc. All Rights Reserved.
 #
 # License:: Licensed under the Apache License, Version 2.0 (the "License");
 #           you may not use this file except in compliance with the License.
@@ -31,15 +31,12 @@ module AdWords
     # Using camelCase to match API method names.
     @@extensions = {
       [13, 'Report'] => ['downloadXmlReport', 'downloadCsvReport'],
-      [13, 'Info']   => ['getMethodUsage', 'getClientUnitsUsage']
     }
 
     # Defines the parameter list for every extension method
     @@methods = {
       'downloadXmlReport'   => ['job_id'],
       'downloadCsvReport'   => ['job_id'],
-      'getMethodUsage'      => ['start_date', 'end_date'],
-      'getClientUnitsUsage' => ['start_date', 'end_date']
     }
 
     # Return list of all extension methods, indexed by version and service.
@@ -156,148 +153,6 @@ module AdWords
         raise AdWords::Error::Error,
             "Error parsing report XML: %s\nSource: %s" % [e, e.backtrace.first]
       end
-    end
-
-    # <i>Extension method</i> -- Get a mapping between API methods and the
-    # number of units used through them for a given amount of time.
-    #
-    # Running this helper method will consume 71 units.
-    #
-    # *Note*: unit data is not available in real time.
-    #
-    # Args:
-    # - wrapper: the service wrapper object for any API methods that need to be
-    #   called
-    # - start_date: starting date for unit spend count (as a Date)
-    # - end_date: starting date for unit spend count (as a Date)
-    #
-    # Returns:
-    # Hash of <i>service</i>.<i>method</i> to the number of units used, e.g.,
-    #  { 'AccountService.getAccountInfo' => 10,
-    #    'AccountService.getClientAccountInfos' => 0, ...}
-    #
-    def self.getMethodUsage(wrapper, start_date, end_date)
-      op_rates = AdWords::Utils.get_operation_rates
-      usage = {}
-
-      op_rates.each do |op|
-        version, service, method = op
-        if version == 'v13'
-          usage[service + '.' + method] = wrapper.getUnitCountForMethod(service,
-              method, start_date, end_date).getUnitCountForMethodReturn
-        end
-      end
-
-      return usage
-    end
-
-    # <i>Extension method</i> -- Gets the quota usage per child of the entire
-    # account tree below the root user. That is, for each child that is a client
-    # manager, all units below that client manager are summed upwards. The
-    # result is very useful for invoicing sub-MCCs that may have many clients
-    # that units may be spent on.
-    #
-    # *Note*: unit data is not available in real time.
-    #
-    # Args:
-    # - wrapper: the service wrapper object for any API methods that need to be
-    #   called
-    # - start_date: starting date for unit spend count (as a Date)
-    # - end_date: starting date for unit spend count (as a Date)
-    #
-    # Returns:
-    # - Hash of account to unit usage,
-    #  { 'account1@domain.tld' => 10,
-    #    'account2@domain.tld' => 0, ...}
-    # - List of double counted children (account emails)
-    #
-    def self.getClientUnitsUsage(wrapper, start_date, end_date)
-      # Create a new AdWords::API object to ensure thread-safety (we'll need to
-      # change the clientEmail)
-      adwords = AdWords::API.new(wrapper.api.credentials.dup)
-      adwords.credentials.set_header('clientEmail', '')
-      # Call unit_adder on the main user
-      unit_map = client_unit_adder(adwords, start_date, end_date)
-      # Pass back the spent unit information to the main AdWords::API object
-      wrapper.api.mutex.synchronize do
-        wrapper.api.last_units = adwords.total_units
-        wrapper.api.total_units += adwords.total_units
-      end
-      return unit_map
-    end
-
-    private
-
-    # Auxiliary recursive method to get the sum of units for an account and all
-    # those under it, if any.
-    #
-    # Args:
-    # - adwords: the AdWords::API object to be used for retrieving the client
-    #   data
-    # - start_date: starting date for unit spend count (as a Date)
-    # - end_date: starting date for unit spend count (as a Date)
-    #
-    # Returns:
-    # - Hash of account to unit usage,
-    #  { 'account1@domain.tld' => 10,
-    #    'account2@domain.tld' => 0, ...}
-    # - List of double counted children (account emails)
-    #
-    def self.client_unit_adder(adwords, start_date, end_date)
-      account_srv = adwords.get_service('Account', 13)
-      if adwords.credentials.credentials['clientEmail'] == ''
-        account_email = adwords.credentials.credentials['email']
-      else
-        account_email = adwords.credentials.credentials['clientEmail']
-      end
-      # Get list of accounts under the current one
-      accounts = account_srv.getClientAccountInfos
-      unit_map = {}
-      doubles = []
-      clients = accounts.select { |account| !account.isCustomerManager }
-      managers = accounts.select { |account| account.isCustomerManager }
-      client_emails = clients.map { |account| account.emailAddress }
-      info_srv = adwords.get_service('Info', 13)
-
-      # Get usage for clients
-      client_usage =
-          info_srv.getUnitCountForClients(client_emails, start_date, end_date)
-
-      client_usage.each do |record|
-        unit_map[record.clientEmail] = record.quotaUnits
-      end
-
-      managers.each do |account|
-        # Create a new AdWords::API object to ensure thread-safety (we'll need
-        # to change the clientEmail)
-        sub_mcc = AdWords::API.new(adwords.credentials.dup)
-        sub_mcc.credentials.set_header('clientEmail', account.emailAddress)
-        # Recurse for sub-MCCs
-        sub_unit_map, sub_doubles =
-            client_unit_adder(sub_mcc, start_date, end_date)
-        sub_unit_map.each_key do |entry|
-          # Add any accounts already accounted for to the doubles list
-          unless unit_map[entry].nil?
-            doubles << entry unless doubles.include?(entry)
-          end
-        end
-        # Merge unit maps, doubles and unit spend from the sub with the main
-        unit_map.merge! sub_unit_map
-        sub_doubles.each do |entry|
-          doubles << entry unless doubles.include?(entry)
-        end
-        doubles += sub_doubles
-        adwords.mutex.synchronize do
-          adwords.total_units += sub_mcc.total_units
-        end
-      end
-
-      # Calculate the sum for this account and add it to the hash as well
-      sum = accounts.inject(0) do |result, account|
-        result + unit_map[account.emailAddress]
-      end
-      unit_map[account_email] = sum
-      return unit_map, doubles
     end
   end
 end

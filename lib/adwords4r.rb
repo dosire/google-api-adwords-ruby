@@ -5,7 +5,7 @@
 #           chanezon@google.com (Patrick Chanezon)
 #           leavengood@gmail.com (Ryan Leavengood)
 #
-# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
+# Copyright:: Copyright 2010, Google Inc. All Rights Reserved.
 #
 # License:: Licensed under the Apache License, Version 2.0 (the "License");
 #           you may not use this file except in compliance with the License.
@@ -361,6 +361,8 @@ module AdWords
       attr_accessor :soap_faultstring_ex
       attr_accessor :code_ex
 
+      attr_accessor :inner_fault
+
       # Constructor for ApiError.
       #
       # Args:
@@ -371,6 +373,7 @@ module AdWords
         @soap_faultcode_ex = protect { soap_fault.faultcode.text }
         @soap_faultstring = protect { soap_fault.faultstring }
         @soap_faultstring_ex = protect { soap_fault.faultstring.text }
+        @inner_fault = protect { soap_fault }
         if protect { soap_fault.detail and soap_fault.detail.fault }
           fault = soap_fault.detail.fault
           @top_code = protect { fault.code }

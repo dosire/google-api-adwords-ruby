@@ -127,56 +127,6 @@ class SoapResponseHeader
   end
 end
 
-# AdExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-class AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-
-  def initialize(id = nil, adExtension_Type = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-  end
-end
-
-# LocationExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-# - address - AdWords::V200909::AdExtensionOverrideService::Address
-# - geoPoint - AdWords::V200909::AdExtensionOverrideService::GeoPoint
-# - encodedLocation - SOAP::SOAPBase64
-# - companyName - SOAP::SOAPString
-# - phoneNumber - SOAP::SOAPString
-# - source - AdWords::V200909::AdExtensionOverrideService::LocationExtensionSource
-# - iconMediaId - SOAP::SOAPLong
-# - imageMediaId - SOAP::SOAPLong
-class LocationExtension < AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-  attr_accessor :address
-  attr_accessor :geoPoint
-  attr_accessor :encodedLocation
-  attr_accessor :companyName
-  attr_accessor :phoneNumber
-  attr_accessor :source
-  attr_accessor :iconMediaId
-  attr_accessor :imageMediaId
-
-  def initialize(id = nil, adExtension_Type = nil, address = nil, geoPoint = nil, encodedLocation = nil, companyName = nil, phoneNumber = nil, source = nil, iconMediaId = nil, imageMediaId = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-    @address = address
-    @geoPoint = geoPoint
-    @encodedLocation = encodedLocation
-    @companyName = companyName
-    @phoneNumber = phoneNumber
-    @source = source
-    @iconMediaId = iconMediaId
-    @imageMediaId = imageMediaId
-  end
-end
-
 # AdExtensionOverrideSelector
 # - campaignIds - SOAP::SOAPLong
 # - adIds - SOAP::SOAPLong
@@ -373,31 +323,6 @@ class AdExtensionOverrideStats < Stats
     @conversionRateManyPerClick = conversionRateManyPerClick
     @costPerConversionManyPerClick = costPerConversionManyPerClick
     @stats_Type = stats_Type
-  end
-end
-
-# AdExtensionOverride
-# - adId - SOAP::SOAPLong
-# - adExtension - AdWords::V200909::AdExtensionOverrideService::AdExtension
-# - overrideInfo - AdWords::V200909::AdExtensionOverrideService::OverrideInfo
-# - status - AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideStatus
-# - approvalStatus - AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideApprovalStatus
-# - stats - AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideStats
-class AdExtensionOverride
-  attr_accessor :adId
-  attr_accessor :adExtension
-  attr_accessor :overrideInfo
-  attr_accessor :status
-  attr_accessor :approvalStatus
-  attr_accessor :stats
-
-  def initialize(adId = nil, adExtension = nil, overrideInfo = nil, status = nil, approvalStatus = nil, stats = nil)
-    @adId = adId
-    @adExtension = adExtension
-    @overrideInfo = overrideInfo
-    @status = status
-    @approvalStatus = approvalStatus
-    @stats = stats
   end
 end
 
@@ -665,6 +590,25 @@ class QuotaExceededError < ApiError
   end
 end
 
+# RangeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::AdExtensionOverrideService::RangeErrorReason
+class C_RangeError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # ReadOnlyError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -767,6 +711,81 @@ class ApiException < ApplicationException
     @message = message
     @applicationException_Type = applicationException_Type
     @errors = errors
+  end
+end
+
+# AdExtension
+# - id - SOAP::SOAPLong
+# - adExtension_Type - SOAP::SOAPString
+class AdExtension
+  attr_accessor :id
+  attr_accessor :adExtension_Type
+
+  def initialize(id = nil, adExtension_Type = nil)
+    @id = id
+    @adExtension_Type = adExtension_Type
+  end
+end
+
+# LocationExtension
+# - id - SOAP::SOAPLong
+# - adExtension_Type - SOAP::SOAPString
+# - address - AdWords::V200909::AdExtensionOverrideService::Address
+# - geoPoint - AdWords::V200909::AdExtensionOverrideService::GeoPoint
+# - encodedLocation - SOAP::SOAPBase64
+# - companyName - SOAP::SOAPString
+# - phoneNumber - SOAP::SOAPString
+# - source - AdWords::V200909::AdExtensionOverrideService::LocationExtensionSource
+# - iconMediaId - SOAP::SOAPLong
+# - imageMediaId - SOAP::SOAPLong
+class LocationExtension < AdExtension
+  attr_accessor :id
+  attr_accessor :adExtension_Type
+  attr_accessor :address
+  attr_accessor :geoPoint
+  attr_accessor :encodedLocation
+  attr_accessor :companyName
+  attr_accessor :phoneNumber
+  attr_accessor :source
+  attr_accessor :iconMediaId
+  attr_accessor :imageMediaId
+
+  def initialize(id = nil, adExtension_Type = nil, address = nil, geoPoint = nil, encodedLocation = nil, companyName = nil, phoneNumber = nil, source = nil, iconMediaId = nil, imageMediaId = nil)
+    @id = id
+    @adExtension_Type = adExtension_Type
+    @address = address
+    @geoPoint = geoPoint
+    @encodedLocation = encodedLocation
+    @companyName = companyName
+    @phoneNumber = phoneNumber
+    @source = source
+    @iconMediaId = iconMediaId
+    @imageMediaId = imageMediaId
+  end
+end
+
+# AdExtensionOverride
+# - adId - SOAP::SOAPLong
+# - adExtension - AdWords::V200909::AdExtensionOverrideService::AdExtension
+# - overrideInfo - AdWords::V200909::AdExtensionOverrideService::OverrideInfo
+# - status - AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideStatus
+# - approvalStatus - AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideApprovalStatus
+# - stats - AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideStats
+class AdExtensionOverride
+  attr_accessor :adId
+  attr_accessor :adExtension
+  attr_accessor :overrideInfo
+  attr_accessor :status
+  attr_accessor :approvalStatus
+  attr_accessor :stats
+
+  def initialize(adId = nil, adExtension = nil, overrideInfo = nil, status = nil, approvalStatus = nil, stats = nil)
+    @adId = adId
+    @adExtension = adExtension
+    @overrideInfo = overrideInfo
+    @status = status
+    @approvalStatus = approvalStatus
+    @stats = stats
   end
 end
 
@@ -1001,6 +1020,12 @@ end
 # QuotaExceededError.Reason
 class QuotaExceededErrorReason < ::String
   QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# RangeError.Reason
+class RangeErrorReason < ::String
+  TOO_HIGH = RangeErrorReason.new("TOO_HIGH")
+  TOO_LOW = RangeErrorReason.new("TOO_LOW")
 end
 
 # ReadOnlyError.Reason

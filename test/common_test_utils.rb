@@ -2,7 +2,7 @@
 #
 # Author:: sgomes@google.com (Sérgio Gomes)
 #
-# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
+# Copyright:: Copyright 2010, Google Inc. All Rights Reserved.
 #
 # License:: Licensed under the Apache License, Version 2.0 (the "License");
 #           you may not use this file except in compliance with the License.
@@ -18,6 +18,8 @@
 #           limitations under the License.
 #
 # Common methods used in several tests.
+
+$:.unshift File.join(File.dirname(__FILE__), '../lib')
 
 require 'rubygems'
 require 'adwords4r'

@@ -5,7 +5,7 @@
 #           chanezon@google.com (Patrick Chanezon)
 #           leavengood@gmail.com (Ryan Leavengood)
 #
-# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
+# Copyright:: Copyright 2010, Google Inc. All Rights Reserved.
 #
 # License:: Licensed under the Apache License, Version 2.0 (the "License");
 #           you may not use this file except in compliance with the License.
@@ -28,13 +28,12 @@ module AdWords
   module Service
 
     # Set defaults
-    DEFAULT_VERSION = 13
+    DEFAULT_VERSION = 200909
     DEFAULT_ENVIRONMENT = 'PRODUCTION'
 
     # Configure the services available to each version
     @@services = {
-      13 => ['Account', 'AdGroup', 'Ad', 'Campaign', 'Criterion', 'Info',
-             'KeywordTool', 'Report', 'SiteSuggestion', 'TrafficEstimator'],
+      13 => ['Account', 'Report', 'TrafficEstimator'],
       200909 => ['AdExtensionOverride', 'AdGroupAd', 'AdGroupCriterion',
                  'AdGroup', 'AdParam', 'BulkMutateJob', 'CampaignAdExtension',
                  'CampaignCriterion', 'Campaign', 'CampaignTarget',
@@ -58,14 +57,7 @@ module AdWords
     @@subdirs = {
       # v13
       [13, 'Account'] => 'v13/',
-      [13, 'AdGroup'] => 'v13/',
-      [13, 'Ad'] => 'v13/',
-      [13, 'Campaign'] => 'v13/',
-      [13, 'Criterion'] => 'v13/',
-      [13, 'Info'] => 'v13/',
-      [13, 'KeywordTool'] => 'v13/',
       [13, 'Report'] => 'v13/',
-      [13, 'SiteSuggestion'] => 'v13/',
       [13, 'TrafficEstimator'] => 'v13/',
       # v200909
       [200909, 'AdExtensionOverride'] => 'cm/v200909/',

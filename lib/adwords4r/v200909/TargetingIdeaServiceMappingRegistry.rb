@@ -500,6 +500,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::RegionCodeError,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::TargetingIdeaService::RegionCodeErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::RequiredError,
     :schema_type => XSD::QName.new(NsV200909, "RequiredError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -569,6 +581,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::TargetingIdeaService::StringLengthErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::TargetError,
+    :schema_type => XSD::QName.new(NsV200909, "TargetError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::TargetingIdeaService::TargetErrorReason", [0, 1]]
     ]
   )
 
@@ -1201,6 +1225,11 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::RegionCodeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError.Reason")
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::RequiredErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "RequiredError.Reason")
   )
@@ -1218,6 +1247,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::StringLengthErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "StringLengthError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::TargetErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "TargetError.Reason")
   )
 
   EncodedRegistry.register(
@@ -1756,6 +1790,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::RegionCodeError,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::TargetingIdeaService::RegionCodeErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::RequiredError,
     :schema_type => XSD::QName.new(NsV200909, "RequiredError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -1825,6 +1871,18 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::TargetingIdeaService::StringLengthErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::TargetError,
+    :schema_type => XSD::QName.new(NsV200909, "TargetError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::TargetingIdeaService::TargetErrorReason", [0, 1]]
     ]
   )
 
@@ -2457,6 +2515,11 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::RegionCodeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RegionCodeError.Reason")
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::RequiredErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "RequiredError.Reason")
   )
@@ -2474,6 +2537,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::TargetingIdeaService::StringLengthErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "StringLengthError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::TargetingIdeaService::TargetErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "TargetError.Reason")
   )
 
   LiteralRegistry.register(

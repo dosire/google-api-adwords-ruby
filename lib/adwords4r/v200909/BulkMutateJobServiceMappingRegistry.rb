@@ -344,6 +344,7 @@ module DefaultMappingRegistry
       ["rangeErrorReason", ["AdWords::V200909::BulkMutateJobService::RangeErrorReason", XSD::QName.new(NsV200909, "RangeErrorReason")]],
       ["readOnlyErrorReason", ["AdWords::V200909::BulkMutateJobService::ReadOnlyErrorReason", XSD::QName.new(NsV200909, "ReadOnlyErrorReason")]],
       ["regionCodeErrorReason", ["AdWords::V200909::BulkMutateJobService::RegionCodeErrorReason", XSD::QName.new(NsV200909, "RegionCodeErrorReason")]],
+      ["requestErrorReason", ["AdWords::V200909::BulkMutateJobService::RequestErrorReason", XSD::QName.new(NsV200909, "RequestErrorReason")]],
       ["requiredErrorReason", ["AdWords::V200909::BulkMutateJobService::RequiredErrorReason", XSD::QName.new(NsV200909, "RequiredErrorReason")]],
       ["sizeLimitErrorReason", ["AdWords::V200909::BulkMutateJobService::SizeLimitErrorReason", XSD::QName.new(NsV200909, "SizeLimitErrorReason")]],
       ["statsQueryErrorReason", ["AdWords::V200909::BulkMutateJobService::StatsQueryErrorReason", XSD::QName.new(NsV200909, "StatsQueryErrorReason")]],
@@ -1136,6 +1137,15 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::BulkMutateJobService::JobErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::JobEvent,
+    :schema_type => XSD::QName.new(NsV200909, "JobEvent"),
+    :schema_element => [
+      ["dateTime", "SOAP::SOAPString", [0, 1]],
+      ["jobEvent_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "JobEvent.Type")], [0, 1]]
     ]
   )
 
@@ -2421,6 +2431,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::RegionCodeErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "RegionCodeError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::RequestErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RequestError.Reason")
   )
 
   EncodedRegistry.register(
@@ -2814,6 +2829,7 @@ module DefaultMappingRegistry
       ["rangeErrorReason", ["AdWords::V200909::BulkMutateJobService::RangeErrorReason", XSD::QName.new(NsV200909, "RangeErrorReason")]],
       ["readOnlyErrorReason", ["AdWords::V200909::BulkMutateJobService::ReadOnlyErrorReason", XSD::QName.new(NsV200909, "ReadOnlyErrorReason")]],
       ["regionCodeErrorReason", ["AdWords::V200909::BulkMutateJobService::RegionCodeErrorReason", XSD::QName.new(NsV200909, "RegionCodeErrorReason")]],
+      ["requestErrorReason", ["AdWords::V200909::BulkMutateJobService::RequestErrorReason", XSD::QName.new(NsV200909, "RequestErrorReason")]],
       ["requiredErrorReason", ["AdWords::V200909::BulkMutateJobService::RequiredErrorReason", XSD::QName.new(NsV200909, "RequiredErrorReason")]],
       ["sizeLimitErrorReason", ["AdWords::V200909::BulkMutateJobService::SizeLimitErrorReason", XSD::QName.new(NsV200909, "SizeLimitErrorReason")]],
       ["statsQueryErrorReason", ["AdWords::V200909::BulkMutateJobService::StatsQueryErrorReason", XSD::QName.new(NsV200909, "StatsQueryErrorReason")]],
@@ -3606,6 +3622,15 @@ module DefaultMappingRegistry
       ["trigger", "SOAP::SOAPString", [0, 1]],
       ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
       ["reason", "AdWords::V200909::BulkMutateJobService::JobErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::JobEvent,
+    :schema_type => XSD::QName.new(NsV200909, "JobEvent"),
+    :schema_element => [
+      ["dateTime", "SOAP::SOAPString", [0, 1]],
+      ["jobEvent_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "JobEvent.Type")], [0, 1]]
     ]
   )
 
@@ -4891,6 +4916,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::BulkMutateJobService::RegionCodeErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "RegionCodeError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::BulkMutateJobService::RequestErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RequestError.Reason")
   )
 
   LiteralRegistry.register(

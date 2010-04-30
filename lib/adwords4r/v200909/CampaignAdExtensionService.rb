@@ -165,56 +165,6 @@ class CampaignAdExtensionStatsSelector < StatsSelector
   end
 end
 
-# AdExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-class AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-
-  def initialize(id = nil, adExtension_Type = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-  end
-end
-
-# LocationExtension
-# - id - SOAP::SOAPLong
-# - adExtension_Type - SOAP::SOAPString
-# - address - AdWords::V200909::CampaignAdExtensionService::Address
-# - geoPoint - AdWords::V200909::CampaignAdExtensionService::GeoPoint
-# - encodedLocation - SOAP::SOAPBase64
-# - companyName - SOAP::SOAPString
-# - phoneNumber - SOAP::SOAPString
-# - source - AdWords::V200909::CampaignAdExtensionService::LocationExtensionSource
-# - iconMediaId - SOAP::SOAPLong
-# - imageMediaId - SOAP::SOAPLong
-class LocationExtension < AdExtension
-  attr_accessor :id
-  attr_accessor :adExtension_Type
-  attr_accessor :address
-  attr_accessor :geoPoint
-  attr_accessor :encodedLocation
-  attr_accessor :companyName
-  attr_accessor :phoneNumber
-  attr_accessor :source
-  attr_accessor :iconMediaId
-  attr_accessor :imageMediaId
-
-  def initialize(id = nil, adExtension_Type = nil, address = nil, geoPoint = nil, encodedLocation = nil, companyName = nil, phoneNumber = nil, source = nil, iconMediaId = nil, imageMediaId = nil)
-    @id = id
-    @adExtension_Type = adExtension_Type
-    @address = address
-    @geoPoint = geoPoint
-    @encodedLocation = encodedLocation
-    @companyName = companyName
-    @phoneNumber = phoneNumber
-    @source = source
-    @iconMediaId = iconMediaId
-    @imageMediaId = imageMediaId
-  end
-end
-
 # ApiError
 # abstract
 # - fieldPath - SOAP::SOAPString
@@ -555,6 +505,25 @@ class QuotaExceededError < ApiError
   end
 end
 
+# RangeError
+# - fieldPath - SOAP::SOAPString
+# - trigger - SOAP::SOAPString
+# - apiError_Type - SOAP::SOAPString
+# - reason - AdWords::V200909::CampaignAdExtensionService::RangeErrorReason
+class C_RangeError < ApiError
+  attr_accessor :fieldPath
+  attr_accessor :trigger
+  attr_accessor :apiError_Type
+  attr_accessor :reason
+
+  def initialize(fieldPath = nil, trigger = nil, apiError_Type = nil, reason = nil)
+    @fieldPath = fieldPath
+    @trigger = trigger
+    @apiError_Type = apiError_Type
+    @reason = reason
+  end
+end
+
 # ReadOnlyError
 # - fieldPath - SOAP::SOAPString
 # - trigger - SOAP::SOAPString
@@ -698,6 +667,56 @@ class CampaignAdExtensionSelector
   end
 end
 
+# AdExtension
+# - id - SOAP::SOAPLong
+# - adExtension_Type - SOAP::SOAPString
+class AdExtension
+  attr_accessor :id
+  attr_accessor :adExtension_Type
+
+  def initialize(id = nil, adExtension_Type = nil)
+    @id = id
+    @adExtension_Type = adExtension_Type
+  end
+end
+
+# LocationExtension
+# - id - SOAP::SOAPLong
+# - adExtension_Type - SOAP::SOAPString
+# - address - AdWords::V200909::CampaignAdExtensionService::Address
+# - geoPoint - AdWords::V200909::CampaignAdExtensionService::GeoPoint
+# - encodedLocation - SOAP::SOAPBase64
+# - companyName - SOAP::SOAPString
+# - phoneNumber - SOAP::SOAPString
+# - source - AdWords::V200909::CampaignAdExtensionService::LocationExtensionSource
+# - iconMediaId - SOAP::SOAPLong
+# - imageMediaId - SOAP::SOAPLong
+class LocationExtension < AdExtension
+  attr_accessor :id
+  attr_accessor :adExtension_Type
+  attr_accessor :address
+  attr_accessor :geoPoint
+  attr_accessor :encodedLocation
+  attr_accessor :companyName
+  attr_accessor :phoneNumber
+  attr_accessor :source
+  attr_accessor :iconMediaId
+  attr_accessor :imageMediaId
+
+  def initialize(id = nil, adExtension_Type = nil, address = nil, geoPoint = nil, encodedLocation = nil, companyName = nil, phoneNumber = nil, source = nil, iconMediaId = nil, imageMediaId = nil)
+    @id = id
+    @adExtension_Type = adExtension_Type
+    @address = address
+    @geoPoint = geoPoint
+    @encodedLocation = encodedLocation
+    @companyName = companyName
+    @phoneNumber = phoneNumber
+    @source = source
+    @iconMediaId = iconMediaId
+    @imageMediaId = imageMediaId
+  end
+end
+
 # CampaignAdExtension
 # - campaignId - SOAP::SOAPLong
 # - adExtension - AdWords::V200909::CampaignAdExtensionService::AdExtension
@@ -819,10 +838,14 @@ end
 
 # AdExtensionError.Reason
 class AdExtensionErrorReason < ::String
+  ACCOUNT_DELETED = AdExtensionErrorReason.new("ACCOUNT_DELETED")
   CANNOT_HAVE_MULTIPLE_LOCATION_SYNC_EXTENSIONS_PER_CAMPAIGN = AdExtensionErrorReason.new("CANNOT_HAVE_MULTIPLE_LOCATION_SYNC_EXTENSIONS_PER_CAMPAIGN")
+  CANNOT_HAVE_MULTIPLE_SITELINKS_EXTENSIONS_PER_CAMPAIGN = AdExtensionErrorReason.new("CANNOT_HAVE_MULTIPLE_SITELINKS_EXTENSIONS_PER_CAMPAIGN")
+  INVALID_AUTH_TOKEN_FOR_EMAIL = AdExtensionErrorReason.new("INVALID_AUTH_TOKEN_FOR_EMAIL")
   INVALID_COUNTRY_CODE = AdExtensionErrorReason.new("INVALID_COUNTRY_CODE")
   INVALID_DESTINATION_URL = AdExtensionErrorReason.new("INVALID_DESTINATION_URL")
   INVALID_DOMESTIC_PHONE_NUMBER_FORMAT = AdExtensionErrorReason.new("INVALID_DOMESTIC_PHONE_NUMBER_FORMAT")
+  INVALID_EMAIL = AdExtensionErrorReason.new("INVALID_EMAIL")
   INVALID_ENCODED_LOCATION = AdExtensionErrorReason.new("INVALID_ENCODED_LOCATION")
   INVALID_ID = AdExtensionErrorReason.new("INVALID_ID")
   INVALID_LATITUDE = AdExtensionErrorReason.new("INVALID_LATITUDE")
@@ -833,13 +856,16 @@ class AdExtensionErrorReason < ::String
   MEDIA_NOT_ICON_TYPE = AdExtensionErrorReason.new("MEDIA_NOT_ICON_TYPE")
   MEDIA_NOT_IMAGE_TYPE = AdExtensionErrorReason.new("MEDIA_NOT_IMAGE_TYPE")
   MISSING_ADVERTISER_NAME = AdExtensionErrorReason.new("MISSING_ADVERTISER_NAME")
+  MISSING_AUTH_TOKEN = AdExtensionErrorReason.new("MISSING_AUTH_TOKEN")
   MISSING_CITY_NAME = AdExtensionErrorReason.new("MISSING_CITY_NAME")
   MISSING_COUNTRY_CODE = AdExtensionErrorReason.new("MISSING_COUNTRY_CODE")
+  MISSING_EMAIL = AdExtensionErrorReason.new("MISSING_EMAIL")
   MISSING_ENCODED_LOCATION = AdExtensionErrorReason.new("MISSING_ENCODED_LOCATION")
   MISSING_POSTAL_CODE = AdExtensionErrorReason.new("MISSING_POSTAL_CODE")
   MISSING_STREET_ADDRESS = AdExtensionErrorReason.new("MISSING_STREET_ADDRESS")
   NUM_LOCATION_EXTENSIONS_OVER_LIMIT = AdExtensionErrorReason.new("NUM_LOCATION_EXTENSIONS_OVER_LIMIT")
   PHONE_NUMBER_NOT_SUPPORTED_FOR_COUNTRY = AdExtensionErrorReason.new("PHONE_NUMBER_NOT_SUPPORTED_FOR_COUNTRY")
+  PREMIUM_RATE_NUMBER_NOT_ALLOWED = AdExtensionErrorReason.new("PREMIUM_RATE_NUMBER_NOT_ALLOWED")
   TOO_LONG = AdExtensionErrorReason.new("TOO_LONG")
   USER_NOT_PERMITTED_TO_CREATE_LBC_SYNC_LOCATION_EXTENSION = AdExtensionErrorReason.new("USER_NOT_PERMITTED_TO_CREATE_LBC_SYNC_LOCATION_EXTENSION")
 end
@@ -1006,6 +1032,12 @@ end
 # QuotaExceededError.Reason
 class QuotaExceededErrorReason < ::String
   QUOTA_EXCEEDED = QuotaExceededErrorReason.new("QUOTA_EXCEEDED")
+end
+
+# RangeError.Reason
+class RangeErrorReason < ::String
+  TOO_HIGH = RangeErrorReason.new("TOO_HIGH")
+  TOO_LOW = RangeErrorReason.new("TOO_LOW")
 end
 
 # ReadOnlyError.Reason

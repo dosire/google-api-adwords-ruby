@@ -287,6 +287,18 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::C_RangeError,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::RangeErrorReason", [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::ReadOnlyError,
     :schema_type => XSD::QName.new(NsV200909, "ReadOnlyError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -360,15 +372,6 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200909::AdExtensionOverrideService::AdExtension,
-    :schema_type => XSD::QName.new(NsV200909, "AdExtension"),
-    :schema_element => [
-      ["id", "SOAP::SOAPLong", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "AdExtension.Type")], [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideSelector,
     :schema_type => XSD::QName.new(NsV200909, "AdExtensionOverrideSelector"),
     :schema_element => [
@@ -401,6 +404,35 @@ module DefaultMappingRegistry
       ["conversionRateManyPerClick", "SOAP::SOAPDouble", [0, 1]],
       ["costPerConversionManyPerClick", "AdWords::V200909::AdExtensionOverrideService::Money", [0, 1]],
       ["stats_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "Stats.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::ApiException,
+    :schema_type => XSD::QName.new(NsV200909, "ApiException"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApplicationException"),
+    :schema_element => [
+      ["message", "SOAP::SOAPString", [0, 1]],
+      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]],
+      ["errors", "AdWords::V200909::AdExtensionOverrideService::ApiError[]", [0, nil]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::ApplicationException,
+    :schema_type => XSD::QName.new(NsV200909, "ApplicationException"),
+    :schema_element => [
+      ["message", "SOAP::SOAPString", [0, 1]],
+      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::AdExtension,
+    :schema_type => XSD::QName.new(NsV200909, "AdExtension"),
+    :schema_element => [
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "AdExtension.Type")], [0, 1]]
     ]
   )
 
@@ -446,26 +478,6 @@ module DefaultMappingRegistry
     :schema_element => [
       ["listReturnValue_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ListReturnValue.Type")], [0, 1]],
       ["value", "AdWords::V200909::AdExtensionOverrideService::AdExtensionOverride[]", [0, nil]]
-    ]
-  )
-
-  EncodedRegistry.register(
-    :class => AdWords::V200909::AdExtensionOverrideService::ApiException,
-    :schema_type => XSD::QName.new(NsV200909, "ApiException"),
-    :schema_basetype => XSD::QName.new(NsV200909, "ApplicationException"),
-    :schema_element => [
-      ["message", "SOAP::SOAPString", [0, 1]],
-      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]],
-      ["errors", "AdWords::V200909::AdExtensionOverrideService::ApiError[]", [0, nil]]
-    ]
-  )
-
-  EncodedRegistry.register(
-    :class => AdWords::V200909::AdExtensionOverrideService::ApplicationException,
-    :schema_type => XSD::QName.new(NsV200909, "ApplicationException"),
-    :schema_element => [
-      ["message", "SOAP::SOAPString", [0, 1]],
-      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]]
     ]
   )
 
@@ -557,6 +569,11 @@ module DefaultMappingRegistry
   EncodedRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::QuotaExceededErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "QuotaExceededError.Reason")
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::RangeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError.Reason")
   )
 
   EncodedRegistry.register(
@@ -863,6 +880,18 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::C_RangeError,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdExtensionOverrideService::RangeErrorReason", [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::ReadOnlyError,
     :schema_type => XSD::QName.new(NsV200909, "ReadOnlyError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -936,15 +965,6 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200909::AdExtensionOverrideService::AdExtension,
-    :schema_type => XSD::QName.new(NsV200909, "AdExtension"),
-    :schema_element => [
-      ["id", "SOAP::SOAPLong", [0, 1]],
-      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "AdExtension.Type")], [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::AdExtensionOverrideSelector,
     :schema_type => XSD::QName.new(NsV200909, "AdExtensionOverrideSelector"),
     :schema_element => [
@@ -977,6 +997,35 @@ module DefaultMappingRegistry
       ["conversionRateManyPerClick", "SOAP::SOAPDouble", [0, 1]],
       ["costPerConversionManyPerClick", "AdWords::V200909::AdExtensionOverrideService::Money", [0, 1]],
       ["stats_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "Stats.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::ApiException,
+    :schema_type => XSD::QName.new(NsV200909, "ApiException"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApplicationException"),
+    :schema_element => [
+      ["message", "SOAP::SOAPString", [0, 1]],
+      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]],
+      ["errors", "AdWords::V200909::AdExtensionOverrideService::ApiError[]", [0, nil]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::ApplicationException,
+    :schema_type => XSD::QName.new(NsV200909, "ApplicationException"),
+    :schema_element => [
+      ["message", "SOAP::SOAPString", [0, 1]],
+      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::AdExtension,
+    :schema_type => XSD::QName.new(NsV200909, "AdExtension"),
+    :schema_element => [
+      ["id", "SOAP::SOAPLong", [0, 1]],
+      ["adExtension_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "AdExtension.Type")], [0, 1]]
     ]
   )
 
@@ -1022,26 +1071,6 @@ module DefaultMappingRegistry
     :schema_element => [
       ["listReturnValue_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ListReturnValue.Type")], [0, 1]],
       ["value", "AdWords::V200909::AdExtensionOverrideService::AdExtensionOverride[]", [0, nil]]
-    ]
-  )
-
-  LiteralRegistry.register(
-    :class => AdWords::V200909::AdExtensionOverrideService::ApiException,
-    :schema_type => XSD::QName.new(NsV200909, "ApiException"),
-    :schema_basetype => XSD::QName.new(NsV200909, "ApplicationException"),
-    :schema_element => [
-      ["message", "SOAP::SOAPString", [0, 1]],
-      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]],
-      ["errors", "AdWords::V200909::AdExtensionOverrideService::ApiError[]", [0, nil]]
-    ]
-  )
-
-  LiteralRegistry.register(
-    :class => AdWords::V200909::AdExtensionOverrideService::ApplicationException,
-    :schema_type => XSD::QName.new(NsV200909, "ApplicationException"),
-    :schema_element => [
-      ["message", "SOAP::SOAPString", [0, 1]],
-      ["applicationException_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApplicationException.Type")], [0, 1]]
     ]
   )
 
@@ -1133,6 +1162,11 @@ module DefaultMappingRegistry
   LiteralRegistry.register(
     :class => AdWords::V200909::AdExtensionOverrideService::QuotaExceededErrorReason,
     :schema_type => XSD::QName.new(NsV200909, "QuotaExceededError.Reason")
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdExtensionOverrideService::RangeErrorReason,
+    :schema_type => XSD::QName.new(NsV200909, "RangeError.Reason")
   )
 
   LiteralRegistry.register(

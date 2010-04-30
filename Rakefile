@@ -1,11 +1,12 @@
 #!/usr/bin/ruby
 #
+#
 # Authors:: sgomes@google.com (Sérgio Gomes)
 #           jeffy@google.com (Jeffrey Posnick)
 #           chanezon@google.com (Patrick Chanezon)
 #           leavengood@gmail.com (Ryan Leavengood)
 #
-# Copyright:: Copyright 2009, Google Inc. All Rights Reserved.
+# Copyright:: Copyright 2010, Google Inc. All Rights Reserved.
 #
 # License:: Licensed under the Apache License, Version 2.0 (the "License");
 #           you may not use this file except in compliance with the License.
@@ -43,7 +44,7 @@ require 'adwords4r/apiextensions'
 require 'adwords4r/generator'
 
 # Configure some constants and built-in tasks
-CURRENT_VERSION = '18.0.0'
+CURRENT_VERSION = '19.0.0'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 WSDLDIR = 'wsdl'

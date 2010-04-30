@@ -1,3 +1,6 @@
+19.0.0
+- Removed support for v13 and v13-dependent utilities.
+
 18.0.0
 - Removed support for v200906, which has been deco'ed.
 - Made the application token optional, since it's been deco'ed.

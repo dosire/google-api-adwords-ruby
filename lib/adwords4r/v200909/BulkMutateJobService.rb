@@ -1717,6 +1717,7 @@ end
 # - rangeErrorReason - AdWords::V200909::BulkMutateJobService::RangeErrorReason
 # - readOnlyErrorReason - AdWords::V200909::BulkMutateJobService::ReadOnlyErrorReason
 # - regionCodeErrorReason - AdWords::V200909::BulkMutateJobService::RegionCodeErrorReason
+# - requestErrorReason - AdWords::V200909::BulkMutateJobService::RequestErrorReason
 # - requiredErrorReason - AdWords::V200909::BulkMutateJobService::RequiredErrorReason
 # - sizeLimitErrorReason - AdWords::V200909::BulkMutateJobService::SizeLimitErrorReason
 # - statsQueryErrorReason - AdWords::V200909::BulkMutateJobService::StatsQueryErrorReason
@@ -1762,13 +1763,14 @@ class ApiErrorReason
   attr_accessor :rangeErrorReason
   attr_accessor :readOnlyErrorReason
   attr_accessor :regionCodeErrorReason
+  attr_accessor :requestErrorReason
   attr_accessor :requiredErrorReason
   attr_accessor :sizeLimitErrorReason
   attr_accessor :statsQueryErrorReason
   attr_accessor :stringLengthErrorReason
   attr_accessor :targetErrorReason
 
-  def initialize(adErrorReason = nil, adGroupAdErrorReason = nil, adGroupCriterionErrorReason = nil, adGroupServiceErrorReason = nil, authenticationErrorReason = nil, authorizationErrorReason = nil, biddingErrorReason = nil, biddingTransitionErrorReason = nil, budgetErrorReason = nil, bulkMutateJobErrorReason = nil, campaignCriterionErrorReason = nil, campaignErrorReason = nil, clientTermsErrorReason = nil, databaseErrorReason = nil, dateErrorReason = nil, distinctErrorReason = nil, entityAccessDeniedReason = nil, entityCountLimitExceededReason = nil, entityNotFoundReason = nil, idErrorReason = nil, imageErrorReason = nil, internalApiErrorReason = nil, jobErrorReason = nil, loasAuthenticationErrorReason = nil, mediaErrorReason = nil, newEntityCreationErrorReason = nil, notEmptyErrorReason = nil, notWhitelistedErrorReason = nil, nullErrorReason = nil, operationAccessDeniedReason = nil, operatorErrorReason = nil, pagingErrorReason = nil, policyViolationErrorReason = nil, quotaCheckErrorReason = nil, quotaErrorReason = nil, quotaExceededErrorReason = nil, rangeErrorReason = nil, readOnlyErrorReason = nil, regionCodeErrorReason = nil, requiredErrorReason = nil, sizeLimitErrorReason = nil, statsQueryErrorReason = nil, stringLengthErrorReason = nil, targetErrorReason = nil)
+  def initialize(adErrorReason = nil, adGroupAdErrorReason = nil, adGroupCriterionErrorReason = nil, adGroupServiceErrorReason = nil, authenticationErrorReason = nil, authorizationErrorReason = nil, biddingErrorReason = nil, biddingTransitionErrorReason = nil, budgetErrorReason = nil, bulkMutateJobErrorReason = nil, campaignCriterionErrorReason = nil, campaignErrorReason = nil, clientTermsErrorReason = nil, databaseErrorReason = nil, dateErrorReason = nil, distinctErrorReason = nil, entityAccessDeniedReason = nil, entityCountLimitExceededReason = nil, entityNotFoundReason = nil, idErrorReason = nil, imageErrorReason = nil, internalApiErrorReason = nil, jobErrorReason = nil, loasAuthenticationErrorReason = nil, mediaErrorReason = nil, newEntityCreationErrorReason = nil, notEmptyErrorReason = nil, notWhitelistedErrorReason = nil, nullErrorReason = nil, operationAccessDeniedReason = nil, operatorErrorReason = nil, pagingErrorReason = nil, policyViolationErrorReason = nil, quotaCheckErrorReason = nil, quotaErrorReason = nil, quotaExceededErrorReason = nil, rangeErrorReason = nil, readOnlyErrorReason = nil, regionCodeErrorReason = nil, requestErrorReason = nil, requiredErrorReason = nil, sizeLimitErrorReason = nil, statsQueryErrorReason = nil, stringLengthErrorReason = nil, targetErrorReason = nil)
     @adErrorReason = adErrorReason
     @adGroupAdErrorReason = adGroupAdErrorReason
     @adGroupCriterionErrorReason = adGroupCriterionErrorReason
@@ -1808,6 +1810,7 @@ class ApiErrorReason
     @rangeErrorReason = rangeErrorReason
     @readOnlyErrorReason = readOnlyErrorReason
     @regionCodeErrorReason = regionCodeErrorReason
+    @requestErrorReason = requestErrorReason
     @requiredErrorReason = requiredErrorReason
     @sizeLimitErrorReason = sizeLimitErrorReason
     @statsQueryErrorReason = statsQueryErrorReason
@@ -2360,7 +2363,6 @@ class JobContext
 end
 
 # JobEvent
-# abstract
 # - dateTime - SOAP::SOAPString
 # - jobEvent_Type - SOAP::SOAPString
 class JobEvent
@@ -4423,6 +4425,7 @@ class MediaErrorReason < ::String
   INVALID_MEDIA_SUB_TYPE = MediaErrorReason.new("INVALID_MEDIA_SUB_TYPE")
   INVALID_MEDIA_TYPE = MediaErrorReason.new("INVALID_MEDIA_TYPE")
   INVALID_REFERENCE_ID = MediaErrorReason.new("INVALID_REFERENCE_ID")
+  MEDIA_FAILED_TRANSCODING = MediaErrorReason.new("MEDIA_FAILED_TRANSCODING")
   MEDIA_TYPE_DOES_NOT_MATCH_OBJECT_TYPE = MediaErrorReason.new("MEDIA_TYPE_DOES_NOT_MATCH_OBJECT_TYPE")
   NO_FIELDS_SPECIFIED = MediaErrorReason.new("NO_FIELDS_SPECIFIED")
   NULL_REFERENCE_ID_AND_MEDIA_ID = MediaErrorReason.new("NULL_REFERENCE_ID_AND_MEDIA_ID")
@@ -4568,6 +4571,12 @@ end
 # RegionCodeError.Reason
 class RegionCodeErrorReason < ::String
   INVALID_REGION_CODE = RegionCodeErrorReason.new("INVALID_REGION_CODE")
+end
+
+# RequestError.Reason
+class RequestErrorReason < ::String
+  INVALID_INPUT = RequestErrorReason.new("INVALID_INPUT")
+  UNKNOWN = RequestErrorReason.new("UNKNOWN")
 end
 
 # RequiredError.Reason
