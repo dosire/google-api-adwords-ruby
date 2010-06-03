@@ -1,6 +1,5 @@
 #!/usr/bin/ruby
 #
-#
 # Authors:: sgomes@google.com (Sérgio Gomes)
 #           jeffy@google.com (Jeffrey Posnick)
 #           chanezon@google.com (Patrick Chanezon)
@@ -44,7 +43,7 @@ require 'adwords4r/apiextensions'
 require 'adwords4r/generator'
 
 # Configure some constants and built-in tasks
-CURRENT_VERSION = '19.0.0'
+CURRENT_VERSION = '19.1.0'
 PKG_VERSION = ENV['REL'] ? ENV['REL'] : CURRENT_VERSION
 
 WSDLDIR = 'wsdl'
@@ -259,7 +258,7 @@ end
 # Create a task to perform the unit testing.
 Rake::TestTask.new("test") do |test|
   test.libs << TESTDIR
-  test.pattern = "#{TESTDIR}/test_*.rb"
+  test.pattern = "#{TESTDIR}/**/test_*.rb"
   test.verbose = true
 end
 

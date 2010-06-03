@@ -1,3 +1,9 @@
+19.1.0
+- Added support for v201003.
+- Added several examples for v201003, removed deprecated examples.
+- Reorganized service tests into versions.
+- Added extension methods for v201003 report downloading.
+
 19.0.0
 - Removed support for v13 and v13-dependent utilities.
 
@@ -121,7 +127,7 @@
   AdWords::API.get_last_units() will return the number of API units used for the last API call.
 - Started the process of creating new sample code. The existing code samples are a bit lacking and were moved to the 'examples/old' directory.
   A new sample program, 'examples/reports.rb' was created. This sample validates, schedules, and downloads a Keyword Structure report.
-  It's a fairly extensive sample and illustrates some of the new API features as well as general best-practices. 
+  It's a fairly extensive sample and illustrates some of the new API features as well as general best-practices.
   Look for more sample code in future releases.
 
 11.0.3
