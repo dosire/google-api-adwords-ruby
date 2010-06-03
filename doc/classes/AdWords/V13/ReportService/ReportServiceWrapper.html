@@ -57,11 +57,11 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000137">deleteReport</a>,</li>
+                <li><a href="#method-i-deleteReport">deleteReport</a>,</li>
                 
-                <li><a href="#M000150">downloadCsvReport</a>,</li>
+                <li><a href="#method-i-downloadCsvReport">downloadCsvReport</a>,</li>
                 
-                <li><a href="#M000149">downloadXmlReport</a></li>
+                <li><a href="#method-i-downloadXmlReport">downloadXmlReport</a></li>
                 
             </ul>
         </dd>
@@ -70,13 +70,13 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000139">getAllJobs</a>,</li>
+                <li><a href="#method-i-getAllJobs">getAllJobs</a>,</li>
                 
-                <li><a href="#M000141">getGzipReportDownloadUrl</a>,</li>
+                <li><a href="#method-i-getGzipReportDownloadUrl">getGzipReportDownloadUrl</a>,</li>
                 
-                <li><a href="#M000142">getReportDownloadUrl</a>,</li>
+                <li><a href="#method-i-getReportDownloadUrl">getReportDownloadUrl</a>,</li>
                 
-                <li><a href="#M000144">getReportJobStatus</a></li>
+                <li><a href="#method-i-getReportJobStatus">getReportJobStatus</a></li>
                 
             </ul>
         </dd>
@@ -85,7 +85,7 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000136">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -94,7 +94,7 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000146">scheduleReportJob</a></li>
+                <li><a href="#method-i-scheduleReportJob">scheduleReportJob</a></li>
                 
             </ul>
         </dd>
@@ -103,7 +103,7 @@ generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000148">validateReportJob</a></li>
+                <li><a href="#method-i-validateReportJob">validateReportJob</a></li>
                 
             </ul>
         </dd>
@@ -165,9 +165,9 @@ href="../../API.html">API</a> versions.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000136">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000136"></a><b>new</b>(driver, api)
+                    <a name="method-c-new"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -180,13 +180,15 @@ href="ReportServiceWrapper.html">ReportServiceWrapper</a>.
 Args:
 </p>
 <ul>
-<li>driver: SOAP::RPC::Driver object with the remote SOAP methods for this
+<li><p>
+driver: SOAP::RPC::Driver object with the remote SOAP methods for this
 service
-
+</p>
 </li>
-<li>api: the <a href="../../API.html">AdWords::API</a> object to which the
+<li><p>
+api: the <a href="../../API.html">AdWords::API</a> object to which the
 wrapper belongs
-
+</p>
 </li>
 </ul>
 
@@ -197,16 +199,16 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000136_source')" id="l_M000136_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000136_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 34</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
-          <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
-          <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
-          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 34</span>
+34:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
+35:           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
+36:           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+37:           <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span>
+38:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
@@ -215,9 +217,9 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000137">
+                <div class="title" id="method-i-deleteReport">
                     
-                    <a name="M000137"></a><b>deleteReport</b>(reportJobId)
+                    <a name="method-i-deleteReport"></a><b>deleteReport</b>(reportJobId)
                     
                 </div>
                 
@@ -233,8 +235,9 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>reportJobId: SOAP::SOAPLong
-
+<li><p>
+reportJobId: SOAP::SOAPLong
+</p>
 </li>
 </ul>
 <p>
@@ -249,40 +252,40 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000137_source')" id="l_M000137_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-deleteReport_source')" id="l_method-i-deleteReport_source">show</a>
                         
                     </p>
-                    <div id="M000137_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 49</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deleteReport</span>(<span class="ruby-identifier">reportJobId</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
-                <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">DeleteReport</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">deleteReport</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;deleteReport Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-deleteReport_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 49</span>
+49:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">deleteReport</span>(<span class="ruby-identifier">reportJobId</span>)
+50:           <span class="ruby-keyword kw">begin</span>
+51:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
+52:                 <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
+53:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+54:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">DeleteReport</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
+55:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">deleteReport</span>(<span class="ruby-identifier">obj</span>)
+56:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+57:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+58:                 <span class="ruby-value str">&quot;deleteReport Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+59:           <span class="ruby-keyword kw">end</span>
+60:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000150">
+                <div class="title" id="method-i-downloadCsvReport">
                     
-                    <a name="M000150"></a><b>downloadCsvReport</b>(job_id)
+                    <a name="method-i-downloadCsvReport"></a><b>downloadCsvReport</b>(job_id)
                     
                 </div>
                 
                 <div class="description">
                   <p>
-<em>Extension method</em> &#8212; Calls the <a
-href="../../Extensions.html#M000072">AdWords::Extensions.downloadCsvReport</a>
-method with <tt>self</tt> as the first parameter.
+<em>Extension method</em> &#8212; Calls the
+AdWords::Extensions.downloadCsvReport method with <tt>self</tt> as the
+first parameter.
 </p>
 
                 </div>
@@ -292,31 +295,31 @@ method with <tt>self</tt> as the first parameter.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000150_source')" id="l_M000150_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-downloadCsvReport_source')" id="l_method-i-downloadCsvReport_source">show</a>
                         
                     </p>
-                    <div id="M000150_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 212</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">downloadCsvReport</span>(<span class="ruby-identifier">job_id</span>)
-          <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">downloadCsvReport</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">job_id</span>)
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-downloadCsvReport_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 212</span>
+212:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">downloadCsvReport</span>(<span class="ruby-identifier">job_id</span>)
+213:           <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">downloadCsvReport</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">job_id</span>)
+214:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000149">
+                <div class="title" id="method-i-downloadXmlReport">
                     
-                    <a name="M000149"></a><b>downloadXmlReport</b>(job_id)
+                    <a name="method-i-downloadXmlReport"></a><b>downloadXmlReport</b>(job_id)
                     
                 </div>
                 
                 <div class="description">
                   <p>
-<em>Extension method</em> &#8212; Calls the <a
-href="../../Extensions.html#M000070">AdWords::Extensions.downloadXmlReport</a>
-method with <tt>self</tt> as the first parameter.
+<em>Extension method</em> &#8212; Calls the
+AdWords::Extensions.downloadXmlReport method with <tt>self</tt> as the
+first parameter.
 </p>
 
                 </div>
@@ -326,23 +329,23 @@ method with <tt>self</tt> as the first parameter.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000149_source')" id="l_M000149_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-downloadXmlReport_source')" id="l_method-i-downloadXmlReport_source">show</a>
                         
                     </p>
-                    <div id="M000149_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 206</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-identifier">job_id</span>)
-          <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">job_id</span>)
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-downloadXmlReport_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 206</span>
+206:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-identifier">job_id</span>)
+207:           <span class="ruby-keyword kw">return</span> <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span>.<span class="ruby-identifier">downloadXmlReport</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">job_id</span>)
+208:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000139">
+                <div class="title" id="method-i-getAllJobs">
                     
-                    <a name="M000139"></a><b>getAllJobs</b>()
+                    <a name="method-i-getAllJobs"></a><b>getAllJobs</b>()
                     
                 </div>
                 
@@ -358,9 +361,10 @@ online documentation for this method</a>.
 Returns:
 </p>
 <ul>
-<li>getAllJobsReturn: SOAP::SOAPArray of <a
+<li><p>
+getAllJobsReturn: SOAP::SOAPArray of <a
 href="ReportJob.html">AdWords::V13::ReportService::ReportJob</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -375,30 +379,30 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000139_source')" id="l_M000139_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-getAllJobs_source')" id="l_method-i-getAllJobs_source">show</a>
                         
                     </p>
-                    <div id="M000139_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 71</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAllJobs</span>()
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetAllJobs</span>.<span class="ruby-identifier">new</span>()
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getAllJobs</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;getAllJobs Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-getAllJobs_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 71</span>
+71:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getAllJobs</span>()
+72:           <span class="ruby-keyword kw">begin</span>
+73:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+74:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetAllJobs</span>.<span class="ruby-identifier">new</span>()
+75:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getAllJobs</span>(<span class="ruby-identifier">obj</span>)
+76:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+77:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+78:                 <span class="ruby-value str">&quot;getAllJobs Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+79:           <span class="ruby-keyword kw">end</span>
+80:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000141">
+                <div class="title" id="method-i-getGzipReportDownloadUrl">
                     
-                    <a name="M000141"></a><b>getGzipReportDownloadUrl</b>(reportJobId)
+                    <a name="method-i-getGzipReportDownloadUrl"></a><b>getGzipReportDownloadUrl</b>(reportJobId)
                     
                 </div>
                 
@@ -414,16 +418,18 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>reportJobId: SOAP::SOAPLong
-
+<li><p>
+reportJobId: SOAP::SOAPLong
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>getGzipReportDownloadUrlReturn: SOAP::SOAPString
-
+<li><p>
+getGzipReportDownloadUrlReturn: SOAP::SOAPString
+</p>
 </li>
 </ul>
 <p>
@@ -438,32 +444,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000141_source')" id="l_M000141_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-getGzipReportDownloadUrl_source')" id="l_method-i-getGzipReportDownloadUrl_source">show</a>
                         
                     </p>
-                    <div id="M000141_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 94</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getGzipReportDownloadUrl</span>(<span class="ruby-identifier">reportJobId</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
-                <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetGzipReportDownloadUrl</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getGzipReportDownloadUrl</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;getGzipReportDownloadUrl Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-getGzipReportDownloadUrl_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 94</span>
+ 94:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getGzipReportDownloadUrl</span>(<span class="ruby-identifier">reportJobId</span>)
+ 95:           <span class="ruby-keyword kw">begin</span>
+ 96:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
+ 97:                 <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
+ 98:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+ 99:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetGzipReportDownloadUrl</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
+100:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getGzipReportDownloadUrl</span>(<span class="ruby-identifier">obj</span>)
+101:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+102:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+103:                 <span class="ruby-value str">&quot;getGzipReportDownloadUrl Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+104:           <span class="ruby-keyword kw">end</span>
+105:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000142">
+                <div class="title" id="method-i-getReportDownloadUrl">
                     
-                    <a name="M000142"></a><b>getReportDownloadUrl</b>(reportJobId)
+                    <a name="method-i-getReportDownloadUrl"></a><b>getReportDownloadUrl</b>(reportJobId)
                     
                 </div>
                 
@@ -479,16 +485,18 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>reportJobId: SOAP::SOAPLong
-
+<li><p>
+reportJobId: SOAP::SOAPLong
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>getReportDownloadUrlReturn: SOAP::SOAPString
-
+<li><p>
+getReportDownloadUrlReturn: SOAP::SOAPString
+</p>
 </li>
 </ul>
 <p>
@@ -503,32 +511,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000142_source')" id="l_M000142_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-getReportDownloadUrl_source')" id="l_method-i-getReportDownloadUrl_source">show</a>
                         
                     </p>
-                    <div id="M000142_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 119</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getReportDownloadUrl</span>(<span class="ruby-identifier">reportJobId</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
-                <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetReportDownloadUrl</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getReportDownloadUrl</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;getReportDownloadUrl Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-getReportDownloadUrl_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 119</span>
+119:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getReportDownloadUrl</span>(<span class="ruby-identifier">reportJobId</span>)
+120:           <span class="ruby-keyword kw">begin</span>
+121:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
+122:                 <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
+123:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+124:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetReportDownloadUrl</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
+125:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getReportDownloadUrl</span>(<span class="ruby-identifier">obj</span>)
+126:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+127:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+128:                 <span class="ruby-value str">&quot;getReportDownloadUrl Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+129:           <span class="ruby-keyword kw">end</span>
+130:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000144">
+                <div class="title" id="method-i-getReportJobStatus">
                     
-                    <a name="M000144"></a><b>getReportJobStatus</b>(reportJobId)
+                    <a name="method-i-getReportJobStatus"></a><b>getReportJobStatus</b>(reportJobId)
                     
                 </div>
                 
@@ -544,17 +552,19 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>reportJobId: SOAP::SOAPLong
-
+<li><p>
+reportJobId: SOAP::SOAPLong
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>getReportJobStatusReturn: <a
+<li><p>
+getReportJobStatusReturn: <a
 href="ReportJobStatus.html">AdWords::V13::ReportService::ReportJobStatus</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -569,32 +579,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000144_source')" id="l_M000144_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-getReportJobStatus_source')" id="l_method-i-getReportJobStatus_source">show</a>
                         
                     </p>
-                    <div id="M000144_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 144</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getReportJobStatus</span>(<span class="ruby-identifier">reportJobId</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
-                <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetReportJobStatus</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getReportJobStatus</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;getReportJobStatus Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-getReportJobStatus_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 144</span>
+144:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getReportJobStatus</span>(<span class="ruby-identifier">reportJobId</span>)
+145:           <span class="ruby-keyword kw">begin</span>
+146:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'reportJobId'</span>,
+147:                 <span class="ruby-identifier">reportJobId</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPLong</span>)
+148:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+149:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">GetReportJobStatus</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">reportJobId</span>)
+150:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">getReportJobStatus</span>(<span class="ruby-identifier">obj</span>)
+151:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+152:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+153:                 <span class="ruby-value str">&quot;getReportJobStatus Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+154:           <span class="ruby-keyword kw">end</span>
+155:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000146">
+                <div class="title" id="method-i-scheduleReportJob">
                     
-                    <a name="M000146"></a><b>scheduleReportJob</b>(job)
+                    <a name="method-i-scheduleReportJob"></a><b>scheduleReportJob</b>(job)
                     
                 </div>
                 
@@ -610,16 +620,18 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>job: <a href="ReportJob.html">AdWords::V13::ReportService::ReportJob</a>
-
+<li><p>
+job: <a href="ReportJob.html">AdWords::V13::ReportService::ReportJob</a>
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>scheduleReportJobReturn: SOAP::SOAPLong
-
+<li><p>
+scheduleReportJobReturn: SOAP::SOAPLong
+</p>
 </li>
 </ul>
 <p>
@@ -634,32 +646,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000146_source')" id="l_M000146_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-scheduleReportJob_source')" id="l_method-i-scheduleReportJob_source">show</a>
                         
                     </p>
-                    <div id="M000146_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 169</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">scheduleReportJob</span>(<span class="ruby-identifier">job</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'job'</span>,
-                <span class="ruby-identifier">job</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportJob</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ScheduleReportJob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">job</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">scheduleReportJob</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;scheduleReportJob Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-scheduleReportJob_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 169</span>
+169:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">scheduleReportJob</span>(<span class="ruby-identifier">job</span>)
+170:           <span class="ruby-keyword kw">begin</span>
+171:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'job'</span>,
+172:                 <span class="ruby-identifier">job</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportJob</span>)
+173:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+174:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ScheduleReportJob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">job</span>)
+175:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">scheduleReportJob</span>(<span class="ruby-identifier">obj</span>)
+176:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+177:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+178:                 <span class="ruby-value str">&quot;scheduleReportJob Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+179:           <span class="ruby-keyword kw">end</span>
+180:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000148">
+                <div class="title" id="method-i-validateReportJob">
                     
-                    <a name="M000148"></a><b>validateReportJob</b>(job)
+                    <a name="method-i-validateReportJob"></a><b>validateReportJob</b>(job)
                     
                 </div>
                 
@@ -675,8 +687,9 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>job: <a href="ReportJob.html">AdWords::V13::ReportService::ReportJob</a>
-
+<li><p>
+job: <a href="ReportJob.html">AdWords::V13::ReportService::ReportJob</a>
+</p>
 </li>
 </ul>
 <p>
@@ -691,23 +704,23 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000148_source')" id="l_M000148_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-validateReportJob_source')" id="l_method-i-validateReportJob_source">show</a>
                         
                     </p>
-                    <div id="M000148_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 191</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validateReportJob</span>(<span class="ruby-identifier">job</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'job'</span>,
-                <span class="ruby-identifier">job</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportJob</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ValidateReportJob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">job</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">validateReportJob</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;validateReportJob Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-validateReportJob_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportServiceWrapper.rb, line 191</span>
+191:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validateReportJob</span>(<span class="ruby-identifier">job</span>)
+192:           <span class="ruby-keyword kw">begin</span>
+193:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'job'</span>,
+194:                 <span class="ruby-identifier">job</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportJob</span>)
+195:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+196:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">ReportService</span><span class="ruby-operator">::</span><span class="ruby-constant">ValidateReportJob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">job</span>)
+197:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">validateReportJob</span>(<span class="ruby-identifier">obj</span>)
+198:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+199:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+200:                 <span class="ruby-value str">&quot;validateReportJob Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+201:           <span class="ruby-keyword kw">end</span>
+202:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

@@ -69,18 +69,6 @@ module DefaultMappingRegistry
   )
 
   EncodedRegistry.register(
-    :class => AdWords::V200909::AdGroupService::DatabaseError,
-    :schema_type => XSD::QName.new(NsV200909, "DatabaseError"),
-    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
-    :schema_element => [
-      ["fieldPath", "SOAP::SOAPString", [0, 1]],
-      ["trigger", "SOAP::SOAPString", [0, 1]],
-      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
-      ["reason", "AdWords::V200909::AdGroupService::DatabaseErrorReason", [0, 1]]
-    ]
-  )
-
-  EncodedRegistry.register(
     :class => AdWords::V200909::AdGroupService::DateError,
     :schema_type => XSD::QName.new(NsV200909, "DateError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -376,6 +364,18 @@ module DefaultMappingRegistry
     :schema_element => [
       ["dateRange", "AdWords::V200909::AdGroupService::DateRange", [0, 1]],
       ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "StatsSelector.Type")], [0, 1]]
+    ]
+  )
+
+  EncodedRegistry.register(
+    :class => AdWords::V200909::AdGroupService::DatabaseError,
+    :schema_type => XSD::QName.new(NsV200909, "DatabaseError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdGroupService::DatabaseErrorReason", [0, 1]]
     ]
   )
 
@@ -727,18 +727,6 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => AdWords::V200909::AdGroupService::DatabaseError,
-    :schema_type => XSD::QName.new(NsV200909, "DatabaseError"),
-    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
-    :schema_element => [
-      ["fieldPath", "SOAP::SOAPString", [0, 1]],
-      ["trigger", "SOAP::SOAPString", [0, 1]],
-      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
-      ["reason", "AdWords::V200909::AdGroupService::DatabaseErrorReason", [0, 1]]
-    ]
-  )
-
-  LiteralRegistry.register(
     :class => AdWords::V200909::AdGroupService::DateError,
     :schema_type => XSD::QName.new(NsV200909, "DateError"),
     :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
@@ -1034,6 +1022,18 @@ module DefaultMappingRegistry
     :schema_element => [
       ["dateRange", "AdWords::V200909::AdGroupService::DateRange", [0, 1]],
       ["statsSelector_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "StatsSelector.Type")], [0, 1]]
+    ]
+  )
+
+  LiteralRegistry.register(
+    :class => AdWords::V200909::AdGroupService::DatabaseError,
+    :schema_type => XSD::QName.new(NsV200909, "DatabaseError"),
+    :schema_basetype => XSD::QName.new(NsV200909, "ApiError"),
+    :schema_element => [
+      ["fieldPath", "SOAP::SOAPString", [0, 1]],
+      ["trigger", "SOAP::SOAPString", [0, 1]],
+      ["apiError_Type", ["SOAP::SOAPString", XSD::QName.new(NsV200909, "ApiError.Type")], [0, 1]],
+      ["reason", "AdWords::V200909::AdGroupService::DatabaseErrorReason", [0, 1]]
     ]
   )
 

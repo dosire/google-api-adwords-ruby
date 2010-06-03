@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::V201003::BulkMutateJobService::BulkMutateJobSelector</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::V201003::BulkMutateJobService::BulkMutateJobSelector 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="JobSelector.html">AdWords::V201003::BulkMutateJobService::JobSelector</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/adwords4r/v201003/BulkMutateJobService_rb.html">lib/adwords4r/v201003/BulkMutateJobService.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="BulkMutateJobSelector.html">BulkMutateJobSelector</a>
+</p>
+<ul>
+<li><p>
+customerJobKeys - SOAP::SOAPString
+</p>
+</li>
+<li><p>
+includeHistory - SOAP::SOAPBoolean
+</p>
+</li>
+<li><p>
+include<a href="Stats.html">Stats</a> - SOAP::SOAPBoolean
+</p>
+</li>
+<li><p>
+<a href="BulkMutateJobSelector.html#jobSelector_Type">jobSelector_Type</a>
+- SOAP::SOAPString
+</p>
+</li>
+<li><p>
+jobIds - SOAP::SOAPLong
+</p>
+</li>
+<li><p>
+jobStatuses - <a
+href="BasicJobStatus.html">AdWords::V201003::BulkMutateJobService::BasicJobStatus</a>
+</p>
+</li>
+<li><p>
+resultPartIndex - SOAP::SOAPInt
+</p>
+</li>
+</ul>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#method-c-new">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>customerJobKeys</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>includeHistory</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>includeStats</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>jobSelector_Type</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>jobIds</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>jobStatuses</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>resultPartIndex</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="method-c-new">
+                    
+                    <a name="method-c-new"></a><b>new</b>(customerJobKeys = [], includeHistory = nil, includeStats = nil, jobSelector_Type = nil, jobIds = [], jobStatuses = [], resultPartIndex = nil)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                        
+                    </p>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v201003/BulkMutateJobService.rb, line 2860</span>
+2860:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">customerJobKeys</span> = [], <span class="ruby-identifier">includeHistory</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">includeStats</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">jobSelector_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">jobIds</span> = [], <span class="ruby-identifier">jobStatuses</span> = [], <span class="ruby-identifier">resultPartIndex</span> = <span class="ruby-keyword kw">nil</span>)
+2861:     <span class="ruby-ivar">@customerJobKeys</span> = <span class="ruby-identifier">customerJobKeys</span>
+2862:     <span class="ruby-ivar">@includeHistory</span> = <span class="ruby-identifier">includeHistory</span>
+2863:     <span class="ruby-ivar">@includeStats</span> = <span class="ruby-identifier">includeStats</span>
+2864:     <span class="ruby-ivar">@jobSelector_Type</span> = <span class="ruby-identifier">jobSelector_Type</span>
+2865:     <span class="ruby-ivar">@jobIds</span> = <span class="ruby-identifier">jobIds</span>
+2866:     <span class="ruby-ivar">@jobStatuses</span> = <span class="ruby-identifier">jobStatuses</span>
+2867:     <span class="ruby-ivar">@resultPartIndex</span> = <span class="ruby-identifier">resultPartIndex</span>
+2868:   <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

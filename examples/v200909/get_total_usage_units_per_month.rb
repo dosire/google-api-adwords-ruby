@@ -19,24 +19,24 @@
 #
 # This example illustrates how to retrieve the total number of API units that
 # can be used by the developer token making the call, for the current month.
+#
+# Tags: InfoService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_total_usage_units_per_month()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  info_srv = adwords.get_service('Info', latest)
+  info_srv = adwords.get_service('Info', API_VERSION)
 
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::InfoService::InfoSelector
+  # typing the full class name every time we need to create an object.
   selector = info_srv.module::InfoSelector.new
   selector.apiUsageType = 'TOTAL_USAGE_API_UNITS_PER_MONTH'
 
@@ -52,7 +52,7 @@ if __FILE__ == $0
   # To enable logging of SOAP requests, set the ADWORDS4R_DEBUG environment
   # variable to 'true'. This can be done either from your operating system
   # environment or via code, as done below.
-  ENV['ADWORDS4R_DEBUG'] = 'true'
+  ENV['ADWORDS4R_DEBUG'] = 'false'
 
   begin
     get_total_usage_units_per_month()

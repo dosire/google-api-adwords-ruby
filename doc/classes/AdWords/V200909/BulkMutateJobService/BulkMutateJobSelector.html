@@ -20,7 +20,7 @@
             
                 <span class="parent">&lt; 
                     
-                    JobSelector
+                    <a href="JobSelector.html">AdWords::V200909::BulkMutateJobService::JobSelector</a>
                     
                 </span>
             
@@ -39,28 +39,35 @@
 <a href="BulkMutateJobSelector.html">BulkMutateJobSelector</a>
 </p>
 <ul>
-<li>customerJobKeys - SOAP::SOAPString
-
+<li><p>
+customerJobKeys - SOAP::SOAPString
+</p>
 </li>
-<li>includeHistory - SOAP::SOAPBoolean
-
+<li><p>
+includeHistory - SOAP::SOAPBoolean
+</p>
 </li>
-<li>include<a href="Stats.html">Stats</a> - SOAP::SOAPBoolean
-
+<li><p>
+include<a href="Stats.html">Stats</a> - SOAP::SOAPBoolean
+</p>
 </li>
-<li><a href="BulkMutateJobSelector.html#jobSelector_Type">jobSelector_Type</a>
+<li><p>
+<a href="BulkMutateJobSelector.html#jobSelector_Type">jobSelector_Type</a>
 - SOAP::SOAPString
-
+</p>
 </li>
-<li>jobIds - SOAP::SOAPLong
-
+<li><p>
+jobIds - SOAP::SOAPLong
+</p>
 </li>
-<li>jobStatuses - <a
+<li><p>
+jobStatuses - <a
 href="BasicJobStatus.html">AdWords::V200909::BulkMutateJobService::BasicJobStatus</a>
-
+</p>
 </li>
-<li>resultPartIndex - SOAP::SOAPInt
-
+<li><p>
+resultPartIndex - SOAP::SOAPInt
+</p>
 </li>
 </ul>
 
@@ -81,7 +88,7 @@ href="BasicJobStatus.html">AdWords::V200909::BulkMutateJobService::BasicJobStatu
         <dd>
             <ul>
                 
-                <li><a href="#M000787">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -164,9 +171,9 @@ href="BasicJobStatus.html">AdWords::V200909::BulkMutateJobService::BasicJobStatu
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000787">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000787"></a><b>new</b>(customerJobKeys = [], includeHistory = nil, includeStats = nil, jobSelector_Type = nil, jobIds = [], jobStatuses = [], resultPartIndex = nil)
+                    <a name="method-c-new"></a><b>new</b>(customerJobKeys = [], includeHistory = nil, includeStats = nil, jobSelector_Type = nil, jobIds = [], jobStatuses = [], resultPartIndex = nil)
                     
                 </div>
                 
@@ -175,20 +182,20 @@ href="BasicJobStatus.html">AdWords::V200909::BulkMutateJobService::BasicJobStatu
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000787_source')" id="l_M000787_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000787_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2431</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">customerJobKeys</span> = [], <span class="ruby-identifier">includeHistory</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">includeStats</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">jobSelector_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">jobIds</span> = [], <span class="ruby-identifier">jobStatuses</span> = [], <span class="ruby-identifier">resultPartIndex</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@customerJobKeys</span> = <span class="ruby-identifier">customerJobKeys</span>
-    <span class="ruby-ivar">@includeHistory</span> = <span class="ruby-identifier">includeHistory</span>
-    <span class="ruby-ivar">@includeStats</span> = <span class="ruby-identifier">includeStats</span>
-    <span class="ruby-ivar">@jobSelector_Type</span> = <span class="ruby-identifier">jobSelector_Type</span>
-    <span class="ruby-ivar">@jobIds</span> = <span class="ruby-identifier">jobIds</span>
-    <span class="ruby-ivar">@jobStatuses</span> = <span class="ruby-identifier">jobStatuses</span>
-    <span class="ruby-ivar">@resultPartIndex</span> = <span class="ruby-identifier">resultPartIndex</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2431</span>
+2431:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">customerJobKeys</span> = [], <span class="ruby-identifier">includeHistory</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">includeStats</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">jobSelector_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">jobIds</span> = [], <span class="ruby-identifier">jobStatuses</span> = [], <span class="ruby-identifier">resultPartIndex</span> = <span class="ruby-keyword kw">nil</span>)
+2432:     <span class="ruby-ivar">@customerJobKeys</span> = <span class="ruby-identifier">customerJobKeys</span>
+2433:     <span class="ruby-ivar">@includeHistory</span> = <span class="ruby-identifier">includeHistory</span>
+2434:     <span class="ruby-ivar">@includeStats</span> = <span class="ruby-identifier">includeStats</span>
+2435:     <span class="ruby-ivar">@jobSelector_Type</span> = <span class="ruby-identifier">jobSelector_Type</span>
+2436:     <span class="ruby-ivar">@jobIds</span> = <span class="ruby-identifier">jobIds</span>
+2437:     <span class="ruby-ivar">@jobStatuses</span> = <span class="ruby-identifier">jobStatuses</span>
+2438:     <span class="ruby-ivar">@resultPartIndex</span> = <span class="ruby-identifier">resultPartIndex</span>
+2439:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

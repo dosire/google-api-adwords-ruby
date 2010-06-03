@@ -19,29 +19,28 @@
 #
 # This example illustrates how to update an ad group criterion, setting its
 # bid. To create an ad group criterion, run add_ad_group_criterion.rb.
+#
+# Tags: AdGroupCriterionService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
-require 'base64'
 
-def update_ad()
+API_VERSION = 200909
+
+def update_ad_group_criterion()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_criterion_srv = adwords.get_service('AdGroupCriterion', latest)
+  ad_group_criterion_srv = adwords.get_service('AdGroupCriterion', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
   criterion_id = 'INSERT_CRITERION_ID_HERE'.to_i
 
-  # Prepare for updating ad group.
+  # Prepare for updating ad group criterion.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object, e.g.
-  # AdWords::V200909::AdGroupCriterionService::ManualCPCAdGroupCriterionBids
+  # typing the full class name every time we need to create an object.
   bid = ad_group_criterion_srv.module::ManualCPCAdGroupCriterionBids.new
   bid.maxCpc = {
     :amount => {
@@ -70,10 +69,10 @@ if __FILE__ == $0
   # To enable logging of SOAP requests, set the ADWORDS4R_DEBUG environment
   # variable to 'true'. This can be done either from your operating system
   # environment or via code, as done below.
-  ENV['ADWORDS4R_DEBUG'] = 'true'
+  ENV['ADWORDS4R_DEBUG'] = 'false'
 
   begin
-    update_ad()
+    update_ad_group_criterion()
 
   # Connection error. Likely transitory.
   rescue Errno::ECONNRESET, SOAP::HTTPStreamError, SocketError => e

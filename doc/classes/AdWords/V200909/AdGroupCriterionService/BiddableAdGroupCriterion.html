@@ -20,7 +20,7 @@
             
                 <span class="parent">&lt; 
                     
-                    AdGroupCriterion
+                    <a href="AdGroupCriterion.html">AdWords::V200909::AdGroupCriterionService::AdGroupCriterion</a>
                     
                 </span>
             
@@ -39,48 +39,59 @@
 <a href="BiddableAdGroupCriterion.html">BiddableAdGroupCriterion</a>
 </p>
 <ul>
-<li>adGroupId - SOAP::SOAPLong
-
+<li><p>
+adGroupId - SOAP::SOAPLong
+</p>
 </li>
-<li>criterion - <a
+<li><p>
+criterion - <a
 href="Criterion.html">AdWords::V200909::AdGroupCriterionService::Criterion</a>
-
+</p>
 </li>
-<li><a
+<li><p>
+<a
 href="BiddableAdGroupCriterion.html#adGroupCriterion_Type">adGroupCriterion_Type</a>
 - SOAP::SOAPString
-
+</p>
 </li>
-<li>userStatus - <a
+<li><p>
+userStatus - <a
 href="UserStatus.html">AdWords::V200909::AdGroupCriterionService::UserStatus</a>
-
+</p>
 </li>
-<li>systemServingStatus - <a
+<li><p>
+systemServingStatus - <a
 href="SystemServingStatus.html">AdWords::V200909::AdGroupCriterionService::SystemServingStatus</a>
-
+</p>
 </li>
-<li>approvalStatus - <a
+<li><p>
+approvalStatus - <a
 href="ApprovalStatus.html">AdWords::V200909::AdGroupCriterionService::ApprovalStatus</a>
-
+</p>
 </li>
-<li>destinationUrl - SOAP::SOAPString
-
+<li><p>
+destinationUrl - SOAP::SOAPString
+</p>
 </li>
-<li>bids - <a
+<li><p>
+bids - <a
 href="AdGroupCriterionBids.html">AdWords::V200909::AdGroupCriterionService::AdGroupCriterionBids</a>
-
+</p>
 </li>
-<li>firstPageCpc - <a
+<li><p>
+firstPageCpc - <a
 href="Bid.html">AdWords::V200909::AdGroupCriterionService::Bid</a>
-
+</p>
 </li>
-<li>qualityInfo - <a
+<li><p>
+qualityInfo - <a
 href="QualityInfo.html">AdWords::V200909::AdGroupCriterionService::QualityInfo</a>
-
+</p>
 </li>
-<li>stats - <a
+<li><p>
+stats - <a
 href="Stats.html">AdWords::V200909::AdGroupCriterionService::Stats</a>
-
+</p>
 </li>
 </ul>
 
@@ -101,7 +112,7 @@ href="Stats.html">AdWords::V200909::AdGroupCriterionService::Stats</a>
         <dd>
             <ul>
                 
-                <li><a href="#M000827">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -216,9 +227,9 @@ href="Stats.html">AdWords::V200909::AdGroupCriterionService::Stats</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000827">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000827"></a><b>new</b>(adGroupId = nil, criterion = nil, adGroupCriterion_Type = nil, userStatus = nil, systemServingStatus = nil, approvalStatus = nil, destinationUrl = nil, bids = nil, firstPageCpc = nil, qualityInfo = nil, stats = nil)
+                    <a name="method-c-new"></a><b>new</b>(adGroupId = nil, criterion = nil, adGroupCriterion_Type = nil, userStatus = nil, systemServingStatus = nil, approvalStatus = nil, destinationUrl = nil, bids = nil, firstPageCpc = nil, qualityInfo = nil, stats = nil)
                     
                 </div>
                 
@@ -227,24 +238,24 @@ href="Stats.html">AdWords::V200909::AdGroupCriterionService::Stats</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000827_source')" id="l_M000827_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000827_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdGroupCriterionService.rb, line 1106</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">adGroupId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">criterion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupCriterion_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">userStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">systemServingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">approvalStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">destinationUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">bids</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">firstPageCpc</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">qualityInfo</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@adGroupId</span> = <span class="ruby-identifier">adGroupId</span>
-    <span class="ruby-ivar">@criterion</span> = <span class="ruby-identifier">criterion</span>
-    <span class="ruby-ivar">@adGroupCriterion_Type</span> = <span class="ruby-identifier">adGroupCriterion_Type</span>
-    <span class="ruby-ivar">@userStatus</span> = <span class="ruby-identifier">userStatus</span>
-    <span class="ruby-ivar">@systemServingStatus</span> = <span class="ruby-identifier">systemServingStatus</span>
-    <span class="ruby-ivar">@approvalStatus</span> = <span class="ruby-identifier">approvalStatus</span>
-    <span class="ruby-ivar">@destinationUrl</span> = <span class="ruby-identifier">destinationUrl</span>
-    <span class="ruby-ivar">@bids</span> = <span class="ruby-identifier">bids</span>
-    <span class="ruby-ivar">@firstPageCpc</span> = <span class="ruby-identifier">firstPageCpc</span>
-    <span class="ruby-ivar">@qualityInfo</span> = <span class="ruby-identifier">qualityInfo</span>
-    <span class="ruby-ivar">@stats</span> = <span class="ruby-identifier">stats</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdGroupCriterionService.rb, line 1106</span>
+1106:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">adGroupId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">criterion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupCriterion_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">userStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">systemServingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">approvalStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">destinationUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">bids</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">firstPageCpc</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">qualityInfo</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats</span> = <span class="ruby-keyword kw">nil</span>)
+1107:     <span class="ruby-ivar">@adGroupId</span> = <span class="ruby-identifier">adGroupId</span>
+1108:     <span class="ruby-ivar">@criterion</span> = <span class="ruby-identifier">criterion</span>
+1109:     <span class="ruby-ivar">@adGroupCriterion_Type</span> = <span class="ruby-identifier">adGroupCriterion_Type</span>
+1110:     <span class="ruby-ivar">@userStatus</span> = <span class="ruby-identifier">userStatus</span>
+1111:     <span class="ruby-ivar">@systemServingStatus</span> = <span class="ruby-identifier">systemServingStatus</span>
+1112:     <span class="ruby-ivar">@approvalStatus</span> = <span class="ruby-identifier">approvalStatus</span>
+1113:     <span class="ruby-ivar">@destinationUrl</span> = <span class="ruby-identifier">destinationUrl</span>
+1114:     <span class="ruby-ivar">@bids</span> = <span class="ruby-identifier">bids</span>
+1115:     <span class="ruby-ivar">@firstPageCpc</span> = <span class="ruby-identifier">firstPageCpc</span>
+1116:     <span class="ruby-ivar">@qualityInfo</span> = <span class="ruby-identifier">qualityInfo</span>
+1117:     <span class="ruby-ivar">@stats</span> = <span class="ruby-identifier">stats</span>
+1118:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

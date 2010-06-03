@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::V201003::InfoService::InfoSelector</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::V201003::InfoService::InfoSelector 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/adwords4r/v201003/InfoService_rb.html">lib/adwords4r/v201003/InfoService.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="InfoSelector.html">InfoSelector</a>
+</p>
+<ul>
+<li><p>
+serviceName - SOAP::SOAPString
+</p>
+</li>
+<li><p>
+methodName - SOAP::SOAPString
+</p>
+</li>
+<li><p>
+operator - <a
+href="Operator.html">AdWords::V201003::InfoService::Operator</a>
+</p>
+</li>
+<li><p>
+dateRange - <a
+href="DateRange.html">AdWords::V201003::InfoService::DateRange</a>
+</p>
+</li>
+<li><p>
+clientEmails - SOAP::SOAPString
+</p>
+</li>
+<li><p>
+apiUsageType - <a
+href="ApiUsageType.html">AdWords::V201003::InfoService::ApiUsageType</a>
+</p>
+</li>
+</ul>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#method-c-new">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>serviceName</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>methodName</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>operator</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>dateRange</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>clientEmails</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>apiUsageType</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="method-c-new">
+                    
+                    <a name="method-c-new"></a><b>new</b>(serviceName = nil, methodName = nil, operator = nil, dateRange = nil, clientEmails = [], apiUsageType = nil)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                        
+                    </p>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v201003/InfoService.rb, line 501</span>
+501:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">serviceName</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">methodName</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">operator</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">dateRange</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">clientEmails</span> = [], <span class="ruby-identifier">apiUsageType</span> = <span class="ruby-keyword kw">nil</span>)
+502:     <span class="ruby-ivar">@serviceName</span> = <span class="ruby-identifier">serviceName</span>
+503:     <span class="ruby-ivar">@methodName</span> = <span class="ruby-identifier">methodName</span>
+504:     <span class="ruby-ivar">@operator</span> = <span class="ruby-identifier">operator</span>
+505:     <span class="ruby-ivar">@dateRange</span> = <span class="ruby-identifier">dateRange</span>
+506:     <span class="ruby-ivar">@clientEmails</span> = <span class="ruby-identifier">clientEmails</span>
+507:     <span class="ruby-ivar">@apiUsageType</span> = <span class="ruby-identifier">apiUsageType</span>
+508:   <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

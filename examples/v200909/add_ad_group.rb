@@ -19,27 +19,27 @@
 #
 # This example illustrates how to create an ad group. To create a campaign, run
 # add_campaign.rb.
+#
+# Tags: AdGroupService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def add_ad_group()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_srv = adwords.get_service('AdGroup', latest)
+  ad_group_srv = adwords.get_service('AdGroup', API_VERSION)
 
   campaign_id = 'INSERT_CAMPAIGN_ID_HERE'.to_i
 
   # Prepare for adding ad group.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupService::ManualCPCAdGroupBids
+  # typing the full class name every time we need to create an object.
   bids = ad_group_srv.module::ManualCPCAdGroupBids.new
   keyword_max_cpc = {
     :amount => {

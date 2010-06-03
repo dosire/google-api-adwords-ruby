@@ -19,25 +19,25 @@
 #
 # This example illustrates how to retrieve all the paused campaigns for an
 # account.
+#
+# Tags: CampaignService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_all_paused_campaigns()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  campaign_srv = adwords.get_service('Campaign', latest)
+  campaign_srv = adwords.get_service('Campaign', API_VERSION)
 
   # Get all the paused campaigns for this account
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::CampaignService::CampaignSelector
+  # typing the full class name every time we need to create an object.
   selector = campaign_srv.module::CampaignSelector.new
   selector.campaignStatuses = ['PAUSED']
   response = campaign_srv.get(selector)

@@ -19,19 +19,20 @@
 #
 # This example illustrates how to retrieve the cost, in API units of operation,
 # of the given method, on a specified date.
+#
+# Tags: InfoService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_method_cost()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  info_srv = adwords.get_service('Info', latest)
+  info_srv = adwords.get_service('Info', API_VERSION)
 
   date = Time.now
   service_name = 'AdGroupService'
@@ -40,8 +41,7 @@ def get_method_cost()
 
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::InfoService::InfoSelector
+  # typing the full class name every time we need to create an object.
   selector = info_srv.module::InfoSelector.new
   selector.apiUsageType = 'METHOD_COST'
   selector.serviceName = service_name

@@ -18,19 +18,20 @@
 #           limitations under the License.
 #
 # This example illustrates how to create a campaign.
+#
+# Tags: CampaignService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def add_campaign()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  campaign_srv = adwords.get_service('Campaign', latest)
+  campaign_srv = adwords.get_service('Campaign', API_VERSION)
 
   # Prepare for adding campaign.
   operation = {
@@ -39,8 +40,7 @@ def add_campaign()
       :status => 'PAUSED',
       # The 'module' method being called here provides a shortcut to the
       # module containing the classes for this service. This helps us avoid
-      # typing the full class name every time we need to create an object,
-      # e.g. AdWords::V200909::CampaignService::ManualCPC
+      # typing the full class name every time we need to create an object.
       :biddingStrategy => campaign_srv.module::ManualCPC.new,
       :budget => {
         :period => 'DAILY',

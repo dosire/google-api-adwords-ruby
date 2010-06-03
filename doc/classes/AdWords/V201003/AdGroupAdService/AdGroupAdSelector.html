@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::V201003::AdGroupAdService::AdGroupAdSelector</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::V201003::AdGroupAdService::AdGroupAdSelector 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/adwords4r/v201003/AdGroupAdService_rb.html">lib/adwords4r/v201003/AdGroupAdService.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="AdGroupAdSelector.html">AdGroupAdSelector</a>
+</p>
+<ul>
+<li><p>
+campaignIds - SOAP::SOAPLong
+</p>
+</li>
+<li><p>
+adGroupIds - SOAP::SOAPLong
+</p>
+</li>
+<li><p>
+adIds - SOAP::SOAPLong
+</p>
+</li>
+<li><p>
+statuses - <a
+href="AdGroupAdStatus.html">AdWords::V201003::AdGroupAdService::AdGroupAdStatus</a>
+</p>
+</li>
+<li><p>
+statsSelector - <a
+href="AdStatsSelector.html">AdWords::V201003::AdGroupAdService::AdStatsSelector</a>
+</p>
+</li>
+<li><p>
+paging - <a
+href="Paging.html">AdWords::V201003::AdGroupAdService::Paging</a>
+</p>
+</li>
+</ul>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#method-c-new">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>campaignIds</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>adGroupIds</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>adIds</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>statuses</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>statsSelector</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>paging</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="method-c-new">
+                    
+                    <a name="method-c-new"></a><b>new</b>(campaignIds = [], adGroupIds = [], adIds = [], statuses = [], statsSelector = nil, paging = nil)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                        
+                    </p>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v201003/AdGroupAdService.rb, line 1791</span>
+1791:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">campaignIds</span> = [], <span class="ruby-identifier">adGroupIds</span> = [], <span class="ruby-identifier">adIds</span> = [], <span class="ruby-identifier">statuses</span> = [], <span class="ruby-identifier">statsSelector</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">paging</span> = <span class="ruby-keyword kw">nil</span>)
+1792:     <span class="ruby-ivar">@campaignIds</span> = <span class="ruby-identifier">campaignIds</span>
+1793:     <span class="ruby-ivar">@adGroupIds</span> = <span class="ruby-identifier">adGroupIds</span>
+1794:     <span class="ruby-ivar">@adIds</span> = <span class="ruby-identifier">adIds</span>
+1795:     <span class="ruby-ivar">@statuses</span> = <span class="ruby-identifier">statuses</span>
+1796:     <span class="ruby-ivar">@statsSelector</span> = <span class="ruby-identifier">statsSelector</span>
+1797:     <span class="ruby-ivar">@paging</span> = <span class="ruby-identifier">paging</span>
+1798:   <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

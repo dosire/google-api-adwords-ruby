@@ -108,6 +108,23 @@ module AdWords
       return get_multiple_column_list('ops_rates.csv')
     end
 
+    # Gets a map from an array of map entries. A map entry is any object that
+    # has a key and value field.
+    #
+    # Args:
+    # - entries: list of map entries
+    #
+    # Returns:
+    # - hash constructed from map entries
+    #
+    def self.get_map(entries)
+      map = {}
+      entries.each do |entry|
+        map[entry.key] = entry.value
+      end
+      return map
+    end
+
     private
 
     # Returns the directory where the CSV files are located.

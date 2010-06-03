@@ -19,27 +19,27 @@
 #
 # This example illustrates how to retrieve all the criteria for an ad group.
 # To add criteria to an existing ad group, run addAdGroupCriteria.rb.
+#
+# Tags: AdGroupCriterionService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_all_ad_group_criteria()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_criterion_srv = adwords.get_service('AdGroupCriterion', latest)
+  ad_group_criterion_srv = adwords.get_service('AdGroupCriterion', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
 
   # Get all the criteria for this ad group
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupCriterionService::AdGroupCriterionSelector
+  # typing the full class name every time we need to create an object.
   selector = ad_group_criterion_srv.module::AdGroupCriterionSelector.new
   filter = ad_group_criterion_srv.module::AdGroupCriterionIdFilter.new
   filter.adGroupId = ad_group_id

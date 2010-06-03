@@ -56,7 +56,7 @@ Wrapper class to handle logging to console and/or files.
         <dd>
             <ul>
                 
-                <li><a href="#M000052"><<</a></li>
+                <li><a href="#method-i-%3C%3C"><<</a></li>
                 
             </ul>
         </dd>
@@ -65,7 +65,7 @@ Wrapper class to handle logging to console and/or files.
         <dd>
             <ul>
                 
-                <li><a href="#M000049">log_to_file</a></li>
+                <li><a href="#method-i-log_to_file">log_to_file</a></li>
                 
             </ul>
         </dd>
@@ -74,7 +74,7 @@ Wrapper class to handle logging to console and/or files.
         <dd>
             <ul>
                 
-                <li><a href="#M000048">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -96,9 +96,9 @@ Wrapper class to handle logging to console and/or files.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000048">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000048"></a><b>new</b>(filename, log_to_console=false)
+                    <a name="method-c-new"></a><b>new</b>(filename, log_to_console=false)
                     
                 </div>
                 
@@ -110,12 +110,14 @@ Constructor for <a href="AdWordsLogger.html">AdWordsLogger</a>.
 Args:
 </p>
 <ul>
-<li>filename: the filename for the log file to be written (if <a
-href="AdWordsLogger.html#M000049">log_to_file</a> is called)
-
+<li><p>
+filename: the filename for the log file to be written (if <a
+href="AdWordsLogger.html#method-i-log_to_file">log_to_file</a> is called)
+</p>
 </li>
-<li>log_to_console: boolean, indicates whether or not to log to the console
-
+<li><p>
+log_to_console: boolean, indicates whether or not to log to the console
+</p>
 </li>
 </ul>
 
@@ -126,20 +128,20 @@ href="AdWordsLogger.html#M000049">log_to_file</a> is called)
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000048_source')" id="l_M000048_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000048_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 36</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">log_to_console</span>=<span class="ruby-keyword kw">false</span>)
-      <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
-      <span class="ruby-ivar">@loggers</span> = []
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">log_to_console</span>
-        <span class="ruby-identifier">stderr_logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDERR</span>)
-        <span class="ruby-identifier">stderr_logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>
-        <span class="ruby-ivar">@loggers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">stderr_logger</span>
-      <span class="ruby-keyword kw">end</span>
-    <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 36</span>
+36:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">log_to_console</span>=<span class="ruby-keyword kw">false</span>)
+37:       <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">filename</span>
+38:       <span class="ruby-ivar">@loggers</span> = []
+39:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">log_to_console</span>
+40:         <span class="ruby-identifier">stderr_logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDERR</span>)
+41:         <span class="ruby-identifier">stderr_logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>
+42:         <span class="ruby-ivar">@loggers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">stderr_logger</span>
+43:       <span class="ruby-keyword kw">end</span>
+44:     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
@@ -148,9 +150,9 @@ href="AdWordsLogger.html#M000049">log_to_file</a> is called)
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000052">
+                <div class="title" id="method-i-%3C%3C">
                     
-                    <a name="M000052"></a><b>&lt;&lt;</b>(text)
+                    <a name="method-i-%3C%3C"></a><b>&lt;&lt;</b>(text)
                     
                 </div>
                 
@@ -166,25 +168,25 @@ Overload << operator to perform logging.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-%3C%3C_source')" id="l_method-i-%3C%3C_source">show</a>
                         
                     </p>
-                    <div id="M000052_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 62</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">text</span>)
-      <span class="ruby-ivar">@loggers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">logger</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
-      <span class="ruby-keyword kw">end</span>
-    <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-%3C%3C_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 62</span>
+62:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">text</span>)
+63:       <span class="ruby-ivar">@loggers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">logger</span><span class="ruby-operator">|</span>
+64:         <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
+65:       <span class="ruby-keyword kw">end</span>
+66:     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000049">
+                <div class="title" id="method-i-log_to_file">
                     
-                    <a name="M000049"></a><b>log_to_file</b>(path='.')
+                    <a name="method-i-log_to_file"></a><b>log_to_file</b>(path='.')
                     
                 </div>
                 
@@ -197,9 +199,10 @@ files.
 Args:
 </p>
 <ul>
-<li>path: where to write the file (defaults to current dir). Path only, do not
+<li><p>
+path: where to write the file (defaults to current dir). Path only, do not
 provide filename.
-
+</p>
 </li>
 </ul>
 
@@ -210,18 +213,18 @@ provide filename.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000049_source')" id="l_M000049_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-log_to_file_source')" id="l_method-i-log_to_file_source">show</a>
                         
                     </p>
-                    <div id="M000049_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 53</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log_to_file</span>(<span class="ruby-identifier">path</span>=<span class="ruby-value str">'.'</span>)
-      <span class="ruby-identifier">new_logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-ivar">@filename</span>))
-      <span class="ruby-identifier">new_logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>
-      <span class="ruby-ivar">@loggers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_logger</span>
-
-      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
-    <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-log_to_file_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/adwordslogger.rb, line 53</span>
+53:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log_to_file</span>(<span class="ruby-identifier">path</span>=<span class="ruby-value str">'.'</span>)
+54:       <span class="ruby-identifier">new_logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-ivar">@filename</span>))
+55:       <span class="ruby-identifier">new_logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>
+56:       <span class="ruby-ivar">@loggers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_logger</span>
+57: 
+58:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+59:     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

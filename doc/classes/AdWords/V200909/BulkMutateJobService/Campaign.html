@@ -39,49 +39,61 @@
 <a href="Campaign.html">Campaign</a>
 </p>
 <ul>
-<li>id - SOAP::SOAPLong
-
+<li><p>
+id - SOAP::SOAPLong
+</p>
 </li>
-<li>name - SOAP::SOAPString
-
+<li><p>
+name - SOAP::SOAPString
+</p>
 </li>
-<li>status - <a
+<li><p>
+status - <a
 href="CampaignStatus.html">AdWords::V200909::BulkMutateJobService::CampaignStatus</a>
-
+</p>
 </li>
-<li>servingStatus - <a
+<li><p>
+servingStatus - <a
 href="ServingStatus.html">AdWords::V200909::BulkMutateJobService::ServingStatus</a>
-
+</p>
 </li>
-<li>startDate - SOAP::SOAPString
-
+<li><p>
+startDate - SOAP::SOAPString
+</p>
 </li>
-<li>endDate - SOAP::SOAPString
-
+<li><p>
+endDate - SOAP::SOAPString
+</p>
 </li>
-<li>budget - <a
+<li><p>
+budget - <a
 href="Budget.html">AdWords::V200909::BulkMutateJobService::Budget</a>
-
+</p>
 </li>
-<li>biddingStrategy - <a
+<li><p>
+biddingStrategy - <a
 href="BiddingStrategy.html">AdWords::V200909::BulkMutateJobService::BiddingStrategy</a>
-
+</p>
 </li>
-<li>autoKeywordMatchingStatus - <a
+<li><p>
+autoKeywordMatchingStatus - <a
 href="AutoKeywordMatchingStatus.html">AdWords::V200909::BulkMutateJobService::AutoKeywordMatchingStatus</a>
-
+</p>
 </li>
-<li>stats - <a
+<li><p>
+stats - <a
 href="Stats.html">AdWords::V200909::BulkMutateJobService::Stats</a>
-
+</p>
 </li>
-<li>adServingOptimizationStatus - <a
+<li><p>
+adServingOptimizationStatus - <a
 href="AdServingOptimizationStatus.html">AdWords::V200909::BulkMutateJobService::AdServingOptimizationStatus</a>
-
+</p>
 </li>
-<li>frequencyCap - <a
+<li><p>
+frequencyCap - <a
 href="FrequencyCap.html">AdWords::V200909::BulkMutateJobService::FrequencyCap</a>
-
+</p>
 </li>
 </ul>
 
@@ -102,7 +114,7 @@ href="FrequencyCap.html">AdWords::V200909::BulkMutateJobService::FrequencyCap</a
         <dd>
             <ul>
                 
-                <li><a href="#M000747">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -225,9 +237,9 @@ href="FrequencyCap.html">AdWords::V200909::BulkMutateJobService::FrequencyCap</a
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000747">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000747"></a><b>new</b>(id = nil, name = nil, status = nil, servingStatus = nil, startDate = nil, endDate = nil, budget = nil, biddingStrategy = nil, autoKeywordMatchingStatus = nil, stats = nil, adServingOptimizationStatus = nil, frequencyCap = nil)
+                    <a name="method-c-new"></a><b>new</b>(id = nil, name = nil, status = nil, servingStatus = nil, startDate = nil, endDate = nil, budget = nil, biddingStrategy = nil, autoKeywordMatchingStatus = nil, stats = nil, adServingOptimizationStatus = nil, frequencyCap = nil)
                     
                 </div>
                 
@@ -236,25 +248,25 @@ href="FrequencyCap.html">AdWords::V200909::BulkMutateJobService::FrequencyCap</a
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000747_source')" id="l_M000747_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000747_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2039</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">servingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">startDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">budget</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">biddingStrategy</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">autoKeywordMatchingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adServingOptimizationStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">frequencyCap</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
-    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
-    <span class="ruby-ivar">@status</span> = <span class="ruby-identifier">status</span>
-    <span class="ruby-ivar">@servingStatus</span> = <span class="ruby-identifier">servingStatus</span>
-    <span class="ruby-ivar">@startDate</span> = <span class="ruby-identifier">startDate</span>
-    <span class="ruby-ivar">@endDate</span> = <span class="ruby-identifier">endDate</span>
-    <span class="ruby-ivar">@budget</span> = <span class="ruby-identifier">budget</span>
-    <span class="ruby-ivar">@biddingStrategy</span> = <span class="ruby-identifier">biddingStrategy</span>
-    <span class="ruby-ivar">@autoKeywordMatchingStatus</span> = <span class="ruby-identifier">autoKeywordMatchingStatus</span>
-    <span class="ruby-ivar">@stats</span> = <span class="ruby-identifier">stats</span>
-    <span class="ruby-ivar">@adServingOptimizationStatus</span> = <span class="ruby-identifier">adServingOptimizationStatus</span>
-    <span class="ruby-ivar">@frequencyCap</span> = <span class="ruby-identifier">frequencyCap</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2039</span>
+2039:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">servingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">startDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">budget</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">biddingStrategy</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">autoKeywordMatchingStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adServingOptimizationStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">frequencyCap</span> = <span class="ruby-keyword kw">nil</span>)
+2040:     <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
+2041:     <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+2042:     <span class="ruby-ivar">@status</span> = <span class="ruby-identifier">status</span>
+2043:     <span class="ruby-ivar">@servingStatus</span> = <span class="ruby-identifier">servingStatus</span>
+2044:     <span class="ruby-ivar">@startDate</span> = <span class="ruby-identifier">startDate</span>
+2045:     <span class="ruby-ivar">@endDate</span> = <span class="ruby-identifier">endDate</span>
+2046:     <span class="ruby-ivar">@budget</span> = <span class="ruby-identifier">budget</span>
+2047:     <span class="ruby-ivar">@biddingStrategy</span> = <span class="ruby-identifier">biddingStrategy</span>
+2048:     <span class="ruby-ivar">@autoKeywordMatchingStatus</span> = <span class="ruby-identifier">autoKeywordMatchingStatus</span>
+2049:     <span class="ruby-ivar">@stats</span> = <span class="ruby-identifier">stats</span>
+2050:     <span class="ruby-ivar">@adServingOptimizationStatus</span> = <span class="ruby-identifier">adServingOptimizationStatus</span>
+2051:     <span class="ruby-ivar">@frequencyCap</span> = <span class="ruby-identifier">frequencyCap</span>
+2052:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

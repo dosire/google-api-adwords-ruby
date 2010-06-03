@@ -19,7 +19,7 @@
         </h1>
         <ul class="files">
             <li>ChangeLog.txt</li>
-            <li>Last modified: Fri Apr 30 19:59:35 +0100 2010</li>
+            <li>Last modified: Wed Jun 02 21:14:47 -0400 2010</li>
         </ul>
     </div>
 
@@ -28,502 +28,614 @@
     
     <div class="description">
         <p>
+19.1.0
+</p>
+<ul>
+<li><p>
+Added support for v201003.
+</p>
+</li>
+<li><p>
+Added several examples for v201003, removed deprecated examples.
+</p>
+</li>
+<li><p>
+Reorganized service tests into versions.
+</p>
+</li>
+<li><p>
+Added extension methods for v201003 report downloading.
+</p>
+</li>
+</ul>
+<p>
 19.0.0
 </p>
 <ul>
-<li>Removed support for v13 and v13-dependent utilities.
-
+<li><p>
+Removed support for v13 and v13-dependent utilities.
+</p>
 </li>
 </ul>
 <p>
 18.0.0
 </p>
 <ul>
-<li>Removed support for v200906, which has been deco&#8217;ed.
-
+<li><p>
+Removed support for v200906, which has been deco&#8217;ed.
+</p>
 </li>
-<li>Made the application token optional, since it&#8217;s been deco&#8217;ed.
-
+<li><p>
+Made the application token optional, since it&#8217;s been deco&#8217;ed.
+</p>
 </li>
 </ul>
 <p>
 17.3.0
 </p>
 <ul>
-<li>Added functionality tests for v2009 CampaignService and AdGroupService.
-
+<li><p>
+Added functionality tests for v2009 CampaignService and AdGroupService.
+</p>
 </li>
 </ul>
 <p>
 17.2.0
 </p>
 <ul>
-<li>Added new set of code samples for v200909.
-
+<li><p>
+Added new set of code samples for v200909.
+</p>
 </li>
 </ul>
 <p>
 17.1.0
 </p>
 <ul>
-<li>Added support for AdParamService in v200909.
-
+<li><p>
+Added support for AdParamService in v200909.
+</p>
 </li>
-<li>Improved request logging, by adding isFault and faultMessage. isFault
+<li><p>
+Improved request logging, by adding isFault and faultMessage. isFault
 indicates whether the request was a fault, and faultMessage contains the
 error message, if any.
-
+</p>
 </li>
 </ul>
 <p>
 17.0.1
 </p>
 <ul>
-<li>Fixed unit tracking for failed requests. Issue 13, <a
+<li><p>
+Fixed unit tracking for failed requests. Issue 13, <a
 href="http://code.google.com/p/google-api-adwords-ruby/issues/detail?id=13">code.google.com/p/google-api-adwords-ruby/issues/detail?id=13</a>
-
+</p>
 </li>
 </ul>
 <p>
 17.0.0
 </p>
 <ul>
-<li>Added support for v200909.
-
+<li><p>
+Added support for v200909.
+</p>
 </li>
-<li>Changed the parameter order in API.get_service (aka API.service) to be
+<li><p>
+Changed the parameter order in API.get_service (aka API.service) to be
 get_service(name, version). The old ordering is still supported but
 deprecated. The version parameter is now optional and defaults to 13.
-
+</p>
 </li>
-<li>Added &#8216;module&#8217; method to all the services. This returns a
+<li><p>
+Added &#8216;module&#8217; method to all the services. This returns a
 reference to the module containing all the classes for the service, so the
 full class name isn&#8217;t necessary. For example,
 service_object.module::ClassName instead of
 AdWords::V13::SomeService::ClassName Using this will also make it easier to
 upgrade between API versions, since it removes the need for hardcoded
 numbers.
-
+</p>
 </li>
-<li>Added &#8216;use_mcc&#8217; property to the API object to make it easier to
+<li><p>
+Added &#8216;use_mcc&#8217; property to the API object to make it easier to
 make requests at the MCC level. Setting it to true will make all requests
 be sent with no clientEmail or clientCustomerId. It&#8217;s also possible
 to invoke the &#8216;use_mcc&#8217; method with a block, and only that
 block will be executed at the MCC level.
-
+</p>
 </li>
-<li>Added &#8216;validateOnly&#8217; property to the API object to make it
+<li><p>
+Added &#8216;validateOnly&#8217; property to the API object to make it
 easier to send requests with the &#8216;validateOnly&#8217; header in
 v2009. This header makes it possible to check a request for validity
 without executing it.
-
+</p>
 </li>
-<li>Changes in handling &#8216;alternateUrl&#8217;; now it only errors out if
+<li><p>
+Changes in handling &#8216;alternateUrl&#8217;; now it only errors out if
 there&#8217;s no &#8216;environment&#8217; defined.
-
+</p>
 </li>
-<li>CSV data updated for operation rates, now has an extra column at the
+<li><p>
+CSV data updated for operation rates, now has an extra column at the
 beginning for API version.
-
+</p>
 </li>
-<li>Added several tests
-
+<li><p>
+Added several tests
+</p>
 </li>
-<li>Moved wrapper generation to its own file, generator.rb. This cleans up
+<li><p>
+Moved wrapper generation to its own file, generator.rb. This cleans up
 services.rb.
-
+</p>
 </li>
-<li>Added logging of the &#8220;operator&#8221; for v2009 mutate requests.
-
+<li><p>
+Added logging of the &#8220;operator&#8221; for v2009 mutate requests.
+</p>
 </li>
-<li>Fixed sample adwords.properties to use &#8216;environment&#8217;.
-
+<li><p>
+Fixed sample adwords.properties to use &#8216;environment&#8217;.
+</p>
 </li>
-<li>Fixed problem with empty lines in adwords.properties.
-
+<li><p>
+Fixed problem with empty lines in adwords.properties.
+</p>
 </li>
-<li>Fixed problem making Production the default environment.
-
+<li><p>
+Fixed problem making Production the default environment.
+</p>
 </li>
 </ul>
 <p>
 16.0.0
 </p>
 <ul>
-<li>Removed support for the v200902 Sandbox, which has been deco&#8217;ed.
-
+<li><p>
+Removed support for the v200902 Sandbox, which has been deco&#8217;ed.
+</p>
 </li>
-<li>Added support for the v200906 Sandbox and Production environments.
-
+<li><p>
+Added support for the v200906 Sandbox and Production environments.
+</p>
 </li>
-<li>Changed handling of service environments in the credentials. The
+<li><p>
+Changed handling of service environments in the credentials. The
 &#8216;alternateUrl&#8217; parameter has been replaced with the
 &#8216;environment&#8217; one. This can be set to either PRODUCTION or
 SANDBOX. It controls which environment both v13 and v200906 connect to.
-
+</p>
 </li>
 </ul>
 <p>
 15.1.0
 </p>
 <ul>
-<li>Added downloadCsvReport extension to the Report Service, downloads a report
+<li><p>
+Added downloadCsvReport extension to the Report Service, downloads a report
 as CSV data.
-
+</p>
 </li>
-<li>Added getMethodUsage extension to the Info Service, returns a breakdown of
+<li><p>
+Added getMethodUsage extension to the Info Service, returns a breakdown of
 API usage per method.
-
+</p>
 </li>
-<li>Added getClientUnitsUsage extension to the Info Service, returns a smart
+<li><p>
+Added getClientUnitsUsage extension to the Info Service, returns a smart
 breakdown of API usage per account.
-
+</p>
 </li>
-<li>Service wrappers are now generated during the &#8220;rake generate&#8221;
+<li><p>
+Service wrappers are now generated during the &#8220;rake generate&#8221;
 step of setup, instead of at runtime. The files are created in the
 lib/adwords4r/v* directories.
-
+</p>
 </li>
-<li>Added client-side type and arity safety checks for API calls. An
+<li><p>
+Added client-side type and arity safety checks for API calls. An
 ArgumentError will now be thrown if an API call gets an invalid number of
 arguments or arguments of an incorrect type.
-
+</p>
 </li>
-<li>Added CSV files with various lists of information (categories, countries,
+<li><p>
+Added CSV files with various lists of information (categories, countries,
 etc.) and utility methods to retrieve them. They can be found in the
 newly-created <a href="../classes/AdWords/Utils.html">AdWords::Utils</a>
 module.
-
+</p>
 </li>
-<li>Added several subclasses of ApiError to allow for finer exception handling.
+<li><p>
+Added several subclasses of ApiError to allow for finer exception handling.
 The correct subclass gets instanced automatically whenever a SOAP fault
 occurs.
-
+</p>
 </li>
-<li>Added unit tests for the client library functionality.
-
+<li><p>
+Added unit tests for the client library functionality.
+</p>
 </li>
-<li>Added RDoc comments to client library and an RDoc generation task to the
+<li><p>
+Added RDoc comments to client library and an RDoc generation task to the
 Rakefile. Pre-generated documentation is also included in the doc/
 directory.
-
+</p>
 </li>
-<li>Added unit_spend example and extended the reports one.
-
+<li><p>
+Added unit_spend example and extended the reports one.
+</p>
 </li>
-<li>Fixed packaging issues.
-
+<li><p>
+Fixed packaging issues.
+</p>
 </li>
-<li>Fixed bug in multiple_versions example.
-
+<li><p>
+Fixed bug in multiple_versions example.
+</p>
 </li>
-<li>Several additions and changes to the Readme.
-
+<li><p>
+Several additions and changes to the Readme.
+</p>
 </li>
-<li>Cleaned up Rakefile.
-
+<li><p>
+Cleaned up Rakefile.
+</p>
 </li>
 </ul>
 <p>
 15.0.1
 </p>
 <ul>
-<li>Bugfix: added generation of ApiError exceptions upon SOAP faults.
-
+<li><p>
+Bugfix: added generation of ApiError exceptions upon SOAP faults.
+</p>
 </li>
 </ul>
 <p>
 15.0.0
 </p>
 <ul>
-<li>Added support for the v200902 sandbox.
-
+<li><p>
+Added support for the v200902 sandbox.
+</p>
 </li>
-<li>Added support for multiple API versions on the same <a
+<li><p>
+Added support for multiple API versions on the same <a
 href="../classes/AdWords/API.html">AdWords::API</a> object.
-
+</p>
 </li>
-<li>Added request and SOAP XML file logging options. This complements the
+<li><p>
+Added request and SOAP XML file logging options. This complements the
 previously existing SOAP XML console output.
-
+</p>
 </li>
-<li>Moved API classes to their own version and service-dependent modules. This
+<li><p>
+Moved API classes to their own version and service-dependent modules. This
 is necessary for multiple version support.
-
+</p>
 </li>
-<li>Moved API methods from the <a
+<li><p>
+Moved API methods from the <a
 href="../classes/AdWords/API.html">AdWords::API</a> object to service
 wrappers. This is necessary to avoid collisions between similarly named
 methods in different services.
-
+</p>
 </li>
-<li>Added get_service method to <a
+<li><p>
+Added get_service method to <a
 href="../classes/AdWords/API.html">AdWords::API</a> to be able to access a
 particular version of a service. It returns the service wrapper containing
 the API methods for that service.
-
+</p>
 </li>
-<li>Added extensions mechanism, allowing for plugging of client-side methods
+<li><p>
+Added extensions mechanism, allowing for plugging of client-side methods
 into the wrapper objects. This allows us to provide smart methods at the
 service level that simplify common tasks.
-
+</p>
 </li>
-<li>Added report download helper method, via the extension mechanism above.
-
+<li><p>
+Added report download helper method, via the extension mechanism above.
+</p>
 </li>
-<li>Moved unit tracking to happen within <a
+<li><p>
+Moved unit tracking to happen within <a
 href="../classes/AdWords/API.html">AdWords::API</a> instances. This allows
 for correct tracking with multiple <a
 href="../classes/AdWords/API.html">AdWords::API</a> objects. The methods
 have been renamed total_units and last_units to fit with the getter
 conventions.
-
+</p>
 </li>
-<li>Made code style more coherent.
-
+<li><p>
+Made code style more coherent.
+</p>
 </li>
-<li>Updated v13 examples to work with new client library model.
-
+<li><p>
+Updated v13 examples to work with new client library model.
+</p>
 </li>
-<li>Added v200902 and multiple version examples.
-
+<li><p>
+Added v200902 and multiple version examples.
+</p>
 </li>
 </ul>
 <p>
 14.0.0
 </p>
 <ul>
-<li>Sérgio Gomes (api.sgomes@gmail.com) takes over as maintainer of this
+<li><p>
+Sérgio Gomes (api.sgomes@gmail.com) takes over as maintainer of this
 project.
-
+</p>
 </li>
-<li>Removed support for v12 of the API, which has been deco&#8217;ed.
-
+<li><p>
+Removed support for v12 of the API, which has been deco&#8217;ed.
+</p>
 </li>
 </ul>
 <p>
 13.0.1
 </p>
 <ul>
-<li>Modified the file permissions on many of the files to make them
+<li><p>
+Modified the file permissions on many of the files to make them
 world-readable.
-
+</p>
 </li>
 </ul>
 <p>
 13.0.0
 </p>
 <ul>
-<li>Added support for v13 of the <a href="../classes/AdWords.html">AdWords</a>
+<li><p>
+Added support for v13 of the <a href="../classes/AdWords.html">AdWords</a>
 API.
-
+</p>
 </li>
 </ul>
 <p>
 12.1.0
 </p>
 <ul>
-<li>Removed support for v11 of the API, which has been deco&#8217;ed.
-
+<li><p>
+Removed support for v11 of the API, which has been deco&#8217;ed.
+</p>
 </li>
-<li>Replaced some old examples that weren&#8217;t behaving properly with
+<li><p>
+Replaced some old examples that weren&#8217;t behaving properly with
 better, well-commented example code.
-
+</p>
 </li>
 </ul>
 <p>
 12.0.0
 </p>
 <ul>
-<li>Added support for v12 of the <a href="../classes/AdWords.html">AdWords</a>
+<li><p>
+Added support for v12 of the <a href="../classes/AdWords.html">AdWords</a>
 API. Removed support for v10 of the API, which has been deco&#8217;ed.
-
+</p>
 </li>
 </ul>
 <p>
 11.1.0
 </p>
 <ul>
-<li>Added additional attributes to the <a
+<li><p>
+Added additional attributes to the <a
 href="../classes/AdWords/Error/ApiError.html">AdWords::Error::ApiError</a>
 class. This should make it easier to get all the useful SOAP fault
 information, some of which wasn&#8217;t available in the previous version.
 The extra attributes are :trigger_ex, :soap_faultcode_ex,
 :soap_faultstring_ex, and :code_ex
-
+</p>
 </li>
-<li>Added static methods to the <a
+<li><p>
+Added static methods to the <a
 href="../classes/AdWords/API.html">AdWords::API</a> class to retrieve API
 unit usage information. AdWords::API.get_total_units() will return the a
 running total of API units used since the API was initialized.
 AdWords::API.get_last_units() will return the number of API units used for
 the last API call.
-
+</p>
 </li>
-<li>Started the process of creating new sample code. The existing code samples
+<li><p>
+Started the process of creating new sample code. The existing code samples
 are a bit lacking and were moved to the &#8216;examples/old&#8217;
 directory. A new sample program, &#8216;examples/reports.rb&#8217; was
 created. This sample validates, schedules, and downloads a Keyword
 Structure report. It&#8217;s a fairly extensive sample and illustrates some
 of the new API features as well as general best-practices. Look for more
 sample code in future releases.
-
+</p>
 </li>
 </ul>
 <p>
 11.0.3
 </p>
 <ul>
-<li>update soap4r minimum version requirement in the .gem file to 1.5.8, as
+<li><p>
+update soap4r minimum version requirement in the .gem file to 1.5.8, as
 there are compatibility problems with 1.5.6
-
+</p>
 </li>
-<li>the ADWORDS4R_DEBUG environment variable was causing problems when it was
+<li><p>
+the ADWORDS4R_DEBUG environment variable was causing problems when it was
 not set instead of silently disabling debugging; this is fixed.
-
+</p>
 </li>
 </ul>
 <p>
 11.0.2
 </p>
 <ul>
-<li>Jeffrey Posnick (jeffy@google.com) takes over as maintainer of this project
-
+<li><p>
+Jeffrey Posnick (jeffy@google.com) takes over as maintainer of this project
+</p>
 </li>
-<li>added support for <a href="../classes/AdWords.html">AdWords</a> API v11
-
+<li><p>
+added support for <a href="../classes/AdWords.html">AdWords</a> API v11
+</p>
 </li>
-<li>removed support for <a href="../classes/AdWords.html">AdWords</a> API v9
-
+<li><p>
+removed support for <a href="../classes/AdWords.html">AdWords</a> API v9
+</p>
 </li>
-<li>added support for the ADWORDS4R_DEBUG environment variable&#8212;if set to
+<li><p>
+added support for the ADWORDS4R_DEBUG environment variable&#8212;if set to
 TRUE, SOAP logs will be written to the current directory when the API is
 used
-
+</p>
 </li>
-<li>added support for the SiteSuggestionService for API v10 and v11
-
+<li><p>
+added support for the SiteSuggestionService for API v10 and v11
+</p>
 </li>
 </ul>
 <p>
 1.0
 </p>
 <ul>
-<li>added support for API v10
-
+<li><p>
+added support for API v10
+</p>
 </li>
-<li>removed support for APIs v6, v7 and v8
-
+<li><p>
+removed support for APIs v6, v7 and v8
+</p>
 </li>
-<li>used soap4r v1.5.6 to generate the API files from the WSDL
-
+<li><p>
+used soap4r v1.5.6 to generate the API files from the WSDL
+</p>
 </li>
-<li>added soap4r v1.5.6 and http-access2 v2.0.5 as gem dependencies
-
+<li><p>
+added soap4r v1.5.6 and http-access2 v2.0.5 as gem dependencies
+</p>
 </li>
-<li>cleaned up some of the kludges that were needed for older soap4r libraries
-
+<li><p>
+cleaned up some of the kludges that were needed for older soap4r libraries
+</p>
 </li>
 </ul>
 <p>
 0.8
 </p>
 <ul>
-<li>Ryan Leavengood takes over as maintainer of this project
-
+<li><p>
+Ryan Leavengood takes over as maintainer of this project
+</p>
 </li>
-<li>added support for APIs v7, v8 and v9
-
+<li><p>
+added support for APIs v7, v8 and v9
+</p>
 </li>
-<li>removed support for v4 and v5
-
+<li><p>
+removed support for v4 and v5
+</p>
 </li>
-<li>updated the examples amd made it so they will use the adwords4r in their
+<li><p>
+updated the examples amd made it so they will use the adwords4r in their
 parent directory
-
+</p>
 </li>
 </ul>
 <p>
 0.7
 </p>
 <ul>
-<li>added support for API v6
-
+<li><p>
+added support for API v6
+</p>
 </li>
-<li>uncommented clientEmail in sample property file
-
+<li><p>
+uncommented clientEmail in sample property file
+</p>
 </li>
 </ul>
 <p>
 0.6
 </p>
 <ul>
-<li>added support for API v5
-
+<li><p>
+added support for API v5
+</p>
 </li>
-<li>added support for alternateUrl header, in order to work with sandbox
-
+<li><p>
+added support for alternateUrl header, in order to work with sandbox
+</p>
 </li>
-<li>tested with sandbox
-
+<li><p>
+tested with sandbox
+</p>
 </li>
 </ul>
 <p>
 0.5
 </p>
 <ul>
-<li>Now supports <a href="../classes/AdWords.html">AdWords</a> API v4.
-
+<li><p>
+Now supports <a href="../classes/AdWords.html">AdWords</a> API v4.
+</p>
 </li>
-<li>Got rid of yaml dependency.
-
+<li><p>
+Got rid of yaml dependency.
+</p>
 </li>
-<li>Changed properties file name for default credentials to adwords.properties.
-
+<li><p>
+Changed properties file name for default credentials to adwords.properties.
+</p>
 </li>
-<li>Enhanced the readme.txt a bit. Added a few samples.
-
+<li><p>
+Enhanced the readme.txt a bit. Added a few samples.
+</p>
 </li>
 </ul>
 <p>
 0.4
 </p>
 <ul>
-<li>Now all generated classes are within the Adwords module. Will make it
+<li><p>
+Now all generated classes are within the Adwords module. Will make it
 easier to use that in Rails.
-
+</p>
 </li>
-<li>Support for gen classes in a module is not implemented in soap4r for
+<li><p>
+Support for gen classes in a module is not implemented in soap4r for
 doc/literal style (it works for rpc/encoded). I logged a bug for soap4r. In
 the meantime I had to fix adwords4r from my module using module_eval to
 patch the Mapping class.
-
+</p>
 </li>
 </ul>
 <p>
 0.3
 </p>
 <ul>
-<li>fixed the bug in InfoService and many others. I fix the wsdl before
+<li><p>
+fixed the bug in InfoService and many others. I fix the wsdl before
 generation.
-
+</p>
 </li>
 </ul>
 <p>
 0.2
 </p>
 <ul>
-<li>added packaging, made it a gem, and added a setup program, for easy
+<li><p>
+added packaging, made it a gem, and added a setup program, for easy
 installation in all configurations (gem and non gem).
-
+</p>
 </li>
 </ul>
 <p>
 0.1 -first version, not fully tested
 </p>
 <ul>
-<li>works for Campaigns
-
+<li><p>
+works for Campaigns
+</p>
 </li>
 </ul>
 

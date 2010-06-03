@@ -19,27 +19,27 @@
 #
 # This example illustrates how to retrieve all the campaign ad extensions for a
 # campaign. To create a campaign ad extension, run add_campaign_ad_extension.rb.
+#
+# Tags: CampaignAdExtensionService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_all_campaign_ad_extensions()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  campaign_ad_ext_srv = adwords.get_service('CampaignAdExtension', latest)
+  campaign_ad_ext_srv = adwords.get_service('CampaignAdExtension', API_VERSION)
 
   campaign_id = 'INSERT_CAMPAIGN_ID_HERE'.to_i
 
   # Get all the campaign ad extensions for this campaign
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object, e.g.
-  # AdWords::V200909::CampaignAdExtensionService::CampaignAdExtensionSelector
+  # typing the full class name every time we need to create an object.
   selector = campaign_ad_ext_srv.module::CampaignAdExtensionSelector.new
   selector.campaignIds = [campaign_id]
   response = campaign_ad_ext_srv.get(selector)

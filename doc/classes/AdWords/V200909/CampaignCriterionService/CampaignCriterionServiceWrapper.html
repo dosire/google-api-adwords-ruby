@@ -58,7 +58,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000160">get</a></li>
+                <li><a href="#method-i-get">get</a></li>
                 
             </ul>
         </dd>
@@ -67,7 +67,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000162">mutate</a></li>
+                <li><a href="#method-i-mutate">mutate</a></li>
                 
             </ul>
         </dd>
@@ -76,7 +76,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000159">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -138,9 +138,9 @@ href="../../API.html">API</a> versions.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000159">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000159"></a><b>new</b>(driver, api)
+                    <a name="method-c-new"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -153,13 +153,15 @@ href="CampaignCriterionServiceWrapper.html">CampaignCriterionServiceWrapper</a>.
 Args:
 </p>
 <ul>
-<li>driver: SOAP::RPC::Driver object with the remote SOAP methods for this
+<li><p>
+driver: SOAP::RPC::Driver object with the remote SOAP methods for this
 service
-
+</p>
 </li>
-<li>api: the <a href="../../API.html">AdWords::API</a> object to which the
+<li><p>
+api: the <a href="../../API.html">AdWords::API</a> object to which the
 wrapper belongs
-
+</p>
 </li>
 </ul>
 
@@ -170,16 +172,16 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000159_source')" id="l_M000159_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000159_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/CampaignCriterionServiceWrapper.rb, line 34</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
-          <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
-          <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
-          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v200909/CampaignCriterionServiceWrapper.rb, line 34</span>
+34:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
+35:           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
+36:           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+37:           <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span>
+38:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
@@ -188,9 +190,9 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000160">
+                <div class="title" id="method-i-get">
                     
-                    <a name="M000160"></a><b>get</b>(selector)
+                    <a name="method-i-get"></a><b>get</b>(selector)
                     
                 </div>
                 
@@ -207,18 +209,20 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>selector: <a
+<li><p>
+selector: <a
 href="CampaignCriterionSelector.html">AdWords::V200909::CampaignCriterionService::CampaignCriterionSelector</a>
-
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>rval: <a
+<li><p>
+rval: <a
 href="CampaignCriterionPage.html">AdWords::V200909::CampaignCriterionService::CampaignCriterionPage</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -233,32 +237,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000160_source')" id="l_M000160_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
                         
                     </p>
-                    <div id="M000160_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/CampaignCriterionServiceWrapper.rb, line 52</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">selector</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'selector'</span>,
-                <span class="ruby-identifier">selector</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionSelector</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">selector</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;get Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-get_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v200909/CampaignCriterionServiceWrapper.rb, line 52</span>
+52:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">selector</span>)
+53:           <span class="ruby-keyword kw">begin</span>
+54:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'selector'</span>,
+55:                 <span class="ruby-identifier">selector</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionSelector</span>)
+56:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+57:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">selector</span>)
+58:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">obj</span>)
+59:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+60:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+61:                 <span class="ruby-value str">&quot;get Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+62:           <span class="ruby-keyword kw">end</span>
+63:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000162">
+                <div class="title" id="method-i-mutate">
                     
-                    <a name="M000162"></a><b>mutate</b>(operations)
+                    <a name="method-i-mutate"></a><b>mutate</b>(operations)
                     
                 </div>
                 
@@ -275,18 +279,20 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>operations: SOAP::SOAPArray of <a
+<li><p>
+operations: SOAP::SOAPArray of <a
 href="CampaignCriterionOperation.html">AdWords::V200909::CampaignCriterionService::CampaignCriterionOperation</a>
-
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>rval: <a
+<li><p>
+rval: <a
 href="CampaignCriterionReturnValue.html">AdWords::V200909::CampaignCriterionService::CampaignCriterionReturnValue</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -301,23 +307,23 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000162_source')" id="l_M000162_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-mutate_source')" id="l_method-i-mutate_source">show</a>
                         
                     </p>
-                    <div id="M000162_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/CampaignCriterionServiceWrapper.rb, line 77</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mutate</span>(<span class="ruby-identifier">operations</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'operations'</span>,
-                <span class="ruby-identifier">operations</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span><span class="ruby-operator">::</span><span class="ruby-constant">Mutate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">operations</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">mutate</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;mutate Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-mutate_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v200909/CampaignCriterionServiceWrapper.rb, line 77</span>
+77:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mutate</span>(<span class="ruby-identifier">operations</span>)
+78:           <span class="ruby-keyword kw">begin</span>
+79:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'operations'</span>,
+80:                 <span class="ruby-identifier">operations</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+81:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+82:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V200909</span><span class="ruby-operator">::</span><span class="ruby-constant">CampaignCriterionService</span><span class="ruby-operator">::</span><span class="ruby-constant">Mutate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">operations</span>)
+83:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">mutate</span>(<span class="ruby-identifier">obj</span>)
+84:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+85:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+86:                 <span class="ruby-value str">&quot;mutate Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+87:           <span class="ruby-keyword kw">end</span>
+88:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

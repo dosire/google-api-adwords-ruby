@@ -19,24 +19,24 @@
 #
 # This example illustrates how to retrieve the number of API units recorded for
 # the developer token being used to make this call over the given date range.
+#
+# Tags: InfoService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_unit_count()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  info_srv = adwords.get_service('Info', latest)
+  info_srv = adwords.get_service('Info', API_VERSION)
 
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::InfoService::InfoSelector
+  # typing the full class name every time we need to create an object.
   selector = info_srv.module::InfoSelector.new
 
   selector.dateRange = {

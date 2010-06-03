@@ -19,29 +19,28 @@
 #
 # This example illustrates how to update an ad, setting its status to 'PAUSED'.
 # To create ads, run add_ads.rb.
+#
+# Tags: AdGroupAdService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
-require 'base64'
+
+API_VERSION = 200909
 
 def update_ad()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_ad_srv = adwords.get_service('AdGroupAd', latest)
+  ad_group_ad_srv = adwords.get_service('AdGroupAd', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
   ad_id = 'INSERT_AD_ID_HERE'.to_i
 
-  # Prepare for updating ad group.
+  # Prepare for updating ad.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupAdService::AdGroupAdOperation
+  # typing the full class name every time we need to create an object.
   operation = ad_group_ad_srv.module::AdGroupAdOperation.new
   operation.operator = 'SET'
   operation.operand = ad_group_ad_srv.module::AdGroupAd.new

@@ -37,18 +37,25 @@ module AdWords
       200909 => ['AdExtensionOverride', 'AdGroupAd', 'AdGroupCriterion',
                  'AdGroup', 'AdParam', 'BulkMutateJob', 'CampaignAdExtension',
                  'CampaignCriterion', 'Campaign', 'CampaignTarget',
-                 'GeoLocation', 'Info', 'TargetingIdea']
+                 'GeoLocation', 'Info', 'TargetingIdea'],
+      201003 => ['AdExtensionOverride', 'AdGroupAd', 'AdGroupCriterion',
+                 'AdGroup', 'AdParam', 'BidLandscape', 'BulkMutateJob',
+                 'CampaignAdExtension', 'CampaignCriterion', 'Campaign',
+                 'CampaignTarget', 'GeoLocation', 'Info', 'Media',
+                 'ReportDefinition', 'TargetingIdea']
     }
 
     # Configure the different environments, with the base URL for each one
     @@environments = {
       'PRODUCTION' => {
         13 => 'https://adwords.google.com/api/adwords/',
-        200909 => 'https://adwords.google.com/api/adwords/'
+        200909 => 'https://adwords.google.com/api/adwords/',
+        201003 => 'https://adwords.google.com/api/adwords/',
       },
       'SANDBOX' => {
         13 => 'https://sandbox.google.com/api/adwords/',
-        200909 => 'https://adwords-sandbox.google.com/api/adwords/'
+        200909 => 'https://adwords-sandbox.google.com/api/adwords/',
+        201003 => 'https://adwords-sandbox.google.com/api/adwords/'
       }
     }
 
@@ -72,7 +79,24 @@ module AdWords
       [200909, 'CampaignTarget'] => 'cm/v200909/',
       [200909, 'GeoLocation'] => 'cm/v200909/',
       [200909, 'Info'] => 'info/v200909/',
-      [200909, 'TargetingIdea'] => 'o/v200909/'
+      [200909, 'TargetingIdea'] => 'o/v200909/',
+      # v201003
+      [201003, 'AdExtensionOverride'] => 'cm/v201003/',
+      [201003, 'AdGroupAd'] => 'cm/v201003/',
+      [201003, 'AdGroupCriterion'] => 'cm/v201003/',
+      [201003, 'AdGroup'] => 'cm/v201003/',
+      [201003, 'AdParam'] => 'cm/v201003/',
+      [201003, 'BidLandscape'] => 'cm/v201003/',
+      [201003, 'BulkMutateJob'] => 'job/v201003/',
+      [201003, 'CampaignAdExtension'] => 'cm/v201003/',
+      [201003, 'CampaignCriterion'] => 'cm/v201003/',
+      [201003, 'Campaign'] => 'cm/v201003/',
+      [201003, 'CampaignTarget'] => 'cm/v201003/',
+      [201003, 'GeoLocation'] => 'cm/v201003/',
+      [201003, 'Info'] => 'info/v201003/',
+      [201003, 'Media'] => 'cm/v201003/',
+      [201003, 'ReportDefinition'] => 'cm/v201003/',
+      [201003, 'TargetingIdea'] => 'o/v201003/'
     }
 
     # Configure the auth servers to use for each environment
@@ -177,6 +201,23 @@ module AdWords
       base = @@environments[environment][version]
       path = @@subdirs[[version, service]]
       return base.to_s + path.to_s if base
+      return nil
+    end
+
+    # Get the download URL for reports.
+    #
+    # Args:
+    # - environment: the service environment to be used (as a string)
+    # - version: the API version (as an integer)
+    #
+    # Returns:
+    # The endpoint URL (as a string)
+    #
+    def self.get_report_download_url(environment, version)
+      base = @@environments[environment][version]
+      path = 'reportdownload' if version >= 201003
+      return base.to_s + path.to_s if base and path
+      return nil
     end
 
     # Get the subdirectory for a service, for a given API version.
@@ -333,6 +374,7 @@ module AdWords
       alias environments get_environments
       alias default_environment get_default_environment
       alias endpoint get_endpoint
+      alias report_download_url get_report_download_url
       alias subdir get_subdir
       alias auth_server get_auth_server
       alias module_name get_module_name
