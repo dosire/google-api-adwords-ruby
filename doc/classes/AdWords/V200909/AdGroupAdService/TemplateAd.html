@@ -20,7 +20,7 @@
             
                 <span class="parent">&lt; 
                     
-                    Ad
+                    <a href="Ad.html">AdWords::V200909::AdGroupAdService::Ad</a>
                     
                 </span>
             
@@ -39,45 +39,57 @@
 <a href="TemplateAd.html">TemplateAd</a>
 </p>
 <ul>
-<li>id - SOAP::SOAPLong
-
+<li><p>
+id - SOAP::SOAPLong
+</p>
 </li>
-<li>url - SOAP::SOAPString
-
+<li><p>
+url - SOAP::SOAPString
+</p>
 </li>
-<li>displayUrl - SOAP::SOAPString
-
+<li><p>
+displayUrl - SOAP::SOAPString
+</p>
 </li>
-<li>approvalStatus - <a
+<li><p>
+approvalStatus - <a
 href="AdApprovalStatus.html">AdWords::V200909::AdGroupAdService::AdApprovalStatus</a>
-
+</p>
 </li>
-<li>disapprovalReasons - SOAP::SOAPString
-
+<li><p>
+disapprovalReasons - SOAP::SOAPString
+</p>
 </li>
-<li><a href="TemplateAd.html#ad_Type">ad_Type</a> - SOAP::SOAPString
-
+<li><p>
+<a href="TemplateAd.html#ad_Type">ad_Type</a> - SOAP::SOAPString
+</p>
 </li>
-<li>templateId - SOAP::SOAPLong
-
+<li><p>
+templateId - SOAP::SOAPLong
+</p>
 </li>
-<li>adUnionId - <a
+<li><p>
+adUnionId - <a
 href="AdUnionId.html">AdWords::V200909::AdGroupAdService::AdUnionId</a>
-
+</p>
 </li>
-<li>templateElements - <a
+<li><p>
+templateElements - <a
 href="TemplateElement.html">AdWords::V200909::AdGroupAdService::TemplateElement</a>
-
+</p>
 </li>
-<li>dimensions - <a
+<li><p>
+dimensions - <a
 href="Dimensions.html">AdWords::V200909::AdGroupAdService::Dimensions</a>
-
+</p>
 </li>
-<li>name - SOAP::SOAPString
-
+<li><p>
+name - SOAP::SOAPString
+</p>
 </li>
-<li>duration - SOAP::SOAPInt
-
+<li><p>
+duration - SOAP::SOAPInt
+</p>
 </li>
 </ul>
 
@@ -98,7 +110,7 @@ href="Dimensions.html">AdWords::V200909::AdGroupAdService::Dimensions</a>
         <dd>
             <ul>
                 
-                <li><a href="#M000565">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -221,9 +233,9 @@ href="Dimensions.html">AdWords::V200909::AdGroupAdService::Dimensions</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000565">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000565"></a><b>new</b>(id = nil, url = nil, displayUrl = nil, approvalStatus = nil, disapprovalReasons = [], ad_Type = nil, templateId = nil, adUnionId = nil, templateElements = [], dimensions = nil, name = nil, duration = nil)
+                    <a name="method-c-new"></a><b>new</b>(id = nil, url = nil, displayUrl = nil, approvalStatus = nil, disapprovalReasons = [], ad_Type = nil, templateId = nil, adUnionId = nil, templateElements = [], dimensions = nil, name = nil, duration = nil)
                     
                 </div>
                 
@@ -232,25 +244,25 @@ href="Dimensions.html">AdWords::V200909::AdGroupAdService::Dimensions</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000565_source')" id="l_M000565_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000565_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdGroupAdService.rb, line 1935</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">url</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">displayUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">approvalStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">disapprovalReasons</span> = [], <span class="ruby-identifier">ad_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">templateId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adUnionId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">templateElements</span> = [], <span class="ruby-identifier">dimensions</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">duration</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
-    <span class="ruby-ivar">@url</span> = <span class="ruby-identifier">url</span>
-    <span class="ruby-ivar">@displayUrl</span> = <span class="ruby-identifier">displayUrl</span>
-    <span class="ruby-ivar">@approvalStatus</span> = <span class="ruby-identifier">approvalStatus</span>
-    <span class="ruby-ivar">@disapprovalReasons</span> = <span class="ruby-identifier">disapprovalReasons</span>
-    <span class="ruby-ivar">@ad_Type</span> = <span class="ruby-identifier">ad_Type</span>
-    <span class="ruby-ivar">@templateId</span> = <span class="ruby-identifier">templateId</span>
-    <span class="ruby-ivar">@adUnionId</span> = <span class="ruby-identifier">adUnionId</span>
-    <span class="ruby-ivar">@templateElements</span> = <span class="ruby-identifier">templateElements</span>
-    <span class="ruby-ivar">@dimensions</span> = <span class="ruby-identifier">dimensions</span>
-    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
-    <span class="ruby-ivar">@duration</span> = <span class="ruby-identifier">duration</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdGroupAdService.rb, line 1935</span>
+1935:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">url</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">displayUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">approvalStatus</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">disapprovalReasons</span> = [], <span class="ruby-identifier">ad_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">templateId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adUnionId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">templateElements</span> = [], <span class="ruby-identifier">dimensions</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">duration</span> = <span class="ruby-keyword kw">nil</span>)
+1936:     <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
+1937:     <span class="ruby-ivar">@url</span> = <span class="ruby-identifier">url</span>
+1938:     <span class="ruby-ivar">@displayUrl</span> = <span class="ruby-identifier">displayUrl</span>
+1939:     <span class="ruby-ivar">@approvalStatus</span> = <span class="ruby-identifier">approvalStatus</span>
+1940:     <span class="ruby-ivar">@disapprovalReasons</span> = <span class="ruby-identifier">disapprovalReasons</span>
+1941:     <span class="ruby-ivar">@ad_Type</span> = <span class="ruby-identifier">ad_Type</span>
+1942:     <span class="ruby-ivar">@templateId</span> = <span class="ruby-identifier">templateId</span>
+1943:     <span class="ruby-ivar">@adUnionId</span> = <span class="ruby-identifier">adUnionId</span>
+1944:     <span class="ruby-ivar">@templateElements</span> = <span class="ruby-identifier">templateElements</span>
+1945:     <span class="ruby-ivar">@dimensions</span> = <span class="ruby-identifier">dimensions</span>
+1946:     <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+1947:     <span class="ruby-ivar">@duration</span> = <span class="ruby-identifier">duration</span>
+1948:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

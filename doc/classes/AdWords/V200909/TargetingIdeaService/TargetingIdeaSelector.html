@@ -39,31 +39,38 @@
 <a href="TargetingIdeaSelector.html">TargetingIdeaSelector</a>
 </p>
 <ul>
-<li>searchParameters - <a
+<li><p>
+searchParameters - <a
 href="SearchParameter.html">AdWords::V200909::TargetingIdeaService::SearchParameter</a>
-
+</p>
 </li>
-<li>ideaType - <a
+<li><p>
+ideaType - <a
 href="IdeaType.html">AdWords::V200909::TargetingIdeaService::IdeaType</a>
-
+</p>
 </li>
-<li>requestType - <a
+<li><p>
+requestType - <a
 href="RequestType.html">AdWords::V200909::TargetingIdeaService::RequestType</a>
-
+</p>
 </li>
-<li>requestedAttributeTypes - <a
+<li><p>
+requestedAttributeTypes - <a
 href="AttributeType.html">AdWords::V200909::TargetingIdeaService::AttributeType</a>
-
+</p>
 </li>
-<li>paging - <a
+<li><p>
+paging - <a
 href="Paging.html">AdWords::V200909::TargetingIdeaService::Paging</a>
-
+</p>
 </li>
-<li>localeCode - SOAP::SOAPString
-
+<li><p>
+localeCode - SOAP::SOAPString
+</p>
 </li>
-<li>currencyCode - SOAP::SOAPString
-
+<li><p>
+currencyCode - SOAP::SOAPString
+</p>
 </li>
 </ul>
 
@@ -84,7 +91,7 @@ href="Paging.html">AdWords::V200909::TargetingIdeaService::Paging</a>
         <dd>
             <ul>
                 
-                <li><a href="#M000533">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -167,9 +174,9 @@ href="Paging.html">AdWords::V200909::TargetingIdeaService::Paging</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000533">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000533"></a><b>new</b>(searchParameters = [], ideaType = nil, requestType = nil, requestedAttributeTypes = [], paging = nil, localeCode = nil, currencyCode = nil)
+                    <a name="method-c-new"></a><b>new</b>(searchParameters = [], ideaType = nil, requestType = nil, requestedAttributeTypes = [], paging = nil, localeCode = nil, currencyCode = nil)
                     
                 </div>
                 
@@ -178,20 +185,20 @@ href="Paging.html">AdWords::V200909::TargetingIdeaService::Paging</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000533_source')" id="l_M000533_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000533_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/TargetingIdeaService.rb, line 1482</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">searchParameters</span> = [], <span class="ruby-identifier">ideaType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">requestType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">requestedAttributeTypes</span> = [], <span class="ruby-identifier">paging</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">localeCode</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">currencyCode</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@searchParameters</span> = <span class="ruby-identifier">searchParameters</span>
-    <span class="ruby-ivar">@ideaType</span> = <span class="ruby-identifier">ideaType</span>
-    <span class="ruby-ivar">@requestType</span> = <span class="ruby-identifier">requestType</span>
-    <span class="ruby-ivar">@requestedAttributeTypes</span> = <span class="ruby-identifier">requestedAttributeTypes</span>
-    <span class="ruby-ivar">@paging</span> = <span class="ruby-identifier">paging</span>
-    <span class="ruby-ivar">@localeCode</span> = <span class="ruby-identifier">localeCode</span>
-    <span class="ruby-ivar">@currencyCode</span> = <span class="ruby-identifier">currencyCode</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v200909/TargetingIdeaService.rb, line 1482</span>
+1482:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">searchParameters</span> = [], <span class="ruby-identifier">ideaType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">requestType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">requestedAttributeTypes</span> = [], <span class="ruby-identifier">paging</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">localeCode</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">currencyCode</span> = <span class="ruby-keyword kw">nil</span>)
+1483:     <span class="ruby-ivar">@searchParameters</span> = <span class="ruby-identifier">searchParameters</span>
+1484:     <span class="ruby-ivar">@ideaType</span> = <span class="ruby-identifier">ideaType</span>
+1485:     <span class="ruby-ivar">@requestType</span> = <span class="ruby-identifier">requestType</span>
+1486:     <span class="ruby-ivar">@requestedAttributeTypes</span> = <span class="ruby-identifier">requestedAttributeTypes</span>
+1487:     <span class="ruby-ivar">@paging</span> = <span class="ruby-identifier">paging</span>
+1488:     <span class="ruby-ivar">@localeCode</span> = <span class="ruby-identifier">localeCode</span>
+1489:     <span class="ruby-ivar">@currencyCode</span> = <span class="ruby-identifier">currencyCode</span>
+1490:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

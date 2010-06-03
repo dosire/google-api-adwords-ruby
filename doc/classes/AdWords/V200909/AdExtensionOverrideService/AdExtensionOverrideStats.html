@@ -20,7 +20,7 @@
             
                 <span class="parent">&lt; 
                     
-                    Stats
+                    <a href="Stats.html">AdWords::V200909::AdExtensionOverrideService::Stats</a>
                     
                 </span>
             
@@ -39,63 +39,80 @@
 <a href="AdExtensionOverrideStats.html">AdExtensionOverrideStats</a>
 </p>
 <ul>
-<li>startDate - SOAP::SOAPString
-
+<li><p>
+startDate - SOAP::SOAPString
+</p>
 </li>
-<li>endDate - SOAP::SOAPString
-
+<li><p>
+endDate - SOAP::SOAPString
+</p>
 </li>
-<li>network - <a
+<li><p>
+network - <a
 href="StatsNetwork.html">AdWords::V200909::AdExtensionOverrideService::StatsNetwork</a>
-
+</p>
 </li>
-<li>clicks - SOAP::SOAPLong
-
+<li><p>
+clicks - SOAP::SOAPLong
+</p>
 </li>
-<li>impressions - SOAP::SOAPLong
-
+<li><p>
+impressions - SOAP::SOAPLong
+</p>
 </li>
-<li>cost - <a
+<li><p>
+cost - <a
 href="Money.html">AdWords::V200909::AdExtensionOverrideService::Money</a>
-
+</p>
 </li>
-<li>averagePosition - SOAP::SOAPDouble
-
+<li><p>
+averagePosition - SOAP::SOAPDouble
+</p>
 </li>
-<li>averageCpc - <a
+<li><p>
+averageCpc - <a
 href="Money.html">AdWords::V200909::AdExtensionOverrideService::Money</a>
-
+</p>
 </li>
-<li>averageCpm - <a
+<li><p>
+averageCpm - <a
 href="Money.html">AdWords::V200909::AdExtensionOverrideService::Money</a>
-
+</p>
 </li>
-<li>ctr - SOAP::SOAPDouble
-
+<li><p>
+ctr - SOAP::SOAPDouble
+</p>
 </li>
-<li>conversions - SOAP::SOAPLong
-
+<li><p>
+conversions - SOAP::SOAPLong
+</p>
 </li>
-<li>conversionRate - SOAP::SOAPDouble
-
+<li><p>
+conversionRate - SOAP::SOAPDouble
+</p>
 </li>
-<li>costPerConversion - <a
+<li><p>
+costPerConversion - <a
 href="Money.html">AdWords::V200909::AdExtensionOverrideService::Money</a>
-
+</p>
 </li>
-<li>conversionsManyPerClick - SOAP::SOAPLong
-
+<li><p>
+conversionsManyPerClick - SOAP::SOAPLong
+</p>
 </li>
-<li>conversionRateManyPerClick - SOAP::SOAPDouble
-
+<li><p>
+conversionRateManyPerClick - SOAP::SOAPDouble
+</p>
 </li>
-<li>costPerConversionManyPerClick - <a
+<li><p>
+costPerConversionManyPerClick - <a
 href="Money.html">AdWords::V200909::AdExtensionOverrideService::Money</a>
-
+</p>
 </li>
-<li><a href="AdExtensionOverrideStats.html#stats_Type">stats_Type</a> -
+<li><p>
+<a href="AdExtensionOverrideStats.html#stats_Type">stats_Type</a> -
 SOAP::SOAPString
-
+</p>
 </li>
 </ul>
 
@@ -116,7 +133,7 @@ SOAP::SOAPString
         <dd>
             <ul>
                 
-                <li><a href="#M001089">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -279,9 +296,9 @@ SOAP::SOAPString
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M001089">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M001089"></a><b>new</b>(startDate = nil, endDate = nil, network = nil, clicks = nil, impressions = nil, cost = nil, averagePosition = nil, averageCpc = nil, averageCpm = nil, ctr = nil, conversions = nil, conversionRate = nil, costPerConversion = nil, conversionsManyPerClick = nil, conversionRateManyPerClick = nil, costPerConversionManyPerClick = nil, stats_Type = nil)
+                    <a name="method-c-new"></a><b>new</b>(startDate = nil, endDate = nil, network = nil, clicks = nil, impressions = nil, cost = nil, averagePosition = nil, averageCpc = nil, averageCpm = nil, ctr = nil, conversions = nil, conversionRate = nil, costPerConversion = nil, conversionsManyPerClick = nil, conversionRateManyPerClick = nil, costPerConversionManyPerClick = nil, stats_Type = nil)
                     
                 </div>
                 
@@ -290,30 +307,30 @@ SOAP::SOAPString
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M001089_source')" id="l_M001089_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M001089_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdExtensionOverrideService.rb, line 308</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">startDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">network</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">clicks</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">impressions</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">cost</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">averagePosition</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">averageCpc</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">averageCpm</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">ctr</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversions</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversionRate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">costPerConversion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversionsManyPerClick</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversionRateManyPerClick</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">costPerConversionManyPerClick</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats_Type</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@startDate</span> = <span class="ruby-identifier">startDate</span>
-    <span class="ruby-ivar">@endDate</span> = <span class="ruby-identifier">endDate</span>
-    <span class="ruby-ivar">@network</span> = <span class="ruby-identifier">network</span>
-    <span class="ruby-ivar">@clicks</span> = <span class="ruby-identifier">clicks</span>
-    <span class="ruby-ivar">@impressions</span> = <span class="ruby-identifier">impressions</span>
-    <span class="ruby-ivar">@cost</span> = <span class="ruby-identifier">cost</span>
-    <span class="ruby-ivar">@averagePosition</span> = <span class="ruby-identifier">averagePosition</span>
-    <span class="ruby-ivar">@averageCpc</span> = <span class="ruby-identifier">averageCpc</span>
-    <span class="ruby-ivar">@averageCpm</span> = <span class="ruby-identifier">averageCpm</span>
-    <span class="ruby-ivar">@ctr</span> = <span class="ruby-identifier">ctr</span>
-    <span class="ruby-ivar">@conversions</span> = <span class="ruby-identifier">conversions</span>
-    <span class="ruby-ivar">@conversionRate</span> = <span class="ruby-identifier">conversionRate</span>
-    <span class="ruby-ivar">@costPerConversion</span> = <span class="ruby-identifier">costPerConversion</span>
-    <span class="ruby-ivar">@conversionsManyPerClick</span> = <span class="ruby-identifier">conversionsManyPerClick</span>
-    <span class="ruby-ivar">@conversionRateManyPerClick</span> = <span class="ruby-identifier">conversionRateManyPerClick</span>
-    <span class="ruby-ivar">@costPerConversionManyPerClick</span> = <span class="ruby-identifier">costPerConversionManyPerClick</span>
-    <span class="ruby-ivar">@stats_Type</span> = <span class="ruby-identifier">stats_Type</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdExtensionOverrideService.rb, line 308</span>
+308:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">startDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">network</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">clicks</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">impressions</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">cost</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">averagePosition</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">averageCpc</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">averageCpm</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">ctr</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversions</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversionRate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">costPerConversion</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversionsManyPerClick</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">conversionRateManyPerClick</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">costPerConversionManyPerClick</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats_Type</span> = <span class="ruby-keyword kw">nil</span>)
+309:     <span class="ruby-ivar">@startDate</span> = <span class="ruby-identifier">startDate</span>
+310:     <span class="ruby-ivar">@endDate</span> = <span class="ruby-identifier">endDate</span>
+311:     <span class="ruby-ivar">@network</span> = <span class="ruby-identifier">network</span>
+312:     <span class="ruby-ivar">@clicks</span> = <span class="ruby-identifier">clicks</span>
+313:     <span class="ruby-ivar">@impressions</span> = <span class="ruby-identifier">impressions</span>
+314:     <span class="ruby-ivar">@cost</span> = <span class="ruby-identifier">cost</span>
+315:     <span class="ruby-ivar">@averagePosition</span> = <span class="ruby-identifier">averagePosition</span>
+316:     <span class="ruby-ivar">@averageCpc</span> = <span class="ruby-identifier">averageCpc</span>
+317:     <span class="ruby-ivar">@averageCpm</span> = <span class="ruby-identifier">averageCpm</span>
+318:     <span class="ruby-ivar">@ctr</span> = <span class="ruby-identifier">ctr</span>
+319:     <span class="ruby-ivar">@conversions</span> = <span class="ruby-identifier">conversions</span>
+320:     <span class="ruby-ivar">@conversionRate</span> = <span class="ruby-identifier">conversionRate</span>
+321:     <span class="ruby-ivar">@costPerConversion</span> = <span class="ruby-identifier">costPerConversion</span>
+322:     <span class="ruby-ivar">@conversionsManyPerClick</span> = <span class="ruby-identifier">conversionsManyPerClick</span>
+323:     <span class="ruby-ivar">@conversionRateManyPerClick</span> = <span class="ruby-identifier">conversionRateManyPerClick</span>
+324:     <span class="ruby-ivar">@costPerConversionManyPerClick</span> = <span class="ruby-identifier">costPerConversionManyPerClick</span>
+325:     <span class="ruby-ivar">@stats_Type</span> = <span class="ruby-identifier">stats_Type</span>
+326:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

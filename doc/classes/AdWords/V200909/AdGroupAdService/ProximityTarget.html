@@ -20,7 +20,7 @@
             
                 <span class="parent">&lt; 
                     
-                    GeoTarget
+                    <a href="GeoTarget.html">AdWords::V200909::AdGroupAdService::GeoTarget</a>
                     
                 </span>
             
@@ -39,30 +39,37 @@
 <a href="ProximityTarget.html">ProximityTarget</a>
 </p>
 <ul>
-<li><a href="ProximityTarget.html#target_Type">target_Type</a> -
+<li><p>
+<a href="ProximityTarget.html#target_Type">target_Type</a> -
 SOAP::SOAPString
-
+</p>
 </li>
-<li>excluded - SOAP::SOAPBoolean
-
+<li><p>
+excluded - SOAP::SOAPBoolean
+</p>
 </li>
-<li>geoPoint - <a
+<li><p>
+geoPoint - <a
 href="GeoPoint.html">AdWords::V200909::AdGroupAdService::GeoPoint</a>
-
+</p>
 </li>
-<li>radiusDistanceUnits - <a
+<li><p>
+radiusDistanceUnits - <a
 href="ProximityTargetDistanceUnits.html">AdWords::V200909::AdGroupAdService::ProximityTargetDistanceUnits</a>
-
+</p>
 </li>
-<li>radiusInUnits - SOAP::SOAPDouble
-
+<li><p>
+radiusInUnits - SOAP::SOAPDouble
+</p>
 </li>
-<li>address - <a
+<li><p>
+address - <a
 href="Address.html">AdWords::V200909::AdGroupAdService::Address</a>
-
+</p>
 </li>
-<li>allowServiceOfAddress - SOAP::SOAPBoolean
-
+<li><p>
+allowServiceOfAddress - SOAP::SOAPBoolean
+</p>
 </li>
 </ul>
 
@@ -83,7 +90,7 @@ href="Address.html">AdWords::V200909::AdGroupAdService::Address</a>
         <dd>
             <ul>
                 
-                <li><a href="#M000465">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -166,9 +173,9 @@ href="Address.html">AdWords::V200909::AdGroupAdService::Address</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000465">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000465"></a><b>new</b>(target_Type = nil, excluded = nil, geoPoint = nil, radiusDistanceUnits = nil, radiusInUnits = nil, address = nil, allowServiceOfAddress = nil)
+                    <a name="method-c-new"></a><b>new</b>(target_Type = nil, excluded = nil, geoPoint = nil, radiusDistanceUnits = nil, radiusInUnits = nil, address = nil, allowServiceOfAddress = nil)
                     
                 </div>
                 
@@ -177,20 +184,20 @@ href="Address.html">AdWords::V200909::AdGroupAdService::Address</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000465_source')" id="l_M000465_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000465_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdGroupAdService.rb, line 950</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">target_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">excluded</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">geoPoint</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">radiusDistanceUnits</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">radiusInUnits</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">address</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">allowServiceOfAddress</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@target_Type</span> = <span class="ruby-identifier">target_Type</span>
-    <span class="ruby-ivar">@excluded</span> = <span class="ruby-identifier">excluded</span>
-    <span class="ruby-ivar">@geoPoint</span> = <span class="ruby-identifier">geoPoint</span>
-    <span class="ruby-ivar">@radiusDistanceUnits</span> = <span class="ruby-identifier">radiusDistanceUnits</span>
-    <span class="ruby-ivar">@radiusInUnits</span> = <span class="ruby-identifier">radiusInUnits</span>
-    <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
-    <span class="ruby-ivar">@allowServiceOfAddress</span> = <span class="ruby-identifier">allowServiceOfAddress</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v200909/AdGroupAdService.rb, line 950</span>
+950:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">target_Type</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">excluded</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">geoPoint</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">radiusDistanceUnits</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">radiusInUnits</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">address</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">allowServiceOfAddress</span> = <span class="ruby-keyword kw">nil</span>)
+951:     <span class="ruby-ivar">@target_Type</span> = <span class="ruby-identifier">target_Type</span>
+952:     <span class="ruby-ivar">@excluded</span> = <span class="ruby-identifier">excluded</span>
+953:     <span class="ruby-ivar">@geoPoint</span> = <span class="ruby-identifier">geoPoint</span>
+954:     <span class="ruby-ivar">@radiusDistanceUnits</span> = <span class="ruby-identifier">radiusDistanceUnits</span>
+955:     <span class="ruby-ivar">@radiusInUnits</span> = <span class="ruby-identifier">radiusInUnits</span>
+956:     <span class="ruby-ivar">@address</span> = <span class="ruby-identifier">address</span>
+957:     <span class="ruby-ivar">@allowServiceOfAddress</span> = <span class="ruby-identifier">allowServiceOfAddress</span>
+958:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

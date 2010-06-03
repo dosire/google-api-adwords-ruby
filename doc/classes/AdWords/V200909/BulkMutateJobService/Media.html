@@ -39,50 +39,63 @@
 <a href="Media.html">Media</a>
 </p>
 <ul>
-<li>mediaId - SOAP::SOAPLong
-
+<li><p>
+mediaId - SOAP::SOAPLong
+</p>
 </li>
-<li>mediaTypeDb - <a
+<li><p>
+mediaTypeDb - <a
 href="MediaMediaType.html">AdWords::V200909::BulkMutateJobService::MediaMediaType</a>
-
+</p>
 </li>
-<li>referenceId - SOAP::SOAPLong
-
+<li><p>
+referenceId - SOAP::SOAPLong
+</p>
 </li>
-<li>dimensions - <a
+<li><p>
+dimensions - <a
 href="Media_Size_DimensionsMapEntry.html">AdWords::V200909::BulkMutateJobService::Media_Size_DimensionsMapEntry</a>
-
+</p>
 </li>
-<li>urls - <a
+<li><p>
+urls - <a
 href="Media_Size_StringMapEntry.html">AdWords::V200909::BulkMutateJobService::Media_Size_StringMapEntry</a>
-
+</p>
 </li>
-<li>mimeType - <a
+<li><p>
+mimeType - <a
 href="MediaMimeType.html">AdWords::V200909::BulkMutateJobService::MediaMimeType</a>
-
+</p>
 </li>
-<li>sourceUrl - SOAP::SOAPString
-
+<li><p>
+sourceUrl - SOAP::SOAPString
+</p>
 </li>
-<li>mediaSubType - <a
+<li><p>
+mediaSubType - <a
 href="MediaMediaSubType.html">AdWords::V200909::BulkMutateJobService::MediaMediaSubType</a>
-
+</p>
 </li>
-<li>name - SOAP::SOAPString
-
+<li><p>
+name - SOAP::SOAPString
+</p>
 </li>
-<li>fileSize - SOAP::SOAPLong
-
+<li><p>
+fileSize - SOAP::SOAPLong
+</p>
 </li>
-<li>extendedCapabilities - <a
+<li><p>
+extendedCapabilities - <a
 href="Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry.html">AdWords::V200909::BulkMutateJobService::Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEntry</a>
-
+</p>
 </li>
-<li>creationTime - SOAP::SOAPString
-
+<li><p>
+creationTime - SOAP::SOAPString
+</p>
 </li>
-<li><a href="Media.html#media_Type">media_Type</a> - SOAP::SOAPString
-
+<li><p>
+<a href="Media.html#media_Type">media_Type</a> - SOAP::SOAPString
+</p>
 </li>
 </ul>
 
@@ -103,7 +116,7 @@ href="Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEnt
         <dd>
             <ul>
                 
-                <li><a href="#M000795">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -234,9 +247,9 @@ href="Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEnt
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000795">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000795"></a><b>new</b>(mediaId = nil, mediaTypeDb = nil, referenceId = nil, dimensions = [], urls = [], mimeType = nil, sourceUrl = nil, mediaSubType = nil, name = nil, fileSize = nil, extendedCapabilities = [], creationTime = nil, media_Type = nil)
+                    <a name="method-c-new"></a><b>new</b>(mediaId = nil, mediaTypeDb = nil, referenceId = nil, dimensions = [], urls = [], mimeType = nil, sourceUrl = nil, mediaSubType = nil, name = nil, fileSize = nil, extendedCapabilities = [], creationTime = nil, media_Type = nil)
                     
                 </div>
                 
@@ -245,26 +258,26 @@ href="Media_MediaExtendedCapabilityType_Media_MediaExtendedCapabilityStateMapEnt
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000795_source')" id="l_M000795_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000795_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2531</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">mediaId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">mediaTypeDb</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">referenceId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">dimensions</span> = [], <span class="ruby-identifier">urls</span> = [], <span class="ruby-identifier">mimeType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">sourceUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">mediaSubType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">fileSize</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">extendedCapabilities</span> = [], <span class="ruby-identifier">creationTime</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">media_Type</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@mediaId</span> = <span class="ruby-identifier">mediaId</span>
-    <span class="ruby-ivar">@mediaTypeDb</span> = <span class="ruby-identifier">mediaTypeDb</span>
-    <span class="ruby-ivar">@referenceId</span> = <span class="ruby-identifier">referenceId</span>
-    <span class="ruby-ivar">@dimensions</span> = <span class="ruby-identifier">dimensions</span>
-    <span class="ruby-ivar">@urls</span> = <span class="ruby-identifier">urls</span>
-    <span class="ruby-ivar">@mimeType</span> = <span class="ruby-identifier">mimeType</span>
-    <span class="ruby-ivar">@sourceUrl</span> = <span class="ruby-identifier">sourceUrl</span>
-    <span class="ruby-ivar">@mediaSubType</span> = <span class="ruby-identifier">mediaSubType</span>
-    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
-    <span class="ruby-ivar">@fileSize</span> = <span class="ruby-identifier">fileSize</span>
-    <span class="ruby-ivar">@extendedCapabilities</span> = <span class="ruby-identifier">extendedCapabilities</span>
-    <span class="ruby-ivar">@creationTime</span> = <span class="ruby-identifier">creationTime</span>
-    <span class="ruby-ivar">@media_Type</span> = <span class="ruby-identifier">media_Type</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v200909/BulkMutateJobService.rb, line 2531</span>
+2531:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">mediaId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">mediaTypeDb</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">referenceId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">dimensions</span> = [], <span class="ruby-identifier">urls</span> = [], <span class="ruby-identifier">mimeType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">sourceUrl</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">mediaSubType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">fileSize</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">extendedCapabilities</span> = [], <span class="ruby-identifier">creationTime</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">media_Type</span> = <span class="ruby-keyword kw">nil</span>)
+2532:     <span class="ruby-ivar">@mediaId</span> = <span class="ruby-identifier">mediaId</span>
+2533:     <span class="ruby-ivar">@mediaTypeDb</span> = <span class="ruby-identifier">mediaTypeDb</span>
+2534:     <span class="ruby-ivar">@referenceId</span> = <span class="ruby-identifier">referenceId</span>
+2535:     <span class="ruby-ivar">@dimensions</span> = <span class="ruby-identifier">dimensions</span>
+2536:     <span class="ruby-ivar">@urls</span> = <span class="ruby-identifier">urls</span>
+2537:     <span class="ruby-ivar">@mimeType</span> = <span class="ruby-identifier">mimeType</span>
+2538:     <span class="ruby-ivar">@sourceUrl</span> = <span class="ruby-identifier">sourceUrl</span>
+2539:     <span class="ruby-ivar">@mediaSubType</span> = <span class="ruby-identifier">mediaSubType</span>
+2540:     <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+2541:     <span class="ruby-ivar">@fileSize</span> = <span class="ruby-identifier">fileSize</span>
+2542:     <span class="ruby-ivar">@extendedCapabilities</span> = <span class="ruby-identifier">extendedCapabilities</span>
+2543:     <span class="ruby-ivar">@creationTime</span> = <span class="ruby-identifier">creationTime</span>
+2544:     <span class="ruby-ivar">@media_Type</span> = <span class="ruby-identifier">media_Type</span>
+2545:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
