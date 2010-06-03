@@ -56,7 +56,7 @@ Handles the headers used in v2009 requests.
         <dd>
             <ul>
                 
-                <li><a href="#M000000">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -65,7 +65,7 @@ Handles the headers used in v2009 requests.
         <dd>
             <ul>
                 
-                <li><a href="#M000001">on_simple_outbound</a></li>
+                <li><a href="#method-i-on_simple_outbound">on_simple_outbound</a></li>
                 
             </ul>
         </dd>
@@ -87,9 +87,9 @@ Handles the headers used in v2009 requests.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000000">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000000"></a><b>new</b>(parent, namespace, version)
+                    <a name="method-c-new"></a><b>new</b>(parent, namespace, version)
                     
                 </div>
                 
@@ -101,9 +101,10 @@ Constructor for <a href="V2009HeaderHandler.html">V2009HeaderHandler</a>.
 Args:
 </p>
 <ul>
-<li>parent: <a href="AdWordsCredentials.html">AdWordsCredentials</a> object
+<li><p>
+parent: <a href="AdWordsCredentials.html">AdWordsCredentials</a> object
 containing the login credentials.
-
+</p>
 </li>
 </ul>
 
@@ -114,16 +115,16 @@ containing the login credentials.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000000_source')" id="l_M000000_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000000_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/credentials.rb, line 40</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">version</span>)
-      <span class="ruby-keyword kw">super</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">namespace</span>, <span class="ruby-value str">'RequestHeader'</span>))
-      <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">parent</span>
-      <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">version</span>
-    <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/credentials.rb, line 40</span>
+40:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">parent</span>, <span class="ruby-identifier">namespace</span>, <span class="ruby-identifier">version</span>)
+41:       <span class="ruby-keyword kw">super</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">namespace</span>, <span class="ruby-value str">'RequestHeader'</span>))
+42:       <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">parent</span>
+43:       <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">version</span>
+44:     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
@@ -132,9 +133,9 @@ containing the login credentials.
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000001">
+                <div class="title" id="method-i-on_simple_outbound">
                     
-                    <a name="M000001"></a><b>on_simple_outbound</b>()
+                    <a name="method-i-on_simple_outbound"></a><b>on_simple_outbound</b>()
                     
                 </div>
                 
@@ -150,51 +151,51 @@ Handles callback.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000001_source')" id="l_M000001_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-on_simple_outbound_source')" id="l_method-i-on_simple_outbound_source">show</a>
                         
                     </p>
-                    <div id="M000001_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/credentials.rb, line 47</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_simple_outbound</span>
-      <span class="ruby-identifier">ns</span> = <span class="ruby-constant">HEADER_NAMESPACE</span>
-      <span class="ruby-identifier">ns</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'v'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@version</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>
-      <span class="ruby-identifier">ns</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@version</span>.<span class="ruby-identifier">to_s</span>
-      <span class="ruby-identifier">header</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>)
-      <span class="ruby-identifier">auth_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'authToken'</span>),
-          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">auth_token</span>)
-      <span class="ruby-identifier">user_agent</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'userAgent'</span>),
-          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'userAgent'</span>])
-      <span class="ruby-identifier">dev_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'developerToken'</span>),
-          <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'developerToken'</span>])
-      <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">auth_token</span>)
-      <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">user_agent</span>)
-      <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">dev_token</span>)
-
-      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'applicationToken'</span>]
-        <span class="ruby-identifier">app_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>,
-            <span class="ruby-value str">'applicationToken'</span>), <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'applicationToken'</span>])
-        <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">app_token</span>)
-      <span class="ruby-keyword kw">end</span>
-
-      <span class="ruby-identifier">client_email_value</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">client_email</span>
-      <span class="ruby-identifier">client_cid_value</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">client_customer_id</span>
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client_email_value</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">client_email_value</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-        <span class="ruby-identifier">client_email</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'clientEmail'</span>),
-            <span class="ruby-identifier">client_email_value</span>)
-        <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">client_email</span>)
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client_cid_value</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">client_cid_value</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-        <span class="ruby-identifier">client_cid</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(
-            <span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'clientCustomerId'</span>), <span class="ruby-identifier">client_cid_value</span>)
-        <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">client_cid</span>)
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">validate_only</span>
-        <span class="ruby-identifier">validate_only</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(
-            <span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'validateOnly'</span>), <span class="ruby-value str">'true'</span>)
-        <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">validate_only</span>)
-      <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">header</span>
-    <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-on_simple_outbound_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/credentials.rb, line 47</span>
+47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">on_simple_outbound</span>
+48:       <span class="ruby-identifier">ns</span> = <span class="ruby-constant">HEADER_NAMESPACE</span>
+49:       <span class="ruby-identifier">ns</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'v'</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@version</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>
+50:       <span class="ruby-identifier">ns</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@version</span>.<span class="ruby-identifier">to_s</span>
+51:       <span class="ruby-identifier">header</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">nil</span>)
+52:       <span class="ruby-identifier">auth_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'authToken'</span>),
+53:           <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">auth_token</span>)
+54:       <span class="ruby-identifier">user_agent</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'userAgent'</span>),
+55:           <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'userAgent'</span>])
+56:       <span class="ruby-identifier">dev_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'developerToken'</span>),
+57:           <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'developerToken'</span>])
+58:       <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">auth_token</span>)
+59:       <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">user_agent</span>)
+60:       <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">dev_token</span>)
+61: 
+62:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'applicationToken'</span>]
+63:         <span class="ruby-identifier">app_token</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>,
+64:             <span class="ruby-value str">'applicationToken'</span>), <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">credentials</span>[<span class="ruby-value str">'applicationToken'</span>])
+65:         <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">app_token</span>)
+66:       <span class="ruby-keyword kw">end</span>
+67: 
+68:       <span class="ruby-identifier">client_email_value</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">client_email</span>
+69:       <span class="ruby-identifier">client_cid_value</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">client_customer_id</span>
+70:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client_email_value</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">client_email_value</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+71:         <span class="ruby-identifier">client_email</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'clientEmail'</span>),
+72:             <span class="ruby-identifier">client_email_value</span>)
+73:         <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">client_email</span>)
+74:       <span class="ruby-keyword kw">end</span>
+75:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">client_cid_value</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">client_cid_value</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+76:         <span class="ruby-identifier">client_cid</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(
+77:             <span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'clientCustomerId'</span>), <span class="ruby-identifier">client_cid_value</span>)
+78:         <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">client_cid</span>)
+79:       <span class="ruby-keyword kw">end</span>
+80:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">validate_only</span>
+81:         <span class="ruby-identifier">validate_only</span> = <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPElement</span>.<span class="ruby-identifier">new</span>(
+82:             <span class="ruby-constant">XSD</span><span class="ruby-operator">::</span><span class="ruby-constant">QName</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-value str">'validateOnly'</span>), <span class="ruby-value str">'true'</span>)
+83:         <span class="ruby-identifier">header</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">validate_only</span>)
+84:       <span class="ruby-keyword kw">end</span>
+85:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">header</span>
+86:     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

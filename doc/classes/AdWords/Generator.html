@@ -50,7 +50,7 @@ Contains the methods that handle wrapper code generation.
         <dd>
             <ul>
                 
-                <li><a href="#M000065">generate_wrapper_class</a></li>
+                <li><a href="#method-c-generate_wrapper_class">generate_wrapper_class</a></li>
                 
             </ul>
         </dd>
@@ -84,9 +84,9 @@ Contains the methods that handle wrapper code generation.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000065">
+                <div class="title" id="method-c-generate_wrapper_class">
                     
-                    <a name="M000065"></a><b>generate_wrapper_class</b>(version, service)
+                    <a name="method-c-generate_wrapper_class"></a><b>generate_wrapper_class</b>(version, service)
                     
                 </div>
                 
@@ -130,11 +130,13 @@ with one <a href="API.html">API</a> method and one extension:
 Args:
 </p>
 <ul>
-<li>version: the <a href="API.html">API</a> version (as an integer)
-
+<li><p>
+version: the <a href="API.html">API</a> version (as an integer)
+</p>
 </li>
-<li>service: the service name (as a string)
-
+<li><p>
+service: the service name (as a string)
+</p>
 </li>
 </ul>
 <p>
@@ -148,93 +150,93 @@ Returns: The Ruby code for the class, as a string.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000065_source')" id="l_M000065_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-generate_wrapper_class_source')" id="l_method-c-generate_wrapper_class_source">show</a>
                         
                     </p>
-                    <div id="M000065_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/generator.rb, line 71</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate_wrapper_class</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
-      <span class="ruby-identifier">wrapper</span> = <span class="ruby-identifier">service</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;ServiceWrapper&quot;</span>
-      <span class="ruby-identifier">module_name</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">get_module_name</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
-      <span class="ruby-identifier">driver</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">get_interface_name</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
-      <span class="ruby-identifier">driver_class</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">driver</span>)
-
-      <span class="ruby-identifier">registry</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;#{module_name}::DefaultMappingRegistry::LiteralRegistry&quot;</span>)
-
-      <span class="ruby-identifier">class_def</span> = <span class="ruby-value str">&quot;# This file was automatically generated during the \&quot;rake generate\&quot; step of\n# library setup.\nrequire 'adwords4r/v\#{version}/\#{service}ServiceDriver.rb'\n\nmodule AdWords\nmodule V\#{version}\nmodule \#{service}Service\n\n# Wrapper class for the v\#{version.to_s} \#{service} service.\n# This class is automatically generated.\nclass \#{wrapper}\n\n# Holds the AdWords::API object to which the wrapper belongs.\nattr_reader :api\n\n# Holds a shortcut to the parent module.\n# Use this to avoid typing the full class name when creating classes\n# belonging to this service, e.g.\n#  service_object.module::ClassName\n# instead of\n#  AdWords::V\#{version.to_s}::\#{service}Service::ClassName\n# This will make it easier to migrate your code between API versions.\nattr_reader :module\n\npublic\n\n# Constructor for \#{wrapper}.\n#\n# Args:\n# - driver: SOAP::RPC::Driver object with the remote SOAP methods for\n#   this service\n# - api: the AdWords::API object to which the wrapper belongs\n#\ndef initialize(driver, api)\n@driver = driver\n@api = api\n@module = AdWords::V\#{version.to_s}::\#{service}Service\nend\n\n&quot;</span>
-
-      <span class="ruby-comment cmt"># Add service methods</span>
-      <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">driver_class</span><span class="ruby-operator">::</span><span class="ruby-constant">Methods</span>
-      <span class="ruby-identifier">module_name</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">get_module_name</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
-      <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">name</span> = <span class="ruby-identifier">method</span>[<span class="ruby-value">1</span>]
-        <span class="ruby-identifier">doc_link</span> = <span class="ruby-identifier">get_doc_link</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>, <span class="ruby-identifier">name</span>)
-        <span class="ruby-identifier">method_def</span> = <span class="ruby-value str">&quot;# Calls the {\#{name}}[\#{doc_link}] method of the \#{service} service.\n# Check {the online documentation for this method}[\#{doc_link}].\n&quot;</span>
-
-        <span class="ruby-identifier">method_class</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;#{module_name}::#{fix_case_up(name)}&quot;</span>)
-        <span class="ruby-identifier">arguments</span> = <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">schema_definition_from_class</span>(<span class="ruby-identifier">method_class</span>).<span class="ruby-identifier">elements</span>
-
-        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-          <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;#\n# Args:\n&quot;</span>
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-comment cmt"># Add list of arguments to the RDoc comment</span>
-        <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
-          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">get_type</span>(<span class="ruby-identifier">elem</span>) <span class="ruby-operator">==</span> <span class="ruby-constant">ARRAY_CLASSNAME</span>
-            <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;# - \#{elem.varname}: \#{get_type(elem)} of \#{elem.mapped_class}\n&quot;</span>
-          <span class="ruby-keyword kw">else</span>
-            <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;# - \#{elem.varname}: \#{get_type(elem)}\n&quot;</span>
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-identifier">response_class</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;#{module_name}::#{fix_case_up(name)}Response&quot;</span>)
-        <span class="ruby-identifier">returns</span> = <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">schema_definition_from_class</span>(<span class="ruby-identifier">response_class</span>).<span class="ruby-identifier">elements</span>
-
-        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">returns</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-          <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;#\n# Returns:\n&quot;</span>
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-comment cmt"># Add list of returns to the RDoc comment</span>
-        <span class="ruby-identifier">returns</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
-          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">get_type</span>(<span class="ruby-identifier">elem</span>) <span class="ruby-operator">==</span> <span class="ruby-constant">ARRAY_CLASSNAME</span>
-            <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;# - \#{elem.varname}: \#{get_type(elem)} of \#{elem.mapped_class}\n&quot;</span>
-          <span class="ruby-keyword kw">else</span>
-            <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;# - \#{elem.varname}: \#{get_type(elem)}\n&quot;</span>
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-identifier">arg_names</span> = []
-        <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">arg_names</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">varname</span>
-        <span class="ruby-keyword kw">end</span>
-        <span class="ruby-identifier">arg_list</span> = <span class="ruby-identifier">arg_names</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)
-
-        <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;#\n# Raises:\n# Error::ApiError (or a subclass thereof) if a SOAP fault occurs.\n#\ndef \#{name}(\#{arg_list})\nbegin\n&quot;</span>
-
-        <span class="ruby-comment cmt"># Add validation for every argument</span>
-        <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;AdWords::Service.validate_param('\#{elem.varname}',\n\#{arg_names[index]}, \#{get_type(elem)})\n&quot;</span>
-        <span class="ruby-keyword kw">end</span>
-
-        <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;# Construct request object and make API call\nobj = \#{module_name}::\#{fix_case_up(name)}.new(\#{arg_list})\nreturn @driver.\#{name}(obj)\nrescue SOAP::FaultError =&gt; fault\nraise(AdWords::Error::create_specific_api_error(fault),\n\&quot;\#{name} Call Failed: \&quot; + fault.faultstring.to_s, caller)\nend\nend\n\n&quot;</span>
-        <span class="ruby-identifier">class_def</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">method_def</span>
-      <span class="ruby-keyword kw">end</span>
-
-      <span class="ruby-comment cmt"># Add extension methods, if any</span>
-      <span class="ruby-identifier">extensions</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-identifier">extensions</span>[[<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>]]
-      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">nil?</span>
-        <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">params</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-identifier">methods</span>[<span class="ruby-identifier">ext</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)
-          <span class="ruby-identifier">arglist</span> = <span class="ruby-value str">'self'</span>
-          <span class="ruby-identifier">arglist</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;, #{params}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">''</span>
-          <span class="ruby-identifier">method_def</span> = <span class="ruby-value str">&quot;# &lt;i&gt;Extension method&lt;/i&gt; -- Calls the AdWords::Extensions.\#{ext} method\n# with +self+ as the first parameter.\ndef \#{ext}(\#{params})\nreturn AdWords::Extensions.\#{ext}(\#{arglist})\nend\n\n&quot;</span>
-          <span class="ruby-identifier">class_def</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">method_def</span>
-        <span class="ruby-keyword kw">end</span>
-      <span class="ruby-keyword kw">end</span>
-
-      <span class="ruby-identifier">class_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;end\nend\nend\nend\n&quot;</span>
-      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">class_def</span>
-    <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-generate_wrapper_class_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/generator.rb, line 71</span>
+ 71:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate_wrapper_class</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
+ 72:       <span class="ruby-identifier">wrapper</span> = <span class="ruby-identifier">service</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;ServiceWrapper&quot;</span>
+ 73:       <span class="ruby-identifier">module_name</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">get_module_name</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
+ 74:       <span class="ruby-identifier">driver</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">get_interface_name</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
+ 75:       <span class="ruby-identifier">driver_class</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">driver</span>)
+ 76: 
+ 77:       <span class="ruby-identifier">registry</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;#{module_name}::DefaultMappingRegistry::LiteralRegistry&quot;</span>)
+ 78: 
+ 79:       <span class="ruby-identifier">class_def</span> = <span class="ruby-value str"># This file was automatically generated during the &quot;rake generate&quot; step of# library setup.require 'adwords4r/v#{version}/#{service}ServiceDriver.rb'module AdWords  module V#{version}    module #{service}Service      # Wrapper class for the v#{version.to_s} #{service} service.      # This class is automatically generated.      class #{wrapper}        # Holds the AdWords::API object to which the wrapper belongs.        attr_reader :api        # Holds a shortcut to the parent module.        # Use this to avoid typing the full class name when creating classes        # belonging to this service, e.g.        #  service_object.module::ClassName        # instead of        #  AdWords::V#{version.to_s}::#{service}Service::ClassName        # This will make it easier to migrate your code between API versions.        attr_reader :module        public        # Constructor for #{wrapper}.        #        # Args:        # - driver: SOAP::RPC::Driver object with the remote SOAP methods for        #   this service        # - api: the AdWords::API object to which the wrapper belongs        #        def initialize(driver, api)          @driver = driver          @api = api          @module = AdWords::V#{version.to_s}::#{service}Service        end</span>
+ 80: 
+ 81:       <span class="ruby-comment cmt"># Add service methods</span>
+ 82:       <span class="ruby-identifier">methods</span> = <span class="ruby-identifier">driver_class</span><span class="ruby-operator">::</span><span class="ruby-constant">Methods</span>
+ 83:       <span class="ruby-identifier">module_name</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">get_module_name</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>)
+ 84:       <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+ 85:         <span class="ruby-identifier">name</span> = <span class="ruby-identifier">method</span>[<span class="ruby-value">1</span>]
+ 86:         <span class="ruby-identifier">doc_link</span> = <span class="ruby-identifier">get_doc_link</span>(<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>, <span class="ruby-identifier">name</span>)
+ 87:         <span class="ruby-identifier">method_def</span> = <span class="ruby-value str">        # Calls the {#{name}}[#{doc_link}] method of the #{service} service.        # Check {the online documentation for this method}[#{doc_link}].</span>
+ 88: 
+ 89:         <span class="ruby-identifier">method_class</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;#{module_name}::#{fix_case_up(name)}&quot;</span>)
+ 90:         <span class="ruby-identifier">arguments</span> = <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">schema_definition_from_class</span>(<span class="ruby-identifier">method_class</span>).<span class="ruby-identifier">elements</span>
+ 91: 
+ 92:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+ 93:           <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">        #        # Args:</span>
+ 94:         <span class="ruby-keyword kw">end</span>
+ 95: 
+ 96:         <span class="ruby-comment cmt"># Add list of arguments to the RDoc comment</span>
+ 97:         <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+ 98:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">get_type</span>(<span class="ruby-identifier">elem</span>) <span class="ruby-operator">==</span> <span class="ruby-constant">ARRAY_CLASSNAME</span>
+ 99:             <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">        # - #{elem.varname}: #{get_type(elem)} of #{elem.mapped_class}</span>
+100:           <span class="ruby-keyword kw">else</span>
+101:             <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">        # - #{elem.varname}: #{get_type(elem)}</span>
+102:           <span class="ruby-keyword kw">end</span>
+103:         <span class="ruby-keyword kw">end</span>
+104: 
+105:         <span class="ruby-identifier">response_class</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;#{module_name}::#{fix_case_up(name)}Response&quot;</span>)
+106:         <span class="ruby-identifier">returns</span> = <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">schema_definition_from_class</span>(<span class="ruby-identifier">response_class</span>).<span class="ruby-identifier">elements</span>
+107: 
+108:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">returns</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+109:           <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">        #        # Returns:</span>
+110:         <span class="ruby-keyword kw">end</span>
+111: 
+112:         <span class="ruby-comment cmt"># Add list of returns to the RDoc comment</span>
+113:         <span class="ruby-identifier">returns</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+114:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">get_type</span>(<span class="ruby-identifier">elem</span>) <span class="ruby-operator">==</span> <span class="ruby-constant">ARRAY_CLASSNAME</span>
+115:             <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">        # - #{elem.varname}: #{get_type(elem)} of #{elem.mapped_class}</span>
+116:           <span class="ruby-keyword kw">else</span>
+117:             <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">        # - #{elem.varname}: #{get_type(elem)}</span>
+118:           <span class="ruby-keyword kw">end</span>
+119:         <span class="ruby-keyword kw">end</span>
+120: 
+121:         <span class="ruby-identifier">arg_names</span> = []
+122:         <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span><span class="ruby-operator">|</span>
+123:           <span class="ruby-identifier">arg_names</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">varname</span>
+124:         <span class="ruby-keyword kw">end</span>
+125:         <span class="ruby-identifier">arg_list</span> = <span class="ruby-identifier">arg_names</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)
+126: 
+127:         <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">        #        # Raises:        # Error::ApiError (or a subclass thereof) if a SOAP fault occurs.        #        def #{name}(#{arg_list})          begin</span>
+128: 
+129:         <span class="ruby-comment cmt"># Add validation for every argument</span>
+130:         <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+131:           <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">            AdWords::Service.validate_param('#{elem.varname}',                #{arg_names[index]}, #{get_type(elem)})</span>
+132:         <span class="ruby-keyword kw">end</span>
+133: 
+134:         <span class="ruby-identifier">method_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">            # Construct request object and make API call            obj = #{module_name}::#{fix_case_up(name)}.new(#{arg_list})            return @driver.#{name}(obj)          rescue SOAP::FaultError =&gt; fault            raise(AdWords::Error::create_specific_api_error(fault),                &quot;#{name} Call Failed: &quot; + fault.faultstring.to_s, caller)          end        end</span>
+135:         <span class="ruby-identifier">class_def</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">method_def</span>
+136:       <span class="ruby-keyword kw">end</span>
+137: 
+138:       <span class="ruby-comment cmt"># Add extension methods, if any</span>
+139:       <span class="ruby-identifier">extensions</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-identifier">extensions</span>[[<span class="ruby-identifier">version</span>, <span class="ruby-identifier">service</span>]]
+140:       <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">nil?</span>
+141:         <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span><span class="ruby-operator">|</span>
+142:           <span class="ruby-identifier">params</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Extensions</span><span class="ruby-operator">::</span><span class="ruby-identifier">methods</span>[<span class="ruby-identifier">ext</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)
+143:           <span class="ruby-identifier">arglist</span> = <span class="ruby-value str">'self'</span>
+144:           <span class="ruby-identifier">arglist</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;, #{params}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span> <span class="ruby-operator">!=</span> <span class="ruby-value str">''</span>
+145:           <span class="ruby-identifier">method_def</span> = <span class="ruby-value str">        # &lt;i&gt;Extension method&lt;/i&gt; -- Calls the AdWords::Extensions.#{ext} method        # with +self+ as the first parameter.        def #{ext}(#{params})          return AdWords::Extensions.#{ext}(#{arglist})        end</span>
+146:           <span class="ruby-identifier">class_def</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">method_def</span>
+147:         <span class="ruby-keyword kw">end</span>
+148:       <span class="ruby-keyword kw">end</span>
+149: 
+150:       <span class="ruby-identifier">class_def</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">      end    end  endend</span>
+151:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">class_def</span>
+152:     <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
