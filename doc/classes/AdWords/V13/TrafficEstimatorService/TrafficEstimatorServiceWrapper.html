@@ -57,7 +57,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000078">checkKeywordTraffic</a></li>
+                <li><a href="#method-i-checkKeywordTraffic">checkKeywordTraffic</a></li>
                 
             </ul>
         </dd>
@@ -66,11 +66,11 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000080">estimateAdGroupList</a>,</li>
+                <li><a href="#method-i-estimateAdGroupList">estimateAdGroupList</a>,</li>
                 
-                <li><a href="#M000082">estimateCampaignList</a>,</li>
+                <li><a href="#method-i-estimateCampaignList">estimateCampaignList</a>,</li>
                 
-                <li><a href="#M000083">estimateKeywordList</a></li>
+                <li><a href="#method-i-estimateKeywordList">estimateKeywordList</a></li>
                 
             </ul>
         </dd>
@@ -79,7 +79,7 @@ automatically generated.
         <dd>
             <ul>
                 
-                <li><a href="#M000076">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -141,9 +141,9 @@ href="../../API.html">API</a> versions.
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000076">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000076"></a><b>new</b>(driver, api)
+                    <a name="method-c-new"></a><b>new</b>(driver, api)
                     
                 </div>
                 
@@ -156,13 +156,15 @@ href="TrafficEstimatorServiceWrapper.html">TrafficEstimatorServiceWrapper</a>.
 Args:
 </p>
 <ul>
-<li>driver: SOAP::RPC::Driver object with the remote SOAP methods for this
+<li><p>
+driver: SOAP::RPC::Driver object with the remote SOAP methods for this
 service
-
+</p>
 </li>
-<li>api: the <a href="../../API.html">AdWords::API</a> object to which the
+<li><p>
+api: the <a href="../../API.html">AdWords::API</a> object to which the
 wrapper belongs
-
+</p>
 </li>
 </ul>
 
@@ -173,16 +175,16 @@ wrapper belongs
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000076_source')" id="l_M000076_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000076_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 34</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
-          <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
-          <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
-          <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 34</span>
+34:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
+35:           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
+36:           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+37:           <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span>
+38:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
@@ -191,9 +193,9 @@ wrapper belongs
             <div class="sectiontitle">Instance Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000078">
+                <div class="title" id="method-i-checkKeywordTraffic">
                     
-                    <a name="M000078"></a><b>checkKeywordTraffic</b>(requests)
+                    <a name="method-i-checkKeywordTraffic"></a><b>checkKeywordTraffic</b>(requests)
                     
                 </div>
                 
@@ -209,18 +211,20 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>requests: SOAP::SOAPArray of <a
+<li><p>
+requests: SOAP::SOAPArray of <a
 href="KeywordTrafficRequest.html">AdWords::V13::TrafficEstimatorService::KeywordTrafficRequest</a>
-
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>checkKeywordTrafficReturn: SOAP::SOAPArray of <a
+<li><p>
+checkKeywordTrafficReturn: SOAP::SOAPArray of <a
 href="KeywordTraffic.html">AdWords::V13::TrafficEstimatorService::KeywordTraffic</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -235,32 +239,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000078_source')" id="l_M000078_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-checkKeywordTraffic_source')" id="l_method-i-checkKeywordTraffic_source">show</a>
                         
                     </p>
-                    <div id="M000078_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 52</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkKeywordTraffic</span>(<span class="ruby-identifier">requests</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'requests'</span>,
-                <span class="ruby-identifier">requests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">CheckKeywordTraffic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">requests</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">checkKeywordTraffic</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;checkKeywordTraffic Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-checkKeywordTraffic_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 52</span>
+52:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkKeywordTraffic</span>(<span class="ruby-identifier">requests</span>)
+53:           <span class="ruby-keyword kw">begin</span>
+54:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'requests'</span>,
+55:                 <span class="ruby-identifier">requests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+56:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+57:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">CheckKeywordTraffic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">requests</span>)
+58:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">checkKeywordTraffic</span>(<span class="ruby-identifier">obj</span>)
+59:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+60:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+61:                 <span class="ruby-value str">&quot;checkKeywordTraffic Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+62:           <span class="ruby-keyword kw">end</span>
+63:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000080">
+                <div class="title" id="method-i-estimateAdGroupList">
                     
-                    <a name="M000080"></a><b>estimateAdGroupList</b>(adGroupRequests)
+                    <a name="method-i-estimateAdGroupList"></a><b>estimateAdGroupList</b>(adGroupRequests)
                     
                 </div>
                 
@@ -276,18 +280,20 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>adGroupRequests: SOAP::SOAPArray of <a
+<li><p>
+adGroupRequests: SOAP::SOAPArray of <a
 href="AdGroupRequest.html">AdWords::V13::TrafficEstimatorService::AdGroupRequest</a>
-
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>estimateAdGroupListReturn: SOAP::SOAPArray of <a
+<li><p>
+estimateAdGroupListReturn: SOAP::SOAPArray of <a
 href="AdGroupEstimate.html">AdWords::V13::TrafficEstimatorService::AdGroupEstimate</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -302,32 +308,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000080_source')" id="l_M000080_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-estimateAdGroupList_source')" id="l_method-i-estimateAdGroupList_source">show</a>
                         
                     </p>
-                    <div id="M000080_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 77</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">estimateAdGroupList</span>(<span class="ruby-identifier">adGroupRequests</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupRequests'</span>,
-                <span class="ruby-identifier">adGroupRequests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">EstimateAdGroupList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">adGroupRequests</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">estimateAdGroupList</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;estimateAdGroupList Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-estimateAdGroupList_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 77</span>
+77:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">estimateAdGroupList</span>(<span class="ruby-identifier">adGroupRequests</span>)
+78:           <span class="ruby-keyword kw">begin</span>
+79:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'adGroupRequests'</span>,
+80:                 <span class="ruby-identifier">adGroupRequests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+81:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+82:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">EstimateAdGroupList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">adGroupRequests</span>)
+83:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">estimateAdGroupList</span>(<span class="ruby-identifier">obj</span>)
+84:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+85:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+86:                 <span class="ruby-value str">&quot;estimateAdGroupList Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+87:           <span class="ruby-keyword kw">end</span>
+88:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000082">
+                <div class="title" id="method-i-estimateCampaignList">
                     
-                    <a name="M000082"></a><b>estimateCampaignList</b>(campaignRequests)
+                    <a name="method-i-estimateCampaignList"></a><b>estimateCampaignList</b>(campaignRequests)
                     
                 </div>
                 
@@ -343,18 +349,20 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>campaignRequests: SOAP::SOAPArray of <a
+<li><p>
+campaignRequests: SOAP::SOAPArray of <a
 href="CampaignRequest.html">AdWords::V13::TrafficEstimatorService::CampaignRequest</a>
-
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>estimateCampaignListReturn: SOAP::SOAPArray of <a
+<li><p>
+estimateCampaignListReturn: SOAP::SOAPArray of <a
 href="CampaignEstimate.html">AdWords::V13::TrafficEstimatorService::CampaignEstimate</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -369,32 +377,32 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000082_source')" id="l_M000082_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-estimateCampaignList_source')" id="l_method-i-estimateCampaignList_source">show</a>
                         
                     </p>
-                    <div id="M000082_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 102</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">estimateCampaignList</span>(<span class="ruby-identifier">campaignRequests</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'campaignRequests'</span>,
-                <span class="ruby-identifier">campaignRequests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">EstimateCampaignList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">campaignRequests</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">estimateCampaignList</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;estimateCampaignList Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-estimateCampaignList_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 102</span>
+102:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">estimateCampaignList</span>(<span class="ruby-identifier">campaignRequests</span>)
+103:           <span class="ruby-keyword kw">begin</span>
+104:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'campaignRequests'</span>,
+105:                 <span class="ruby-identifier">campaignRequests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+106:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+107:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">EstimateCampaignList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">campaignRequests</span>)
+108:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">estimateCampaignList</span>(<span class="ruby-identifier">obj</span>)
+109:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+110:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+111:                 <span class="ruby-value str">&quot;estimateCampaignList Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+112:           <span class="ruby-keyword kw">end</span>
+113:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
             </div>
             
             <div class="method">
-                <div class="title" id="M000083">
+                <div class="title" id="method-i-estimateKeywordList">
                     
-                    <a name="M000083"></a><b>estimateKeywordList</b>(keywordRequests)
+                    <a name="method-i-estimateKeywordList"></a><b>estimateKeywordList</b>(keywordRequests)
                     
                 </div>
                 
@@ -410,18 +418,20 @@ online documentation for this method</a>.
 Args:
 </p>
 <ul>
-<li>keywordRequests: SOAP::SOAPArray of <a
+<li><p>
+keywordRequests: SOAP::SOAPArray of <a
 href="KeywordRequest.html">AdWords::V13::TrafficEstimatorService::KeywordRequest</a>
-
+</p>
 </li>
 </ul>
 <p>
 Returns:
 </p>
 <ul>
-<li>estimateKeywordListReturn: SOAP::SOAPArray of <a
+<li><p>
+estimateKeywordListReturn: SOAP::SOAPArray of <a
 href="KeywordEstimate.html">AdWords::V13::TrafficEstimatorService::KeywordEstimate</a>
-
+</p>
 </li>
 </ul>
 <p>
@@ -436,23 +446,23 @@ subclass thereof) if a SOAP fault occurs.
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000083_source')" id="l_M000083_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-i-estimateKeywordList_source')" id="l_method-i-estimateKeywordList_source">show</a>
                         
                     </p>
-                    <div id="M000083_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 127</span>
-        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">estimateKeywordList</span>(<span class="ruby-identifier">keywordRequests</span>)
-          <span class="ruby-keyword kw">begin</span>
-            <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'keywordRequests'</span>,
-                <span class="ruby-identifier">keywordRequests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
-            <span class="ruby-comment cmt"># Construct request object and make API call</span>
-            <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">EstimateKeywordList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">keywordRequests</span>)
-            <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">estimateKeywordList</span>(<span class="ruby-identifier">obj</span>)
-          <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
-            <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
-                <span class="ruby-value str">&quot;estimateKeywordList Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
-          <span class="ruby-keyword kw">end</span>
-        <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-i-estimateKeywordList_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/TrafficEstimatorServiceWrapper.rb, line 127</span>
+127:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">estimateKeywordList</span>(<span class="ruby-identifier">keywordRequests</span>)
+128:           <span class="ruby-keyword kw">begin</span>
+129:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'keywordRequests'</span>,
+130:                 <span class="ruby-identifier">keywordRequests</span>, <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">SOAPArray</span>)
+131:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+132:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V13</span><span class="ruby-operator">::</span><span class="ruby-constant">TrafficEstimatorService</span><span class="ruby-operator">::</span><span class="ruby-constant">EstimateKeywordList</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">keywordRequests</span>)
+133:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">estimateKeywordList</span>(<span class="ruby-identifier">obj</span>)
+134:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+135:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+136:                 <span class="ruby-value str">&quot;estimateKeywordList Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+137:           <span class="ruby-keyword kw">end</span>
+138:         <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

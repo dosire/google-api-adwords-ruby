@@ -20,7 +20,7 @@
             
                 <span class="parent">&lt; 
                     
-                    ReportJob
+                    <a href="ReportJob.html">AdWords::V13::ReportService::ReportJob</a>
                     
                 </span>
             
@@ -39,68 +39,87 @@
 <a href="DefinedReportJob.html">DefinedReportJob</a>
 </p>
 <ul>
-<li>clientEmails - SOAP::SOAPString
-
+<li><p>
+clientEmails - SOAP::SOAPString
+</p>
 </li>
-<li>crossClient - SOAP::SOAPBoolean
-
+<li><p>
+crossClient - SOAP::SOAPBoolean
+</p>
 </li>
-<li>endDay - SOAP::SOAPDate
-
+<li><p>
+endDay - SOAP::SOAPDate
+</p>
 </li>
-<li>id - SOAP::SOAPLong
-
+<li><p>
+id - SOAP::SOAPLong
+</p>
 </li>
-<li>name - SOAP::SOAPString
-
+<li><p>
+name - SOAP::SOAPString
+</p>
 </li>
-<li>startDay - SOAP::SOAPDate
-
+<li><p>
+startDay - SOAP::SOAPDate
+</p>
 </li>
-<li>status - <a
+<li><p>
+status - <a
 href="ReportJobStatus.html">AdWords::V13::ReportService::ReportJobStatus</a>
-
+</p>
 </li>
-<li>adGroupStatuses - <a
+<li><p>
+adGroupStatuses - <a
 href="AdGroupStatus.html">AdWords::V13::ReportService::AdGroupStatus</a>
-
+</p>
 </li>
-<li>adGroups - SOAP::SOAPLong
-
+<li><p>
+adGroups - SOAP::SOAPLong
+</p>
 </li>
-<li>adWordsType - <a
+<li><p>
+adWordsType - <a
 href="AdWordsType.html">AdWords::V13::ReportService::AdWordsType</a>
-
+</p>
 </li>
-<li>aggregationTypes - SOAP::SOAPString
-
+<li><p>
+aggregationTypes - SOAP::SOAPString
+</p>
 </li>
-<li>campaignStatuses - <a
+<li><p>
+campaignStatuses - <a
 href="CampaignStatus.html">AdWords::V13::ReportService::CampaignStatus</a>
-
+</p>
 </li>
-<li>campaigns - SOAP::SOAPInt
-
+<li><p>
+campaigns - SOAP::SOAPInt
+</p>
 </li>
-<li>includeZeroImpression - SOAP::SOAPBoolean
-
+<li><p>
+includeZeroImpression - SOAP::SOAPBoolean
+</p>
 </li>
-<li>keywordStatuses - <a
+<li><p>
+keywordStatuses - <a
 href="KeywordStatus.html">AdWords::V13::ReportService::KeywordStatus</a>
-
+</p>
 </li>
-<li>keywordType - <a
+<li><p>
+keywordType - <a
 href="KeywordType.html">AdWords::V13::ReportService::KeywordType</a>
-
+</p>
 </li>
-<li>keywords - SOAP::SOAPString
-
+<li><p>
+keywords - SOAP::SOAPString
+</p>
 </li>
-<li>selectedColumns - SOAP::SOAPString
-
+<li><p>
+selectedColumns - SOAP::SOAPString
+</p>
 </li>
-<li>selectedReportType - SOAP::SOAPString
-
+<li><p>
+selectedReportType - SOAP::SOAPString
+</p>
 </li>
 </ul>
 
@@ -121,7 +140,7 @@ href="KeywordType.html">AdWords::V13::ReportService::KeywordType</a>
         <dd>
             <ul>
                 
-                <li><a href="#M000269">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -300,9 +319,9 @@ href="KeywordType.html">AdWords::V13::ReportService::KeywordType</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000269">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000269"></a><b>new</b>(clientEmails = [], crossClient = nil, endDay = nil, id = nil, name = nil, startDay = nil, status = nil, adGroupStatuses = [], adGroups = [], adWordsType = nil, aggregationTypes = [], campaignStatuses = [], campaigns = [], includeZeroImpression = nil, keywordStatuses = [], keywordType = nil, keywords = [], selectedColumns = [], selectedReportType = nil)
+                    <a name="method-c-new"></a><b>new</b>(clientEmails = [], crossClient = nil, endDay = nil, id = nil, name = nil, startDay = nil, status = nil, adGroupStatuses = [], adGroups = [], adWordsType = nil, aggregationTypes = [], campaignStatuses = [], campaigns = [], includeZeroImpression = nil, keywordStatuses = [], keywordType = nil, keywords = [], selectedColumns = [], selectedReportType = nil)
                     
                 </div>
                 
@@ -311,32 +330,32 @@ href="KeywordType.html">AdWords::V13::ReportService::KeywordType</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000269_source')" id="l_M000269_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000269_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportService.rb, line 129</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">clientEmails</span> = [], <span class="ruby-identifier">crossClient</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">startDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupStatuses</span> = [], <span class="ruby-identifier">adGroups</span> = [], <span class="ruby-identifier">adWordsType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">aggregationTypes</span> = [], <span class="ruby-identifier">campaignStatuses</span> = [], <span class="ruby-identifier">campaigns</span> = [], <span class="ruby-identifier">includeZeroImpression</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">keywordStatuses</span> = [], <span class="ruby-identifier">keywordType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">keywords</span> = [], <span class="ruby-identifier">selectedColumns</span> = [], <span class="ruby-identifier">selectedReportType</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@clientEmails</span> = <span class="ruby-identifier">clientEmails</span>
-    <span class="ruby-ivar">@crossClient</span> = <span class="ruby-identifier">crossClient</span>
-    <span class="ruby-ivar">@endDay</span> = <span class="ruby-identifier">endDay</span>
-    <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
-    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
-    <span class="ruby-ivar">@startDay</span> = <span class="ruby-identifier">startDay</span>
-    <span class="ruby-ivar">@status</span> = <span class="ruby-identifier">status</span>
-    <span class="ruby-ivar">@adGroupStatuses</span> = <span class="ruby-identifier">adGroupStatuses</span>
-    <span class="ruby-ivar">@adGroups</span> = <span class="ruby-identifier">adGroups</span>
-    <span class="ruby-ivar">@adWordsType</span> = <span class="ruby-identifier">adWordsType</span>
-    <span class="ruby-ivar">@aggregationTypes</span> = <span class="ruby-identifier">aggregationTypes</span>
-    <span class="ruby-ivar">@campaignStatuses</span> = <span class="ruby-identifier">campaignStatuses</span>
-    <span class="ruby-ivar">@campaigns</span> = <span class="ruby-identifier">campaigns</span>
-    <span class="ruby-ivar">@includeZeroImpression</span> = <span class="ruby-identifier">includeZeroImpression</span>
-    <span class="ruby-ivar">@keywordStatuses</span> = <span class="ruby-identifier">keywordStatuses</span>
-    <span class="ruby-ivar">@keywordType</span> = <span class="ruby-identifier">keywordType</span>
-    <span class="ruby-ivar">@keywords</span> = <span class="ruby-identifier">keywords</span>
-    <span class="ruby-ivar">@selectedColumns</span> = <span class="ruby-identifier">selectedColumns</span>
-    <span class="ruby-ivar">@selectedReportType</span> = <span class="ruby-identifier">selectedReportType</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportService.rb, line 129</span>
+129:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">clientEmails</span> = [], <span class="ruby-identifier">crossClient</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">startDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupStatuses</span> = [], <span class="ruby-identifier">adGroups</span> = [], <span class="ruby-identifier">adWordsType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">aggregationTypes</span> = [], <span class="ruby-identifier">campaignStatuses</span> = [], <span class="ruby-identifier">campaigns</span> = [], <span class="ruby-identifier">includeZeroImpression</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">keywordStatuses</span> = [], <span class="ruby-identifier">keywordType</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">keywords</span> = [], <span class="ruby-identifier">selectedColumns</span> = [], <span class="ruby-identifier">selectedReportType</span> = <span class="ruby-keyword kw">nil</span>)
+130:     <span class="ruby-ivar">@clientEmails</span> = <span class="ruby-identifier">clientEmails</span>
+131:     <span class="ruby-ivar">@crossClient</span> = <span class="ruby-identifier">crossClient</span>
+132:     <span class="ruby-ivar">@endDay</span> = <span class="ruby-identifier">endDay</span>
+133:     <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
+134:     <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+135:     <span class="ruby-ivar">@startDay</span> = <span class="ruby-identifier">startDay</span>
+136:     <span class="ruby-ivar">@status</span> = <span class="ruby-identifier">status</span>
+137:     <span class="ruby-ivar">@adGroupStatuses</span> = <span class="ruby-identifier">adGroupStatuses</span>
+138:     <span class="ruby-ivar">@adGroups</span> = <span class="ruby-identifier">adGroups</span>
+139:     <span class="ruby-ivar">@adWordsType</span> = <span class="ruby-identifier">adWordsType</span>
+140:     <span class="ruby-ivar">@aggregationTypes</span> = <span class="ruby-identifier">aggregationTypes</span>
+141:     <span class="ruby-ivar">@campaignStatuses</span> = <span class="ruby-identifier">campaignStatuses</span>
+142:     <span class="ruby-ivar">@campaigns</span> = <span class="ruby-identifier">campaigns</span>
+143:     <span class="ruby-ivar">@includeZeroImpression</span> = <span class="ruby-identifier">includeZeroImpression</span>
+144:     <span class="ruby-ivar">@keywordStatuses</span> = <span class="ruby-identifier">keywordStatuses</span>
+145:     <span class="ruby-ivar">@keywordType</span> = <span class="ruby-identifier">keywordType</span>
+146:     <span class="ruby-ivar">@keywords</span> = <span class="ruby-identifier">keywords</span>
+147:     <span class="ruby-ivar">@selectedColumns</span> = <span class="ruby-identifier">selectedColumns</span>
+148:     <span class="ruby-ivar">@selectedReportType</span> = <span class="ruby-identifier">selectedReportType</span>
+149:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 

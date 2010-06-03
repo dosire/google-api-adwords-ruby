@@ -39,27 +39,34 @@
 <a href="ReportJob.html">ReportJob</a> abstract
 </p>
 <ul>
-<li>clientEmails - SOAP::SOAPString
-
+<li><p>
+clientEmails - SOAP::SOAPString
+</p>
 </li>
-<li>crossClient - SOAP::SOAPBoolean
-
+<li><p>
+crossClient - SOAP::SOAPBoolean
+</p>
 </li>
-<li>endDay - SOAP::SOAPDate
-
+<li><p>
+endDay - SOAP::SOAPDate
+</p>
 </li>
-<li>id - SOAP::SOAPLong
-
+<li><p>
+id - SOAP::SOAPLong
+</p>
 </li>
-<li>name - SOAP::SOAPString
-
+<li><p>
+name - SOAP::SOAPString
+</p>
 </li>
-<li>startDay - SOAP::SOAPDate
-
+<li><p>
+startDay - SOAP::SOAPDate
+</p>
 </li>
-<li>status - <a
+<li><p>
+status - <a
 href="ReportJobStatus.html">AdWords::V13::ReportService::ReportJobStatus</a>
-
+</p>
 </li>
 </ul>
 
@@ -80,7 +87,7 @@ href="ReportJobStatus.html">AdWords::V13::ReportService::ReportJobStatus</a>
         <dd>
             <ul>
                 
-                <li><a href="#M000267">new</a></li>
+                <li><a href="#method-c-new">new</a></li>
                 
             </ul>
         </dd>
@@ -163,9 +170,9 @@ href="ReportJobStatus.html">AdWords::V13::ReportService::ReportJobStatus</a>
             <div class="sectiontitle">Class Public methods</div>
             
             <div class="method">
-                <div class="title" id="M000267">
+                <div class="title" id="method-c-new">
                     
-                    <a name="M000267"></a><b>new</b>(clientEmails = [], crossClient = nil, endDay = nil, id = nil, name = nil, startDay = nil, status = nil)
+                    <a name="method-c-new"></a><b>new</b>(clientEmails = [], crossClient = nil, endDay = nil, id = nil, name = nil, startDay = nil, status = nil)
                     
                 </div>
                 
@@ -174,20 +181,20 @@ href="ReportJobStatus.html">AdWords::V13::ReportService::ReportJobStatus</a>
                 
                 <div class="sourcecode">
                     <p class="source-link">
-                        Source: <a href="javascript:toggleSource('M000267_source')" id="l_M000267_source">show</a>
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                         
                     </p>
-                    <div id="M000267_source" class="dyn-source">
-                        <pre><span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportService.rb, line 77</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">clientEmails</span> = [], <span class="ruby-identifier">crossClient</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">startDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-ivar">@clientEmails</span> = <span class="ruby-identifier">clientEmails</span>
-    <span class="ruby-ivar">@crossClient</span> = <span class="ruby-identifier">crossClient</span>
-    <span class="ruby-ivar">@endDay</span> = <span class="ruby-identifier">endDay</span>
-    <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
-    <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
-    <span class="ruby-ivar">@startDay</span> = <span class="ruby-identifier">startDay</span>
-    <span class="ruby-ivar">@status</span> = <span class="ruby-identifier">status</span>
-  <span class="ruby-keyword kw">end</span></pre>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v13/ReportService.rb, line 77</span>
+77:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">clientEmails</span> = [], <span class="ruby-identifier">crossClient</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">id</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">startDay</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">status</span> = <span class="ruby-keyword kw">nil</span>)
+78:     <span class="ruby-ivar">@clientEmails</span> = <span class="ruby-identifier">clientEmails</span>
+79:     <span class="ruby-ivar">@crossClient</span> = <span class="ruby-identifier">crossClient</span>
+80:     <span class="ruby-ivar">@endDay</span> = <span class="ruby-identifier">endDay</span>
+81:     <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
+82:     <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+83:     <span class="ruby-ivar">@startDay</span> = <span class="ruby-identifier">startDay</span>
+84:     <span class="ruby-ivar">@status</span> = <span class="ruby-identifier">status</span>
+85:   <span class="ruby-keyword kw">end</span></pre>
                     </div>
                 </div>
                 
