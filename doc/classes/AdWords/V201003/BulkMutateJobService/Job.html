@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::V201003::BulkMutateJobService::Job</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::V201003::BulkMutateJobService::Job 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/adwords4r/v201003/BulkMutateJobService_rb.html">lib/adwords4r/v201003/BulkMutateJobService.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="Job.html">Job</a> abstract
+</p>
+<ul>
+<li><p>
+customerJobKey - SOAP::SOAPString
+</p>
+</li>
+<li><p>
+context - <a
+href="JobContext.html">AdWords::V201003::BulkMutateJobService::JobContext</a>
+</p>
+</li>
+<li><p>
+failureReason - <a
+href="ApiErrorReason.html">AdWords::V201003::BulkMutateJobService::ApiErrorReason</a>
+</p>
+</li>
+<li><p>
+stats - <a
+href="JobStats.html">AdWords::V201003::BulkMutateJobService::JobStats</a>
+</p>
+</li>
+<li><p>
+billingSummary - <a
+href="BillingSummary.html">AdWords::V201003::BulkMutateJobService::BillingSummary</a>
+</p>
+</li>
+<li><p>
+<a href="Job.html#job_Type">job_Type</a> - SOAP::SOAPString
+</p>
+</li>
+</ul>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#method-c-new">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>customerJobKey</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>context</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>failureReason</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>stats</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>billingSummary</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>job_Type</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="method-c-new">
+                    
+                    <a name="method-c-new"></a><b>new</b>(customerJobKey = nil, context = nil, failureReason = nil, stats = nil, billingSummary = nil, job_Type = nil)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                        
+                    </p>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>      <span class="ruby-comment cmt"># File lib/adwords4r/v201003/BulkMutateJobService.rb, line 2722</span>
+2722:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">customerJobKey</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">context</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">failureReason</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">stats</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">billingSummary</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">job_Type</span> = <span class="ruby-keyword kw">nil</span>)
+2723:     <span class="ruby-ivar">@customerJobKey</span> = <span class="ruby-identifier">customerJobKey</span>
+2724:     <span class="ruby-ivar">@context</span> = <span class="ruby-identifier">context</span>
+2725:     <span class="ruby-ivar">@failureReason</span> = <span class="ruby-identifier">failureReason</span>
+2726:     <span class="ruby-ivar">@stats</span> = <span class="ruby-identifier">stats</span>
+2727:     <span class="ruby-ivar">@billingSummary</span> = <span class="ruby-identifier">billingSummary</span>
+2728:     <span class="ruby-ivar">@job_Type</span> = <span class="ruby-identifier">job_Type</span>
+2729:   <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    

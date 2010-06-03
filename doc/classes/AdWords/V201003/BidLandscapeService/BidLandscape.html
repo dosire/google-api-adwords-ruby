@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::V201003::BidLandscapeService::BidLandscape</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::V201003::BidLandscapeService::BidLandscape 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/adwords4r/v201003/BidLandscapeService_rb.html">lib/adwords4r/v201003/BidLandscapeService.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+<a href="BidLandscape.html">BidLandscape</a> abstract
+</p>
+<ul>
+<li><p>
+campaignId - SOAP::SOAPLong
+</p>
+</li>
+<li><p>
+adGroupId - SOAP::SOAPLong
+</p>
+</li>
+<li><p>
+startDate - SOAP::SOAPString
+</p>
+</li>
+<li><p>
+endDate - SOAP::SOAPString
+</p>
+</li>
+<li><p>
+landscapePoints - <a
+href="BidLandscapeLandscapePoint.html">AdWords::V201003::BidLandscapeService::BidLandscapeLandscapePoint</a>
+</p>
+</li>
+<li><p>
+<a href="BidLandscape.html#bidLandscape_Type">bidLandscape_Type</a> -
+SOAP::SOAPString
+</p>
+</li>
+</ul>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#method-c-new">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>campaignId</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>adGroupId</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>startDate</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>endDate</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>landscapePoints</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [RW]
+            </td>
+            <td class='attr-name'>bidLandscape_Type</td>
+            <td class='attr-desc'></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="method-c-new">
+                    
+                    <a name="method-c-new"></a><b>new</b>(campaignId = nil, adGroupId = nil, startDate = nil, endDate = nil, landscapePoints = [], bidLandscape_Type = nil)
+                    
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                        
+                    </p>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>     <span class="ruby-comment cmt"># File lib/adwords4r/v201003/BidLandscapeService.rb, line 646</span>
+646:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">campaignId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">adGroupId</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">startDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">endDate</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">landscapePoints</span> = [], <span class="ruby-identifier">bidLandscape_Type</span> = <span class="ruby-keyword kw">nil</span>)
+647:     <span class="ruby-ivar">@campaignId</span> = <span class="ruby-identifier">campaignId</span>
+648:     <span class="ruby-ivar">@adGroupId</span> = <span class="ruby-identifier">adGroupId</span>
+649:     <span class="ruby-ivar">@startDate</span> = <span class="ruby-identifier">startDate</span>
+650:     <span class="ruby-ivar">@endDate</span> = <span class="ruby-identifier">endDate</span>
+651:     <span class="ruby-ivar">@landscapePoints</span> = <span class="ruby-identifier">landscapePoints</span>
+652:     <span class="ruby-ivar">@bidLandscape_Type</span> = <span class="ruby-identifier">bidLandscape_Type</span>
+653:   <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
