@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdWords::V201003::InfoService::InfoServiceWrapper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+    <script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>     
+    <div class="banner">
+        <h1>
+            <span class="type">Class</span> 
+            AdWords::V201003::InfoService::InfoServiceWrapper 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/adwords4r/v201003/InfoServiceWrapper_rb.html">lib/adwords4r/v201003/InfoServiceWrapper.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+    
+    <div class="description">
+        <p>
+Wrapper class for the v201003 Info service. This class is automatically
+generated.
+</p>
+
+    </div>
+    
+
+    
+
+    
+    
+
+    
+    
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+    
+        <dt>G</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#method-i-get">get</a></li>
+                
+            </ul>
+        </dd>
+    
+        <dt>N</dt>
+        <dd>
+            <ul>
+                
+                <li><a href="#method-c-new">new</a></li>
+                
+            </ul>
+        </dd>
+    
+    </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <div class="sectiontitle">Attributes</div>
+    <table border='0' cellpadding='5'>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>api</td>
+            <td class='attr-desc'><p>
+Holds the <a href="../../API.html">AdWords::API</a> object to which the
+wrapper belongs.
+</p></td>
+        </tr>
+        
+        <tr valign='top'>
+            <td class='attr-rw'>
+                [R]
+            </td>
+            <td class='attr-name'>module</td>
+            <td class='attr-desc'><p>
+Holds a shortcut to the parent module. Use this to avoid typing the full
+class name when creating classes belonging to this service, e.g.
+</p>
+<pre>
+ service_object.module::ClassName
+</pre>
+<p>
+instead of
+</p>
+<pre>
+ AdWords::V201003::InfoService::ClassName
+</pre>
+<p>
+This will make it easier to migrate your code between <a
+href="../../API.html">API</a> versions.
+</p></td>
+        </tr>
+        
+    </table>
+    
+
+    
+            <div class="sectiontitle">Class Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="method-c-new">
+                    
+                    <a name="method-c-new"></a><b>new</b>(driver, api)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Constructor for <a href="InfoServiceWrapper.html">InfoServiceWrapper</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li><p>
+driver: SOAP::RPC::Driver object with the remote SOAP methods for this
+service
+</p>
+</li>
+<li><p>
+api: the <a href="../../API.html">AdWords::API</a> object to which the
+wrapper belongs
+</p>
+</li>
+</ul>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                        
+                    </p>
+                    <div id="method-c-new_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v201003/InfoServiceWrapper.rb, line 34</span>
+34:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">driver</span>, <span class="ruby-identifier">api</span>)
+35:           <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
+36:           <span class="ruby-ivar">@api</span> = <span class="ruby-identifier">api</span>
+37:           <span class="ruby-ivar">@module</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V201003</span><span class="ruby-operator">::</span><span class="ruby-constant">InfoService</span>
+38:         <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="sectiontitle">Instance Public methods</div>
+            
+            <div class="method">
+                <div class="title" id="method-i-get">
+                    
+                    <a name="method-i-get"></a><b>get</b>(selector)
+                    
+                </div>
+                
+                <div class="description">
+                  <p>
+Calls the <a
+href="http://code.google.com/apis/adwords/v2009/docs/reference/InfoService.html#get">get</a>
+method of the Info service. Check <a
+href="http://code.google.com/apis/adwords/v2009/docs/reference/InfoService.html#get">the
+online documentation for this method</a>.
+</p>
+<p>
+Args:
+</p>
+<ul>
+<li><p>
+selector: <a
+href="InfoSelector.html">AdWords::V201003::InfoService::InfoSelector</a>
+</p>
+</li>
+</ul>
+<p>
+Returns:
+</p>
+<ul>
+<li><p>
+rval: <a
+href="ApiUsageInfo.html">AdWords::V201003::InfoService::ApiUsageInfo</a>
+</p>
+</li>
+</ul>
+<p>
+Raises: <a href="../../Error/ApiError.html">Error::ApiError</a> (or a
+subclass thereof) if a SOAP fault occurs.
+</p>
+
+                </div>
+                
+                
+                
+                
+                <div class="sourcecode">
+                    <p class="source-link">
+                        Source: <a href="javascript:toggleSource('method-i-get_source')" id="l_method-i-get_source">show</a>
+                        
+                    </p>
+                    <div id="method-i-get_source" class="dyn-source">
+                        <pre>    <span class="ruby-comment cmt"># File lib/adwords4r/v201003/InfoServiceWrapper.rb, line 52</span>
+52:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">selector</span>)
+53:           <span class="ruby-keyword kw">begin</span>
+54:             <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>.<span class="ruby-identifier">validate_param</span>(<span class="ruby-value str">'selector'</span>,
+55:                 <span class="ruby-identifier">selector</span>, <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V201003</span><span class="ruby-operator">::</span><span class="ruby-constant">InfoService</span><span class="ruby-operator">::</span><span class="ruby-constant">InfoSelector</span>)
+56:             <span class="ruby-comment cmt"># Construct request object and make API call</span>
+57:             <span class="ruby-identifier">obj</span> = <span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">V201003</span><span class="ruby-operator">::</span><span class="ruby-constant">InfoService</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">selector</span>)
+58:             <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">obj</span>)
+59:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">SOAP</span><span class="ruby-operator">::</span><span class="ruby-constant">FaultError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">fault</span>
+60:             <span class="ruby-identifier">raise</span>(<span class="ruby-constant">AdWords</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-identifier">create_specific_api_error</span>(<span class="ruby-identifier">fault</span>),
+61:                 <span class="ruby-value str">&quot;get Call Failed: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">fault</span>.<span class="ruby-identifier">faultstring</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">caller</span>)
+62:           <span class="ruby-keyword kw">end</span>
+63:         <span class="ruby-keyword kw">end</span></pre>
+                    </div>
+                </div>
+                
+            </div>
+            
+</div>
+    </div>
+  </body>
+</html>    
