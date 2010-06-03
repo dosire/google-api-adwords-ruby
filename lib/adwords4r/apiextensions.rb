@@ -31,12 +31,15 @@ module AdWords
     # Using camelCase to match API method names.
     @@extensions = {
       [13, 'Report'] => ['downloadXmlReport', 'downloadCsvReport'],
+      [201003, 'ReportDefinition'] => ['downloadReport', 'downloadReportAsFile']
     }
 
     # Defines the parameter list for every extension method
     @@methods = {
-      'downloadXmlReport'   => ['job_id'],
-      'downloadCsvReport'   => ['job_id'],
+      'downloadXmlReport'    => ['job_id'],
+      'downloadCsvReport'    => ['job_id'],
+      'downloadReport'       => ['report_definition_id', 'path'],
+      'downloadReportAsFile' => ['report_definition_id']
     }
 
     # Return list of all extension methods, indexed by version and service.
@@ -153,6 +156,68 @@ module AdWords
         raise AdWords::Error::Error,
             "Error parsing report XML: %s\nSource: %s" % [e, e.backtrace.first]
       end
+    end
+
+    # <i>Extension method</i> -- Download and return a v20xx report into a file.
+    #
+    # *Warning*: this method is blocking for the calling thread.
+    #
+    # Args:
+    # - wrapper: the service wrapper object for any API methods that need to be
+    #   called
+    # - report_definition_id: the id for the report definition
+    # - path: the file where the data should be saved
+    #
+    # Returns:
+    # nil
+    #
+    def self.downloadReportAsFile(wrapper, report_definition_id, path)
+      report_data = downloadReport(wrapper, report_definition_id)
+
+      # Write to file (if provided)
+      if path
+        open(path, 'w') { |file| file.puts(report_data) }
+      end
+
+      return nil
+    end
+
+    # <i>Extension method</i> -- Download and return a v20xx report.
+    #
+    # *Warning*: this method is blocking for the calling thread.
+    #
+    # Args:
+    # - wrapper: the service wrapper object for any API methods that need to be
+    #   called
+    # - report_definition_id: the id for the report definition
+    #
+    # Returns:
+    # The data for the report (as a string)
+    #
+    def self.downloadReport(wrapper, report_definition_id)
+      # Set URL parameters.
+      parameters = {'__rd' => report_definition_id.to_s}
+
+      # Set HTTP headers.
+      headers = {}
+      headers['Authorization'] = 'GoogleLogin auth=%s' %
+          wrapper.api.credentials.auth_token
+      creds = wrapper.api.credentials.credentials
+      if creds['clientEmail']
+        headers['clientEmail'] = creds['clientEmail']
+      elsif creds['clientCustomerId']
+        headers['clientCustomerId'] = creds['clientCustomerId']
+      end
+
+      # Get download URL.
+      url = AdWords::Service.report_download_url(
+          wrapper.api.credentials.environment, 201003)
+
+      # Download report data.
+      client = HTTPClient.new
+      report_data = client.get_content(url, parameters, headers)
+
+      return report_data
     end
   end
 end
