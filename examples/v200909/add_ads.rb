@@ -19,28 +19,28 @@
 #
 # This example illustrates how to add a text ad and an image ad to a given ad
 # group. To create an ad group, run add_ad_group.rb.
+#
+# Tags: AdGroupAdService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 require 'base64'
 
+API_VERSION = 200909
+
 def add_ads()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_ad_srv = adwords.get_service('AdGroupAd', latest)
+  ad_group_ad_srv = adwords.get_service('AdGroupAd', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
 
   # Create text ad.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupAdService::TextAd
+  # typing the full class name every time we need to create an object.
   text_ad = ad_group_ad_srv.module::TextAd.new
   text_ad.headline = 'Luxury Cruise to Mars'
   text_ad.description1 = 'Visit the Red Planet in style.'
@@ -61,7 +61,7 @@ def add_ads()
   image_ad.url = 'http://www.example.com'
   image_ad.displayUrl = 'www.example.com'
 
-  # Retrieve image and encode it
+  # Retrieve image and encode it.
   image_url = 'https://sandbox.google.com/sandboximages/image.jpg'
   http_client = HTTPClient.new
   image = http_client.get_content(image_url)

@@ -20,20 +20,21 @@
 # This example illustrates how to create a text ad with ad parameters. To add an
 # ad group, run add_ad_group.rb. To add an ad group criterion, run
 # add_ad_group_criterion.rb.
+#
+# Tags: AdGroupAdService.mutate, AdParamService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def set_ad_params()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_ad_srv = adwords.get_service('AdGroupAd', latest)
-  ad_param_srv = adwords.get_service('AdParam', latest)
+  ad_group_ad_srv = adwords.get_service('AdGroupAd', API_VERSION)
+  ad_param_srv = adwords.get_service('AdParam', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
   criterion_id = 'INSERT_CRITERION_ID_HERE'.to_i
@@ -41,8 +42,7 @@ def set_ad_params()
   # Prepare for adding ad.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupAdService::AdGroupAdOperation
+  # typing the full class name every time we need to create an object.
   ad_operation = ad_group_ad_srv.module::AdGroupAdOperation.new
   ad_operand = ad_group_ad_srv.module::AdGroupAd.new
   ad_operand.adGroupId = ad_group_id

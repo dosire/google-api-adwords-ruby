@@ -19,32 +19,32 @@
 #
 # This example illustrates how to retrieve all the campaign targets. To set
 # campaign targets, run set_campaign_targets.rb.
+#
+# Tags: CampaignTargetService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_all_campaign_targets()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
+  campaign_target_srv = adwords.get_service('CampaignTarget', API_VERSION)
 
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  campaign_target_srv = adwords.get_service('CampaignTarget', latest)
-
-  # Get all the ad groups for this campaign
+  # Get all the ad groups for this campaign.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::CampaignTargetService::CampaignTargetSelector
+  # typing the full class name every time we need to create an object.
   selector = campaign_target_srv.module::CampaignTargetSelector.new
   response = campaign_target_srv.get(selector)
   if response and response.rval and response.rval.entries
     targets = response.rval.entries
     targets.each do |target|
-      puts "Campaign target of type #{target.targetList_Type} for campaign id " +
-           "#{target.campaignId} was set."
+      puts "Campaign target of type #{target.targetList_Type} for campaign " +
+           "id #{target.campaignId} was set."
     end
   else
       puts "No campaign targets found."

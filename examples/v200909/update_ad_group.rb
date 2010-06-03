@@ -19,19 +19,20 @@
 #
 # This example illustrates how to update an ad group, setting its status to
 # 'PAUSED'. To create an ad group, run add_ad_group.rb.
+#
+# Tags: AdGroupService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def update_ad_group()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_srv = adwords.get_service('AdGroup', latest)
+  ad_group_srv = adwords.get_service('AdGroup', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
 

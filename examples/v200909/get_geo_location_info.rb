@@ -19,19 +19,20 @@
 #
 # This example illustrates how to retrieve geo location information for
 # addresses.
+#
+# Tags: GeoLocationService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_geo_location_info()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  geo_location_srv = adwords.get_service('GeoLocation', latest)
+  geo_location_srv = adwords.get_service('GeoLocation', API_VERSION)
 
   addresses = [
     {
@@ -56,7 +57,7 @@ def get_geo_location_info()
     }
   ]
 
-  # Get the geo location info for the various addresses
+  # Get the geo location info for the various addresses.
   response = geo_location_srv.get(addresses)
   if response and response.entries
     locations = response.entries

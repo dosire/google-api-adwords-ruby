@@ -19,28 +19,27 @@
 #
 # This example illustrates how to add a criterion to a given ad group. To create
 # an ad group, run add_ad_group.rb.
+#
+# Tags: AdGroupCriterionService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
-require 'base64'
+
+API_VERSION = 200909
 
 def add_ad_group_criteria()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_criterion_srv = adwords.get_service('AdGroupCriterion', latest)
+  ad_group_criterion_srv = adwords.get_service('AdGroupCriterion', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
 
   # Create keyword.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupCriterionService::
+  # typing the full class name every time we need to create an object.
   keyword = ad_group_criterion_srv.module::Keyword.new
   keyword.text = 'mars cruise'
   keyword.matchType = 'BROAD'
@@ -53,10 +52,6 @@ def add_ad_group_criteria()
   kwd_operation.operator = 'ADD'
 
   # Create placement.
-  # The 'module' method being called here provides a shortcut to the
-  # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupCriterionService::
   placement = ad_group_criterion_srv.module::Placement.new
   placement.url = 'http://mars.google.com'
   plc_ad_group_criterion =

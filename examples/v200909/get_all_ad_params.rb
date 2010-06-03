@@ -19,27 +19,27 @@
 #
 # This example illustrates how to retrieve all the ad parameters for an ad
 # group. To create an ad parameter, run set_ad_params.rb.
+#
+# Tags: AdParamService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_all_ad_params()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_param_srv = adwords.get_service('AdParam', latest)
+  ad_param_srv = adwords.get_service('AdParam', API_VERSION)
 
   ad_group_id = 'INSERT_AD_GROUP_ID_HERE'.to_i
 
   # Get all the ad parameters for this ad group
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdParamService::AdParamSelector
+  # typing the full class name every time we need to create an object.
   selector = ad_param_srv.module::AdParamSelector.new
   selector.adGroupIds = [ad_group_id]
   response = ad_param_srv.get(selector)

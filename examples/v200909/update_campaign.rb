@@ -19,19 +19,20 @@
 #
 # This example illustrates how to update a campaign, setting its budget delivery
 # to 'ACCELERATED'. To create a campaign, run add_campaign.rb.
+#
+# Tags: CampaignService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def update_campaign()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  campaign_srv = adwords.get_service('Campaign', latest)
+  campaign_srv = adwords.get_service('Campaign', API_VERSION)
 
   campaign_id = 'INSERT_CAMPAIGN_ID_HERE'.to_i
 

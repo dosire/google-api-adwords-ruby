@@ -20,19 +20,20 @@
 # This example shows how to check for conversion optimizer eligibility by
 # attempting to set the bidding transition with the validate only header set to
 # true.
+#
+# Tags: CampaignService.mutate
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_conversion_optimizer_eligibility()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  campaign_srv = adwords.get_service('Campaign', latest)
+  campaign_srv = adwords.get_service('Campaign', API_VERSION)
 
   campaign_id = 'INSERT_CAMPAIGN_ID_HERE'.to_i
 
@@ -42,8 +43,7 @@ def get_conversion_optimizer_eligibility()
   # Prepare for "updating" campaign.
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::CampaignService::Campaign
+  # typing the full class name every time we need to create an object.
   campaign = campaign_srv.module::Campaign.new
   campaign.id = campaign_id
 

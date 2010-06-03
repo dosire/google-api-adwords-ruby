@@ -19,27 +19,27 @@
 #
 # This example illustrates how to retrieve all the disapproved ads in a given
 # campaign. To add ads, run add_ads.rb.
+#
+# Tags: AdGroupAdService.get
 
 require 'rubygems'
 gem 'soap4r', '= 1.5.8'
 require 'adwords4r'
 
+API_VERSION = 200909
+
 def get_all_disapproved_ads()
   # AdWords::AdWordsCredentials.new will read a credentials file from
   # ENV['HOME']/adwords.properties when called without parameters.
   adwords = AdWords::API.new
-
-  # Use the latest version for all services
-  latest = AdWords::Service.latest_version
-  ad_group_ad_srv = adwords.get_service('AdGroupAd', latest)
+  ad_group_ad_srv = adwords.get_service('AdGroupAd', API_VERSION)
 
   campaign_id = 'INSERT_CAMPAIGN_ID_HERE'.to_i
 
   # Get all the disapproved ads for this campaign
   # The 'module' method being called here provides a shortcut to the
   # module containing the classes for this service. This helps us avoid
-  # typing the full class name every time we need to create an object,
-  # e.g. AdWords::V200909::AdGroupAdService::AdGroupAdSelector
+  # typing the full class name every time we need to create an object.
   selector = ad_group_ad_srv.module::AdGroupAdSelector.new
   selector.campaignIds = [campaign_id]
   response = ad_group_ad_srv.get(selector)
